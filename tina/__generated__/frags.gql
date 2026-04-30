@@ -1,10 +1,16 @@
-fragment PostParts on Post {
+fragment TopicParts on Topic {
   __typename
-  titulo
-  seccion
-  industria
-  mecanismo
-  fecha
-  resumen
+  name
+  description
+  related_topic_ids
+}
+
+fragment PieceParts on Piece {
+  __typename
+  title
+  topic_id
+  format
+  summary
+  tags
   body
 }

@@ -1,5 +1,5 @@
-query post($relativePath: String!) {
-  post(relativePath: $relativePath) {
+query topic($relativePath: String!) {
+  topic(relativePath: $relativePath) {
     ... on Document {
       _sys {
         filename
@@ -12,12 +12,12 @@ query post($relativePath: String!) {
       }
       id
     }
-    ...PostParts
+    ...TopicParts
   }
 }
 
-query postConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PostFilter) {
-  postConnection(
+query topicConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: TopicFilter) {
+  topicConnection(
     before: $before
     after: $after
     first: $first
@@ -47,7 +47,62 @@ query postConnection($before: String, $after: String, $first: Float, $last: Floa
           }
           id
         }
-        ...PostParts
+        ...TopicParts
+      }
+    }
+  }
+}
+
+query piece($relativePath: String!) {
+  piece(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...PieceParts
+  }
+}
+
+query pieceConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PieceFilter) {
+  pieceConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...PieceParts
       }
     }
   }

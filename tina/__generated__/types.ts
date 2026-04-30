@@ -82,8 +82,10 @@ export type Query = {
   collections: Array<Collection>;
   node: Node;
   document: DocumentNode;
-  post: Post;
-  postConnection: PostConnection;
+  topic: Topic;
+  topicConnection: TopicConnection;
+  piece: Piece;
+  pieceConnection: PieceConnection;
 };
 
 
@@ -108,22 +110,38 @@ export type QueryDocumentArgs = {
 };
 
 
-export type QueryPostArgs = {
+export type QueryTopicArgs = {
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
 
-export type QueryPostConnectionArgs = {
+export type QueryTopicConnectionArgs = {
   before?: InputMaybe<Scalars['String']['input']>;
   after?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Float']['input']>;
   last?: InputMaybe<Scalars['Float']['input']>;
   sort?: InputMaybe<Scalars['String']['input']>;
-  filter?: InputMaybe<PostFilter>;
+  filter?: InputMaybe<TopicFilter>;
+};
+
+
+export type QueryPieceArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryPieceConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<PieceFilter>;
 };
 
 export type DocumentFilter = {
-  post?: InputMaybe<PostFilter>;
+  topic?: InputMaybe<TopicFilter>;
+  piece?: InputMaybe<PieceFilter>;
 };
 
 export type DocumentConnectionEdges = {
@@ -163,17 +181,13 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Post | Folder;
+export type DocumentNode = Topic | Piece | Folder;
 
-export type Post = Node & Document & {
-  __typename?: 'Post';
-  titulo: Scalars['String']['output'];
-  seccion: Scalars['String']['output'];
-  industria?: Maybe<Scalars['String']['output']>;
-  mecanismo?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  fecha: Scalars['String']['output'];
-  resumen?: Maybe<Scalars['String']['output']>;
-  body?: Maybe<Scalars['JSON']['output']>;
+export type Topic = Node & Document & {
+  __typename?: 'Topic';
+  name: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  related_topic_ids?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -186,12 +200,36 @@ export type StringFilter = {
   in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type DatetimeFilter = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+export type TopicFilter = {
+  name?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  related_topic_ids?: InputMaybe<StringFilter>;
+};
+
+export type TopicConnectionEdges = {
+  __typename?: 'TopicConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Topic>;
+};
+
+export type TopicConnection = Connection & {
+  __typename?: 'TopicConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<TopicConnectionEdges>>>;
+};
+
+export type Piece = Node & Document & {
+  __typename?: 'Piece';
+  title: Scalars['String']['output'];
+  topic_id: Scalars['String']['output'];
+  format: Scalars['String']['output'];
+  summary?: Maybe<Scalars['String']['output']>;
+  tags?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  body?: Maybe<Scalars['JSON']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
 };
 
 export type RichTextFilter = {
@@ -200,27 +238,26 @@ export type RichTextFilter = {
   exists?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type PostFilter = {
-  titulo?: InputMaybe<StringFilter>;
-  seccion?: InputMaybe<StringFilter>;
-  industria?: InputMaybe<StringFilter>;
-  mecanismo?: InputMaybe<StringFilter>;
-  fecha?: InputMaybe<DatetimeFilter>;
-  resumen?: InputMaybe<StringFilter>;
+export type PieceFilter = {
+  title?: InputMaybe<StringFilter>;
+  topic_id?: InputMaybe<StringFilter>;
+  format?: InputMaybe<StringFilter>;
+  summary?: InputMaybe<StringFilter>;
+  tags?: InputMaybe<StringFilter>;
   body?: InputMaybe<RichTextFilter>;
 };
 
-export type PostConnectionEdges = {
-  __typename?: 'PostConnectionEdges';
+export type PieceConnectionEdges = {
+  __typename?: 'PieceConnectionEdges';
   cursor: Scalars['String']['output'];
-  node?: Maybe<Post>;
+  node?: Maybe<Piece>;
 };
 
-export type PostConnection = Connection & {
-  __typename?: 'PostConnection';
+export type PieceConnection = Connection & {
+  __typename?: 'PieceConnection';
   pageInfo: PageInfo;
   totalCount: Scalars['Float']['output'];
-  edges?: Maybe<Array<Maybe<PostConnectionEdges>>>;
+  edges?: Maybe<Array<Maybe<PieceConnectionEdges>>>;
 };
 
 export type Mutation = {
@@ -230,8 +267,10 @@ export type Mutation = {
   deleteDocument: DocumentNode;
   createDocument: DocumentNode;
   createFolder: DocumentNode;
-  updatePost: Post;
-  createPost: Post;
+  updateTopic: Topic;
+  createTopic: Topic;
+  updatePiece: Piece;
+  createPiece: Piece;
 };
 
 
@@ -268,72 +307,119 @@ export type MutationCreateFolderArgs = {
 };
 
 
-export type MutationUpdatePostArgs = {
+export type MutationUpdateTopicArgs = {
   relativePath: Scalars['String']['input'];
-  params: PostMutation;
+  params: TopicMutation;
 };
 
 
-export type MutationCreatePostArgs = {
+export type MutationCreateTopicArgs = {
   relativePath: Scalars['String']['input'];
-  params: PostMutation;
+  params: TopicMutation;
+};
+
+
+export type MutationUpdatePieceArgs = {
+  relativePath: Scalars['String']['input'];
+  params: PieceMutation;
+};
+
+
+export type MutationCreatePieceArgs = {
+  relativePath: Scalars['String']['input'];
+  params: PieceMutation;
 };
 
 export type DocumentUpdateMutation = {
-  post?: InputMaybe<PostMutation>;
+  topic?: InputMaybe<TopicMutation>;
+  piece?: InputMaybe<PieceMutation>;
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type DocumentMutation = {
-  post?: InputMaybe<PostMutation>;
+  topic?: InputMaybe<TopicMutation>;
+  piece?: InputMaybe<PieceMutation>;
 };
 
-export type PostMutation = {
-  titulo?: InputMaybe<Scalars['String']['input']>;
-  seccion?: InputMaybe<Scalars['String']['input']>;
-  industria?: InputMaybe<Scalars['String']['input']>;
-  mecanismo?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  fecha?: InputMaybe<Scalars['String']['input']>;
-  resumen?: InputMaybe<Scalars['String']['input']>;
+export type TopicMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  related_topic_ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type PieceMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  topic_id?: InputMaybe<Scalars['String']['input']>;
+  format?: InputMaybe<Scalars['String']['input']>;
+  summary?: InputMaybe<Scalars['String']['input']>;
+  tags?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
-export type PostPartsFragment = { __typename: 'Post', titulo: string, seccion: string, industria?: string | null, mecanismo?: Array<string | null> | null, fecha: string, resumen?: string | null, body?: any | null };
+export type TopicPartsFragment = { __typename: 'Topic', name: string, description?: string | null, related_topic_ids?: Array<string | null> | null };
 
-export type PostQueryVariables = Exact<{
+export type PiecePartsFragment = { __typename: 'Piece', title: string, topic_id: string, format: string, summary?: string | null, tags?: Array<string | null> | null, body?: any | null };
+
+export type TopicQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type PostQuery = { __typename?: 'Query', post: { __typename: 'Post', id: string, titulo: string, seccion: string, industria?: string | null, mecanismo?: Array<string | null> | null, fecha: string, resumen?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type TopicQuery = { __typename?: 'Query', topic: { __typename: 'Topic', id: string, name: string, description?: string | null, related_topic_ids?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
-export type PostConnectionQueryVariables = Exact<{
+export type TopicConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
   after?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Float']['input']>;
   last?: InputMaybe<Scalars['Float']['input']>;
   sort?: InputMaybe<Scalars['String']['input']>;
-  filter?: InputMaybe<PostFilter>;
+  filter?: InputMaybe<TopicFilter>;
 }>;
 
 
-export type PostConnectionQuery = { __typename?: 'Query', postConnection: { __typename?: 'PostConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PostConnectionEdges', cursor: string, node?: { __typename: 'Post', id: string, titulo: string, seccion: string, industria?: string | null, mecanismo?: Array<string | null> | null, fecha: string, resumen?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type TopicConnectionQuery = { __typename?: 'Query', topicConnection: { __typename?: 'TopicConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'TopicConnectionEdges', cursor: string, node?: { __typename: 'Topic', id: string, name: string, description?: string | null, related_topic_ids?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
-export const PostPartsFragmentDoc = gql`
-    fragment PostParts on Post {
+export type PieceQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type PieceQuery = { __typename?: 'Query', piece: { __typename: 'Piece', id: string, title: string, topic_id: string, format: string, summary?: string | null, tags?: Array<string | null> | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type PieceConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<PieceFilter>;
+}>;
+
+
+export type PieceConnectionQuery = { __typename?: 'Query', pieceConnection: { __typename?: 'PieceConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PieceConnectionEdges', cursor: string, node?: { __typename: 'Piece', id: string, title: string, topic_id: string, format: string, summary?: string | null, tags?: Array<string | null> | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
+export const TopicPartsFragmentDoc = gql`
+    fragment TopicParts on Topic {
   __typename
-  titulo
-  seccion
-  industria
-  mecanismo
-  fecha
-  resumen
+  name
+  description
+  related_topic_ids
+}
+    `;
+export const PiecePartsFragmentDoc = gql`
+    fragment PieceParts on Piece {
+  __typename
+  title
+  topic_id
+  format
+  summary
+  tags
   body
 }
     `;
-export const PostDocument = gql`
-    query post($relativePath: String!) {
-  post(relativePath: $relativePath) {
+export const TopicDocument = gql`
+    query topic($relativePath: String!) {
+  topic(relativePath: $relativePath) {
     ... on Document {
       _sys {
         filename
@@ -346,13 +432,13 @@ export const PostDocument = gql`
       }
       id
     }
-    ...PostParts
+    ...TopicParts
   }
 }
-    ${PostPartsFragmentDoc}`;
-export const PostConnectionDocument = gql`
-    query postConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PostFilter) {
-  postConnection(
+    ${TopicPartsFragmentDoc}`;
+export const TopicConnectionDocument = gql`
+    query topicConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: TopicFilter) {
+  topicConnection(
     before: $before
     after: $after
     first: $first
@@ -382,20 +468,83 @@ export const PostConnectionDocument = gql`
           }
           id
         }
-        ...PostParts
+        ...TopicParts
       }
     }
   }
 }
-    ${PostPartsFragmentDoc}`;
+    ${TopicPartsFragmentDoc}`;
+export const PieceDocument = gql`
+    query piece($relativePath: String!) {
+  piece(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...PieceParts
+  }
+}
+    ${PiecePartsFragmentDoc}`;
+export const PieceConnectionDocument = gql`
+    query pieceConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PieceFilter) {
+  pieceConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...PieceParts
+      }
+    }
+  }
+}
+    ${PiecePartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
-      post(variables: PostQueryVariables, options?: C): Promise<{data: PostQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PostQueryVariables, query: string}> {
-        return requester<{data: PostQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PostQueryVariables, query: string}, PostQueryVariables>(PostDocument, variables, options);
+      topic(variables: TopicQueryVariables, options?: C): Promise<{data: TopicQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TopicQueryVariables, query: string}> {
+        return requester<{data: TopicQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TopicQueryVariables, query: string}, TopicQueryVariables>(TopicDocument, variables, options);
       },
-    postConnection(variables?: PostConnectionQueryVariables, options?: C): Promise<{data: PostConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PostConnectionQueryVariables, query: string}> {
-        return requester<{data: PostConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PostConnectionQueryVariables, query: string}, PostConnectionQueryVariables>(PostConnectionDocument, variables, options);
+    topicConnection(variables?: TopicConnectionQueryVariables, options?: C): Promise<{data: TopicConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TopicConnectionQueryVariables, query: string}> {
+        return requester<{data: TopicConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TopicConnectionQueryVariables, query: string}, TopicConnectionQueryVariables>(TopicConnectionDocument, variables, options);
+      },
+    piece(variables: PieceQueryVariables, options?: C): Promise<{data: PieceQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PieceQueryVariables, query: string}> {
+        return requester<{data: PieceQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PieceQueryVariables, query: string}, PieceQueryVariables>(PieceDocument, variables, options);
+      },
+    pieceConnection(variables?: PieceConnectionQueryVariables, options?: C): Promise<{data: PieceConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PieceConnectionQueryVariables, query: string}> {
+        return requester<{data: PieceConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PieceConnectionQueryVariables, query: string}, PieceConnectionQueryVariables>(PieceConnectionDocument, variables, options);
       }
     };
   }

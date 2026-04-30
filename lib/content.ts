@@ -1,128 +1,78 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { Pieza, PiezaMeta, Seccion, SECCIONES } from './types';
+import { Topic, Piece, Tag } from './types';
 
-const contentDirectory = path.join(process.cwd(), 'content');
+const piecesDirectory = path.join(process.cwd(), 'content/pieces');
+const topicsDirectory = path.join(process.cwd(), 'content/topics');
 
-/**
- * Lee todos los archivos .mdx de una sección y devuelve su metadata
- */
-function getPiezasFromDirectory(seccion: Seccion): PiezaMeta[] {
-  const sectionDir = path.join(contentDirectory, seccion);
+export function getAllTopics(): Topic[] {
+  if (!fs.existsSync(topicsDirectory)) return [];
+  const fileNames = fs.readdirSync(topicsDirectory);
+  return fileNames
+    .filter(fn => fn.endsWith('.json'))
+    .map((fileName) => {
+      const fullPath = path.join(topicsDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      return JSON.parse(fileContents) as Topic;
+    });
+}
 
-  if (!fs.existsSync(sectionDir)) {
-    return [];
-  }
+export function getTopicById(id: string): Topic | undefined {
+  const topics = getAllTopics();
+  return topics.find((t) => t.id === id);
+}
 
-  const files = fs.readdirSync(sectionDir).filter((f) => f.endsWith('.mdx'));
+export function getAllPieces(): Piece[] {
+  if (!fs.existsSync(piecesDirectory)) return [];
+  const fileNames = fs.readdirSync(piecesDirectory);
+  return fileNames
+    .filter(fn => fn.endsWith('.mdx') || fn.endsWith('.md'))
+    .map((fileName) => {
+      const id = fileName.replace(/\.mdx?$/, '');
+      const fullPath = path.join(piecesDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const { data, content } = matter(fileContents);
 
-  return files.map((filename) => {
-    const filePath = path.join(sectionDir, filename);
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
-    const { data } = matter(fileContent);
-    const slug = filename.replace(/\.mdx$/, '');
+      return {
+        id,
+        topic_id: data.topic_id,
+        format: data.format,
+        title: data.title,
+        summary: data.summary || '',
+        tags: data.tags || [],
+        content_raw: content,
+      };
+    })
+    .sort((a, b) => a.title.localeCompare(b.title));
+}
 
-    return {
-      slug,
-      titulo: data.titulo || '',
-      seccion: data.seccion || seccion,
-      industria: data.industria || '',
-      mecanismo: Array.isArray(data.mecanismo)
-        ? data.mecanismo
-        : [data.mecanismo].filter(Boolean),
-      fecha: data.fecha
-        ? new Date(data.fecha).toISOString().split('T')[0]
-        : '',
-      resumen: data.resumen || '',
-    };
+export function getPiecesByTopic(topicId: string): Piece[] {
+  return getAllPieces().filter((p) => p.topic_id === topicId);
+}
+
+export function getPieceById(id: string): Piece | undefined {
+  return getAllPieces().find((p) => p.id === id);
+}
+
+export function getAllTags(): Tag[] {
+  const pieces = getAllPieces();
+  const tagsMap = new Map<string, Tag>();
+  
+  pieces.forEach((piece) => {
+    piece.tags.forEach((tag) => {
+      const tagId = tag.toLowerCase().replace(/ /g, '_');
+      if (!tagsMap.has(tagId)) {
+        tagsMap.set(tagId, { id: tagId, name: tag });
+      }
+    });
   });
+
+  return Array.from(tagsMap.values()).sort((a, b) => a.name.localeCompare(b.name));
 }
 
-/**
- * Obtiene todas las piezas de todas las secciones, ordenadas por fecha (más reciente primero)
- */
-export function getAllPiezas(): PiezaMeta[] {
-  const allPiezas = SECCIONES.flatMap((seccion) =>
-    getPiezasFromDirectory(seccion)
+export function getPiecesByTag(tagId: string): Piece[] {
+  return getAllPieces().filter((p) => 
+    p.tags.some(t => t.toLowerCase().replace(/ /g, '_') === tagId)
   );
-
-  return allPiezas.sort(
-    (a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime()
-  );
-}
-
-/**
- * Obtiene todas las piezas de una sección específica
- */
-export function getPiezasBySeccion(seccion: Seccion): PiezaMeta[] {
-  return getPiezasFromDirectory(seccion).sort(
-    (a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime()
-  );
-}
-
-/**
- * Obtiene una pieza completa (con contenido) por sección y slug
- */
-export function getPiezaBySlug(
-  seccion: Seccion,
-  slug: string
-): Pieza | null {
-  const filePath = path.join(contentDirectory, seccion, `${slug}.mdx`);
-
-  if (!fs.existsSync(filePath)) {
-    return null;
-  }
-
-  const fileContent = fs.readFileSync(filePath, 'utf-8');
-  const { data, content } = matter(fileContent);
-
-  return {
-    slug,
-    titulo: data.titulo || '',
-    seccion: data.seccion || seccion,
-    industria: data.industria || '',
-    mecanismo: Array.isArray(data.mecanismo)
-      ? data.mecanismo
-      : [data.mecanismo].filter(Boolean),
-    fecha: data.fecha
-      ? new Date(data.fecha).toISOString().split('T')[0]
-      : '',
-    resumen: data.resumen || '',
-    contenido: content,
-  };
-}
-
-/**
- * Obtiene la pieza anterior y siguiente dentro de la misma sección
- */
-export function getAdjacentPiezas(
-  seccion: Seccion,
-  slug: string
-): { prev: PiezaMeta | null; next: PiezaMeta | null } {
-  const piezas = getPiezasBySeccion(seccion);
-  const index = piezas.findIndex((p) => p.slug === slug);
-
-  return {
-    prev: index < piezas.length - 1 ? piezas[index + 1] : null,
-    next: index > 0 ? piezas[index - 1] : null,
-  };
-}
-
-/**
- * Genera todos los params estáticos para las piezas
- */
-export function getAllPiezaSlugs(): { seccion: string; slug: string }[] {
-  return SECCIONES.flatMap((seccion) => {
-    const sectionDir = path.join(contentDirectory, seccion);
-    if (!fs.existsSync(sectionDir)) return [];
-
-    return fs
-      .readdirSync(sectionDir)
-      .filter((f) => f.endsWith('.mdx'))
-      .map((f) => ({
-        seccion,
-        slug: f.replace(/\.mdx$/, ''),
-      }));
-  });
 }

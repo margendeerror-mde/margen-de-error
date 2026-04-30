@@ -54,12 +54,15 @@ type Query {
   collections: [Collection!]!
   node(id: String): Node!
   document(collection: String, relativePath: String): DocumentNode!
-  post(relativePath: String): Post!
-  postConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PostFilter): PostConnection!
+  topic(relativePath: String): Topic!
+  topicConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: TopicFilter): TopicConnection!
+  piece(relativePath: String): Piece!
+  pieceConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PieceFilter): PieceConnection!
 }
 
 input DocumentFilter {
-  post: PostFilter
+  topic: TopicFilter
+  piece: PieceFilter
 }
 
 type DocumentConnectionEdges {
@@ -85,16 +88,12 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Post | Folder
+union DocumentNode = Topic | Piece | Folder
 
-type Post implements Node & Document {
-  titulo: String!
-  seccion: String!
-  industria: String
-  mecanismo: [String]
-  fecha: String!
-  resumen: String
-  body: JSON
+type Topic implements Node & Document {
+  name: String!
+  description: String
+  related_topic_ids: [String]
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -107,12 +106,33 @@ input StringFilter {
   in: [String]
 }
 
-input DatetimeFilter {
-  after: String
-  before: String
-  eq: String
-  exists: Boolean
-  in: [String]
+input TopicFilter {
+  name: StringFilter
+  description: StringFilter
+  related_topic_ids: StringFilter
+}
+
+type TopicConnectionEdges {
+  cursor: String!
+  node: Topic
+}
+
+type TopicConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [TopicConnectionEdges]
+}
+
+type Piece implements Node & Document {
+  title: String!
+  topic_id: String!
+  format: String!
+  summary: String
+  tags: [String]
+  body: JSON
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
 }
 
 input RichTextFilter {
@@ -121,25 +141,24 @@ input RichTextFilter {
   exists: Boolean
 }
 
-input PostFilter {
-  titulo: StringFilter
-  seccion: StringFilter
-  industria: StringFilter
-  mecanismo: StringFilter
-  fecha: DatetimeFilter
-  resumen: StringFilter
+input PieceFilter {
+  title: StringFilter
+  topic_id: StringFilter
+  format: StringFilter
+  summary: StringFilter
+  tags: StringFilter
   body: RichTextFilter
 }
 
-type PostConnectionEdges {
+type PieceConnectionEdges {
   cursor: String!
-  node: Post
+  node: Piece
 }
 
-type PostConnection implements Connection {
+type PieceConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
-  edges: [PostConnectionEdges]
+  edges: [PieceConnectionEdges]
 }
 
 type Mutation {
@@ -148,26 +167,35 @@ type Mutation {
   deleteDocument(collection: String, relativePath: String!): DocumentNode!
   createDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
   createFolder(collection: String, relativePath: String!): DocumentNode!
-  updatePost(relativePath: String!, params: PostMutation!): Post!
-  createPost(relativePath: String!, params: PostMutation!): Post!
+  updateTopic(relativePath: String!, params: TopicMutation!): Topic!
+  createTopic(relativePath: String!, params: TopicMutation!): Topic!
+  updatePiece(relativePath: String!, params: PieceMutation!): Piece!
+  createPiece(relativePath: String!, params: PieceMutation!): Piece!
 }
 
 input DocumentUpdateMutation {
-  post: PostMutation
+  topic: TopicMutation
+  piece: PieceMutation
   relativePath: String
 }
 
 input DocumentMutation {
-  post: PostMutation
+  topic: TopicMutation
+  piece: PieceMutation
 }
 
-input PostMutation {
-  titulo: String
-  seccion: String
-  industria: String
-  mecanismo: [String]
-  fecha: String
-  resumen: String
+input TopicMutation {
+  name: String
+  description: String
+  related_topic_ids: [String]
+}
+
+input PieceMutation {
+  title: String
+  topic_id: String
+  format: String
+  summary: String
+  tags: [String]
   body: JSON
 }
 
