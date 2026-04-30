@@ -1,0 +1,10 @@
+fragment PostParts on Post {
+  __typename
+  titulo
+  seccion
+  industria
+  mecanismo
+  fecha
+  resumen
+  body
+}
