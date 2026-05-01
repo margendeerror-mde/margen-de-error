@@ -1,44 +1,58 @@
-import { getPiezas } from '@/lib/content';
+import { getPiezas, getAvailableTags } from '@/lib/content';
 import PieceCard from '@/components/PieceCard';
-import Link from 'next/link';
+import Filters from '@/components/Filters';
+import GlobalMenu from '@/components/GlobalMenu';
+import { Suspense } from 'react';
 
-export default function Home() {
+export default function ArchivoPage({
+  searchParams,
+}: {
+  searchParams: { industria?: string; mecanismo?: string; tema?: string }
+}) {
   const todasLasPiezas = getPiezas();
+  const tags = getAvailableTags(todasLasPiezas);
   
-  // Categorize for home display
-  const secciones = ['historia', 'conflicto', 'serendipia', 'análisis', 'marco'];
-  
+  const filterByValue = (piezaValue: string | string[], paramValue?: string) => {
+    if (!paramValue) return true;
+    const selected = paramValue.split(',');
+    const piezaVals = Array.isArray(piezaValue) ? piezaValue : [piezaValue];
+    return selected.some(s => piezaVals.includes(s as any));
+  };
+
+  const feed = todasLasPiezas.filter(p => 
+    filterByValue(p.industria, searchParams.industria) &&
+    filterByValue(p.mecanismo, searchParams.mecanismo) &&
+    filterByValue(p.tema, searchParams.tema)
+  );
+
   return (
-    <div className="max-w-7xl mx-auto pb-48">
-      {/* Featured Loop */}
-      <div className="px-4 py-24 space-y-32">
-        {secciones.map(sec => {
-          const piezasSeccion = todasLasPiezas.filter(p => p.seccion === sec).slice(0, 3);
-          if (piezasSeccion.length === 0) return null;
+    <div className="max-w-7xl mx-auto pb-24 px-4 min-h-screen">
+      <GlobalMenu />
+      
+      <header className="py-24 border-b border-border/30">
+        <h1 className="tag-text !text-[13px] tracking-[0.4em] font-bold mb-4">ARCHIVO GENERAL</h1>
+        <p className="font-serif text-lg text-muted max-w-2xl">
+          Explora la totalidad de las piezas conectadas por industria, mecanismo de distorsión y tema.
+        </p>
+      </header>
 
-          return (
-            <section key={sec} className="space-y-12">
-              <div className="flex items-center gap-4 mb-8">
-                <h2 className="tag-text !text-[12px] text-accent tracking-[0.3em] font-bold">{sec}</h2>
-                <div className="flex-1 h-[1px] bg-border/20" />
-                <Link href={`/${sec}`} className="tag-text !text-[9px] text-muted hover:text-accent">VER TODO →</Link>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
-                {piezasSeccion.map((pieza, idx) => (
-                  <PieceCard key={pieza.slug} pieza={pieza} featured={idx === 0} />
-                ))}
-              </div>
-            </section>
-          );
-        })}
+      <Suspense fallback={<div className="h-40 bg-background/50 border-b border-border/30" />}>
+        <Filters tags={tags} />
+      </Suspense>
+      
+      <div className="py-12">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
+          {feed.map(pieza => (
+            <PieceCard key={pieza.slug} pieza={pieza} />
+          ))}
+        </section>
+
+        {feed.length === 0 && (
+          <div className="py-48 text-center">
+            <span className="tag-text !text-muted">No se encontraron piezas con esta combinación de filtros en el archivo.</span>
+          </div>
+        )}
       </div>
-
-      <footer className="mt-24 py-24 border-t border-border/30 flex justify-center bg-foreground text-background dark-mode">
-        <Link href="/red" className="tag-text !text-[14px] tracking-[0.5em] hover:text-accent transition-colors">
-          — ENTRAR EN LA RED DE CONEXIONES →
-        </Link>
-      </footer>
     </div>
   );
 }

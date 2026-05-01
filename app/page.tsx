@@ -2,23 +2,32 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import GlobalMenu from '@/components/GlobalMenu';
 
 const sections = [
   {
-    id: 'historia',
+    id: 'home',
+    title: 'MARGEN DE ERROR',
+    subtitle: 'Un proyecto sobre cómo llegamos a creer lo que la ciencia dice.',
+    bgColor: '#CC0000',
+    textColor: '#FFFFFF',
+    accentColor: '#FFFFFF',
+    detail: 'none',
+    isHome: true
+  },
+  {
+    id: 'historias',
     title: 'HISTORIAS',
     subtitle: 'Relatos sobre cómo la ciencia se equivoca.',
-    number: '01',
     bgColor: '#0A0A0A',
     textColor: '#FFFFFF',
     accentColor: '#CC0000',
     detail: 'line',
   },
   {
-    id: 'conflicto',
+    id: 'conflictos',
     title: 'CONFLICTOS',
     subtitle: 'Conclusiones demasiado convenientes.',
-    number: '02',
     bgColor: '#FAFAF8',
     textColor: '#0A0A0A',
     accentColor: '#CC0000',
@@ -28,17 +37,15 @@ const sections = [
     id: 'serendipia',
     title: 'SERENDIPIA',
     subtitle: 'Lo que la ciencia encontró sin buscar.',
-    number: '03',
     bgColor: '#1A1A2E',
     textColor: '#FFFFFF',
     accentColor: '#D4C5F9',
     detail: 'dots',
   },
   {
-    id: 'análisis',
+    id: 'analisis',
     title: 'ANÁLISIS',
     subtitle: 'Papers leídos en voz alta.',
-    number: '04',
     bgColor: '#FAFAF8',
     textColor: '#0A0A0A',
     accentColor: '#0A0A0A',
@@ -48,21 +55,10 @@ const sections = [
     id: 'marco',
     title: 'MARCO',
     subtitle: 'Cómo funciona la máquina que produce conocimiento.',
-    number: '05',
     bgColor: '#0A0A0A',
     textColor: '#FFFFFF',
     accentColor: '#FFFFFF',
     detail: 'grid',
-  },
-  {
-    id: 'cierre',
-    title: 'MARGEN DE ERROR',
-    subtitle: 'Un proyecto sobre cómo llegamos a creer lo que la ciencia dice.',
-    number: 'END',
-    bgColor: '#CC0000',
-    textColor: '#FFFFFF',
-    accentColor: '#FFFFFF',
-    detail: 'none',
   }
 ];
 
@@ -98,6 +94,8 @@ export default function EntryPage() {
 
   return (
     <div className="fixed inset-0 z-[100] bg-black overflow-hidden font-sans">
+      <GlobalMenu dark={sections[activeIdx].textColor === '#FFFFFF'} />
+
       {/* Scroll Container */}
       <div 
         ref={containerRef}
@@ -113,20 +111,13 @@ export default function EntryPage() {
             {/* Visual Details */}
             <VisualDetail type={section.detail} active={activeIdx === idx} />
 
-            {/* Number */}
-            <div className="absolute top-12 left-1/2 -translate-x-1/2 opacity-50">
-              <span className="tag-text !text-[11px] tracking-[0.4em]">
-                FORMATO / {section.number}
-              </span>
-            </div>
-
             {/* Content */}
             <div className={`text-center px-6 z-10 transition-all duration-1000 ${activeIdx === idx ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h2 className="font-extrabold text-[clamp(3.5rem,12vw,9rem)] leading-[0.9] tracking-[-0.04em] uppercase mb-8">
                 {section.title}
               </h2>
               <div className="relative inline-block">
-                <p className="font-serif text-lg md:text-2xl opacity-80 max-w-xl">
+                <p className="font-serif text-lg md:text-2xl opacity-80 max-w-2xl mx-auto">
                   {section.subtitle}
                 </p>
                 {section.detail === 'glitch' && (
@@ -138,17 +129,8 @@ export default function EntryPage() {
             </div>
 
             {/* Call to Action */}
-            <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-8 z-20">
-              {section.id === 'cierre' ? (
-                <>
-                  <Link href="/archivo" className="tag-text !text-[12px] tracking-[0.2em] border border-white/20 px-8 py-4 hover:bg-white hover:text-[#CC0000] transition-all">
-                    → VER ARCHIVO
-                  </Link>
-                  <Link href="/red" className="tag-text !text-[12px] tracking-[0.2em] border border-white/20 px-8 py-4 hover:bg-white hover:text-[#CC0000] transition-all">
-                    → VER RED
-                  </Link>
-                </>
-              ) : (
+            {!section.isHome && (
+              <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-8 z-20">
                 <Link 
                   href={`/${section.id}`} 
                   className="tag-text !text-[14px] tracking-[0.3em] font-bold hover:opacity-70 transition-opacity"
@@ -156,8 +138,8 @@ export default function EntryPage() {
                 >
                   → LEER
                 </Link>
-              )}
-            </div>
+              </div>
+            )}
           </section>
         ))}
       </div>
