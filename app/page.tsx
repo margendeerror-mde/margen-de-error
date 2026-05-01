@@ -9,6 +9,7 @@ const sections = [
     id: 'home',
     title: 'MARGEN DE ERROR',
     subtitle: 'Un proyecto sobre cómo llegamos a creer lo que la ciencia dice.',
+    tagline: 'PERIODISMO CIENTÍFICO INDEPENDIENTE',
     bgColor: '#CC0000',
     textColor: '#FFFFFF',
     accentColor: '#FFFFFF',
@@ -109,14 +110,14 @@ export default function EntryPage() {
             style={{ backgroundColor: section.bgColor, color: section.textColor }}
           >
             {/* Visual Details */}
-            <VisualDetail type={section.detail} active={activeIdx === idx} />
+            <VisualDetail type={section.detail || 'none'} active={activeIdx === idx} />
 
             {/* Content */}
             <div className={`text-center px-6 z-10 transition-all duration-1000 ${activeIdx === idx ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h2 className="font-extrabold text-[clamp(3.5rem,12vw,9rem)] leading-[0.9] tracking-[-0.04em] uppercase mb-8">
                 {section.title}
               </h2>
-              <div className="relative inline-block">
+              <div className="relative inline-block mb-6">
                 <p className="font-serif text-lg md:text-2xl opacity-80 max-w-2xl mx-auto">
                   {section.subtitle}
                 </p>
@@ -126,6 +127,14 @@ export default function EntryPage() {
                   </p>
                 )}
               </div>
+              
+              {section.tagline && (
+                <div className="mt-6 opacity-50 animate-in fade-in slide-in-from-bottom-2 duration-1000 delay-500">
+                  <span className="tag-text !text-[10px] tracking-[0.2em] font-bold">
+                    {section.tagline}
+                  </span>
+                </div>
+              )}
             </div>
 
             {/* Call to Action */}
