@@ -1,65 +1,44 @@
-import { getPiezas, getAvailableTags } from '@/lib/content';
+import { getPiezas } from '@/lib/content';
 import PieceCard from '@/components/PieceCard';
-import Filters from '@/components/Filters';
-import { Suspense } from 'react';
 import Link from 'next/link';
 
-export default function Home({
-  searchParams,
-}: {
-  searchParams: { industria?: string; mecanismo?: string; tema?: string }
-}) {
+export default function Home() {
   const todasLasPiezas = getPiezas();
-  const tags = getAvailableTags(todasLasPiezas);
   
-  // Filtering logic for multiple selection
-  const filterByValue = (piezaValue: string | string[], paramValue?: string) => {
-    if (!paramValue) return true;
-    const selected = paramValue.split(',');
-    const piezaVals = Array.isArray(piezaValue) ? piezaValue : [piezaValue];
-    return selected.some(s => piezaVals.includes(s as any));
-  };
-
-  let feed = todasLasPiezas.filter(p => 
-    filterByValue(p.industria, searchParams.industria) &&
-    filterByValue(p.mecanismo, searchParams.mecanismo) &&
-    filterByValue(p.tema, searchParams.tema)
-  );
-
-  const destacada = feed.length > 0 ? feed[0] : null;
-  const resto = feed.length > 1 ? feed.slice(1) : [];
-
+  // Categorize for home display
+  const secciones = ['historia', 'conflicto', 'serendipia', 'análisis', 'marco'];
+  
   return (
-    <div className="max-w-7xl mx-auto pb-24">
-      <Suspense fallback={<div className="h-40 bg-background/50 border-b border-border/30" />}>
-        <Filters tags={tags} />
-      </Suspense>
-      
-      <div className="px-4 py-12">
-        {destacada && (
-          <section className="mb-24">
-            <PieceCard pieza={destacada} featured={true} />
-          </section>
-        )}
+    <div className="max-w-7xl mx-auto pb-48">
+      {/* Featured Loop */}
+      <div className="px-4 py-24 space-y-32">
+        {secciones.map(sec => {
+          const piezasSeccion = todasLasPiezas.filter(p => p.seccion === sec).slice(0, 3);
+          if (piezasSeccion.length === 0) return null;
 
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
-          {resto.map(pieza => (
-            <PieceCard key={pieza.slug} pieza={pieza} />
-          ))}
-        </section>
-
-        {feed.length === 0 && (
-          <div className="py-24 text-center">
-            <span className="tag-text !text-muted">No se encontraron piezas con esta combinación de filtros.</span>
-          </div>
-        )}
-
-        <footer className="mt-48 pt-12 border-t border-border/30 flex justify-center">
-          <Link href="/red" className="tag-text !text-[12px] hover:text-accent transition-colors">
-            — VER RED DE CONEXIONES →
-          </Link>
-        </footer>
+          return (
+            <section key={sec} className="space-y-12">
+              <div className="flex items-center gap-4 mb-8">
+                <h2 className="tag-text !text-[12px] text-accent tracking-[0.3em] font-bold">{sec}</h2>
+                <div className="flex-1 h-[1px] bg-border/20" />
+                <Link href={`/${sec}`} className="tag-text !text-[9px] text-muted hover:text-accent">VER TODO →</Link>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+                {piezasSeccion.map((pieza, idx) => (
+                  <PieceCard key={pieza.slug} pieza={pieza} featured={idx === 0} />
+                ))}
+              </div>
+            </section>
+          );
+        })}
       </div>
+
+      <footer className="mt-24 py-24 border-t border-border/30 flex justify-center bg-foreground text-background dark-mode">
+        <Link href="/red" className="tag-text !text-[14px] tracking-[0.5em] hover:text-accent transition-colors">
+          — ENTRAR EN LA RED DE CONEXIONES →
+        </Link>
+      </footer>
     </div>
   );
 }
