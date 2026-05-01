@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter } from 'next/font/google';
-import Footer from "@/components/Footer";
-import TopBar from "@/components/TopBar";
-import { getAllTags } from "@/lib/content";
-import { Suspense } from "react";
+import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: "Margen de Error",
-  description: "Plataforma de periodismo científico sobre la construcción de la evidencia.",
+  description: "Periodismo científico independiente. Cómo se construye y distorsiona la evidencia.",
 };
 
 export default function RootLayout({
@@ -18,23 +15,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const tags = getAllTags();
-
   return (
     <html lang="es">
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
       </head>
       <body className={`${inter.variable} font-sans antialiased bg-background text-foreground min-h-screen flex flex-col selection:bg-accent selection:text-white`}>
-        <Suspense fallback={<div className="h-16 border-b border-border bg-background" />}>
-          <TopBar tags={tags} />
-        </Suspense>
-        
-        <main className="flex-1 w-full max-w-[1600px] mx-auto px-6 md:px-12 py-12 md:py-24">
+        <Header />
+        <main className="flex-1 w-full max-w-[2000px] mx-auto flex flex-col">
           {children}
         </main>
-
-        <Footer />
       </body>
     </html>
   );

@@ -1,25 +1,29 @@
 import Link from 'next/link';
-import { Piece } from '@/lib/types';
+import { Pieza } from '@/lib/types';
 
-export default function PieceCard({ piece }: { piece: Piece }) {
+export default function PieceCard({ pieza, showSeccion = true }: { pieza: Pieza, showSeccion?: boolean }) {
   return (
     <Link 
-      href={`/pieza/${piece.id}`}
-      className="group block p-6 border-b border-border last:border-0 hover:bg-muted/10 transition-colors"
+      href={`/${pieza.seccion}/${pieza.slug}`}
+      className="group flex flex-col border-b border-editorial last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0 p-4 hover:bg-muted/5 transition-colors"
     >
-      <h4 className="font-serif text-2xl text-foreground group-hover:text-accent transition-colors mb-2 leading-tight">
-        {piece.title}
-      </h4>
-      <p className="text-muted text-sm line-clamp-2 leading-relaxed mb-4">
-        {piece.summary}
-      </p>
-      <div className="flex flex-wrap gap-2">
-        {piece.tags.map(tag => (
-          <span key={tag} className="text-[10px] uppercase tracking-wider font-mono text-muted group-hover:text-accent/80 transition-colors border border-border/50 px-2 py-0.5 rounded-sm">
-            {tag}
-          </span>
+      <div className="flex flex-wrap gap-2 mb-3">
+        {showSeccion && (
+          <span className="tag-text text-accent">{pieza.seccion}</span>
+        )}
+        <span className="tag-text">{pieza.tema}</span>
+        <span className="tag-text">{pieza.industria}</span>
+        {pieza.mecanismo.map(m => (
+          <span key={m} className="tag-text border border-editorial px-1">{m}</span>
         ))}
       </div>
+      <h3 className="font-serif text-2xl md:text-3xl mb-2 group-hover:text-accent transition-colors leading-tight">
+        {pieza.titulo}
+      </h3>
+      <p className="text-sm text-muted line-clamp-3">
+        {pieza.resumen}
+      </p>
+      <span className="mt-auto pt-4 text-[10px] font-mono text-muted/50">{pieza.fecha}</span>
     </Link>
   );
 }

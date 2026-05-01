@@ -1,47 +1,58 @@
-export type FormatId = "historia" | "conflicto" | "microanalisis";
+export const SECCIONES = [
+  'historias',
+  'conflictos',
+  'serendipia',
+  'analisis',
+  'marco'
+] as const;
 
-export interface Topic {
-  id: string;
-  name: string;
-  description: string;
-  related_topic_ids: string[];
+export const INDUSTRIAS = [
+  'farmacéutica',
+  'alimentaria',
+  'cosmética',
+  'tabaco',
+  'energía',
+  'institucional',
+  'académica'
+] as const;
+
+export const MECANISMOS = [
+  'financiamiento',
+  'diseño de estudio',
+  'titular engañoso',
+  'omisión',
+  'migración de estrategia',
+  'conflicto de interés',
+  'captura regulatoria'
+] as const;
+
+export const TEMAS = [
+  'luz',
+  'nutrición',
+  'movimiento',
+  'sueño',
+  'mente',
+  'microbioma',
+  'dolor',
+  'ambiente'
+] as const;
+
+export type Seccion = typeof SECCIONES[number];
+export type Industria = typeof INDUSTRIAS[number];
+export type Mecanismo = typeof MECANISMOS[number];
+export type Tema = typeof TEMAS[number];
+
+export interface PiezaFrontmatter {
+  titulo: string;
+  seccion: Seccion;
+  industria: Industria;
+  mecanismo: Mecanismo[];
+  tema: Tema;
+  fecha: string; // YYYY-MM-DD
+  resumen: string;
 }
 
-export interface Format {
-  id: FormatId;
-  name: string;
-  description: string;
-}
-
-export const FORMATS: Record<FormatId, Format> = {
-  historia: {
-    id: "historia",
-    name: "Historia",
-    description: "Relatos narrativos sobre errores y giros en la ciencia.",
-  },
-  conflicto: {
-    id: "conflicto",
-    name: "Conflicto",
-    description: "Exposición de conclusiones convenientes y conflictos de interés.",
-  },
-  microanalisis: {
-    id: "microanalisis",
-    name: "Microanálisis",
-    description: "Lectura crítica y puntual de la evidencia.",
-  },
-};
-
-export interface Piece {
-  id: string;
-  topic_id: string;
-  format: FormatId;
-  title: string;
-  summary: string;
-  tags: string[];
-  content_raw: string;
-}
-
-export interface Tag {
-  id: string;
-  name: string;
+export interface Pieza extends PiezaFrontmatter {
+  slug: string;
+  content: string; // MDX content
 }
