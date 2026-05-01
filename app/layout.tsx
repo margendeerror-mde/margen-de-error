@@ -1,13 +1,23 @@
 import type { Metadata } from "next";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import { Inter } from 'next/font/google';
 import Header from "@/components/Header";
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+const inter = Inter({ 
+  subsets: ["latin"], 
+  variable: "--font-sans",
+  weight: ["400", "500"] 
+});
+
+const playfair = Playfair_Display({ 
+  subsets: ["latin"], 
+  variable: "--font-serif",
+  weight: ["400", "700"] 
+});
 
 export const metadata: Metadata = {
-  title: "Margen de Error",
-  description: "Periodismo científico independiente. Cómo se construye y distorsiona la evidencia.",
+  title: "Margen de Error | Periodismo Científico",
+  description: "Explorando la construcción y distorsión de la ciencia.",
 };
 
 export default function RootLayout({
@@ -16,15 +26,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <head>
-        <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-      </head>
-      <body className={`${inter.variable} font-sans antialiased bg-background text-foreground min-h-screen flex flex-col selection:bg-accent selection:text-white`}>
+    <html lang="es" className={`${inter.variable} ${playfair.variable}`}>
+      <body className="antialiased min-h-screen">
         <Header />
-        <main className="flex-1 w-full max-w-[2000px] mx-auto flex flex-col">
-          {children}
-        </main>
+        <main>{children}</main>
       </body>
     </html>
   );

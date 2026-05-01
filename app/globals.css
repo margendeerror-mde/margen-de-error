@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #ffffff;
-  --color-foreground: #000000;
-  --color-border: #e5e5e5;
+  --color-background: #FAFAF8;
+  --color-foreground: #0A0A0A;
   --color-accent: #CC0000;
-  --color-muted: #666666;
+  --color-border: #E0E0E0;
+  --color-muted: rgba(10, 10, 10, 0.5);
   
-  --font-serif: "Instrument Serif", serif;
-  --font-sans: var(--font-sans), ui-sans-serif, system-ui;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
 }
 
 @layer base {
@@ -21,15 +21,27 @@
 
 @layer utilities {
   .tag-text {
-    @apply font-sans text-[10px] md:text-[11px] uppercase tracking-[0.1em] text-foreground leading-none;
+    @apply font-sans text-[10px] uppercase tracking-[0.15em] font-medium leading-none;
   }
   
-  .border-editorial {
-    @apply border-border;
+  .title-serif {
+    @apply font-serif font-bold tracking-tight;
+  }
+
+  .content-serif {
+    @apply font-serif text-[18px] leading-[1.75];
   }
 }
 
-/* Hide scrollbar for clean aesthetic */
+/* Red Page overrides */
+.dark-mode {
+  --color-background: #0A0A0A;
+  --color-foreground: #FAFAF8;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+/* Custom Scrollbar */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }

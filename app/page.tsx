@@ -2,6 +2,7 @@ import { getPiezas, getAvailableTags } from '@/lib/content';
 import PieceCard from '@/components/PieceCard';
 import Filters from '@/components/Filters';
 import { Suspense } from 'react';
+import Link from 'next/link';
 
 export default function Home({
   searchParams,
@@ -11,50 +12,54 @@ export default function Home({
   const todasLasPiezas = getPiezas();
   const tags = getAvailableTags(todasLasPiezas);
   
-  // Destacada is the latest piece
-  const destacada = todasLasPiezas[0];
-  
-  // Rest of the pieces
-  let feed = todasLasPiezas.slice(1);
+  // Filtering logic for multiple selection
+  const filterByValue = (piezaValue: string | string[], paramValue?: string) => {
+    if (!paramValue) return true;
+    const selected = paramValue.split(',');
+    const piezaVals = Array.isArray(piezaValue) ? piezaValue : [piezaValue];
+    return selected.some(s => piezaVals.includes(s as any));
+  };
 
-  // Apply filters to feed
-  if (searchParams.industria) feed = feed.filter(p => p.industria === searchParams.industria);
-  if (searchParams.mecanismo) feed = feed.filter(p => p.mecanismo.includes(searchParams.mecanismo as any));
-  if (searchParams.tema) feed = feed.filter(p => p.tema === searchParams.tema);
+  let feed = todasLasPiezas.filter(p => 
+    filterByValue(p.industria, searchParams.industria) &&
+    filterByValue(p.mecanismo, searchParams.mecanismo) &&
+    filterByValue(p.tema, searchParams.tema)
+  );
+
+  const destacada = feed.length > 0 ? feed[0] : null;
+  const resto = feed.length > 1 ? feed.slice(1) : [];
 
   return (
-    <>
-      <Suspense fallback={<div className="h-16 border-b border-editorial bg-background" />}>
+    <div className="max-w-7xl mx-auto pb-24">
+      <Suspense fallback={<div className="h-40 bg-background/50 border-b border-border/30" />}>
         <Filters tags={tags} />
       </Suspense>
       
-      {/* Destacada */}
-      {destacada && !searchParams.industria && !searchParams.mecanismo && !searchParams.tema && (
-        <section className="border-b border-editorial py-16 px-4">
-          <div className="max-w-4xl">
-            <div className="flex gap-2 mb-4">
-              <span className="tag-text text-accent">{destacada.seccion}</span>
-              <span className="tag-text">{destacada.tema}</span>
-              <span className="tag-text">{destacada.industria}</span>
-            </div>
-            <a href={`/${destacada.seccion}/${destacada.slug}`} className="group block">
-              <h2 className="font-serif text-5xl md:text-7xl mb-6 group-hover:text-accent transition-colors leading-[0.9]">
-                {destacada.titulo}
-              </h2>
-              <p className="text-xl text-muted max-w-2xl leading-relaxed">
-                {destacada.resumen}
-              </p>
-            </a>
-          </div>
-        </section>
-      )}
+      <div className="px-4 py-12">
+        {destacada && (
+          <section className="mb-24">
+            <PieceCard pieza={destacada} featured={true} />
+          </section>
+        )}
 
-      {/* Grid */}
-      <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
-        {feed.map(pieza => (
-          <PieceCard key={pieza.slug} pieza={pieza} />
-        ))}
-      </section>
-    </>
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
+          {resto.map(pieza => (
+            <PieceCard key={pieza.slug} pieza={pieza} />
+          ))}
+        </section>
+
+        {feed.length === 0 && (
+          <div className="py-24 text-center">
+            <span className="tag-text !text-muted">No se encontraron piezas con esta combinación de filtros.</span>
+          </div>
+        )}
+
+        <footer className="mt-48 pt-12 border-t border-border/30 flex justify-center">
+          <Link href="/red" className="tag-text !text-[12px] hover:text-accent transition-colors">
+            — VER RED DE CONEXIONES →
+          </Link>
+        </footer>
+      </div>
+    </div>
   );
 }

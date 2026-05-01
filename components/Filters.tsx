@@ -9,59 +9,46 @@ export default function Filters({ tags }: { tags: ReturnType<typeof getAvailable
 
   const handleFilter = (key: string, value: string) => {
     const params = new URLSearchParams(searchParams.toString());
-    if (params.get(key) === value) {
-      params.delete(key);
+    const currentValues = params.get(key)?.split(',') || [];
+    
+    if (currentValues.includes(value)) {
+      const updated = currentValues.filter(v => v !== value);
+      if (updated.length > 0) params.set(key, updated.join(','));
+      else params.delete(key);
     } else {
-      params.set(key, value);
+      params.set(key, [...currentValues, value].join(','));
     }
     router.push(`?${params.toString()}`, { scroll: false });
   };
 
-  const isSelected = (key: string, value: string) => searchParams.get(key) === value;
+  const isSelected = (key: string, value: string) => {
+    const currentValues = searchParams.get(key)?.split(',') || [];
+    return currentValues.includes(value);
+  };
+
+  const FilterRow = ({ label, keyName, options }: { label: string, keyName: string, options: string[] }) => (
+    <div className="flex gap-4 items-baseline py-2 overflow-x-auto scrollbar-hide">
+      <span className="tag-text !text-muted shrink-0 w-24">{label}:</span>
+      <div className="flex gap-x-6 gap-y-2 flex-wrap">
+        {options.map(opt => (
+          <button
+            key={opt}
+            onClick={() => handleFilter(keyName, opt)}
+            className={`tag-text transition-colors whitespace-nowrap ${isSelected(keyName, opt) ? 'text-accent' : 'hover:text-accent'}`}
+          >
+            {opt}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
 
   return (
-    <div className="flex flex-wrap gap-x-8 gap-y-4 border-b border-editorial p-4 bg-background z-40 sticky top-[53px]">
-      <div className="flex gap-2 items-baseline">
-        <span className="tag-text text-muted">Industria:</span>
-        <div className="flex flex-wrap gap-2">
-          {tags.industrias.map(ind => (
-            <button
-              key={ind}
-              onClick={() => handleFilter('industria', ind)}
-              className={`tag-text hover:text-accent transition-colors ${isSelected('industria', ind) ? 'text-accent font-bold border-b border-accent' : ''}`}
-            >
-              {ind}
-            </button>
-          ))}
-        </div>
-      </div>
-      <div className="flex gap-2 items-baseline">
-        <span className="tag-text text-muted">Mecanismo:</span>
-        <div className="flex flex-wrap gap-2">
-          {tags.mecanismos.map(mec => (
-            <button
-              key={mec}
-              onClick={() => handleFilter('mecanismo', mec)}
-              className={`tag-text hover:text-accent transition-colors ${isSelected('mecanismo', mec) ? 'text-accent font-bold border-b border-accent' : ''}`}
-            >
-              {mec}
-            </button>
-          ))}
-        </div>
-      </div>
-      <div className="flex gap-2 items-baseline">
-        <span className="tag-text text-muted">Tema:</span>
-        <div className="flex flex-wrap gap-2">
-          {tags.temas.map(tema => (
-            <button
-              key={tema}
-              onClick={() => handleFilter('tema', tema)}
-              className={`tag-text hover:text-accent transition-colors ${isSelected('tema', tema) ? 'text-accent font-bold border-b border-accent' : ''}`}
-            >
-              {tema}
-            </button>
-          ))}
-        </div>
+    <div className="px-4 py-8 border-b border-border/30 bg-background/50 backdrop-blur-sm sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto flex flex-col gap-1">
+        <FilterRow label="INDUSTRIA" keyName="industria" options={tags.industrias} />
+        <FilterRow label="MECANISMO" keyName="mecanismo" options={tags.mecanismos} />
+        <FilterRow label="TEMA" keyName="tema" options={tags.temas} />
       </div>
     </div>
   );

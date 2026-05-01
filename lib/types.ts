@@ -1,8 +1,8 @@
 export const SECCIONES = [
-  'historias',
-  'conflictos',
+  'historia',
+  'conflicto',
   'serendipia',
-  'analisis',
+  'análisis',
   'marco'
 ] as const;
 
@@ -73,3 +73,19 @@ export interface Pieza extends PiezaFrontmatter {
   slug: string;
   content: string; // MDX content
 }
+
+export const TEMA_COLORS: Record<Tema, string> = {
+  'luz-y-radiación': '#F5C518',
+  'nutrición': '#4CAF50',
+  'movimiento-y-ejercicio': '#FF6B35',
+  'sueño': '#7B68EE',
+  'mente-y-conducta': '#00BCD4',
+  'microbioma': '#8BC34A',
+  'dolor': '#F44336',
+  'ambiente-y-exposición': '#9E9E9E',
+  'medicación-y-fármacos': '#E91E63',
+  'diagnóstico-y-clasificación': '#FF9800',
+  'hormonas-y-endocrino': '#9C27B0',
+  'inmunidad': '#03A9F4',
+  'envejecimiento': '#795548',
+};

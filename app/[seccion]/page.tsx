@@ -5,6 +5,14 @@ import Filters from '@/components/Filters';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
+const SECCION_DESCRIPTIONS: Record<string, string> = {
+  historia: "Genealogía de las narrativas que moldean nuestra percepción científica.",
+  conflicto: "Donde el interés privado choca con la integridad del dato público.",
+  serendipia: "Hallazgos inesperados y conexiones laterales en el ruido informativo.",
+  análisis: "Desglose técnico de la metodología y la retórica de la distorsión.",
+  marco: "Estructuras conceptuales para entender cómo se construye la verdad."
+};
+
 export function generateStaticParams() {
   return SECCIONES.map(s => ({ seccion: s }));
 }
@@ -16,33 +24,52 @@ export default function SeccionPage({
   params: { seccion: string };
   searchParams: { industria?: string; mecanismo?: string; tema?: string }
 }) {
-  if (!SECCIONES.includes(params.seccion as Seccion)) {
+  const seccionNormalizada = decodeURIComponent(params.seccion) as Seccion;
+  if (!SECCIONES.includes(seccionNormalizada)) {
     notFound();
   }
 
-  let piezas = getPiezasBySeccion(params.seccion);
-  const tags = getAvailableTags(piezas);
+  const todasLasPiezas = getPiezasBySeccion(seccionNormalizada);
+  const tags = getAvailableTags(todasLasPiezas);
 
-  if (searchParams.industria) piezas = piezas.filter(p => p.industria === searchParams.industria);
-  if (searchParams.mecanismo) piezas = piezas.filter(p => p.mecanismo.includes(searchParams.mecanismo as any));
-  if (searchParams.tema) piezas = piezas.filter(p => p.tema === searchParams.tema);
+  const filterByValue = (piezaValue: string | string[], paramValue?: string) => {
+    if (!paramValue) return true;
+    const selected = paramValue.split(',');
+    const piezaVals = Array.isArray(piezaValue) ? piezaValue : [piezaValue];
+    return selected.some(s => piezaVals.includes(s as any));
+  };
+
+  let piezas = todasLasPiezas.filter(p => 
+    filterByValue(p.industria, searchParams.industria) &&
+    filterByValue(p.mecanismo, searchParams.mecanismo) &&
+    filterByValue(p.tema, searchParams.tema)
+  );
 
   return (
-    <>
-      <header className="border-b border-editorial py-8 px-4">
-        <h1 className="font-serif text-6xl capitalize">{params.seccion}</h1>
+    <div className="max-w-7xl mx-auto pb-24">
+      <header className="px-4 py-12 border-b border-border/30">
+        <span className="tag-text !text-accent block mb-2">{seccionNormalizada}</span>
+        <h1 className="font-serif text-2xl md:text-3xl text-muted leading-tight max-w-2xl">
+          {SECCION_DESCRIPTIONS[seccionNormalizada] || "Explorando Margen de Error."}
+        </h1>
       </header>
-      <Suspense fallback={<div className="h-16 border-b border-editorial bg-background" />}>
+
+      <Suspense fallback={<div className="h-40 bg-background/50 border-b border-border/30" />}>
         <Filters tags={tags} />
       </Suspense>
-      <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
-        {piezas.map(pieza => (
-          <PieceCard key={pieza.slug} pieza={pieza} showSeccion={false} />
-        ))}
-        {piezas.length === 0 && (
-          <div className="p-8 tag-text text-muted">No hay piezas que coincidan con estos filtros.</div>
-        )}
-      </section>
-    </>
+
+      <div className="px-4 py-12">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
+          {piezas.map(pieza => (
+            <PieceCard key={pieza.slug} pieza={pieza} />
+          ))}
+          {piezas.length === 0 && (
+            <div className="col-span-full py-24 text-center">
+              <span className="tag-text !text-muted">No hay piezas que coincidan con estos filtros en esta sección.</span>
+            </div>
+          )}
+        </section>
+      </div>
+    </div>
   );
 }
