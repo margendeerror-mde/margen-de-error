@@ -1,25 +1,16 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
+import { Inter } from 'next/font/google';
 import Footer from "@/components/Footer";
+import TopBar from "@/components/TopBar";
+import { getAllTags } from "@/lib/content";
+import { Suspense } from "react";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const instrumentSerif = Instrument_Serif({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-instrument-serif",
-  display: "swap",
-});
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: "Margen de Error",
-  description: "Periodismo científico independiente. Lo que los papers no dicen.",
+  description: "Plataforma de periodismo científico sobre la construcción de la evidencia.",
 };
 
 export default function RootLayout({
@@ -27,15 +18,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const tags = getAllTags();
+
   return (
     <html lang="es">
-      <body
-        className={`${inter.variable} ${instrumentSerif.variable} antialiased min-h-screen flex flex-col`}
-      >
-        <Header />
-        <main className="flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+      </head>
+      <body className={`${inter.variable} font-sans antialiased bg-background text-foreground min-h-screen flex flex-col selection:bg-accent selection:text-white`}>
+        <Suspense fallback={<div className="h-16 border-b border-border bg-background" />}>
+          <TopBar tags={tags} />
+        </Suspense>
+        
+        <main className="flex-1 w-full max-w-[1600px] mx-auto px-6 md:px-12 py-12 md:py-24">
           {children}
         </main>
+
         <Footer />
       </body>
     </html>
