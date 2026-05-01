@@ -54,15 +54,24 @@ type Query {
   collections: [Collection!]!
   node(id: String): Node!
   document(collection: String, relativePath: String): DocumentNode!
-  topic(relativePath: String): Topic!
-  topicConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: TopicFilter): TopicConnection!
-  piece(relativePath: String): Piece!
-  pieceConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PieceFilter): PieceConnection!
+  historias(relativePath: String): Historias!
+  historiasConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: HistoriasFilter): HistoriasConnection!
+  conflictos(relativePath: String): Conflictos!
+  conflictosConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ConflictosFilter): ConflictosConnection!
+  serendipia(relativePath: String): Serendipia!
+  serendipiaConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: SerendipiaFilter): SerendipiaConnection!
+  analisis(relativePath: String): Analisis!
+  analisisConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AnalisisFilter): AnalisisConnection!
+  marco(relativePath: String): Marco!
+  marcoConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: MarcoFilter): MarcoConnection!
 }
 
 input DocumentFilter {
-  topic: TopicFilter
-  piece: PieceFilter
+  historias: HistoriasFilter
+  conflictos: ConflictosFilter
+  serendipia: SerendipiaFilter
+  analisis: AnalisisFilter
+  marco: MarcoFilter
 }
 
 type DocumentConnectionEdges {
@@ -88,12 +97,17 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Topic | Piece | Folder
+union DocumentNode = Historias | Conflictos | Serendipia | Analisis | Marco | Folder
 
-type Topic implements Node & Document {
-  name: String!
-  description: String
-  related_topic_ids: [String]
+type Historias implements Node & Document {
+  titulo: String!
+  seccion: String!
+  industria: String!
+  mecanismo: [String!]!
+  tema: String!
+  fecha: String!
+  resumen: String!
+  body: JSON
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -106,33 +120,12 @@ input StringFilter {
   in: [String]
 }
 
-input TopicFilter {
-  name: StringFilter
-  description: StringFilter
-  related_topic_ids: StringFilter
-}
-
-type TopicConnectionEdges {
-  cursor: String!
-  node: Topic
-}
-
-type TopicConnection implements Connection {
-  pageInfo: PageInfo!
-  totalCount: Float!
-  edges: [TopicConnectionEdges]
-}
-
-type Piece implements Node & Document {
-  title: String!
-  topic_id: String!
-  format: String!
-  summary: String
-  tags: [String]
-  body: JSON
-  id: ID!
-  _sys: SystemInfo!
-  _values: JSON!
+input DatetimeFilter {
+  after: String
+  before: String
+  eq: String
+  exists: Boolean
+  in: [String]
 }
 
 input RichTextFilter {
@@ -141,24 +134,170 @@ input RichTextFilter {
   exists: Boolean
 }
 
-input PieceFilter {
-  title: StringFilter
-  topic_id: StringFilter
-  format: StringFilter
-  summary: StringFilter
-  tags: StringFilter
+input HistoriasFilter {
+  titulo: StringFilter
+  seccion: StringFilter
+  industria: StringFilter
+  mecanismo: StringFilter
+  tema: StringFilter
+  fecha: DatetimeFilter
+  resumen: StringFilter
   body: RichTextFilter
 }
 
-type PieceConnectionEdges {
+type HistoriasConnectionEdges {
   cursor: String!
-  node: Piece
+  node: Historias
 }
 
-type PieceConnection implements Connection {
+type HistoriasConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
-  edges: [PieceConnectionEdges]
+  edges: [HistoriasConnectionEdges]
+}
+
+type Conflictos implements Node & Document {
+  titulo: String!
+  seccion: String!
+  industria: String!
+  mecanismo: [String!]!
+  tema: String!
+  fecha: String!
+  resumen: String!
+  body: JSON
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input ConflictosFilter {
+  titulo: StringFilter
+  seccion: StringFilter
+  industria: StringFilter
+  mecanismo: StringFilter
+  tema: StringFilter
+  fecha: DatetimeFilter
+  resumen: StringFilter
+  body: RichTextFilter
+}
+
+type ConflictosConnectionEdges {
+  cursor: String!
+  node: Conflictos
+}
+
+type ConflictosConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [ConflictosConnectionEdges]
+}
+
+type Serendipia implements Node & Document {
+  titulo: String!
+  seccion: String!
+  industria: String!
+  mecanismo: [String!]!
+  tema: String!
+  fecha: String!
+  resumen: String!
+  body: JSON
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input SerendipiaFilter {
+  titulo: StringFilter
+  seccion: StringFilter
+  industria: StringFilter
+  mecanismo: StringFilter
+  tema: StringFilter
+  fecha: DatetimeFilter
+  resumen: StringFilter
+  body: RichTextFilter
+}
+
+type SerendipiaConnectionEdges {
+  cursor: String!
+  node: Serendipia
+}
+
+type SerendipiaConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [SerendipiaConnectionEdges]
+}
+
+type Analisis implements Node & Document {
+  titulo: String!
+  seccion: String!
+  industria: String!
+  mecanismo: [String!]!
+  tema: String!
+  fecha: String!
+  resumen: String!
+  body: JSON
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input AnalisisFilter {
+  titulo: StringFilter
+  seccion: StringFilter
+  industria: StringFilter
+  mecanismo: StringFilter
+  tema: StringFilter
+  fecha: DatetimeFilter
+  resumen: StringFilter
+  body: RichTextFilter
+}
+
+type AnalisisConnectionEdges {
+  cursor: String!
+  node: Analisis
+}
+
+type AnalisisConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [AnalisisConnectionEdges]
+}
+
+type Marco implements Node & Document {
+  titulo: String!
+  seccion: String!
+  industria: String!
+  mecanismo: [String!]!
+  tema: String!
+  fecha: String!
+  resumen: String!
+  body: JSON
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input MarcoFilter {
+  titulo: StringFilter
+  seccion: StringFilter
+  industria: StringFilter
+  mecanismo: StringFilter
+  tema: StringFilter
+  fecha: DatetimeFilter
+  resumen: StringFilter
+  body: RichTextFilter
+}
+
+type MarcoConnectionEdges {
+  cursor: String!
+  node: Marco
+}
+
+type MarcoConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [MarcoConnectionEdges]
 }
 
 type Mutation {
@@ -167,35 +306,87 @@ type Mutation {
   deleteDocument(collection: String, relativePath: String!): DocumentNode!
   createDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
   createFolder(collection: String, relativePath: String!): DocumentNode!
-  updateTopic(relativePath: String!, params: TopicMutation!): Topic!
-  createTopic(relativePath: String!, params: TopicMutation!): Topic!
-  updatePiece(relativePath: String!, params: PieceMutation!): Piece!
-  createPiece(relativePath: String!, params: PieceMutation!): Piece!
+  updateHistorias(relativePath: String!, params: HistoriasMutation!): Historias!
+  createHistorias(relativePath: String!, params: HistoriasMutation!): Historias!
+  updateConflictos(relativePath: String!, params: ConflictosMutation!): Conflictos!
+  createConflictos(relativePath: String!, params: ConflictosMutation!): Conflictos!
+  updateSerendipia(relativePath: String!, params: SerendipiaMutation!): Serendipia!
+  createSerendipia(relativePath: String!, params: SerendipiaMutation!): Serendipia!
+  updateAnalisis(relativePath: String!, params: AnalisisMutation!): Analisis!
+  createAnalisis(relativePath: String!, params: AnalisisMutation!): Analisis!
+  updateMarco(relativePath: String!, params: MarcoMutation!): Marco!
+  createMarco(relativePath: String!, params: MarcoMutation!): Marco!
 }
 
 input DocumentUpdateMutation {
-  topic: TopicMutation
-  piece: PieceMutation
+  historias: HistoriasMutation
+  conflictos: ConflictosMutation
+  serendipia: SerendipiaMutation
+  analisis: AnalisisMutation
+  marco: MarcoMutation
   relativePath: String
 }
 
 input DocumentMutation {
-  topic: TopicMutation
-  piece: PieceMutation
+  historias: HistoriasMutation
+  conflictos: ConflictosMutation
+  serendipia: SerendipiaMutation
+  analisis: AnalisisMutation
+  marco: MarcoMutation
 }
 
-input TopicMutation {
-  name: String
-  description: String
-  related_topic_ids: [String]
+input HistoriasMutation {
+  titulo: String
+  seccion: String
+  industria: String
+  mecanismo: [String]
+  tema: String
+  fecha: String
+  resumen: String
+  body: JSON
 }
 
-input PieceMutation {
-  title: String
-  topic_id: String
-  format: String
-  summary: String
-  tags: [String]
+input ConflictosMutation {
+  titulo: String
+  seccion: String
+  industria: String
+  mecanismo: [String]
+  tema: String
+  fecha: String
+  resumen: String
+  body: JSON
+}
+
+input SerendipiaMutation {
+  titulo: String
+  seccion: String
+  industria: String
+  mecanismo: [String]
+  tema: String
+  fecha: String
+  resumen: String
+  body: JSON
+}
+
+input AnalisisMutation {
+  titulo: String
+  seccion: String
+  industria: String
+  mecanismo: [String]
+  tema: String
+  fecha: String
+  resumen: String
+  body: JSON
+}
+
+input MarcoMutation {
+  titulo: String
+  seccion: String
+  industria: String
+  mecanismo: [String]
+  tema: String
+  fecha: String
+  resumen: String
   body: JSON
 }
 

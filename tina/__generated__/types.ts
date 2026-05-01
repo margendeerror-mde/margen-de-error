@@ -82,10 +82,16 @@ export type Query = {
   collections: Array<Collection>;
   node: Node;
   document: DocumentNode;
-  topic: Topic;
-  topicConnection: TopicConnection;
-  piece: Piece;
-  pieceConnection: PieceConnection;
+  historias: Historias;
+  historiasConnection: HistoriasConnection;
+  conflictos: Conflictos;
+  conflictosConnection: ConflictosConnection;
+  serendipia: Serendipia;
+  serendipiaConnection: SerendipiaConnection;
+  analisis: Analisis;
+  analisisConnection: AnalisisConnection;
+  marco: Marco;
+  marcoConnection: MarcoConnection;
 };
 
 
@@ -110,38 +116,86 @@ export type QueryDocumentArgs = {
 };
 
 
-export type QueryTopicArgs = {
+export type QueryHistoriasArgs = {
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
 
-export type QueryTopicConnectionArgs = {
+export type QueryHistoriasConnectionArgs = {
   before?: InputMaybe<Scalars['String']['input']>;
   after?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Float']['input']>;
   last?: InputMaybe<Scalars['Float']['input']>;
   sort?: InputMaybe<Scalars['String']['input']>;
-  filter?: InputMaybe<TopicFilter>;
+  filter?: InputMaybe<HistoriasFilter>;
 };
 
 
-export type QueryPieceArgs = {
+export type QueryConflictosArgs = {
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
 
-export type QueryPieceConnectionArgs = {
+export type QueryConflictosConnectionArgs = {
   before?: InputMaybe<Scalars['String']['input']>;
   after?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Float']['input']>;
   last?: InputMaybe<Scalars['Float']['input']>;
   sort?: InputMaybe<Scalars['String']['input']>;
-  filter?: InputMaybe<PieceFilter>;
+  filter?: InputMaybe<ConflictosFilter>;
+};
+
+
+export type QuerySerendipiaArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerySerendipiaConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<SerendipiaFilter>;
+};
+
+
+export type QueryAnalisisArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryAnalisisConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<AnalisisFilter>;
+};
+
+
+export type QueryMarcoArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryMarcoConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<MarcoFilter>;
 };
 
 export type DocumentFilter = {
-  topic?: InputMaybe<TopicFilter>;
-  piece?: InputMaybe<PieceFilter>;
+  historias?: InputMaybe<HistoriasFilter>;
+  conflictos?: InputMaybe<ConflictosFilter>;
+  serendipia?: InputMaybe<SerendipiaFilter>;
+  analisis?: InputMaybe<AnalisisFilter>;
+  marco?: InputMaybe<MarcoFilter>;
 };
 
 export type DocumentConnectionEdges = {
@@ -181,13 +235,18 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Topic | Piece | Folder;
+export type DocumentNode = Historias | Conflictos | Serendipia | Analisis | Marco | Folder;
 
-export type Topic = Node & Document & {
-  __typename?: 'Topic';
-  name: Scalars['String']['output'];
-  description?: Maybe<Scalars['String']['output']>;
-  related_topic_ids?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+export type Historias = Node & Document & {
+  __typename?: 'Historias';
+  titulo: Scalars['String']['output'];
+  seccion: Scalars['String']['output'];
+  industria: Scalars['String']['output'];
+  mecanismo: Array<Scalars['String']['output']>;
+  tema: Scalars['String']['output'];
+  fecha: Scalars['String']['output'];
+  resumen: Scalars['String']['output'];
+  body?: Maybe<Scalars['JSON']['output']>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -200,36 +259,12 @@ export type StringFilter = {
   in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type TopicFilter = {
-  name?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  related_topic_ids?: InputMaybe<StringFilter>;
-};
-
-export type TopicConnectionEdges = {
-  __typename?: 'TopicConnectionEdges';
-  cursor: Scalars['String']['output'];
-  node?: Maybe<Topic>;
-};
-
-export type TopicConnection = Connection & {
-  __typename?: 'TopicConnection';
-  pageInfo: PageInfo;
-  totalCount: Scalars['Float']['output'];
-  edges?: Maybe<Array<Maybe<TopicConnectionEdges>>>;
-};
-
-export type Piece = Node & Document & {
-  __typename?: 'Piece';
-  title: Scalars['String']['output'];
-  topic_id: Scalars['String']['output'];
-  format: Scalars['String']['output'];
-  summary?: Maybe<Scalars['String']['output']>;
-  tags?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  body?: Maybe<Scalars['JSON']['output']>;
-  id: Scalars['ID']['output'];
-  _sys: SystemInfo;
-  _values: Scalars['JSON']['output'];
+export type DatetimeFilter = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type RichTextFilter = {
@@ -238,26 +273,184 @@ export type RichTextFilter = {
   exists?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type PieceFilter = {
-  title?: InputMaybe<StringFilter>;
-  topic_id?: InputMaybe<StringFilter>;
-  format?: InputMaybe<StringFilter>;
-  summary?: InputMaybe<StringFilter>;
-  tags?: InputMaybe<StringFilter>;
+export type HistoriasFilter = {
+  titulo?: InputMaybe<StringFilter>;
+  seccion?: InputMaybe<StringFilter>;
+  industria?: InputMaybe<StringFilter>;
+  mecanismo?: InputMaybe<StringFilter>;
+  tema?: InputMaybe<StringFilter>;
+  fecha?: InputMaybe<DatetimeFilter>;
+  resumen?: InputMaybe<StringFilter>;
   body?: InputMaybe<RichTextFilter>;
 };
 
-export type PieceConnectionEdges = {
-  __typename?: 'PieceConnectionEdges';
+export type HistoriasConnectionEdges = {
+  __typename?: 'HistoriasConnectionEdges';
   cursor: Scalars['String']['output'];
-  node?: Maybe<Piece>;
+  node?: Maybe<Historias>;
 };
 
-export type PieceConnection = Connection & {
-  __typename?: 'PieceConnection';
+export type HistoriasConnection = Connection & {
+  __typename?: 'HistoriasConnection';
   pageInfo: PageInfo;
   totalCount: Scalars['Float']['output'];
-  edges?: Maybe<Array<Maybe<PieceConnectionEdges>>>;
+  edges?: Maybe<Array<Maybe<HistoriasConnectionEdges>>>;
+};
+
+export type Conflictos = Node & Document & {
+  __typename?: 'Conflictos';
+  titulo: Scalars['String']['output'];
+  seccion: Scalars['String']['output'];
+  industria: Scalars['String']['output'];
+  mecanismo: Array<Scalars['String']['output']>;
+  tema: Scalars['String']['output'];
+  fecha: Scalars['String']['output'];
+  resumen: Scalars['String']['output'];
+  body?: Maybe<Scalars['JSON']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type ConflictosFilter = {
+  titulo?: InputMaybe<StringFilter>;
+  seccion?: InputMaybe<StringFilter>;
+  industria?: InputMaybe<StringFilter>;
+  mecanismo?: InputMaybe<StringFilter>;
+  tema?: InputMaybe<StringFilter>;
+  fecha?: InputMaybe<DatetimeFilter>;
+  resumen?: InputMaybe<StringFilter>;
+  body?: InputMaybe<RichTextFilter>;
+};
+
+export type ConflictosConnectionEdges = {
+  __typename?: 'ConflictosConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Conflictos>;
+};
+
+export type ConflictosConnection = Connection & {
+  __typename?: 'ConflictosConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<ConflictosConnectionEdges>>>;
+};
+
+export type Serendipia = Node & Document & {
+  __typename?: 'Serendipia';
+  titulo: Scalars['String']['output'];
+  seccion: Scalars['String']['output'];
+  industria: Scalars['String']['output'];
+  mecanismo: Array<Scalars['String']['output']>;
+  tema: Scalars['String']['output'];
+  fecha: Scalars['String']['output'];
+  resumen: Scalars['String']['output'];
+  body?: Maybe<Scalars['JSON']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type SerendipiaFilter = {
+  titulo?: InputMaybe<StringFilter>;
+  seccion?: InputMaybe<StringFilter>;
+  industria?: InputMaybe<StringFilter>;
+  mecanismo?: InputMaybe<StringFilter>;
+  tema?: InputMaybe<StringFilter>;
+  fecha?: InputMaybe<DatetimeFilter>;
+  resumen?: InputMaybe<StringFilter>;
+  body?: InputMaybe<RichTextFilter>;
+};
+
+export type SerendipiaConnectionEdges = {
+  __typename?: 'SerendipiaConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Serendipia>;
+};
+
+export type SerendipiaConnection = Connection & {
+  __typename?: 'SerendipiaConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<SerendipiaConnectionEdges>>>;
+};
+
+export type Analisis = Node & Document & {
+  __typename?: 'Analisis';
+  titulo: Scalars['String']['output'];
+  seccion: Scalars['String']['output'];
+  industria: Scalars['String']['output'];
+  mecanismo: Array<Scalars['String']['output']>;
+  tema: Scalars['String']['output'];
+  fecha: Scalars['String']['output'];
+  resumen: Scalars['String']['output'];
+  body?: Maybe<Scalars['JSON']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type AnalisisFilter = {
+  titulo?: InputMaybe<StringFilter>;
+  seccion?: InputMaybe<StringFilter>;
+  industria?: InputMaybe<StringFilter>;
+  mecanismo?: InputMaybe<StringFilter>;
+  tema?: InputMaybe<StringFilter>;
+  fecha?: InputMaybe<DatetimeFilter>;
+  resumen?: InputMaybe<StringFilter>;
+  body?: InputMaybe<RichTextFilter>;
+};
+
+export type AnalisisConnectionEdges = {
+  __typename?: 'AnalisisConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Analisis>;
+};
+
+export type AnalisisConnection = Connection & {
+  __typename?: 'AnalisisConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<AnalisisConnectionEdges>>>;
+};
+
+export type Marco = Node & Document & {
+  __typename?: 'Marco';
+  titulo: Scalars['String']['output'];
+  seccion: Scalars['String']['output'];
+  industria: Scalars['String']['output'];
+  mecanismo: Array<Scalars['String']['output']>;
+  tema: Scalars['String']['output'];
+  fecha: Scalars['String']['output'];
+  resumen: Scalars['String']['output'];
+  body?: Maybe<Scalars['JSON']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type MarcoFilter = {
+  titulo?: InputMaybe<StringFilter>;
+  seccion?: InputMaybe<StringFilter>;
+  industria?: InputMaybe<StringFilter>;
+  mecanismo?: InputMaybe<StringFilter>;
+  tema?: InputMaybe<StringFilter>;
+  fecha?: InputMaybe<DatetimeFilter>;
+  resumen?: InputMaybe<StringFilter>;
+  body?: InputMaybe<RichTextFilter>;
+};
+
+export type MarcoConnectionEdges = {
+  __typename?: 'MarcoConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Marco>;
+};
+
+export type MarcoConnection = Connection & {
+  __typename?: 'MarcoConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<MarcoConnectionEdges>>>;
 };
 
 export type Mutation = {
@@ -267,10 +460,16 @@ export type Mutation = {
   deleteDocument: DocumentNode;
   createDocument: DocumentNode;
   createFolder: DocumentNode;
-  updateTopic: Topic;
-  createTopic: Topic;
-  updatePiece: Piece;
-  createPiece: Piece;
+  updateHistorias: Historias;
+  createHistorias: Historias;
+  updateConflictos: Conflictos;
+  createConflictos: Conflictos;
+  updateSerendipia: Serendipia;
+  createSerendipia: Serendipia;
+  updateAnalisis: Analisis;
+  createAnalisis: Analisis;
+  updateMarco: Marco;
+  createMarco: Marco;
 };
 
 
@@ -307,119 +506,310 @@ export type MutationCreateFolderArgs = {
 };
 
 
-export type MutationUpdateTopicArgs = {
+export type MutationUpdateHistoriasArgs = {
   relativePath: Scalars['String']['input'];
-  params: TopicMutation;
+  params: HistoriasMutation;
 };
 
 
-export type MutationCreateTopicArgs = {
+export type MutationCreateHistoriasArgs = {
   relativePath: Scalars['String']['input'];
-  params: TopicMutation;
+  params: HistoriasMutation;
 };
 
 
-export type MutationUpdatePieceArgs = {
+export type MutationUpdateConflictosArgs = {
   relativePath: Scalars['String']['input'];
-  params: PieceMutation;
+  params: ConflictosMutation;
 };
 
 
-export type MutationCreatePieceArgs = {
+export type MutationCreateConflictosArgs = {
   relativePath: Scalars['String']['input'];
-  params: PieceMutation;
+  params: ConflictosMutation;
+};
+
+
+export type MutationUpdateSerendipiaArgs = {
+  relativePath: Scalars['String']['input'];
+  params: SerendipiaMutation;
+};
+
+
+export type MutationCreateSerendipiaArgs = {
+  relativePath: Scalars['String']['input'];
+  params: SerendipiaMutation;
+};
+
+
+export type MutationUpdateAnalisisArgs = {
+  relativePath: Scalars['String']['input'];
+  params: AnalisisMutation;
+};
+
+
+export type MutationCreateAnalisisArgs = {
+  relativePath: Scalars['String']['input'];
+  params: AnalisisMutation;
+};
+
+
+export type MutationUpdateMarcoArgs = {
+  relativePath: Scalars['String']['input'];
+  params: MarcoMutation;
+};
+
+
+export type MutationCreateMarcoArgs = {
+  relativePath: Scalars['String']['input'];
+  params: MarcoMutation;
 };
 
 export type DocumentUpdateMutation = {
-  topic?: InputMaybe<TopicMutation>;
-  piece?: InputMaybe<PieceMutation>;
+  historias?: InputMaybe<HistoriasMutation>;
+  conflictos?: InputMaybe<ConflictosMutation>;
+  serendipia?: InputMaybe<SerendipiaMutation>;
+  analisis?: InputMaybe<AnalisisMutation>;
+  marco?: InputMaybe<MarcoMutation>;
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type DocumentMutation = {
-  topic?: InputMaybe<TopicMutation>;
-  piece?: InputMaybe<PieceMutation>;
+  historias?: InputMaybe<HistoriasMutation>;
+  conflictos?: InputMaybe<ConflictosMutation>;
+  serendipia?: InputMaybe<SerendipiaMutation>;
+  analisis?: InputMaybe<AnalisisMutation>;
+  marco?: InputMaybe<MarcoMutation>;
 };
 
-export type TopicMutation = {
-  name?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  related_topic_ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type PieceMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  topic_id?: InputMaybe<Scalars['String']['input']>;
-  format?: InputMaybe<Scalars['String']['input']>;
-  summary?: InputMaybe<Scalars['String']['input']>;
-  tags?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+export type HistoriasMutation = {
+  titulo?: InputMaybe<Scalars['String']['input']>;
+  seccion?: InputMaybe<Scalars['String']['input']>;
+  industria?: InputMaybe<Scalars['String']['input']>;
+  mecanismo?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tema?: InputMaybe<Scalars['String']['input']>;
+  fecha?: InputMaybe<Scalars['String']['input']>;
+  resumen?: InputMaybe<Scalars['String']['input']>;
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
-export type TopicPartsFragment = { __typename: 'Topic', name: string, description?: string | null, related_topic_ids?: Array<string | null> | null };
+export type ConflictosMutation = {
+  titulo?: InputMaybe<Scalars['String']['input']>;
+  seccion?: InputMaybe<Scalars['String']['input']>;
+  industria?: InputMaybe<Scalars['String']['input']>;
+  mecanismo?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tema?: InputMaybe<Scalars['String']['input']>;
+  fecha?: InputMaybe<Scalars['String']['input']>;
+  resumen?: InputMaybe<Scalars['String']['input']>;
+  body?: InputMaybe<Scalars['JSON']['input']>;
+};
 
-export type PiecePartsFragment = { __typename: 'Piece', title: string, topic_id: string, format: string, summary?: string | null, tags?: Array<string | null> | null, body?: any | null };
+export type SerendipiaMutation = {
+  titulo?: InputMaybe<Scalars['String']['input']>;
+  seccion?: InputMaybe<Scalars['String']['input']>;
+  industria?: InputMaybe<Scalars['String']['input']>;
+  mecanismo?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tema?: InputMaybe<Scalars['String']['input']>;
+  fecha?: InputMaybe<Scalars['String']['input']>;
+  resumen?: InputMaybe<Scalars['String']['input']>;
+  body?: InputMaybe<Scalars['JSON']['input']>;
+};
 
-export type TopicQueryVariables = Exact<{
+export type AnalisisMutation = {
+  titulo?: InputMaybe<Scalars['String']['input']>;
+  seccion?: InputMaybe<Scalars['String']['input']>;
+  industria?: InputMaybe<Scalars['String']['input']>;
+  mecanismo?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tema?: InputMaybe<Scalars['String']['input']>;
+  fecha?: InputMaybe<Scalars['String']['input']>;
+  resumen?: InputMaybe<Scalars['String']['input']>;
+  body?: InputMaybe<Scalars['JSON']['input']>;
+};
+
+export type MarcoMutation = {
+  titulo?: InputMaybe<Scalars['String']['input']>;
+  seccion?: InputMaybe<Scalars['String']['input']>;
+  industria?: InputMaybe<Scalars['String']['input']>;
+  mecanismo?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tema?: InputMaybe<Scalars['String']['input']>;
+  fecha?: InputMaybe<Scalars['String']['input']>;
+  resumen?: InputMaybe<Scalars['String']['input']>;
+  body?: InputMaybe<Scalars['JSON']['input']>;
+};
+
+export type HistoriasPartsFragment = { __typename: 'Historias', titulo: string, seccion: string, industria: string, mecanismo: Array<string>, tema: string, fecha: string, resumen: string, body?: any | null };
+
+export type ConflictosPartsFragment = { __typename: 'Conflictos', titulo: string, seccion: string, industria: string, mecanismo: Array<string>, tema: string, fecha: string, resumen: string, body?: any | null };
+
+export type SerendipiaPartsFragment = { __typename: 'Serendipia', titulo: string, seccion: string, industria: string, mecanismo: Array<string>, tema: string, fecha: string, resumen: string, body?: any | null };
+
+export type AnalisisPartsFragment = { __typename: 'Analisis', titulo: string, seccion: string, industria: string, mecanismo: Array<string>, tema: string, fecha: string, resumen: string, body?: any | null };
+
+export type MarcoPartsFragment = { __typename: 'Marco', titulo: string, seccion: string, industria: string, mecanismo: Array<string>, tema: string, fecha: string, resumen: string, body?: any | null };
+
+export type HistoriasQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type TopicQuery = { __typename?: 'Query', topic: { __typename: 'Topic', id: string, name: string, description?: string | null, related_topic_ids?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type HistoriasQuery = { __typename?: 'Query', historias: { __typename: 'Historias', id: string, titulo: string, seccion: string, industria: string, mecanismo: Array<string>, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
-export type TopicConnectionQueryVariables = Exact<{
+export type HistoriasConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
   after?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Float']['input']>;
   last?: InputMaybe<Scalars['Float']['input']>;
   sort?: InputMaybe<Scalars['String']['input']>;
-  filter?: InputMaybe<TopicFilter>;
+  filter?: InputMaybe<HistoriasFilter>;
 }>;
 
 
-export type TopicConnectionQuery = { __typename?: 'Query', topicConnection: { __typename?: 'TopicConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'TopicConnectionEdges', cursor: string, node?: { __typename: 'Topic', id: string, name: string, description?: string | null, related_topic_ids?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type HistoriasConnectionQuery = { __typename?: 'Query', historiasConnection: { __typename?: 'HistoriasConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'HistoriasConnectionEdges', cursor: string, node?: { __typename: 'Historias', id: string, titulo: string, seccion: string, industria: string, mecanismo: Array<string>, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
-export type PieceQueryVariables = Exact<{
+export type ConflictosQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type PieceQuery = { __typename?: 'Query', piece: { __typename: 'Piece', id: string, title: string, topic_id: string, format: string, summary?: string | null, tags?: Array<string | null> | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type ConflictosQuery = { __typename?: 'Query', conflictos: { __typename: 'Conflictos', id: string, titulo: string, seccion: string, industria: string, mecanismo: Array<string>, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
-export type PieceConnectionQueryVariables = Exact<{
+export type ConflictosConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
   after?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Float']['input']>;
   last?: InputMaybe<Scalars['Float']['input']>;
   sort?: InputMaybe<Scalars['String']['input']>;
-  filter?: InputMaybe<PieceFilter>;
+  filter?: InputMaybe<ConflictosFilter>;
 }>;
 
 
-export type PieceConnectionQuery = { __typename?: 'Query', pieceConnection: { __typename?: 'PieceConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PieceConnectionEdges', cursor: string, node?: { __typename: 'Piece', id: string, title: string, topic_id: string, format: string, summary?: string | null, tags?: Array<string | null> | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type ConflictosConnectionQuery = { __typename?: 'Query', conflictosConnection: { __typename?: 'ConflictosConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ConflictosConnectionEdges', cursor: string, node?: { __typename: 'Conflictos', id: string, titulo: string, seccion: string, industria: string, mecanismo: Array<string>, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
-export const TopicPartsFragmentDoc = gql`
-    fragment TopicParts on Topic {
+export type SerendipiaQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type SerendipiaQuery = { __typename?: 'Query', serendipia: { __typename: 'Serendipia', id: string, titulo: string, seccion: string, industria: string, mecanismo: Array<string>, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type SerendipiaConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<SerendipiaFilter>;
+}>;
+
+
+export type SerendipiaConnectionQuery = { __typename?: 'Query', serendipiaConnection: { __typename?: 'SerendipiaConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'SerendipiaConnectionEdges', cursor: string, node?: { __typename: 'Serendipia', id: string, titulo: string, seccion: string, industria: string, mecanismo: Array<string>, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
+export type AnalisisQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type AnalisisQuery = { __typename?: 'Query', analisis: { __typename: 'Analisis', id: string, titulo: string, seccion: string, industria: string, mecanismo: Array<string>, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type AnalisisConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<AnalisisFilter>;
+}>;
+
+
+export type AnalisisConnectionQuery = { __typename?: 'Query', analisisConnection: { __typename?: 'AnalisisConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'AnalisisConnectionEdges', cursor: string, node?: { __typename: 'Analisis', id: string, titulo: string, seccion: string, industria: string, mecanismo: Array<string>, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
+export type MarcoQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type MarcoQuery = { __typename?: 'Query', marco: { __typename: 'Marco', id: string, titulo: string, seccion: string, industria: string, mecanismo: Array<string>, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type MarcoConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<MarcoFilter>;
+}>;
+
+
+export type MarcoConnectionQuery = { __typename?: 'Query', marcoConnection: { __typename?: 'MarcoConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'MarcoConnectionEdges', cursor: string, node?: { __typename: 'Marco', id: string, titulo: string, seccion: string, industria: string, mecanismo: Array<string>, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
+export const HistoriasPartsFragmentDoc = gql`
+    fragment HistoriasParts on Historias {
   __typename
-  name
-  description
-  related_topic_ids
-}
-    `;
-export const PiecePartsFragmentDoc = gql`
-    fragment PieceParts on Piece {
-  __typename
-  title
-  topic_id
-  format
-  summary
-  tags
+  titulo
+  seccion
+  industria
+  mecanismo
+  tema
+  fecha
+  resumen
   body
 }
     `;
-export const TopicDocument = gql`
-    query topic($relativePath: String!) {
-  topic(relativePath: $relativePath) {
+export const ConflictosPartsFragmentDoc = gql`
+    fragment ConflictosParts on Conflictos {
+  __typename
+  titulo
+  seccion
+  industria
+  mecanismo
+  tema
+  fecha
+  resumen
+  body
+}
+    `;
+export const SerendipiaPartsFragmentDoc = gql`
+    fragment SerendipiaParts on Serendipia {
+  __typename
+  titulo
+  seccion
+  industria
+  mecanismo
+  tema
+  fecha
+  resumen
+  body
+}
+    `;
+export const AnalisisPartsFragmentDoc = gql`
+    fragment AnalisisParts on Analisis {
+  __typename
+  titulo
+  seccion
+  industria
+  mecanismo
+  tema
+  fecha
+  resumen
+  body
+}
+    `;
+export const MarcoPartsFragmentDoc = gql`
+    fragment MarcoParts on Marco {
+  __typename
+  titulo
+  seccion
+  industria
+  mecanismo
+  tema
+  fecha
+  resumen
+  body
+}
+    `;
+export const HistoriasDocument = gql`
+    query historias($relativePath: String!) {
+  historias(relativePath: $relativePath) {
     ... on Document {
       _sys {
         filename
@@ -432,13 +822,13 @@ export const TopicDocument = gql`
       }
       id
     }
-    ...TopicParts
+    ...HistoriasParts
   }
 }
-    ${TopicPartsFragmentDoc}`;
-export const TopicConnectionDocument = gql`
-    query topicConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: TopicFilter) {
-  topicConnection(
+    ${HistoriasPartsFragmentDoc}`;
+export const HistoriasConnectionDocument = gql`
+    query historiasConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: HistoriasFilter) {
+  historiasConnection(
     before: $before
     after: $after
     first: $first
@@ -468,15 +858,15 @@ export const TopicConnectionDocument = gql`
           }
           id
         }
-        ...TopicParts
+        ...HistoriasParts
       }
     }
   }
 }
-    ${TopicPartsFragmentDoc}`;
-export const PieceDocument = gql`
-    query piece($relativePath: String!) {
-  piece(relativePath: $relativePath) {
+    ${HistoriasPartsFragmentDoc}`;
+export const ConflictosDocument = gql`
+    query conflictos($relativePath: String!) {
+  conflictos(relativePath: $relativePath) {
     ... on Document {
       _sys {
         filename
@@ -489,13 +879,13 @@ export const PieceDocument = gql`
       }
       id
     }
-    ...PieceParts
+    ...ConflictosParts
   }
 }
-    ${PiecePartsFragmentDoc}`;
-export const PieceConnectionDocument = gql`
-    query pieceConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PieceFilter) {
-  pieceConnection(
+    ${ConflictosPartsFragmentDoc}`;
+export const ConflictosConnectionDocument = gql`
+    query conflictosConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ConflictosFilter) {
+  conflictosConnection(
     before: $before
     after: $after
     first: $first
@@ -525,26 +915,215 @@ export const PieceConnectionDocument = gql`
           }
           id
         }
-        ...PieceParts
+        ...ConflictosParts
       }
     }
   }
 }
-    ${PiecePartsFragmentDoc}`;
+    ${ConflictosPartsFragmentDoc}`;
+export const SerendipiaDocument = gql`
+    query serendipia($relativePath: String!) {
+  serendipia(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...SerendipiaParts
+  }
+}
+    ${SerendipiaPartsFragmentDoc}`;
+export const SerendipiaConnectionDocument = gql`
+    query serendipiaConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: SerendipiaFilter) {
+  serendipiaConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...SerendipiaParts
+      }
+    }
+  }
+}
+    ${SerendipiaPartsFragmentDoc}`;
+export const AnalisisDocument = gql`
+    query analisis($relativePath: String!) {
+  analisis(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...AnalisisParts
+  }
+}
+    ${AnalisisPartsFragmentDoc}`;
+export const AnalisisConnectionDocument = gql`
+    query analisisConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: AnalisisFilter) {
+  analisisConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...AnalisisParts
+      }
+    }
+  }
+}
+    ${AnalisisPartsFragmentDoc}`;
+export const MarcoDocument = gql`
+    query marco($relativePath: String!) {
+  marco(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...MarcoParts
+  }
+}
+    ${MarcoPartsFragmentDoc}`;
+export const MarcoConnectionDocument = gql`
+    query marcoConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: MarcoFilter) {
+  marcoConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...MarcoParts
+      }
+    }
+  }
+}
+    ${MarcoPartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
-      topic(variables: TopicQueryVariables, options?: C): Promise<{data: TopicQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TopicQueryVariables, query: string}> {
-        return requester<{data: TopicQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TopicQueryVariables, query: string}, TopicQueryVariables>(TopicDocument, variables, options);
+      historias(variables: HistoriasQueryVariables, options?: C): Promise<{data: HistoriasQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: HistoriasQueryVariables, query: string}> {
+        return requester<{data: HistoriasQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: HistoriasQueryVariables, query: string}, HistoriasQueryVariables>(HistoriasDocument, variables, options);
       },
-    topicConnection(variables?: TopicConnectionQueryVariables, options?: C): Promise<{data: TopicConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TopicConnectionQueryVariables, query: string}> {
-        return requester<{data: TopicConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TopicConnectionQueryVariables, query: string}, TopicConnectionQueryVariables>(TopicConnectionDocument, variables, options);
+    historiasConnection(variables?: HistoriasConnectionQueryVariables, options?: C): Promise<{data: HistoriasConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: HistoriasConnectionQueryVariables, query: string}> {
+        return requester<{data: HistoriasConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: HistoriasConnectionQueryVariables, query: string}, HistoriasConnectionQueryVariables>(HistoriasConnectionDocument, variables, options);
       },
-    piece(variables: PieceQueryVariables, options?: C): Promise<{data: PieceQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PieceQueryVariables, query: string}> {
-        return requester<{data: PieceQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PieceQueryVariables, query: string}, PieceQueryVariables>(PieceDocument, variables, options);
+    conflictos(variables: ConflictosQueryVariables, options?: C): Promise<{data: ConflictosQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ConflictosQueryVariables, query: string}> {
+        return requester<{data: ConflictosQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ConflictosQueryVariables, query: string}, ConflictosQueryVariables>(ConflictosDocument, variables, options);
       },
-    pieceConnection(variables?: PieceConnectionQueryVariables, options?: C): Promise<{data: PieceConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PieceConnectionQueryVariables, query: string}> {
-        return requester<{data: PieceConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PieceConnectionQueryVariables, query: string}, PieceConnectionQueryVariables>(PieceConnectionDocument, variables, options);
+    conflictosConnection(variables?: ConflictosConnectionQueryVariables, options?: C): Promise<{data: ConflictosConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ConflictosConnectionQueryVariables, query: string}> {
+        return requester<{data: ConflictosConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ConflictosConnectionQueryVariables, query: string}, ConflictosConnectionQueryVariables>(ConflictosConnectionDocument, variables, options);
+      },
+    serendipia(variables: SerendipiaQueryVariables, options?: C): Promise<{data: SerendipiaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SerendipiaQueryVariables, query: string}> {
+        return requester<{data: SerendipiaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SerendipiaQueryVariables, query: string}, SerendipiaQueryVariables>(SerendipiaDocument, variables, options);
+      },
+    serendipiaConnection(variables?: SerendipiaConnectionQueryVariables, options?: C): Promise<{data: SerendipiaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SerendipiaConnectionQueryVariables, query: string}> {
+        return requester<{data: SerendipiaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SerendipiaConnectionQueryVariables, query: string}, SerendipiaConnectionQueryVariables>(SerendipiaConnectionDocument, variables, options);
+      },
+    analisis(variables: AnalisisQueryVariables, options?: C): Promise<{data: AnalisisQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: AnalisisQueryVariables, query: string}> {
+        return requester<{data: AnalisisQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: AnalisisQueryVariables, query: string}, AnalisisQueryVariables>(AnalisisDocument, variables, options);
+      },
+    analisisConnection(variables?: AnalisisConnectionQueryVariables, options?: C): Promise<{data: AnalisisConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: AnalisisConnectionQueryVariables, query: string}> {
+        return requester<{data: AnalisisConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: AnalisisConnectionQueryVariables, query: string}, AnalisisConnectionQueryVariables>(AnalisisConnectionDocument, variables, options);
+      },
+    marco(variables: MarcoQueryVariables, options?: C): Promise<{data: MarcoQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: MarcoQueryVariables, query: string}> {
+        return requester<{data: MarcoQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: MarcoQueryVariables, query: string}, MarcoQueryVariables>(MarcoDocument, variables, options);
+      },
+    marcoConnection(variables?: MarcoConnectionQueryVariables, options?: C): Promise<{data: MarcoConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: MarcoConnectionQueryVariables, query: string}> {
+        return requester<{data: MarcoConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: MarcoConnectionQueryVariables, query: string}, MarcoConnectionQueryVariables>(MarcoConnectionDocument, variables, options);
       }
     };
   }

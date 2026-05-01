@@ -1,16 +1,59 @@
-fragment TopicParts on Topic {
+fragment HistoriasParts on Historias {
   __typename
-  name
-  description
-  related_topic_ids
+  titulo
+  seccion
+  industria
+  mecanismo
+  tema
+  fecha
+  resumen
+  body
 }
 
-fragment PieceParts on Piece {
+fragment ConflictosParts on Conflictos {
   __typename
-  title
-  topic_id
-  format
-  summary
-  tags
+  titulo
+  seccion
+  industria
+  mecanismo
+  tema
+  fecha
+  resumen
+  body
+}
+
+fragment SerendipiaParts on Serendipia {
+  __typename
+  titulo
+  seccion
+  industria
+  mecanismo
+  tema
+  fecha
+  resumen
+  body
+}
+
+fragment AnalisisParts on Analisis {
+  __typename
+  titulo
+  seccion
+  industria
+  mecanismo
+  tema
+  fecha
+  resumen
+  body
+}
+
+fragment MarcoParts on Marco {
+  __typename
+  titulo
+  seccion
+  industria
+  mecanismo
+  tema
+  fecha
+  resumen
   body
 }

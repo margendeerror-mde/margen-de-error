@@ -1,5 +1,5 @@
-query topic($relativePath: String!) {
-  topic(relativePath: $relativePath) {
+query historias($relativePath: String!) {
+  historias(relativePath: $relativePath) {
     ... on Document {
       _sys {
         filename
@@ -12,12 +12,12 @@ query topic($relativePath: String!) {
       }
       id
     }
-    ...TopicParts
+    ...HistoriasParts
   }
 }
 
-query topicConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: TopicFilter) {
-  topicConnection(
+query historiasConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: HistoriasFilter) {
+  historiasConnection(
     before: $before
     after: $after
     first: $first
@@ -47,14 +47,14 @@ query topicConnection($before: String, $after: String, $first: Float, $last: Flo
           }
           id
         }
-        ...TopicParts
+        ...HistoriasParts
       }
     }
   }
 }
 
-query piece($relativePath: String!) {
-  piece(relativePath: $relativePath) {
+query conflictos($relativePath: String!) {
+  conflictos(relativePath: $relativePath) {
     ... on Document {
       _sys {
         filename
@@ -67,12 +67,12 @@ query piece($relativePath: String!) {
       }
       id
     }
-    ...PieceParts
+    ...ConflictosParts
   }
 }
 
-query pieceConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PieceFilter) {
-  pieceConnection(
+query conflictosConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ConflictosFilter) {
+  conflictosConnection(
     before: $before
     after: $after
     first: $first
@@ -102,7 +102,172 @@ query pieceConnection($before: String, $after: String, $first: Float, $last: Flo
           }
           id
         }
-        ...PieceParts
+        ...ConflictosParts
+      }
+    }
+  }
+}
+
+query serendipia($relativePath: String!) {
+  serendipia(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...SerendipiaParts
+  }
+}
+
+query serendipiaConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: SerendipiaFilter) {
+  serendipiaConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...SerendipiaParts
+      }
+    }
+  }
+}
+
+query analisis($relativePath: String!) {
+  analisis(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...AnalisisParts
+  }
+}
+
+query analisisConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: AnalisisFilter) {
+  analisisConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...AnalisisParts
+      }
+    }
+  }
+}
+
+query marco($relativePath: String!) {
+  marco(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...MarcoParts
+  }
+}
+
+query marcoConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: MarcoFilter) {
+  marcoConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...MarcoParts
       }
     }
   }
