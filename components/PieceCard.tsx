@@ -22,7 +22,11 @@ export default function PieceCard({ pieza, featured = false }: { pieza: Pieza, f
             <span className="tag-text !text-muted/60 !text-[9px]">{pieza.industria}</span>
           </div>
           
-          <h3 className={`title-serif mb-4 group-hover:text-accent transition-colors leading-[1.05] ${featured ? 'text-3xl md:text-5xl' : 'text-xl md:text-2xl'}`}>
+          <h3 className={`mb-4 group-hover:text-accent transition-colors leading-[1.05] ${
+            featured 
+              ? 'font-sans font-bold text-[clamp(2.2rem,5vw,4rem)] tracking-[-0.03em]' 
+              : 'title-serif text-xl md:text-2xl'
+          }`}>
             {pieza.titulo}
           </h3>
           

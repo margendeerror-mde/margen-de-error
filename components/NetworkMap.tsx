@@ -98,7 +98,7 @@ export default function NetworkMap({ piezas }: NetworkMapProps) {
         (typeof l.source === 'string' ? l.source === n.id : (l.source as Node).id === n.id) || 
         (typeof l.target === 'string' ? l.target === n.id : (l.target as Node).id === n.id)
       ).length;
-      n.radius = 6 + (connections * 1.5);
+      n.radius = 20 + (connections * 2); // Larger for text visibility
     });
 
     const svg = d3.select(svgRef.current);
@@ -111,11 +111,21 @@ export default function NetworkMap({ piezas }: NetworkMapProps) {
       .on("zoom", (event) => g.attr("transform", event.transform));
     svg.call(zoom);
 
-    const simulation = d3.forceSimulation(nodes)
-      .force("link", d3.forceLink<Node, Link>(links).id(d => d.id).distance(200))
-      .force("charge", d3.forceManyBody().strength(-400))
-      .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("collide", d3.forceCollide().radius(d => (d as Node).radius + 20));
+    const simulation = d3.forceSimulation<Node>(nodes)
+      .force("link", d3.forceLink<Node, Link>(links).id(d => d.id).distance(120).strength(0.3))
+      .force("charge", d3.forceManyBody().strength(-80))
+      .force("center", d3.forceCenter(width / 2, height / 2).strength(0.05))
+      .force("collision", d3.forceCollide<Node>().radius(d => d.radius + 20))
+      .alphaDecay(0.04)
+      .velocityDecay(0.6);
+
+    // Freeze nodes on end
+    simulation.on("end", () => {
+      nodes.forEach(d => {
+        d.fx = d.x;
+        d.fy = d.y;
+      });
+    });
 
     // Draw Links
     const link = g.append("g")
@@ -124,27 +134,21 @@ export default function NetworkMap({ piezas }: NetworkMapProps) {
       .join("line")
       .attr("stroke", d => d.color)
       .attr("stroke-opacity", d => {
-        if (d.sharedTags.tema && d.sharedTags.mecanismo) return 0.7;
-        if (d.sharedTags.tema) return 0.4;
-        if (d.sharedTags.mecanismo) return 0.25;
-        if (d.sharedTags.industria) return 0.15;
-        return 0.08;
+        if (d.sharedTags.tema && d.sharedTags.mecanismo) return 0.5;
+        if (d.sharedTags.tema) return 0.3;
+        return 0.06; // Base opacity
       })
-      .attr("stroke-width", d => (d.sharedTags.tema && d.sharedTags.mecanismo) ? 2 : 1);
+      .attr("stroke-width", d => (d.sharedTags.tema && d.sharedTags.mecanismo) ? 1.5 : 0.8);
 
-    // Draw Nodes
-    const node = g.append("g")
-      .selectAll("circle")
+    // Node Groups
+    const nodeGroup = g.append("g")
+      .selectAll("g")
       .data(nodes)
-      .join("circle")
-      .attr("r", d => d.radius)
-      .attr("fill", d => TEMA_COLORS[d.pieza.tema])
-      .attr("stroke", "#0A0A0A")
-      .attr("stroke-width", 2)
+      .join("g")
       .style("cursor", "pointer")
-      .call(d3.drag<SVGCircleElement, Node>()
+      .call(d3.drag<SVGGElement, Node>()
         .on("start", (event, d) => {
-          if (!event.active) simulation.alphaTarget(0.3).restart();
+          if (!event.active) simulation.alphaTarget(0.1).restart();
           d.fx = d.x; d.fy = d.y;
         })
         .on("drag", (event, d) => {
@@ -152,69 +156,87 @@ export default function NetworkMap({ piezas }: NetworkMapProps) {
         })
         .on("end", (event, d) => {
           if (!event.active) simulation.alphaTarget(0);
-          d.fx = null; d.fy = null;
-        }) as any)
+          d.fx = event.x; d.fy = event.y; // Keep it fixed after move
+        }) as any);
+
+    // Node Circles
+    nodeGroup.append("circle")
+      .attr("r", d => d.radius)
+      .attr("fill", d => TEMA_COLORS[d.pieza.tema])
+      .attr("stroke", "#FFFFFF")
+      .attr("stroke-opacity", 0.1)
+      .attr("stroke-width", 1);
+
+    // Node Labels (Abbreviated title)
+    nodeGroup.append("text")
+      .text(d => d.pieza.titulo.substring(0, 3).toUpperCase())
+      .attr("text-anchor", "middle")
+      .attr("dy", ".35em")
+      .attr("font-size", "8px")
+      .attr("font-family", "var(--font-sans)")
+      .attr("font-weight", "bold")
+      .attr("fill", "#0A0A0A");
+
+    nodeGroup
       .on("mouseover", (event, d) => {
-        d3.select(event.currentTarget).attr("fill", "#FFFFFF").attr("r", d.radius + 4);
+        d3.select(event.currentTarget).select("circle").attr("stroke-opacity", 1).attr("stroke-width", 2);
         setHoveredNode(d);
         
-        // Highlight logic
         link.transition().duration(200)
           .attr("stroke-opacity", l => {
             const isConnected = l.source === d || l.target === d;
-            return isConnected ? 1 : 0.05;
-          })
-          .attr("stroke-width", l => (l.source === d || l.target === d) ? 2 : 1);
+            return isConnected ? 0.8 : 0.02;
+          });
         
-        node.transition().duration(200)
+        nodeGroup.transition().duration(200)
           .attr("opacity", n => {
             if (n === d) return 1;
             const isConnected = links.some(l => 
               (l.source === d && l.target === n) || (l.target === d && l.source === n)
             );
-            return isConnected ? 1 : 0.1;
+            return isConnected ? 1 : 0.05;
           });
       })
       .on("mouseout", (event, d) => {
-        d3.select(event.currentTarget).attr("fill", TEMA_COLORS[d.pieza.tema]).attr("r", d.radius);
+        d3.select(event.currentTarget).select("circle").attr("stroke-opacity", 0.1).attr("stroke-width", 1);
         setHoveredNode(null);
         
         link.transition().duration(200)
           .attr("stroke-opacity", l => {
-            if (l.sharedTags.tema && l.sharedTags.mecanismo) return 0.7;
-            if (l.sharedTags.tema) return 0.4;
-            if (l.sharedTags.mecanismo) return 0.25;
-            return 0.15;
-          })
-          .attr("stroke-width", l => (l.sharedTags.tema && l.sharedTags.mecanismo) ? 2 : 1);
+            if (l.sharedTags.tema && l.sharedTags.mecanismo) return 0.5;
+            if (l.sharedTags.tema) return 0.3;
+            return 0.06;
+          });
           
-        node.transition().duration(200).attr("opacity", 1);
+        nodeGroup.transition().duration(200).attr("opacity", 1);
       })
       .on("click", (event, d) => router.push(`/${d.pieza.seccion}/${d.pieza.slug}`));
 
-    // Update opacity based on activeFilters
-    node.transition().duration(500)
-      .attr("opacity", n => {
-        const sF = activeFilters.seccion.length === 0 || activeFilters.seccion.includes(n.pieza.seccion);
-        const tF = activeFilters.tema.length === 0 || activeFilters.tema.includes(n.pieza.tema);
-        const iF = activeFilters.industria.length === 0 || activeFilters.industria.includes(n.pieza.industria);
-        const mF = activeFilters.mecanismo.length === 0 || n.pieza.mecanismo.some(m => activeFilters.mecanismo.includes(m as any));
-        return (sF && tF && iF && mF) ? 1 : 0.1;
-      });
-    
-    link.transition().duration(500)
-      .attr("opacity", l => {
-        const sN = l.source as Node;
-        const tN = l.target as Node;
-        const visible = (n: Node) => {
+    // Update based on activeFilters
+    useEffect(() => {
+      nodeGroup.transition().duration(500)
+        .attr("opacity", n => {
           const sF = activeFilters.seccion.length === 0 || activeFilters.seccion.includes(n.pieza.seccion);
           const tF = activeFilters.tema.length === 0 || activeFilters.tema.includes(n.pieza.tema);
           const iF = activeFilters.industria.length === 0 || activeFilters.industria.includes(n.pieza.industria);
           const mF = activeFilters.mecanismo.length === 0 || n.pieza.mecanismo.some(m => activeFilters.mecanismo.includes(m as any));
-          return sF && tF && iF && mF;
-        };
-        return (visible(sN) && visible(tN)) ? 1 : 0.05;
-      });
+          return (sF && tF && iF && mF) ? 1 : 0.05;
+        });
+      
+      link.transition().duration(500)
+        .attr("opacity", l => {
+          const sN = l.source as Node;
+          const tN = l.target as Node;
+          const visible = (n: Node) => {
+            const sF = activeFilters.seccion.length === 0 || activeFilters.seccion.includes(n.pieza.seccion);
+            const tF = activeFilters.tema.length === 0 || activeFilters.tema.includes(n.pieza.tema);
+            const iF = activeFilters.industria.length === 0 || activeFilters.industria.includes(n.pieza.industria);
+            const mF = activeFilters.mecanismo.length === 0 || n.pieza.mecanismo.some(m => activeFilters.mecanismo.includes(m as any));
+            return sF && tF && iF && mF;
+          };
+          return (visible(sN) && visible(tN)) ? 0.3 : 0.02;
+        });
+    }, [activeFilters]);
 
     simulation.on("tick", () => {
       link
@@ -222,9 +244,7 @@ export default function NetworkMap({ piezas }: NetworkMapProps) {
         .attr("y1", d => (d.source as Node).y!)
         .attr("x2", d => (d.target as Node).x!)
         .attr("y2", d => (d.target as Node).y!);
-      node
-        .attr("cx", d => d.x!)
-        .attr("cy", d => d.y!);
+      nodeGroup.attr("transform", d => `translate(${d.x},${d.y})`);
     });
 
     return () => {
