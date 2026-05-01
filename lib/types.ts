@@ -9,32 +9,49 @@ export const SECCIONES = [
 export const INDUSTRIAS = [
   'farmacéutica',
   'alimentaria',
-  'cosmética',
+  'cosmética-y-cuidado-personal',
   'tabaco',
+  'alcohol',
+  'suplementos-y-bienestar',
+  'dispositivos-médicos',
+  'seguros-de-salud',
+  'agroquímica',
   'energía',
-  'institucional',
-  'académica'
+  'institucional-académica',
+  'organismos-reguladores',
+  'medios-y-comunicación'
 ] as const;
 
 export const MECANISMOS = [
-  'financiamiento',
-  'diseño de estudio',
-  'titular engañoso',
-  'omisión',
-  'migración de estrategia',
-  'conflicto de interés',
-  'captura regulatoria'
+  'financiamiento-de-estudio',
+  'diseño-sesgado',
+  'titular-engañoso',
+  'omisión-de-datos',
+  'cherry-picking',
+  'captura-regulatoria',
+  'migración-de-estrategia',
+  'conflicto-de-interés-no-declarado',
+  'sesgo-de-publicación',
+  'experto-capturado',
+  'manufactura-de-duda',
+  'normalización-por-repetición',
+  'correlación-presentada-como-causalidad'
 ] as const;
 
 export const TEMAS = [
-  'luz',
+  'luz-y-radiación',
   'nutrición',
-  'movimiento',
+  'movimiento-y-ejercicio',
   'sueño',
-  'mente',
+  'mente-y-conducta',
   'microbioma',
   'dolor',
-  'ambiente'
+  'ambiente-y-exposición',
+  'medicación-y-fármacos',
+  'diagnóstico-y-clasificación',
+  'hormonas-y-endocrino',
+  'inmunidad',
+  'envejecimiento'
 ] as const;
 
 export type Seccion = typeof SECCIONES[number];
