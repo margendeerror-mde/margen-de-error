@@ -9,7 +9,7 @@ const sections = [
     id: 'home',
     title: 'MARGEN DE ERROR',
     tagline: 'PERIODISMO CIENTÍFICO INDEPENDIENTE',
-    subtitle: 'Lo que creemos sobre salud depende, en parte, de quién pagó para que lo creyéramos.',
+    subtitle: 'Un proyecto sobre cómo se construye, se distorsiona y se comunica el conocimiento científico.',
     bgColor: '#CC0000',
     textColor: '#FFFFFF',
     accentColor: '#FFFFFF',
@@ -19,7 +19,7 @@ const sections = [
   {
     id: 'historias',
     title: 'HISTORIAS',
-    subtitle: 'Relatos sobre cómo la ciencia se equivoca y cómo lo descubrimos.',
+    subtitle: 'Casos que explican cómo llegamos a saber lo que sabemos.',
     bgColor: '#C4763A', // Ámbar tostado
     textColor: '#FFFFFF',
     accentColor: '#FFFFFF',
@@ -28,7 +28,7 @@ const sections = [
   {
     id: 'conflictos',
     title: 'CONFLICTOS',
-    subtitle: 'Investigaciones sobre conclusiones demasiado convenientes para quienes las financiaron.',
+    subtitle: 'Cuando el resultado de un estudio le queda demasiado bien a alguien.',
     bgColor: '#B5431A', // Rojo ocre
     textColor: '#FFFFFF',
     accentColor: '#FFFFFF',
@@ -37,7 +37,7 @@ const sections = [
   {
     id: 'serendipia',
     title: 'SERENDIPIA',
-    subtitle: 'Lo que la ciencia encontró sin buscar, a pesar de los sesgos y las expectativas.',
+    subtitle: 'Lo que la ciencia encontró sin buscar.',
     bgColor: '#2E5F7A', // Azul pizarra
     textColor: '#FFFFFF',
     accentColor: '#FFFFFF',
@@ -46,7 +46,7 @@ const sections = [
   {
     id: 'analisis',
     title: 'ANÁLISIS',
-    subtitle: 'Lecturas profundas de papers y datos que cuentan una historia diferente a la oficial.',
+    subtitle: 'Papers que merecen más atención de la que reciben.',
     bgColor: '#4A6741', // Verde musgo
     textColor: '#FFFFFF',
     accentColor: '#FFFFFF',
@@ -55,7 +55,7 @@ const sections = [
   {
     id: 'marco',
     title: 'MARCO',
-    subtitle: 'Explorando la máquina que produce conocimiento: incentivos, instituciones y metodologías.',
+    subtitle: 'Las categorías de error que se repiten.',
     bgColor: '#5C4A7A', // Violeta ceniza
     textColor: '#FFFFFF',
     accentColor: '#FFFFFF',
@@ -67,8 +67,10 @@ export default function EntryPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIdx, setActiveIdx] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener('resize', checkMobile);
@@ -77,6 +79,8 @@ export default function EntryPage() {
 
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const { scrollLeft, scrollTop, clientWidth, clientHeight } = e.currentTarget;
+    if (clientWidth === 0 || clientHeight === 0) return;
+    
     const idx = isMobile 
       ? Math.round(scrollTop / clientHeight)
       : Math.round(scrollLeft / clientWidth);
@@ -92,6 +96,8 @@ export default function EntryPage() {
       behavior: 'smooth'
     });
   };
+
+  if (!mounted) return <div className="fixed inset-0 bg-black" />;
 
   return (
     <div className="fixed inset-0 z-[100] bg-black overflow-hidden font-sans">
@@ -113,21 +119,21 @@ export default function EntryPage() {
             <VisualDetail type={section.detail || 'none'} active={activeIdx === idx} />
 
             {/* Content */}
-            <div className={`text-center px-6 z-10 transition-all duration-1000 ${activeIdx === idx ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`text-center px-6 z-10 transition-all duration-700 ease-out ${activeIdx === idx ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h2 className="font-extrabold text-[clamp(3.5rem,12vw,9rem)] leading-[0.9] tracking-[-0.04em] uppercase mb-8">
                 {section.title}
               </h2>
 
               {section.tagline && (
-                <div className="mb-6 opacity-50 animate-in fade-in slide-in-from-bottom-2 duration-1000 delay-300">
+                <div className={`mb-6 transition-all duration-700 delay-300 ${activeIdx === idx ? 'opacity-50 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                   <span className="tag-text !text-[10px] tracking-[0.2em] font-bold">
                     {section.tagline}
                   </span>
                 </div>
               )}
 
-              <div className="relative inline-block mb-12">
-                <p className="font-serif text-[1.1rem] leading-[1.6] opacity-80 max-w-[520px] mx-auto">
+              <div className={`relative inline-block mb-12 transition-all duration-700 delay-500 ${activeIdx === idx ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                <p className="font-serif text-[1.1rem] leading-[1.6] max-w-[520px] mx-auto">
                   {section.subtitle}
                 </p>
               </div>
@@ -135,7 +141,7 @@ export default function EntryPage() {
 
             {/* Call to Action */}
             {!section.isHome && (
-              <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-8 z-20">
+              <div className={`absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-8 z-20 transition-all duration-700 delay-700 ${activeIdx === idx ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                 <Link 
                   href={`/${section.id}`} 
                   className="tag-text !text-[14px] tracking-[0.3em] font-bold hover:opacity-70 transition-opacity"

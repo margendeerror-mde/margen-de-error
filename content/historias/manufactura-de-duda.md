@@ -1,6 +1,6 @@
 ---
 titulo: "La duda como producto"
-seccion: marco
+seccion: historia
 industria: tabaco
 mecanismo: [manufactura-de-duda, migración-de-estrategia, financiamiento-de-estudio]
 tema: mente-y-conducta

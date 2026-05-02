@@ -1,6 +1,6 @@
 ---
 titulo: "Cinco líneas que costaron medio millón de vidas"
-seccion: análisis
+seccion: historia
 industria: farmacéutica
 mecanismo: [correlación-presentada-como-causalidad, titular-engañoso, sesgo-de-publicación]
 tema: dolor
