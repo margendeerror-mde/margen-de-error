@@ -1,28 +1,10 @@
-'use client';
-
-import dynamic from 'next/dynamic';
+import { getAllPiezas } from '@/lib/content';
+import RedView from './RedView';
 import GlobalMenu from '@/components/GlobalMenu';
-import { useEffect, useState } from 'react';
-import { Pieza } from '@/lib/types';
 import Link from 'next/link';
 
-const NetworkMap = dynamic(() => import('@/components/NetworkMap'), { 
-  ssr: false,
-  loading: () => (
-    <div className="w-screen h-screen flex items-center justify-center bg-[#0A0A0A]">
-      <span className="tag-text !text-white/20 animate-pulse">CARGANDO RED...</span>
-    </div>
-  )
-});
-
 export default function RedPage() {
-  const [piezas, setPiezas] = useState<Pieza[]>([]);
-
-  useEffect(() => {
-    fetch('/api/content')
-      .then(res => res.json())
-      .then(data => setPiezas(data));
-  }, []);
+  const piezas = getAllPiezas();
 
   return (
     <div className="w-screen h-screen overflow-hidden bg-[#0A0A0A] relative">
@@ -37,7 +19,7 @@ export default function RedPage() {
         </Link>
       </div>
 
-      {piezas.length > 0 && <NetworkMap piezas={piezas} />}
+      <RedView piezas={piezas} />
     </div>
   );
 }

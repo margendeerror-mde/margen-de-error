@@ -1,26 +1,22 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 import * as d3 from 'd3';
-import { Pieza, TEMA_COLORS, SECCIONES, INDUSTRIAS, MECANISMOS, TEMAS, SECCION_COLORS } from '@/lib/types';
+import { Pieza } from '@/lib/content';
+import { SECCION_COLORS, TEMA_COLORS, SECCIONES, INDUSTRIAS, MECANISMOS, TEMAS } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 
 interface Node extends d3.SimulationNodeDatum {
   id: string;
   pieza: Pieza;
   radius: number;
+  href: string;
 }
 
 interface Link extends d3.SimulationLinkDatum<Node> {
   source: string | Node;
   target: string | Node;
-  sharedTags: {
-    industria: boolean;
-    mecanismo: boolean;
-    tema: boolean;
-    seccion: boolean;
-  };
-  color: string;
+  weight: number;
 }
 
 export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
@@ -28,12 +24,7 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
-  const [activeFilters, setActiveFilters] = useState<{
-    seccion: string[];
-    tema: string[];
-    industria: string[];
-    mecanismo: string[];
-  }>({
+  const [activeFilters, setActiveFilters] = useState<Record<string, string[]>>({
     seccion: [],
     tema: [],
     industria: [],
@@ -41,11 +32,31 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
   });
 
   const [hoveredNode, setHoveredNode] = useState<Node | null>(null);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
-  const toggleFilter = (type: 'seccion' | 'tema' | 'industria' | 'mecanismo', value: string) => {
+  useEffect(() => {
+    const updateSize = () => {
+      if (containerRef.current) {
+        setWindowSize({
+          width: containerRef.current.clientWidth,
+          height: containerRef.current.clientHeight
+        });
+      }
+    };
+    updateSize();
+    window.addEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
+  const isMobile = useMemo(() => windowSize.width < 768, [windowSize.width]);
+  const hasActiveFilters = useMemo(() => 
+    Object.values(activeFilters).some(arr => arr.length > 0), 
+  [activeFilters]);
+
+  const toggleFilter = (type: string, value: string) => {
     setActiveFilters(prev => {
-      const current = prev[type];
+      const current = prev[type] || [];
       return {
         ...prev,
         [type]: current.includes(value) ? current.filter(v => v !== value) : [...current, value]
@@ -53,55 +64,51 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
     });
   };
 
+  const clearFilters = () => setActiveFilters({ seccion: [], tema: [], industria: [], mecanismo: [] });
+
   useEffect(() => {
-    if (!svgRef.current || !containerRef.current || piezas.length === 0) return;
+    if (!svgRef.current || windowSize.width === 0 || piezas.length === 0) return;
 
-    const width = containerRef.current.clientWidth;
-    const height = containerRef.current.clientHeight;
+    const { width, height } = windowSize;
 
-    let nodes: Node[] = piezas.map(p => ({
-      id: p.slug,
+    // Build Nodes
+    const nodes: Node[] = piezas.map(p => ({
+      id: p.href,
       pieza: p,
       radius: 0,
+      href: p.href
     }));
 
-    let links: Link[] = [];
+    // Build Links
+    const links: Link[] = [];
     for (let i = 0; i < nodes.length; i++) {
       for (let j = i + 1; j < nodes.length; j++) {
-        const p1 = nodes[i].pieza;
-        const p2 = nodes[j].pieza;
-        
-        const industriaMatch = p1.industria === p2.industria;
-        const temaMatch = p1.tema === p2.tema;
-        const seccionMatch = p1.seccion === p2.seccion;
-        
-        const m1 = Array.isArray(p1.mecanismo) ? p1.mecanismo : [p1.mecanismo];
-        const m2 = Array.isArray(p2.mecanismo) ? p2.mecanismo : [p2.mecanismo];
-        const sharedMec = m1.filter(m => m2.includes(m as any));
-        const mecanismoMatch = sharedMec.length > 0;
+        const a = nodes[i].pieza;
+        const b = nodes[j].pieza;
+        let weight = 0;
 
-        if (industriaMatch || temaMatch || mecanismoMatch || seccionMatch) {
+        if (a.tema && b.tema && a.tema === b.tema) weight += 3;
+        if (a.industria && b.industria && a.industria === b.industria) weight += 2;
+        
+        const sharedMecanismos = a.mecanismo.filter(m => b.mecanismo.includes(m));
+        weight += sharedMecanismos.length;
+
+        if (a.seccion === b.seccion) weight += 1;
+
+        if (weight > 0) {
           links.push({
             source: nodes[i].id,
             target: nodes[j].id,
-            sharedTags: { 
-              industria: industriaMatch, 
-              mecanismo: mecanismoMatch, 
-              tema: temaMatch,
-              seccion: seccionMatch
-            },
-            color: temaMatch ? TEMA_COLORS[p1.tema] : '#FFFFFF'
+            weight
           });
         }
       }
     }
 
+    // Calculate radius based on degree
     nodes.forEach(n => {
-      const connections = links.filter(l => 
-        (typeof l.source === 'string' ? l.source === n.id : (l.source as Node).id === n.id) || 
-        (typeof l.target === 'string' ? l.target === n.id : (l.target as Node).id === n.id)
-      ).length;
-      n.radius = 18 + Math.sqrt(connections) * 6;
+      const degree = links.filter(l => l.source === n.id || l.target === n.id).length;
+      n.radius = (isMobile ? 12 : 18) + Math.sqrt(degree) * (isMobile ? 4 : 6);
     });
 
     const svg = d3.select(svgRef.current);
@@ -115,31 +122,33 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
     svg.call(zoom);
 
     const simulation = d3.forceSimulation<Node>(nodes)
-      .force("link", d3.forceLink<Node, Link>(links).id(d => d.id).distance(150).strength(0.2))
-      .force("charge", d3.forceManyBody().strength(-150))
-      .force("center", d3.forceCenter(width / 2, height / 2).strength(0.05))
-      .force("collision", d3.forceCollide<Node>().radius(d => d.radius + 30))
-      .alphaDecay(0.05)
+      .force("link", d3.forceLink<Node, Link>(links).id(d => d.id).distance(isMobile ? 60 : 120).strength(0.3))
+      .force("charge", d3.forceManyBody().strength(isMobile ? -40 : -80))
+      .force("center", d3.forceCenter(width / 2, height / 2))
+      .force("collision", d3.forceCollide<Node>().radius(d => d.radius + (isMobile ? 10 : 20)))
+      .alphaDecay(0.04)
       .velocityDecay(0.6);
 
-    simulation.on("end", () => {
-      nodes.forEach(d => {
-        d.fx = d.x;
-        d.fy = d.y;
-      });
-    });
+    const lineOpacity = (weight: number) => {
+      if (weight >= 6) return 0.7;
+      if (weight >= 4) return 0.45;
+      if (weight >= 2) return 0.25;
+      return 0.1;
+    };
+
+    const lineWidth = (weight: number) => {
+      if (weight >= 6) return 2;
+      if (weight >= 4) return 1.5;
+      return 1;
+    };
 
     const link = g.append("g")
       .selectAll("line")
       .data(links)
       .join("line")
-      .attr("stroke", d => d.color)
-      .attr("stroke-opacity", d => {
-        if (d.sharedTags.tema && d.sharedTags.mecanismo) return 0.4;
-        if (d.sharedTags.tema) return 0.2;
-        return 0.06;
-      })
-      .attr("stroke-width", d => (d.sharedTags.tema && d.sharedTags.mecanismo) ? 1.2 : 0.6);
+      .attr("stroke", "#FFFFFF")
+      .attr("stroke-opacity", d => lineOpacity(d.weight))
+      .attr("stroke-width", d => lineWidth(d.weight));
 
     const nodeGroup = g.append("g")
       .selectAll("g")
@@ -157,12 +166,12 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
         })
         .on("end", (event, d) => {
           if (!event.active) simulation.alphaTarget(0);
-          d.fx = event.x; d.fy = event.y;
+          d.fx = null; d.fy = null;
         }) as any);
 
     nodeGroup.append("circle")
       .attr("r", d => d.radius)
-      .attr("fill", d => TEMA_COLORS[d.pieza.tema])
+      .attr("fill", d => TEMA_COLORS[d.pieza.tema] || '#666')
       .attr("stroke", "#FFFFFF")
       .attr("stroke-opacity", 0.1)
       .attr("stroke-width", 1);
@@ -171,7 +180,7 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
       .text(d => d.pieza.titulo.substring(0, 3).toUpperCase())
       .attr("text-anchor", "middle")
       .attr("dy", ".35em")
-      .attr("font-size", "8px")
+      .attr("font-size", isMobile ? "6px" : "8px")
       .attr("font-family", "var(--font-sans)")
       .attr("font-weight", "bold")
       .attr("fill", "#0A0A0A");
@@ -200,19 +209,11 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
       .on("mouseout", (event, d) => {
         d3.select(event.currentTarget).select("circle").attr("stroke-opacity", 0.1).attr("stroke-width", 1);
         setHoveredNode(null);
-        
-        link.transition().duration(200)
-          .attr("stroke-opacity", l => {
-            if (l.sharedTags.tema && l.sharedTags.mecanismo) return 0.4;
-            if (l.sharedTags.tema) return 0.2;
-            return 0.06;
-          });
-          
+        link.transition().duration(200).attr("stroke-opacity", l => lineOpacity(l.weight));
         nodeGroup.transition().duration(200).attr("opacity", 1);
       })
       .on("click", (event, d) => {
-        const seccionUrl = d.pieza.seccion.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-        router.push(`/${seccionUrl}/${d.id}`);
+        router.push(d.href);
       });
 
     simulation.on("tick", () => {
@@ -224,31 +225,38 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
       nodeGroup.attr("transform", d => `translate(${d.x},${d.y})`);
     });
 
-    return () => {
-      simulation.stop();
-    };
-  }, [piezas, router]);
+    return () => { simulation.stop(); };
+  }, [piezas, windowSize, router, isMobile]);
 
   useEffect(() => {
     if (!svgRef.current) return;
     const svg = d3.select(svgRef.current);
-    
     svg.selectAll("g.node-group").transition().duration(500)
       .attr("opacity", (n: any) => {
         const sF = activeFilters.seccion.length === 0 || activeFilters.seccion.includes(n.pieza.seccion);
         const tF = activeFilters.tema.length === 0 || activeFilters.tema.includes(n.pieza.tema);
         const iF = activeFilters.industria.length === 0 || activeFilters.industria.includes(n.pieza.industria);
-        const m1 = Array.isArray(n.pieza.mecanismo) ? n.pieza.mecanismo : [n.pieza.mecanismo];
-        const mF = activeFilters.mecanismo.length === 0 || m1.some((m: string) => activeFilters.mecanismo.includes(m as any));
+        const mF = activeFilters.mecanismo.length === 0 || n.pieza.mecanismo.some((m: string) => activeFilters.mecanismo.includes(m));
         return (sF && tF && iF && mF) ? 1 : 0.05;
       });
   }, [activeFilters]);
 
   return (
     <div className="flex w-full h-full bg-[#0A0A0A] relative overflow-hidden dark-mode font-sans">
-      <div className={`absolute left-0 top-0 h-full bg-[#0A0A0A]/90 backdrop-blur-xl border-r border-white/10 z-[220] transition-transform duration-500 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} w-72 overflow-y-auto scrollbar-hide`}>
-        <div className="p-8 pt-32">
-          <button onClick={() => setSidebarOpen(false)} className="tag-text mb-12 opacity-50 hover:opacity-100">✕ CERRAR</button>
+      {/* Sidebar / Bottom Panel */}
+      <div className={`
+        fixed z-[220] bg-[#0A0A0A]/95 backdrop-blur-xl border-white/10 transition-transform duration-500
+        ${isMobile 
+          ? `bottom-0 left-0 w-full h-[60%] border-t ${sidebarOpen ? 'translate-y-0' : 'translate-y-full'}`
+          : `left-0 top-0 h-full w-72 border-r ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`
+        }
+        overflow-y-auto scrollbar-hide
+      `}>
+        <div className={`p-8 ${isMobile ? 'pt-8' : 'pt-32'}`}>
+          <div className="flex justify-between items-center mb-12">
+            <h3 className="tag-text !text-white font-bold tracking-widest">FILTROS</h3>
+            <button onClick={() => setSidebarOpen(false)} className="tag-text opacity-50 hover:opacity-100">CERRAR</button>
+          </div>
           <div className="space-y-10">
             <FilterSection label="SECCIÓN" options={SECCIONES} active={activeFilters.seccion} toggle={(v) => toggleFilter('seccion', v)} isSeccion />
             <FilterSection label="TEMA" options={TEMAS} active={activeFilters.tema} toggle={(v) => toggleFilter('tema', v)} />
@@ -258,12 +266,24 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
         </div>
       </div>
 
-      {!sidebarOpen && (
-        <button onClick={() => setSidebarOpen(true)} className="absolute left-8 bottom-8 z-[210] tag-text opacity-50 hover:opacity-100">☰ FILTROS</button>
+      <button 
+        onClick={() => setSidebarOpen(true)} 
+        className={`absolute z-[210] tag-text opacity-50 hover:opacity-100 transition-all ${isMobile ? 'bottom-8 left-8' : 'bottom-8 left-8'}`}
+      >
+        ☰ FILTROS
+      </button>
+
+      {isMobile && hasActiveFilters && (
+        <button
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-white text-black text-[10px] uppercase tracking-widest px-6 py-3 border border-white/30"
+          onClick={clearFilters}
+        >
+          Limpiar filtros
+        </button>
       )}
 
-      <div className="absolute bottom-8 right-8 z-20 text-right pointer-events-none">
-        <p className="font-serif text-sm opacity-40 leading-relaxed">
+      <div className="absolute bottom-8 right-8 z-20 text-right pointer-events-none hidden md:block">
+        <p className="font-serif text-xs opacity-40 leading-relaxed">
           Cada nodo es una pieza.<br />
           Cada color es un tema.<br />
           Cada línea es una conexión.
@@ -274,7 +294,7 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
         <svg ref={svgRef} className="w-full h-full" />
         {hoveredNode && (
           <div className="absolute bottom-24 left-1/2 -translate-x-1/2 bg-white text-[#0A0A0A] p-6 max-w-sm pointer-events-none animate-in fade-in slide-in-from-bottom-4 shadow-2xl z-[230]">
-            <span className="tag-text block mb-2 uppercase font-bold" style={{ color: SECCION_COLORS[hoveredNode.pieza.seccion.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')] || '#000' }}>
+            <span className="tag-text block mb-2 uppercase font-bold" style={{ color: SECCION_COLORS[hoveredNode.pieza.seccion] || '#000' }}>
               {hoveredNode.pieza.seccion}
             </span>
             <h3 className="font-serif text-2xl leading-[1.1] mb-4">{hoveredNode.pieza.titulo}</h3>
@@ -295,9 +315,7 @@ function FilterSection({ label, options, active, toggle, isSeccion = false }: { 
       <h4 className="tag-text !text-white/30 mb-4 tracking-widest">{label}</h4>
       <div className="flex flex-col gap-2">
         {options.map(opt => {
-          const seccionUrl = opt.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-          const activeColor = isSeccion ? SECCION_COLORS[seccionUrl] : '#CC0000';
-          
+          const activeColor = isSeccion ? SECCION_COLORS[opt] || '#CC0000' : '#CC0000';
           return (
             <button 
               key={opt} 

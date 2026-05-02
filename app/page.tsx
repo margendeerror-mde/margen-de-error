@@ -8,7 +8,6 @@ const sections = [
   {
     id: 'home',
     title: 'MARGEN DE ERROR',
-    tagline: 'PERIODISMO CIENTÍFICO INDEPENDIENTE',
     subtitle: 'Un proyecto sobre cómo se construye, se distorsiona y se comunica el conocimiento científico.',
     bgColor: '#CC0000',
     textColor: '#FFFFFF',
@@ -20,7 +19,7 @@ const sections = [
     id: 'historias',
     title: 'HISTORIAS',
     subtitle: 'Casos que explican cómo llegamos a saber lo que sabemos.',
-    bgColor: '#C4763A', // Ámbar tostado
+    bgColor: '#C4763A',
     textColor: '#FFFFFF',
     accentColor: '#FFFFFF',
     detail: 'line',
@@ -29,7 +28,7 @@ const sections = [
     id: 'conflictos',
     title: 'CONFLICTOS',
     subtitle: 'Cuando el resultado de un estudio le queda demasiado bien a alguien.',
-    bgColor: '#B5431A', // Rojo ocre
+    bgColor: '#B5431A',
     textColor: '#FFFFFF',
     accentColor: '#FFFFFF',
     detail: 'glitch',
@@ -38,7 +37,7 @@ const sections = [
     id: 'serendipia',
     title: 'SERENDIPIA',
     subtitle: 'Lo que la ciencia encontró sin buscar.',
-    bgColor: '#2E5F7A', // Azul pizarra
+    bgColor: '#2E5F7A',
     textColor: '#FFFFFF',
     accentColor: '#FFFFFF',
     detail: 'dots',
@@ -47,7 +46,7 @@ const sections = [
     id: 'analisis',
     title: 'ANÁLISIS',
     subtitle: 'Papers que merecen más atención de la que reciben.',
-    bgColor: '#4A6741', // Verde musgo
+    bgColor: '#4A6741',
     textColor: '#FFFFFF',
     accentColor: '#FFFFFF',
     detail: 'quote',
@@ -56,7 +55,7 @@ const sections = [
     id: 'marco',
     title: 'MARCO',
     subtitle: 'Las categorías de error que se repiten.',
-    bgColor: '#5C4A7A', // Violeta ceniza
+    bgColor: '#5C4A7A',
     textColor: '#FFFFFF',
     accentColor: '#FFFFFF',
     detail: 'grid',
@@ -99,11 +98,18 @@ export default function EntryPage() {
 
   if (!mounted) return <div className="fixed inset-0 bg-black" />;
 
+  // Animation helper
+  const getAnimClass = (idx: number, delayClass: string = '') => {
+    if (isMobile) return 'opacity-100 translate-y-0';
+    return activeIdx === idx 
+      ? `opacity-100 translate-y-0 ${delayClass}` 
+      : 'opacity-0 translate-y-8';
+  };
+
   return (
     <div className="fixed inset-0 z-[100] bg-black overflow-hidden font-sans">
       <GlobalMenu dark={true} />
 
-      {/* Scroll Container */}
       <div 
         ref={containerRef}
         onScroll={handleScroll}
@@ -115,33 +121,22 @@ export default function EntryPage() {
             className="w-screen h-screen shrink-0 snap-start relative flex flex-col items-center justify-center overflow-hidden transition-colors duration-1000"
             style={{ backgroundColor: section.bgColor, color: section.textColor }}
           >
-            {/* Visual Details */}
             <VisualDetail type={section.detail || 'none'} active={activeIdx === idx} />
 
-            {/* Content */}
-            <div className={`text-center px-6 z-10 transition-all duration-700 ease-out ${activeIdx === idx ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className={`text-center px-6 z-10 transition-all duration-700 ease-out ${getAnimClass(idx)}`}>
               <h2 className="font-extrabold text-[clamp(3.5rem,12vw,9rem)] leading-[0.9] tracking-[-0.04em] uppercase mb-8">
                 {section.title}
               </h2>
 
-              {section.tagline && (
-                <div className={`mb-6 transition-all duration-700 delay-300 ${activeIdx === idx ? 'opacity-50 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                  <span className="tag-text !text-[10px] tracking-[0.2em] font-bold">
-                    {section.tagline}
-                  </span>
-                </div>
-              )}
-
-              <div className={`relative inline-block mb-12 transition-all duration-700 delay-500 ${activeIdx === idx ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                <p className="font-serif text-[1.1rem] leading-[1.6] max-w-[520px] mx-auto">
+              <div className={`relative inline-block mb-12 transition-all duration-700 ${getAnimClass(idx, 'delay-500')}`}>
+                <p className="font-serif text-[1.1rem] leading-[1.6] max-w-[520px] mx-auto opacity-80">
                   {section.subtitle}
                 </p>
               </div>
             </div>
 
-            {/* Call to Action */}
             {!section.isHome && (
-              <div className={`absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-8 z-20 transition-all duration-700 delay-700 ${activeIdx === idx ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+              <div className={`absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-8 z-20 transition-all duration-700 ${getAnimClass(idx, 'delay-700')}`}>
                 <Link 
                   href={`/${section.id}`} 
                   className="tag-text !text-[14px] tracking-[0.3em] font-bold hover:opacity-70 transition-opacity"
@@ -155,7 +150,6 @@ export default function EntryPage() {
         ))}
       </div>
 
-      {/* Navigation Indicators */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-4 z-[110]">
         {sections.map((_, idx) => (
           <button

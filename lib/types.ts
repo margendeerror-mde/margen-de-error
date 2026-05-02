@@ -55,9 +55,9 @@ export const TEMAS = [
 ] as const;
 
 export type Seccion = string;
-export type Industria = typeof INDUSTRIAS[number];
-export type Mecanismo = typeof MECANISMOS[number];
-export type Tema = typeof TEMAS[number];
+export type Industria = string;
+export type Mecanismo = string;
+export type Tema = string;
 
 export interface PiezaFrontmatter {
   titulo: string;
