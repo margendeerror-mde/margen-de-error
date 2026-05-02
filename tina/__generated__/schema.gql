@@ -103,7 +103,7 @@ type Historias implements Node & Document {
   titulo: String!
   seccion: String!
   industria: String!
-  mecanismo: [String!]!
+  mecanismo: [String]
   tema: String!
   fecha: String!
   resumen: String!
@@ -160,7 +160,7 @@ type Conflictos implements Node & Document {
   titulo: String!
   seccion: String!
   industria: String!
-  mecanismo: [String!]!
+  mecanismo: [String]
   tema: String!
   fecha: String!
   resumen: String!
@@ -196,7 +196,7 @@ type Serendipia implements Node & Document {
   titulo: String!
   seccion: String!
   industria: String!
-  mecanismo: [String!]!
+  mecanismo: [String]
   tema: String!
   fecha: String!
   resumen: String!
@@ -232,7 +232,7 @@ type Analisis implements Node & Document {
   titulo: String!
   seccion: String!
   industria: String!
-  mecanismo: [String!]!
+  mecanismo: [String]
   tema: String!
   fecha: String!
   resumen: String!
@@ -268,7 +268,7 @@ type Marco implements Node & Document {
   titulo: String!
   seccion: String!
   industria: String!
-  mecanismo: [String!]!
+  mecanismo: [String]
   tema: String!
   fecha: String!
   resumen: String!

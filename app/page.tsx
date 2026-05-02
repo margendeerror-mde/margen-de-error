@@ -8,8 +8,8 @@ const sections = [
   {
     id: 'home',
     title: 'MARGEN DE ERROR',
-    subtitle: 'Un proyecto sobre cómo llegamos a creer lo que la ciencia dice.',
     tagline: 'PERIODISMO CIENTÍFICO INDEPENDIENTE',
+    subtitle: 'Lo que creemos sobre salud depende, en parte, de quién pagó para que lo creyéramos.',
     bgColor: '#CC0000',
     textColor: '#FFFFFF',
     accentColor: '#FFFFFF',
@@ -19,44 +19,44 @@ const sections = [
   {
     id: 'historias',
     title: 'HISTORIAS',
-    subtitle: 'Relatos sobre cómo la ciencia se equivoca.',
-    bgColor: '#0A0A0A',
+    subtitle: 'Relatos sobre cómo la ciencia se equivoca y cómo lo descubrimos.',
+    bgColor: '#C4763A', // Ámbar tostado
     textColor: '#FFFFFF',
-    accentColor: '#CC0000',
+    accentColor: '#FFFFFF',
     detail: 'line',
   },
   {
     id: 'conflictos',
     title: 'CONFLICTOS',
-    subtitle: 'Conclusiones demasiado convenientes.',
-    bgColor: '#FAFAF8',
-    textColor: '#0A0A0A',
-    accentColor: '#CC0000',
+    subtitle: 'Investigaciones sobre conclusiones demasiado convenientes para quienes las financiaron.',
+    bgColor: '#B5431A', // Rojo ocre
+    textColor: '#FFFFFF',
+    accentColor: '#FFFFFF',
     detail: 'glitch',
   },
   {
     id: 'serendipia',
     title: 'SERENDIPIA',
-    subtitle: 'Lo que la ciencia encontró sin buscar.',
-    bgColor: '#1A1A2E',
+    subtitle: 'Lo que la ciencia encontró sin buscar, a pesar de los sesgos y las expectativas.',
+    bgColor: '#2E5F7A', // Azul pizarra
     textColor: '#FFFFFF',
-    accentColor: '#D4C5F9',
+    accentColor: '#FFFFFF',
     detail: 'dots',
   },
   {
     id: 'analisis',
     title: 'ANÁLISIS',
-    subtitle: 'Papers leídos en voz alta.',
-    bgColor: '#FAFAF8',
-    textColor: '#0A0A0A',
-    accentColor: '#0A0A0A',
+    subtitle: 'Lecturas profundas de papers y datos que cuentan una historia diferente a la oficial.',
+    bgColor: '#4A6741', // Verde musgo
+    textColor: '#FFFFFF',
+    accentColor: '#FFFFFF',
     detail: 'quote',
   },
   {
     id: 'marco',
     title: 'MARCO',
-    subtitle: 'Cómo funciona la máquina que produce conocimiento.',
-    bgColor: '#0A0A0A',
+    subtitle: 'Explorando la máquina que produce conocimiento: incentivos, instituciones y metodologías.',
+    bgColor: '#5C4A7A', // Violeta ceniza
     textColor: '#FFFFFF',
     accentColor: '#FFFFFF',
     detail: 'grid',
@@ -95,7 +95,7 @@ export default function EntryPage() {
 
   return (
     <div className="fixed inset-0 z-[100] bg-black overflow-hidden font-sans">
-      <GlobalMenu dark={sections[activeIdx].textColor === '#FFFFFF'} />
+      <GlobalMenu dark={true} />
 
       {/* Scroll Container */}
       <div 
@@ -117,24 +117,20 @@ export default function EntryPage() {
               <h2 className="font-extrabold text-[clamp(3.5rem,12vw,9rem)] leading-[0.9] tracking-[-0.04em] uppercase mb-8">
                 {section.title}
               </h2>
-              <div className="relative inline-block mb-6">
-                <p className="font-serif text-lg md:text-2xl opacity-80 max-w-2xl mx-auto">
-                  {section.subtitle}
-                </p>
-                {section.detail === 'glitch' && (
-                  <p className="font-serif text-lg md:text-2xl absolute inset-0 text-accent opacity-15 translate-x-[3px] translate-y-[3px] pointer-events-none">
-                    {section.subtitle}
-                  </p>
-                )}
-              </div>
-              
+
               {section.tagline && (
-                <div className="mt-6 opacity-50 animate-in fade-in slide-in-from-bottom-2 duration-1000 delay-500">
+                <div className="mb-6 opacity-50 animate-in fade-in slide-in-from-bottom-2 duration-1000 delay-300">
                   <span className="tag-text !text-[10px] tracking-[0.2em] font-bold">
                     {section.tagline}
                   </span>
                 </div>
               )}
+
+              <div className="relative inline-block mb-12">
+                <p className="font-serif text-[1.1rem] leading-[1.6] opacity-80 max-w-[520px] mx-auto">
+                  {section.subtitle}
+                </p>
+              </div>
             </div>
 
             {/* Call to Action */}
@@ -164,30 +160,10 @@ export default function EntryPage() {
                 ? 'scale-125' 
                 : 'opacity-30 border border-current bg-transparent'
             }`}
-            style={{ backgroundColor: activeIdx === idx ? sections[activeIdx].textColor : 'transparent', borderColor: sections[activeIdx].textColor }}
+            style={{ backgroundColor: activeIdx === idx ? '#FFFFFF' : 'transparent', borderColor: '#FFFFFF' }}
           />
         ))}
       </div>
-
-      {/* Arrows (Desktop only) */}
-      {!isMobile && (
-        <div className="pointer-events-none absolute inset-0 z-[110] flex items-center justify-between px-8">
-          <button 
-            onClick={() => scrollTo(Math.max(0, activeIdx - 1))}
-            className={`pointer-events-auto tag-text !text-[10px] opacity-0 hover:opacity-100 transition-opacity ${activeIdx === 0 ? 'invisible' : ''}`}
-            style={{ color: sections[activeIdx].textColor }}
-          >
-            ← PREV
-          </button>
-          <button 
-            onClick={() => scrollTo(Math.min(sections.length - 1, activeIdx + 1))}
-            className={`pointer-events-auto tag-text !text-[10px] opacity-0 hover:opacity-100 transition-opacity ${activeIdx === sections.length - 1 ? 'invisible' : ''}`}
-            style={{ color: sections[activeIdx].textColor }}
-          >
-            NEXT →
-          </button>
-        </div>
-      )}
     </div>
   );
 }
@@ -195,14 +171,14 @@ export default function EntryPage() {
 function VisualDetail({ type, active }: { type: string, active: boolean }) {
   switch (type) {
     case 'line':
-      return <div className={`absolute top-1/2 left-0 w-full h-[1px] bg-[#CC0000] transition-opacity duration-1000 ${active ? 'opacity-30' : 'opacity-0'}`} />;
+      return <div className={`absolute top-1/2 left-0 w-full h-[1px] bg-white transition-opacity duration-1000 ${active ? 'opacity-10' : 'opacity-0'}`} />;
     case 'dots':
       return (
         <div className={`absolute inset-0 transition-opacity duration-1000 ${active ? 'opacity-100' : 'opacity-0'}`}>
           {[1, 2, 3].map(i => (
             <div
               key={i}
-              className="absolute w-2 h-2 rounded-full bg-[#D4C5F9] opacity-40 transition-transform duration-1000"
+              className="absolute w-2 h-2 rounded-full bg-white opacity-20 transition-transform duration-1000"
               style={{
                 top: `${20 + i * 25}%`,
                 left: `${30 + (i % 2) * 40}%`,

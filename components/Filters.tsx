@@ -46,9 +46,9 @@ export default function Filters({ tags }: { tags: ReturnType<typeof getAvailable
   return (
     <div className="px-4 py-8 border-b border-border/30 bg-background/50 backdrop-blur-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex flex-col gap-1">
-        <FilterRow label="INDUSTRIA" keyName="industria" options={tags.industrias} />
-        <FilterRow label="MECANISMO" keyName="mecanismo" options={tags.mecanismos} />
-        <FilterRow label="TEMA" keyName="tema" options={tags.temas} />
+        <FilterRow label="INDUSTRIA" keyName="industria" options={tags.industria} />
+        <FilterRow label="MECANISMO" keyName="mecanismo" options={tags.mecanismo} />
+        <FilterRow label="TEMA" keyName="tema" options={tags.tema} />
       </div>
     </div>
   );

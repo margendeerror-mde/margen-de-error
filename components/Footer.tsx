@@ -11,10 +11,15 @@ export default function Footer() {
   if (isEntryPage || isRedPage) return null;
 
   return (
-    <footer className="max-w-7xl mx-auto px-4 py-24 mt-24">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-[#999]">
-        <div className="tag-text !text-[10px] tracking-[0.2em] font-bold">
-          MARGEN DE ERROR — PERIODISMO CIENTÍFICO INDEPENDIENTE
+    <footer className="max-w-7xl mx-auto px-4 py-24 mt-24 border-t border-border/10">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-12 text-[#999]">
+        <div className="flex flex-col gap-4 items-center md:items-start">
+          <div className="tag-text !text-[10px] tracking-[0.2em] font-bold">
+            MARGEN DE ERROR — PERIODISMO CIENTÍFICO INDEPENDIENTE
+          </div>
+          <Link href="/red" className="tag-text !text-[11px] text-accent hover:opacity-70 transition-opacity font-bold tracking-[0.1em]">
+            → VER RED DE CONEXIONES
+          </Link>
         </div>
         
         <div className="flex gap-8">

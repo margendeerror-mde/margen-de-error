@@ -1,59 +1,9 @@
 // tina/config.ts
 import { defineConfig } from "tinacms";
-
-// lib/types.ts
-var INDUSTRIAS = [
-  "farmac\xE9utica",
-  "alimentaria",
-  "cosm\xE9tica-y-cuidado-personal",
-  "tabaco",
-  "alcohol",
-  "suplementos-y-bienestar",
-  "dispositivos-m\xE9dicos",
-  "seguros-de-salud",
-  "agroqu\xEDmica",
-  "energ\xEDa",
-  "institucional-acad\xE9mica",
-  "organismos-reguladores",
-  "medios-y-comunicaci\xF3n"
-];
-var MECANISMOS = [
-  "financiamiento-de-estudio",
-  "dise\xF1o-sesgado",
-  "titular-enga\xF1oso",
-  "omisi\xF3n-de-datos",
-  "cherry-picking",
-  "captura-regulatoria",
-  "migraci\xF3n-de-estrategia",
-  "conflicto-de-inter\xE9s-no-declarado",
-  "sesgo-de-publicaci\xF3n",
-  "experto-capturado",
-  "manufactura-de-duda",
-  "normalizaci\xF3n-por-repetici\xF3n",
-  "correlaci\xF3n-presentada-como-causalidad"
-];
-var TEMAS = [
-  "luz-y-radiaci\xF3n",
-  "nutrici\xF3n",
-  "movimiento-y-ejercicio",
-  "sue\xF1o",
-  "mente-y-conducta",
-  "microbioma",
-  "dolor",
-  "ambiente-y-exposici\xF3n",
-  "medicaci\xF3n-y-f\xE1rmacos",
-  "diagn\xF3stico-y-clasificaci\xF3n",
-  "hormonas-y-endocrino",
-  "inmunidad",
-  "envejecimiento"
-];
-
-// tina/config.ts
-var branch = "main";
 var config_default = defineConfig({
-  branch,
-  clientId: "dummy",
-  token: "dummy",
+  branch: process.env.NEXT_PUBLIC_TINA_BRANCH || "main",
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "dummy-id",
+  token: process.env.TINA_TOKEN || "dummy-token",
   build: {
     outputFolder: "admin",
     publicFolder: "public"
@@ -70,95 +20,163 @@ var config_default = defineConfig({
         name: "historias",
         label: "Historias",
         path: "content/historias",
-        format: "mdx",
+        format: "md",
         ui: {
           filename: {
-            slugify: (values) => `${values?.titulo?.toLowerCase().replace(/ /g, "-").replace(/[^a-z0-9-]/g, "") || "sin-titulo"}`
+            slugify: (values) => values?.titulo?.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "").normalize("NFD").replace(/[\u0300-\u036f]/g, "") || ""
           }
         },
-        fields: getFields("historias")
+        fields: camposComunes()
       },
       {
         name: "conflictos",
         label: "Conflictos",
         path: "content/conflictos",
-        format: "mdx",
+        format: "md",
         ui: {
           filename: {
-            slugify: (values) => `${values?.titulo?.toLowerCase().replace(/ /g, "-").replace(/[^a-z0-9-]/g, "") || "sin-titulo"}`
+            slugify: (values) => values?.titulo?.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "").normalize("NFD").replace(/[\u0300-\u036f]/g, "") || ""
           }
         },
-        fields: getFields("conflictos")
+        fields: camposComunes()
       },
       {
         name: "serendipia",
         label: "Serendipia",
         path: "content/serendipia",
-        format: "mdx",
+        format: "md",
         ui: {
           filename: {
-            slugify: (values) => `${values?.titulo?.toLowerCase().replace(/ /g, "-").replace(/[^a-z0-9-]/g, "") || "sin-titulo"}`
+            slugify: (values) => values?.titulo?.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "").normalize("NFD").replace(/[\u0300-\u036f]/g, "") || ""
           }
         },
-        fields: getFields("serendipia")
+        fields: camposComunes()
       },
       {
         name: "analisis",
         label: "An\xE1lisis",
         path: "content/analisis",
-        format: "mdx",
+        format: "md",
         ui: {
           filename: {
-            slugify: (values) => `${values?.titulo?.toLowerCase().replace(/ /g, "-").replace(/[^a-z0-9-]/g, "") || "sin-titulo"}`
+            slugify: (values) => values?.titulo?.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "").normalize("NFD").replace(/[\u0300-\u036f]/g, "") || ""
           }
         },
-        fields: getFields("analisis")
+        fields: camposComunes()
       },
       {
         name: "marco",
         label: "Marco",
         path: "content/marco",
-        format: "mdx",
+        format: "md",
         ui: {
           filename: {
-            slugify: (values) => `${values?.titulo?.toLowerCase().replace(/ /g, "-").replace(/[^a-z0-9-]/g, "") || "sin-titulo"}`
+            slugify: (values) => values?.titulo?.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "").normalize("NFD").replace(/[\u0300-\u036f]/g, "") || ""
           }
         },
-        fields: getFields("marco")
+        fields: camposComunes()
       }
     ]
   }
 });
-function getFields(seccionName) {
+function camposComunes() {
   return [
-    { type: "string", name: "titulo", label: "T\xEDtulo", isTitle: true, required: true },
-    { type: "string", name: "seccion", label: "Secci\xF3n", required: true, ui: { component: "hidden" } },
-    // Will be set automatically or hidden
+    {
+      type: "string",
+      name: "titulo",
+      label: "T\xEDtulo",
+      isTitle: true,
+      required: true
+    },
+    {
+      type: "string",
+      name: "seccion",
+      label: "Secci\xF3n",
+      required: true,
+      options: ["historia", "conflicto", "serendipia", "an\xE1lisis", "marco"]
+    },
     {
       type: "string",
       name: "industria",
       label: "Industria",
       required: true,
-      options: [...INDUSTRIAS]
+      options: [
+        "farmac\xE9utica",
+        "alimentaria",
+        "cosm\xE9tica-y-cuidado-personal",
+        "tabaco",
+        "alcohol",
+        "suplementos-y-bienestar",
+        "dispositivos-m\xE9dicos",
+        "seguros-de-salud",
+        "agroqu\xEDmica",
+        "energ\xEDa",
+        "institucional-acad\xE9mica",
+        "organismos-reguladores",
+        "medios-y-comunicaci\xF3n"
+      ]
     },
     {
       type: "string",
       name: "mecanismo",
-      label: "Mecanismo(s)",
-      required: true,
+      label: "Mecanismo",
       list: true,
-      options: [...MECANISMOS]
+      options: [
+        "financiamiento-de-estudio",
+        "dise\xF1o-sesgado",
+        "titular-enga\xF1oso",
+        "omisi\xF3n-de-datos",
+        "cherry-picking",
+        "captura-regulatoria",
+        "migraci\xF3n-de-estrategia",
+        "conflicto-de-inter\xE9s-no-declarado",
+        "sesgo-de-publicaci\xF3n",
+        "experto-capturado",
+        "manufactura-de-duda",
+        "normalizaci\xF3n-por-repetici\xF3n",
+        "correlaci\xF3n-presentada-como-causalidad"
+      ]
     },
     {
       type: "string",
       name: "tema",
       label: "Tema",
       required: true,
-      options: [...TEMAS]
+      options: [
+        "luz-y-radiaci\xF3n",
+        "nutrici\xF3n",
+        "movimiento-y-ejercicio",
+        "sue\xF1o",
+        "mente-y-conducta",
+        "microbioma",
+        "dolor",
+        "ambiente-y-exposici\xF3n",
+        "medicaci\xF3n-y-f\xE1rmacos",
+        "diagn\xF3stico-y-clasificaci\xF3n",
+        "hormonas-y-endocrino",
+        "inmunidad",
+        "envejecimiento"
+      ]
     },
-    { type: "datetime", name: "fecha", label: "Fecha", required: true },
-    { type: "string", name: "resumen", label: "Resumen Breve", ui: { component: "textarea" }, required: true },
-    { type: "rich-text", name: "body", label: "Contenido de la Pieza", isBody: true }
+    {
+      type: "datetime",
+      name: "fecha",
+      label: "Fecha",
+      required: true
+    },
+    {
+      type: "string",
+      name: "resumen",
+      label: "Resumen",
+      required: true,
+      ui: { component: "textarea" }
+    },
+    {
+      type: "rich-text",
+      name: "body",
+      label: "Contenido",
+      isBody: true
+    }
   ];
 }
 export {

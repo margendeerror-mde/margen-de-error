@@ -1,56 +1,101 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { Pieza, SECCIONES, Seccion } from './types';
 
-const contentDirectory = path.join(process.cwd(), 'content');
-
-export function getPiezas(): Pieza[] {
-  const piezas: Pieza[] = [];
+export function getPiezasBySeccion(seccion: string) {
+  const dir = path.join(process.cwd(), 'content', seccion);
+  if (!fs.existsSync(dir)) return [];
   
-  // Use SECCIONES to iterate over folders
-  SECCIONES.forEach(seccion => {
-    const sectionPath = path.join(contentDirectory, seccion);
-    if (fs.existsSync(sectionPath)) {
-      const files = fs.readdirSync(sectionPath);
-      files.forEach(fileName => {
-        if (fileName.endsWith('.mdx') || fileName.endsWith('.md')) {
-          const fullPath = path.join(sectionPath, fileName);
-          const fileContents = fs.readFileSync(fullPath, 'utf8');
-          const { data, content } = matter(fileContents);
-          
-          piezas.push({
-            slug: fileName.replace(/\.mdx?$/, ''),
-            titulo: data.titulo,
-            seccion: data.seccion as Seccion,
-            industria: data.industria,
-            mecanismo: data.mecanismo,
-            tema: data.tema,
-            fecha: data.fecha instanceof Date ? data.fecha.toISOString().split('T')[0] : data.fecha,
-            resumen: data.resumen,
-            content,
-          });
-        }
-      });
+  return fs.readdirSync(dir)
+    .filter(f => f.endsWith('.md') || f.endsWith('.mdx'))
+    .map(filename => {
+      const slug = filename.replace(/\.mdx?$/, '');
+      const raw = fs.readFileSync(path.join(dir, filename), 'utf-8');
+      const { data, content } = matter(raw);
+      
+      // Normalize mecanismo to array
+      const mecanismo = Array.isArray(data.mecanismo) 
+        ? data.mecanismo 
+        : (data.mecanismo ? [data.mecanismo] : []);
+
+      // Ensure fecha is a string
+      const fecha = data.fecha instanceof Date 
+        ? data.fecha.toISOString().split('T')[0] 
+        : (data.fecha || new Date().toISOString().split('T')[0]);
+
+      return { 
+        slug, 
+        titulo: data.titulo || 'Sin título',
+        seccion: seccion,
+        industria: data.industria || 'otro',
+        mecanismo,
+        tema: data.tema || 'general',
+        fecha: String(fecha),
+        resumen: data.resumen || '',
+        content,
+      };
+    })
+    .sort((a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime());
+}
+
+export function getAllPiezas() {
+  const secciones = ['historias', 'conflictos', 'serendipia', 'analisis', 'marco'];
+  return secciones.flatMap(s => getPiezasBySeccion(s));
+}
+
+export function getPieza(seccion: string, slug: string) {
+  const dir = path.join(process.cwd(), 'content', seccion);
+  let filepath = path.join(dir, `${slug}.md`);
+  
+  if (!fs.existsSync(filepath)) {
+    filepath = path.join(dir, `${slug}.mdx`);
+  }
+  
+  if (!fs.existsSync(filepath)) return null;
+  
+  const raw = fs.readFileSync(filepath, 'utf-8');
+  const { data, content } = matter(raw);
+  
+  const mecanismo = Array.isArray(data.mecanismo) 
+    ? data.mecanismo 
+    : (data.mecanismo ? [data.mecanismo] : []);
+
+  // Ensure fecha is a string
+  const fecha = data.fecha instanceof Date 
+    ? data.fecha.toISOString().split('T')[0] 
+    : (data.fecha || new Date().toISOString().split('T')[0]);
+
+  return { 
+    slug, 
+    titulo: data.titulo || 'Sin título',
+    seccion: seccion,
+    industria: data.industria || 'otro',
+    mecanismo,
+    tema: data.tema || 'general',
+    fecha: String(fecha),
+    resumen: data.resumen || '',
+    content,
+  };
+}
+
+export function getAvailableTags(piezas: any[]) {
+  const tags = {
+    industria: new Set<string>(),
+    mecanismo: new Set<string>(),
+    tema: new Set<string>()
+  };
+
+  piezas.forEach(p => {
+    if (p.industria) tags.industria.add(p.industria);
+    if (p.tema) tags.tema.add(p.tema);
+    if (p.mecanismo) {
+      p.mecanismo.forEach((m: string) => tags.mecanismo.add(m));
     }
   });
 
-  return piezas.sort((a, b) => (a.fecha < b.fecha ? 1 : -1));
-}
-
-export function getPiezasBySeccion(seccion: string): Pieza[] {
-  return getPiezas().filter(p => p.seccion === seccion);
-}
-
-export function getPieza(seccion: string, slug: string): Pieza | null {
-  const piezas = getPiezas();
-  return piezas.find(p => p.seccion === seccion && p.slug === slug) || null;
-}
-
-export function getAvailableTags(piezas: Pieza[]) {
-  const industrias = Array.from(new Set(piezas.map(p => p.industria))).sort();
-  const mecanismos = Array.from(new Set(piezas.flatMap(p => p.mecanismo))).sort();
-  const temas = Array.from(new Set(piezas.map(p => p.tema))).sort();
-  
-  return { industrias, mecanismos, temas };
+  return {
+    industria: Array.from(tags.industria),
+    mecanismo: Array.from(tags.mecanismo),
+    tema: Array.from(tags.tema)
+  };
 }

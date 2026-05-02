@@ -1,15 +1,16 @@
-import { getPiezas, getAvailableTags } from '@/lib/content';
+import { getAllPiezas, getAvailableTags } from '@/lib/content';
 import PieceCard from '@/components/PieceCard';
 import Filters from '@/components/Filters';
 import GlobalMenu from '@/components/GlobalMenu';
 import { Suspense } from 'react';
 
-export default function ArchivoPage({
+export default async function ArchivoPage({
   searchParams,
 }: {
-  searchParams: { industria?: string; mecanismo?: string; tema?: string }
+  searchParams: Promise<{ industria?: string; mecanismo?: string; tema?: string }>
 }) {
-  const todasLasPiezas = getPiezas();
+  const resolvedParams = await searchParams;
+  const todasLasPiezas = getAllPiezas();
   const tags = getAvailableTags(todasLasPiezas);
   
   const filterByValue = (piezaValue: string | string[], paramValue?: string) => {
@@ -20,9 +21,9 @@ export default function ArchivoPage({
   };
 
   const feed = todasLasPiezas.filter(p => 
-    filterByValue(p.industria, searchParams.industria) &&
-    filterByValue(p.mecanismo, searchParams.mecanismo) &&
-    filterByValue(p.tema, searchParams.tema)
+    filterByValue(p.industria, resolvedParams.industria) &&
+    filterByValue(p.mecanismo, resolvedParams.mecanismo) &&
+    filterByValue(p.tema, resolvedParams.tema)
   );
 
   return (

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
-import { Pieza, TEMA_COLORS, SECCIONES, INDUSTRIAS, MECANISMOS, TEMAS } from '@/lib/types';
+import { Pieza, TEMA_COLORS, SECCIONES, INDUSTRIAS, MECANISMOS, TEMAS, SECCION_COLORS } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 
 interface Node extends d3.SimulationNodeDatum {
@@ -210,7 +210,10 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
           
         nodeGroup.transition().duration(200).attr("opacity", 1);
       })
-      .on("click", (event, d) => router.push(`/${d.pieza.seccion.replace('á', 'a')}/${d.id}`));
+      .on("click", (event, d) => {
+        const seccionUrl = d.pieza.seccion.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        router.push(`/${seccionUrl}/${d.id}`);
+      });
 
     simulation.on("tick", () => {
       link
@@ -243,11 +246,11 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
 
   return (
     <div className="flex w-full h-full bg-[#0A0A0A] relative overflow-hidden dark-mode font-sans">
-      <div className={`absolute left-0 top-0 h-full bg-[#0A0A0A]/90 backdrop-blur-xl border-r border-white/10 z-[210] transition-transform duration-500 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} w-72 overflow-y-auto scrollbar-hide`}>
-        <div className="p-8 pt-24">
+      <div className={`absolute left-0 top-0 h-full bg-[#0A0A0A]/90 backdrop-blur-xl border-r border-white/10 z-[220] transition-transform duration-500 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} w-72 overflow-y-auto scrollbar-hide`}>
+        <div className="p-8 pt-32">
           <button onClick={() => setSidebarOpen(false)} className="tag-text mb-12 opacity-50 hover:opacity-100">✕ CERRAR</button>
           <div className="space-y-10">
-            <FilterSection label="SECCIÓN" options={SECCIONES} active={activeFilters.seccion} toggle={(v) => toggleFilter('seccion', v)} />
+            <FilterSection label="SECCIÓN" options={SECCIONES} active={activeFilters.seccion} toggle={(v) => toggleFilter('seccion', v)} isSeccion />
             <FilterSection label="TEMA" options={TEMAS} active={activeFilters.tema} toggle={(v) => toggleFilter('tema', v)} />
             <FilterSection label="INDUSTRIA" options={INDUSTRIAS} active={activeFilters.industria} toggle={(v) => toggleFilter('industria', v)} />
             <FilterSection label="MECANISMO" options={MECANISMOS} active={activeFilters.mecanismo} toggle={(v) => toggleFilter('mecanismo', v)} />
@@ -270,8 +273,10 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
       <div ref={containerRef} className="flex-1 relative">
         <svg ref={svgRef} className="w-full h-full" />
         {hoveredNode && (
-          <div className="absolute bottom-24 left-1/2 -translate-x-1/2 bg-white text-[#0A0A0A] p-6 max-w-sm pointer-events-none animate-in fade-in slide-in-from-bottom-4 shadow-2xl z-[220]">
-            <span className="tag-text !text-accent block mb-2 uppercase">{hoveredNode.pieza.seccion}</span>
+          <div className="absolute bottom-24 left-1/2 -translate-x-1/2 bg-white text-[#0A0A0A] p-6 max-w-sm pointer-events-none animate-in fade-in slide-in-from-bottom-4 shadow-2xl z-[230]">
+            <span className="tag-text block mb-2 uppercase font-bold" style={{ color: SECCION_COLORS[hoveredNode.pieza.seccion.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')] || '#000' }}>
+              {hoveredNode.pieza.seccion}
+            </span>
             <h3 className="font-serif text-2xl leading-[1.1] mb-4">{hoveredNode.pieza.titulo}</h3>
             <div className="space-y-1">
               <p className="tag-text !text-black/40">TEMA: <span className="text-black">{hoveredNode.pieza.tema}</span></p>
@@ -284,20 +289,26 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
   );
 }
 
-function FilterSection({ label, options, active, toggle }: { label: string, options: readonly string[], active: string[], toggle: (v: string) => void }) {
+function FilterSection({ label, options, active, toggle, isSeccion = false }: { label: string, options: readonly string[], active: string[], toggle: (v: string) => void, isSeccion?: boolean }) {
   return (
     <div>
       <h4 className="tag-text !text-white/30 mb-4 tracking-widest">{label}</h4>
       <div className="flex flex-col gap-2">
-        {options.map(opt => (
-          <button 
-            key={opt} 
-            onClick={() => toggle(opt)}
-            className={`tag-text text-left transition-colors !text-[9px] ${active.includes(opt) ? 'text-accent' : 'text-white/60 hover:text-white'}`}
-          >
-            {active.includes(opt) ? '● ' : '○ '}{opt.toUpperCase()}
-          </button>
-        ))}
+        {options.map(opt => {
+          const seccionUrl = opt.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+          const activeColor = isSeccion ? SECCION_COLORS[seccionUrl] : '#CC0000';
+          
+          return (
+            <button 
+              key={opt} 
+              onClick={() => toggle(opt)}
+              className="tag-text text-left transition-colors !text-[9px]"
+              style={{ color: active.includes(opt) ? activeColor : 'rgba(255,255,255,0.6)' }}
+            >
+              {active.includes(opt) ? '● ' : '○ '}{opt.toUpperCase()}
+            </button>
+          );
+        })}
       </div>
     </div>
   );

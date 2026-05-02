@@ -54,7 +54,7 @@ export const TEMAS = [
   'envejecimiento'
 ] as const;
 
-export type Seccion = typeof SECCIONES[number];
+export type Seccion = string;
 export type Industria = typeof INDUSTRIAS[number];
 export type Mecanismo = typeof MECANISMOS[number];
 export type Tema = typeof TEMAS[number];
@@ -88,4 +88,11 @@ export const TEMA_COLORS: Record<Tema, string> = {
   "hormonas-y-endocrino":       "#E1BEE7",
   "inmunidad":                  "#B3E5FC",
   "envejecimiento":             "#D7CCC8",
+};
+export const SECCION_COLORS: Record<string, string> = {
+  historias:  "#C4763A", // Ámbar tostado
+  conflictos: "#B5431A", // Rojo ocre
+  serendipia: "#2E5F7A", // Azul pizarra
+  analisis:   "#4A6741", // Verde musgo
+  marco:      "#5C4A7A", // Violeta ceniza
 };
