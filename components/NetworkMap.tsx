@@ -57,9 +57,20 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
   const toggleFilter = (type: string, value: string) => {
     setActiveFilters(prev => {
       const current = prev[type] || [];
+      const isAlreadyActive = current.includes(value);
+
+      // Single selection for unique categories
+      if (type !== 'mecanismo') {
+        return {
+          ...prev,
+          [type]: isAlreadyActive ? [] : [value]
+        };
+      }
+
+      // Multiple selection (AND logic) for mechanisms
       return {
         ...prev,
-        [type]: current.includes(value) ? current.filter(v => v !== value) : [...current, value]
+        [type]: isAlreadyActive ? current.filter(v => v !== value) : [...current, value]
       };
     });
   };
@@ -189,7 +200,8 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
       const sF = activeFilters.seccion.length === 0 || activeFilters.seccion.includes(n.pieza.seccion);
       const tF = activeFilters.tema.length === 0 || activeFilters.tema.includes(n.pieza.tema);
       const iF = activeFilters.industria.length === 0 || activeFilters.industria.includes(n.pieza.industria);
-      const mF = activeFilters.mecanismo.length === 0 || n.pieza.mecanismo.some((m: string) => activeFilters.mecanismo.includes(m));
+      const mF = activeFilters.mecanismo.length === 0 || 
+                activeFilters.mecanismo.every((m: string) => n.pieza.mecanismo.includes(m));
       return (sF && tF && iF && mF) ? 1 : 0.05;
     };
 
@@ -254,17 +266,25 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
         const sF = activeFilters.seccion.length === 0 || activeFilters.seccion.includes(n.pieza.seccion);
         const tF = activeFilters.tema.length === 0 || activeFilters.tema.includes(n.pieza.tema);
         const iF = activeFilters.industria.length === 0 || activeFilters.industria.includes(n.pieza.industria);
-        const mF = activeFilters.mecanismo.length === 0 || n.pieza.mecanismo.some((m: string) => activeFilters.mecanismo.includes(m));
+        // AND logic for mechanisms: piece must have ALL selected mechanisms
+        const mF = activeFilters.mecanismo.length === 0 || 
+                  activeFilters.mecanismo.every((m: string) => n.pieza.mecanismo.includes(m));
+        
         return (sF && tF && iF && mF) ? 1 : 0.05;
       });
       
     svg.selectAll("line").transition().duration(500)
       .attr("stroke-opacity", (l: any) => {
-        const sSource = activeFilters.seccion.length === 0 || activeFilters.seccion.includes(l.source.pieza.seccion);
-        const sTarget = activeFilters.seccion.length === 0 || activeFilters.seccion.includes(l.target.pieza.seccion);
-        // If filters are active, only show links where BOTH nodes match filters
-        // This makes the filtered state much cleaner
-        const isVisible = sSource && sTarget;
+        // Link visibility also follows strict intersection
+        const getMatch = (node: any) => {
+          const s = activeFilters.seccion.length === 0 || activeFilters.seccion.includes(node.pieza.seccion);
+          const t = activeFilters.tema.length === 0 || activeFilters.tema.includes(node.pieza.tema);
+          const i = activeFilters.industria.length === 0 || activeFilters.industria.includes(node.pieza.industria);
+          const m = activeFilters.mecanismo.length === 0 || activeFilters.mecanismo.every((mec: string) => node.pieza.mecanismo.includes(mec));
+          return s && t && i && m;
+        };
+
+        const isVisible = getMatch(l.source) && getMatch(l.target);
         return isVisible ? 0.2 : 0.01;
       });
   }, [activeFilters]);
