@@ -1,11 +1,14 @@
 ---
-titulo: "El estudio de 135.000 personas que no cambió ninguna guía"
+titulo: El estudio de 135.000 personas que no cambió ninguna guía
 seccion: análisis
 industria: alimentaria
-mecanismo: [sesgo-de-publicación, omisión-de-datos, titular-engañoso]
+mecanismo:
+  - sesgo-de-publicación
+  - omisión-de-datos
+  - titular-engañoso
 tema: nutrición
-fecha: 2025-03-14
-resumen: "En 2017, The Lancet publicó los resultados del estudio PURE: 135.335 personas de 18 países, seguidas durante 7,4 años. Los países con mayor consumo de grasas tenían menor mortalidad. Los países con mayor consumo de carbohidratos, mayor mortalidad. El hallazgo contradice directamente las guías dietéticas vigentes en la mayoría del mundo occidental. Las guías no cambiaron."
+fecha: 2025-03-14T00:00:00.000Z
+resumen: 'En 2017, The Lancet publicó los resultados del estudio PURE: 135.335 personas de 18 países, seguidas durante 7,4 años. Los individuos con mayor consumo de grasas tenían menor mortalidad. Los individuos con mayor consumo de carbohidratos, mayor mortalidad. Los hallazgos entran en tensión con aspectos centrales de las guías dietéticas vigentes en la mayoría del mundo occidental. Las guías no cambiaron sustantivamente.'
 ---
 
 **El paper**
@@ -52,10 +55,10 @@ Cambiar las guías dietéticas es un proceso largo con múltiples actores instit
 
 El estudio PURE no demuestra que las guías actuales sean incorrectas. Demuestra que la evidencia sobre la que descansan es más disputada de lo que su presentación habitual sugiere.
 
----
+***
 
 **Referencias**
 
-- Dehghan M et al. "Associations of fats and carbohydrate intake with cardiovascular disease and mortality in 18 countries." *The Lancet*, 2017. DOI: 10.1016/S0140-6736(17)32252-3
-- Siri-Tarino PW et al. "Meta-analysis of prospective cohort studies evaluating the association of saturated fat with cardiovascular disease." *American Journal of Clinical Nutrition*, 2010. DOI: 10.3945/ajcn.2009.27725
-- Dietary Guidelines Advisory Committee. "Scientific Report of the 2020 Dietary Guidelines Advisory Committee." Washington DC: USDA, 2020.
+* Dehghan M et al. "Associations of fats and carbohydrate intake with cardiovascular disease and mortality in 18 countries." *The Lancet*, 2017. DOI: 10.1016/S0140-6736(17)32252-3
+* Siri-Tarino PW et al. "Meta-analysis of prospective cohort studies evaluating the association of saturated fat with cardiovascular disease." *American Journal of Clinical Nutrition*, 2010. DOI: 10.3945/ajcn.2009.27725
+* Dietary Guidelines Advisory Committee. "Scientific Report of the 2020 Dietary Guidelines Advisory Committee." Washington DC: USDA, 2020.
