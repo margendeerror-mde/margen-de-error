@@ -95,7 +95,7 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
 
         if (a.seccion === b.seccion) weight += 1;
 
-        if (weight > 0) {
+        if (weight >= 2) {
           links.push({
             source: nodes[i].id,
             target: nodes[j].id,
@@ -185,32 +185,50 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
       .attr("font-weight", "bold")
       .attr("fill", "#0A0A0A");
 
+    const getFilteredOpacity = (n: Node) => {
+      const sF = activeFilters.seccion.length === 0 || activeFilters.seccion.includes(n.pieza.seccion);
+      const tF = activeFilters.tema.length === 0 || activeFilters.tema.includes(n.pieza.tema);
+      const iF = activeFilters.industria.length === 0 || activeFilters.industria.includes(n.pieza.industria);
+      const mF = activeFilters.mecanismo.length === 0 || n.pieza.mecanismo.some((m: string) => activeFilters.mecanismo.includes(m));
+      return (sF && tF && iF && mF) ? 1 : 0.05;
+    };
+
+    const updateMapVisuals = (activeHover: Node | null) => {
+      nodeGroup.transition().duration(200)
+        .attr("opacity", n => {
+          const baseOpacity = getFilteredOpacity(n);
+          if (!activeHover) return baseOpacity;
+          
+          if (n.id === activeHover.id) return 1;
+          
+          const isConnected = links.some(l => 
+            ((l.source as Node).id === activeHover.id && (l.target as Node).id === n.id) || 
+            ((l.target as Node).id === activeHover.id && (l.source as Node).id === n.id)
+          );
+          
+          return isConnected ? Math.max(baseOpacity, 0.8) : 0.05;
+        });
+
+      link.transition().duration(200)
+        .attr("stroke-opacity", l => {
+          const baseOpacity = lineOpacity(l.weight);
+          if (!activeHover) return baseOpacity;
+          
+          const isConnected = (l.source as Node).id === activeHover.id || (l.target as Node).id === activeHover.id;
+          return isConnected ? 0.6 : 0.01;
+        });
+    };
+
     nodeGroup
       .on("mouseover", (event, d) => {
         d3.select(event.currentTarget).select("circle").attr("stroke-opacity", 1).attr("stroke-width", 2);
         setHoveredNode(d);
-        
-        link.transition().duration(200)
-          .attr("stroke-opacity", l => {
-            const isConnected = l.source === d || l.target === d;
-            return isConnected ? 0.6 : 0.01;
-          });
-        
-        nodeGroup.transition().duration(200)
-          .attr("opacity", n => {
-            if (n === d) return 1;
-            const isConnected = links.some(l => 
-              ((l.source as Node).id === d.id && (l.target as Node).id === n.id) || 
-              ((l.target as Node).id === d.id && (l.source as Node).id === n.id)
-            );
-            return isConnected ? 1 : 0.05;
-          });
+        updateMapVisuals(d);
       })
       .on("mouseout", (event, d) => {
         d3.select(event.currentTarget).select("circle").attr("stroke-opacity", 0.1).attr("stroke-width", 1);
         setHoveredNode(null);
-        link.transition().duration(200).attr("stroke-opacity", l => lineOpacity(l.weight));
-        nodeGroup.transition().duration(200).attr("opacity", 1);
+        updateMapVisuals(null);
       })
       .on("click", (event, d) => {
         router.push(d.href);
@@ -238,6 +256,16 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
         const iF = activeFilters.industria.length === 0 || activeFilters.industria.includes(n.pieza.industria);
         const mF = activeFilters.mecanismo.length === 0 || n.pieza.mecanismo.some((m: string) => activeFilters.mecanismo.includes(m));
         return (sF && tF && iF && mF) ? 1 : 0.05;
+      });
+      
+    svg.selectAll("line").transition().duration(500)
+      .attr("stroke-opacity", (l: any) => {
+        const sSource = activeFilters.seccion.length === 0 || activeFilters.seccion.includes(l.source.pieza.seccion);
+        const sTarget = activeFilters.seccion.length === 0 || activeFilters.seccion.includes(l.target.pieza.seccion);
+        // If filters are active, only show links where BOTH nodes match filters
+        // This makes the filtered state much cleaner
+        const isVisible = sSource && sTarget;
+        return isVisible ? 0.2 : 0.01;
       });
   }, [activeFilters]);
 
