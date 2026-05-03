@@ -12,13 +12,13 @@ En 1969, un ejecutivo de Brown & Williamson —una de las grandes tabacaleras es
 
 "La duda es nuestro producto, ya que es la mejor manera de competir con el cuerpo de hechos que existe en la mente del público en general."
 
-El memorando se volvió público décadas después, en los juicios contra la industria tabacalera. Pero para entonces, la estrategia que describía ya había sido adoptada por al menos cinco industrias distintas.
+El memorando se volvió público décadas después, en los juicios contra la industria tabacalera. Pero para entonces, la estrategia que describía ya había sido adoptada por múltiples industrias.
 
 ---
 
 La evidencia de que el tabaco causaba cáncer de pulmón empezó a acumularse en los años cuarenta. Para 1950, había estudios sólidos. Para 1964, el informe del Surgeon General de Estados Unidos era concluyente: fumar mata.
 
-La respuesta de la industria tabacalera no fue negar la evidencia. Eso hubiera sido demasiado obvio y demasiado fácil de refutar. La respuesta fue más sofisticada: sembrar dudas sobre la calidad de la evidencia, financiar investigación alternativa que produjera resultados ambiguos, y sostener públicamente que "el debate científico sigue abierto".
+La respuesta de la industria tabacalera no se limitó a negar la evidencia —cuestionando causalidad, desacreditando estudios, disputando mecanismos. También hizo algo más sofisticado: sembrar dudas sobre la calidad de esa misma evidencia, financiar investigación alternativa que produjera resultados ambiguos, y sostener públicamente que "el debate científico sigue abierto".
 
 Para ejecutar esa estrategia, las tabacaleras crearon el Tobacco Industry Research Committee, una organización que tenía toda la apariencia de un instituto de investigación legítimo y cuyo propósito real era producir y difundir dudas. Contrataron científicos genuinos —algunos con credenciales impecables— para que publicaran papers que cuestionaban los estudios que vinculaban el tabaco con el cáncer.
 
@@ -28,13 +28,7 @@ No tenían que ganar el debate científico. Solo tenían que mantenerlo vivo.
 
 La estrategia funcionó durante décadas. Y cuando finalmente se volvió insostenible —cuando los documentos internos de las tabacaleras empezaron a hacerse públicos y mostraban que la industria sabía exactamente lo que estaba vendiendo— ya había sido exportada.
 
-La industria azucarera usó el mismo manual en los años sesenta y setenta para disputar la evidencia sobre el azúcar y las enfermedades cardiovasculares, financiando investigación que señalara a las grasas como el verdadero culpable.
-
-La industria del plomo la usó para retrasar la regulación del plomo en la nafta y en las pinturas.
-
-Monsanto y la industria agroquímica la usaron para disputar la evidencia sobre el glifosato.
-
-La industria de los combustibles fósiles la usó —y la sigue usando— para instalar dudas sobre el consenso climático.
+La industria azucarera usó un manual similar en los años sesenta y setenta para disputar la evidencia sobre el azúcar y las enfermedades cardiovasculares, financiando en parte investigación que señalara a las grasas como el verdadero culpable. La industria del plomo la usó para retrasar la regulación del plomo en la nafta y en las pinturas. La industria de los combustibles fósiles la usó —y la sigue usando— para instalar dudas sobre el consenso climático. En distintos grados y con distintos niveles de evidencia disponible, el mismo patrón aparece en industria tras industria.
 
 ---
 
@@ -42,7 +36,7 @@ Lo que hace que esta estrategia sea difícil de combatir no es su sofisticación
 
 La ciencia necesita el escepticismo. La revisión, la replicación, la exigencia de evidencia sólida son parte del método. Cuando alguien dice "el debate científico no está cerrado", puede estar haciendo ciencia o puede estar ejecutando un manual de desinformación. La diferencia no siempre es visible desde afuera.
 
-Los historiadores de la ciencia Naomi Oreskes y Erik Conway documentaron esta genealogía en detalle en su libro *Merchants of Doubt* (2010). Lo que encontraron fue que no solo era la misma estrategia: en varios casos eran los mismos científicos, moviéndose de una industria a otra, aplicando el mismo modelo.
+Los historiadores de la ciencia Naomi Oreskes y Erik Conway documentaron esta genealogía en detalle en su libro *Merchants of Doubt* (2010). Lo que encontraron fue que no solo era la misma estrategia: en algunos casos eran incluso los mismos científicos, moviéndose de una industria a otra, aplicando el mismo modelo.
 
 La duda no fue un efecto secundario. Fue el producto.
 
