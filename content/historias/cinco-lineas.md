@@ -41,7 +41,11 @@ El viento, en este caso, tenía nombre: Purdue Pharma, la familia Sackler, una i
 
 La carta solo fue el primer paso. El resto lo hicieron personas que sabían exactamente lo que estaban haciendo.
 
-Referencias
+
+***
+
+
+**Referencias**
 
 Porter J, Jick H. "Addiction Rare in Patients Treated with Narcotics." *New England Journal of Medicine*, 1980. DOI: 10.1056/NEJM198001103020221
 
