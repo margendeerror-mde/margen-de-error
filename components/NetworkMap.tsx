@@ -268,9 +268,15 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
 
       <button 
         onClick={() => setSidebarOpen(true)} 
-        className={`absolute z-[210] tag-text opacity-50 hover:opacity-100 transition-all ${isMobile ? 'bottom-8 left-8' : 'bottom-8 left-8'}`}
+        className={`fixed z-[210] transition-all flex items-center gap-2
+          ${isMobile 
+            ? 'bottom-10 left-6 bg-white text-black px-5 py-3 rounded-full shadow-2xl opacity-100' 
+            : 'bottom-8 left-8 tag-text text-white/50 hover:text-white hover:opacity-100'
+          }`}
       >
-        ☰ FILTROS
+        <span className={isMobile ? "text-[10px] font-bold tracking-widest" : "tag-text"}>
+          {isMobile ? 'FILTROS' : '☰ FILTROS'}
+        </span>
       </button>
 
       {isMobile && hasActiveFilters && (
