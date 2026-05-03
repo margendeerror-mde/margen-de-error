@@ -1,8 +1,8 @@
 export const SECCIONES = [
-  'historia',
-  'conflicto',
+  'historias',
+  'conflictos',
   'serendipia',
-  'análisis',
+  'analisis',
   'marco'
 ] as const;
 
