@@ -4,6 +4,7 @@ seccion: serendipia
 industria: farmacéutica
 mecanismo:
   - omisión-de-datos
+  - migración-de-estrategia
 tema: medicación-y-fármacos
 fecha: 2025-02-12T00:00:00.000Z
 resumen: 'En 1992, Pfizer probaba un nuevo medicamento para la angina de pecho. Los ensayos clínicos mostraban efectos modestos sobre el corazón, pero los registros clínicos documentaban algo que el protocolo original no había contemplado. Esa señal se convirtió en uno de los medicamentos más exitosos y reconocibles del siglo XX.'
