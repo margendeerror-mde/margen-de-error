@@ -1,11 +1,14 @@
 ---
-titulo: "El estudio que midió lo que la gente recordaba haber comido"
+titulo: El estudio que midió lo que la gente recordaba haber comido
 seccion: análisis
 industria: institucional-académica
-mecanismo: [diseño-sesgado, omisión-de-datos]
+mecanismo:
+  - diseño-sesgado
+  - omisión-de-datos
+  - normalización-por-repetición
 tema: nutrición
-fecha: 2025-01-25
-resumen: "Gran parte de lo que creemos saber sobre la relación entre dieta y enfermedad viene de estudios que preguntaron a las personas qué habían comido en el último año. Un análisis publicado en PLOS ONE encontró que esos datos son fisiológicamente imposibles en la mayoría de los casos. El problema no es menor: es el fundamento metodológico de décadas de recomendaciones nutricionales."
+fecha: 2025-01-25T00:00:00.000Z
+resumen: 'Gran parte de lo que creemos saber sobre la relación entre dieta y enfermedad viene de estudios que preguntaron a las personas qué habían comido en el último año. Un análisis publicado en PLOS ONE encontró que esos datos son fisiológicamente imposibles en la mayoría de los casos. El problema no es menor: es el fundamento metodológico de décadas de recomendaciones nutricionales.'
 ---
 
 **El paper**
@@ -50,11 +53,11 @@ La epidemiología nutricional no va a desaparecer porque sus datos sean imperfec
 
 Lo que sí debería cambiar es el grado de certeza con que se comunican sus resultados. "Comer carne roja aumenta el riesgo de cáncer de colon" es una afirmación que descansa sobre datos que, en un porcentaje alto, no son fisiológicamente coherentes. Eso no la hace falsa. La hace incierta de una manera que rara vez aparece en los titulares.
 
----
+***
 
 **Referencias**
 
-- Archer E, Hand GA, Blair SN. "Validity of U.S. Nutritional Surveillance." *PLOS ONE*, 2013. DOI: 10.1371/journal.pone.0076632
-- Archer E et al. "The Inadmissibility of What We Eat in America and NHANES Dietary Data in Nutrition and Obesity Research." *Mayo Clinic Proceedings*, 2015. DOI: 10.1016/j.mayocp.2015.04.009
-- Dhurandhar EI et al. "The ability of food frequency questionnaires to represent daily variation in diet." *PLOS ONE*, 2015. DOI: 10.1371/journal.pone.0136155
-- Subar AF et al. "Addressing Current Criticism Regarding the Value of Self-Report Dietary Data." *Journal of Nutrition*, 2015. DOI: 10.3945/jn.115.219634
+* Archer E, Hand GA, Blair SN. "Validity of U.S. Nutritional Surveillance." *PLOS ONE*, 2013. DOI: 10.1371/journal.pone.0076632
+* Archer E et al. "The Inadmissibility of What We Eat in America and NHANES Dietary Data in Nutrition and Obesity Research." *Mayo Clinic Proceedings*, 2015. DOI: 10.1016/j.mayocp.2015.04.009
+* Dhurandhar EI et al. "The ability of food frequency questionnaires to represent daily variation in diet." *PLOS ONE*, 2015. DOI: 10.1371/journal.pone.0136155
+* Subar AF et al. "Addressing Current Criticism Regarding the Value of Self-Report Dietary Data." *Journal of Nutrition*, 2015. DOI: 10.3945/jn.115.219634
