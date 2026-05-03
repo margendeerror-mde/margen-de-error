@@ -1,11 +1,14 @@
 ---
-titulo: "El paper que dice que el colesterol alto protege a los mayores"
+titulo: El paper que dice que el colesterol alto protege a los mayores
 seccion: análisis
 industria: farmacéutica
-mecanismo: [sesgo-de-publicación, omisión-de-datos]
+mecanismo:
+  - sesgo-de-publicación
+  - omisión-de-datos
+  - correlación-presentada-como-causalidad
 tema: medicación-y-fármacos
-fecha: 2025-02-18
-resumen: "En 2016, un meta-análisis publicado en BMJ Open analizó datos de 68.000 adultos mayores y encontró que niveles altos de LDL se asociaban con menor mortalidad. El hallazgo contradice uno de los axiomas más establecidos de la cardiología moderna. El paper existe, tiene metodología sólida y merece ser leído."
+fecha: 2025-02-18T00:00:00.000Z
+resumen: 'En 2016, un meta-análisis publicado en BMJ Open analizó datos de 68.000 adultos mayores y encontró que niveles altos de LDL se asociaban con menor mortalidad. El hallazgo contradice uno de los axiomas más establecidos de la cardiología moderna. El paper existe, tiene metodología sólida y merece ser leído.'
 ---
 
 **El paper**
@@ -42,10 +45,10 @@ Las razones probables son varias: contradice un consenso establecido respaldado 
 
 El paper no demuestra que las estatinas sean inútiles ni que el colesterol LDL no importe. Demuestra que la relación entre LDL y mortalidad en adultos mayores es más compleja de lo que las guías clínicas suelen reconocer. Esa complejidad merece estar en la conversación.
 
----
+***
 
 **Referencias**
 
-- Ravnskov U et al. "Lack of an association or an inverse association between low-density-lipoprotein cholesterol and mortality in the elderly." *BMJ Open*, 2016. DOI: 10.1136/bmjopen-2015-010401
-- Ference BA et al. "Low-density lipoproteins cause atherosclerotic cardiovascular disease." *European Heart Journal*, 2017. DOI: 10.1093/eurheartj/ehx144
-- Krumholz HM et al. "Lack of Association between Cholesterol and Coronary Heart Disease Mortality and Morbidity." *JAMA*, 1994. DOI: 10.1001/jama.1994.03510350044034
+* Ravnskov U et al. "Lack of an association or an inverse association between low-density-lipoprotein cholesterol and mortality in the elderly." *BMJ Open*, 2016. DOI: 10.1136/bmjopen-2015-010401
+* Ference BA et al. "Low-density lipoproteins cause atherosclerotic cardiovascular disease." *European Heart Journal*, 2017. DOI: 10.1093/eurheartj/ehx144
+* Krumholz HM et al. "Lack of Association between Cholesterol and Coronary Heart Disease Mortality and Morbidity." *JAMA*, 1994. DOI: 10.1001/jama.1994.03510350044034
