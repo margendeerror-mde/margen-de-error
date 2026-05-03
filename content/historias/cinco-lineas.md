@@ -6,6 +6,9 @@ mecanismo:
   - correlación-presentada-como-causalidad
   - titular-engañoso
   - sesgo-de-publicación
+  - cherry-picking
+  - omisión-de-datos
+  - normalización-por-repetición
 tema: dolor
 fecha: 2025-02-01T00:00:00.000Z
 resumen: 'En 1980, el New England Journal of Medicine publicó una carta al editor de cinco oraciones que concluía que los opioides rara vez generan adicción. Fue citada más de 600 veces como evidencia científica. Nunca fue un estudio.'
@@ -41,9 +44,7 @@ El viento, en este caso, tenía nombre: Purdue Pharma, la familia Sackler, una i
 
 La carta solo fue el primer paso. El resto lo hicieron personas que sabían exactamente lo que estaban haciendo.
 
-
 ***
-
 
 **Referencias**
 
