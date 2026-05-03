@@ -43,8 +43,8 @@ La carta solo fue el primer paso. El resto lo hicieron personas que sabían exac
 
 Referencias
 
-Porter J, Jick H. "Addiction Rare in Patients Treated with Narcotics." New England Journal of Medicine, 1980. DOI: 10.1056/NEJM198001103020221
+Porter J, Jick H. "Addiction Rare in Patients Treated with Narcotics." *New England Journal of Medicine*, 1980. DOI: 10.1056/NEJM198001103020221
 
-Leung PTM et al. "A 1980 Letter on the Risk of Opioid Addiction." New England Journal of Medicine, 2017. DOI: 10.1056/NEJMc1700150
+Leung PTM et al. "A 1980 Letter on the Risk of Opioid Addiction." *New England Journal of Medicine*, 2017. DOI: 10.1056/NEJMc1700150
 
-Van Zee A. "The Promotion and Marketing of OxyContin: Commercial Triumph, Public Health Tragedy." American Journal of Public Health, 2009. DOI: 10.2105/AJPH.2008.141Rep
+Van Zee A. "The Promotion and Marketing of OxyContin: Commercial Triumph, Public Health Tragedy." *American Journal of Public Health*, 2009. DOI: 10.2105/AJPH.2008.141Rep
