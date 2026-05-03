@@ -5,7 +5,7 @@ industria: farmacéutica
 mecanismo: [conflicto-de-interés-no-declarado, financiamiento-de-estudio, omisión-de-datos]
 tema: medicación-y-fármacos
 fecha: 2025-03-07
-resumen: "Entre 1997 y 2005, una empresa contratada por Wyeth escribió al menos 26 artículos científicos favorables a su terapia hormonal sustitutiva y consiguió que médicos académicos los firmaran como autores. Los médicos cobrarían honorarios. El fármaco, aprobado para millones de mujeres, aumentaba el riesgo de cáncer de mama. Los papers no lo mencionaban."
+resumen: "Entre 1997 y 2005, una empresa contratada por Wyeth escribió al menos 26 artículos científicos —identificados en documentos de litigación— favorables a su terapia hormonal sustitutiva y consiguió que médicos académicos los firmaran como autores. El fármaco, aprobado para millones de mujeres, aumentaba el riesgo de cáncer de mama. Los papers tendían a minimizar o no enfatizar estos riesgos."
 ---
 
 El ghost-writing médico —la práctica de contratar escritores profesionales para redactar papers científicos que después son firmados por investigadores académicos— existe en un espacio legal gris que durante mucho tiempo fue simplemente ignorado. No estaba prohibido. No era exactamente secreto. Simplemente no se hablaba de él.
@@ -16,9 +16,9 @@ Lo que volvió visible la práctica, en el caso de Wyeth y su terapia hormonal s
 
 Wyeth —absorbida por Pfizer en 2009— era la fabricante de Prempro, una combinación de estrógenos y progestina ampliamente prescripta a mujeres posmenopáusicas desde los años noventa. El argumento de marketing era sólido: la menopausia reducía los estrógenos y eso podría proteger contra enfermedades cardiovasculares, osteoporosis y deterioro cognitivo. Reemplazar los estrógenos parecía razonable.
 
-Para respaldar ese argumento con literatura científica, Wyeth contratara a DesignWrite, una empresa de comunicación médica con sede en Nueva Jersey. El encargo era explícito: identificar temas de investigación favorables al producto, escribir los artículos, y conseguir que médicos académicos prestaran su nombre como autores.
+Para respaldar ese argumento con literatura científica, Wyeth contrató a DesignWrite, una empresa de comunicación médica con sede en Nueva Jersey. El encargo era explícito: identificar temas de investigación favorables al producto, escribir los artículos, y conseguir que médicos académicos prestaran su nombre como autores.
 
-Los médicos no tenían que escribir. Solo tenían que revisar el borrador, hacer comentarios y firmar. A cambio recibían honorarios que en algunos casos superaban los mil dólares por artículo.
+Los médicos no tenían que escribir. Solo tenían que revisar el borrador, hacer comentarios y firmar. A cambio recibían honorarios que en algunos casos superaban los mil dólares por artículo —y con ellos, visibilidad y capital relacional dentro de la industria.
 
 ---
 
@@ -26,15 +26,15 @@ Los documentos que describen este proceso en detalle no emergieron de una invest
 
 En 2010, investigadores de la Universidad de California en San Francisco analizaron 1.500 documentos de esa litigación y publicaron sus hallazgos en *PLOS Medicine*. Identificaron al menos 26 artículos publicados en revistas científicas revisadas por pares, entre 1998 y 2005, que habían sido producidos por DesignWrite por encargo de Wyeth. Los artículos aparecieron en revistas como *American Journal of Obstetrics and Gynecology*, *International Journal of Cardiology* y *Journal of Women's Health*.
 
-Todos eran favorables a Prempro. Ninguno declaraba el financiamiento de Wyeth ni la participación de DesignWrite.
+Todos eran favorables a Prempro. Muchos no declaraban adecuadamente la participación de Wyeth ni la de los escritores profesionales contratados para producirlos.
 
 ---
 
 En 2002, el ensayo clínico aleatorizado del Women's Health Initiative fue detenido antes de su conclusión prevista. Los datos mostraban que la terapia hormonal combinada de estrógenos y progestina aumentaba el riesgo de cáncer de mama invasivo, enfermedad coronaria, accidente cerebrovascular y tromboembolismo pulmonar. Los beneficios existían en algunos casos específicos, pero el balance general no justificaba el uso generalizado.
 
-Era exactamente lo que los artículos de DesignWrite no decían.
+Era exactamente lo que los artículos de DesignWrite tendían a no decir.
 
-Las prescripciones de terapia hormonal sustitutiva cayeron un 66% en los dos años siguientes a la publicación del WHI. Las demandas contra Wyeth eventualmente se resolvieron por cifras que no fueron divulgadas.
+Las prescripciones de terapia hormonal sustitutiva cayeron más del 50% en los dos años siguientes a la publicación del WHI. Las demandas contra Wyeth eventualmente se resolvieron por cifras que no fueron divulgadas.
 
 ---
 
@@ -48,7 +48,6 @@ Las revistas científicas han endurecido sus políticas de declaración de confl
 
 **Referencias**
 
-- Fugh-Berman A, Ahari S. "Following the Script: How Drug Reps Make Friends and Influence Doctors." *PLOS Medicine*, 2007. DOI: 10.1371/journal.pmed.0040150
-- Lacasse JR, Leo J. "Ghostwriting at Elite Academic Medical Centers in the United States." *PLOS Medicine*, 2010. DOI: 10.1371/journal.pmed.1000230
+- Fugh-Berman A. "The Haunting of Medical Journals: How Ghostwriting Sold 'HRT'." *PLOS Medicine*, 2010. DOI: 10.1371/journal.pmed.1000335
 - Rossouw JE et al. "Risks and Benefits of Estrogen Plus Progestin in Healthy Postmenopausal Women." *JAMA*, 2002. DOI: 10.1001/jama.288.3.321
 - Ross JS et al. "Guest Authorship and Ghostwriting in Publications Related to Rofecoxib." *JAMA*, 2008. DOI: 10.1001/jama.299.15.1800

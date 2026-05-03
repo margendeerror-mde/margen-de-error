@@ -8,19 +8,15 @@ fecha: 2025-02-05
 resumen: "En 2015, The New York Times reveló que Coca-Cola había financiado con millones de dólares una red de científicos dedicada a sostener que la obesidad se explica por el sedentarismo, no por el azúcar. El argumento era técnicamente posible. La selección de qué parte investigar no era inocente."
 ---
 
-En agosto de 2015, *The New York Times* publicó una investigación que documentaba algo que la industria de bebidas azucaradas había preferido mantener discreto: Coca-Cola había invertido al menos 1,5 millones de dólares en financiar la creación y el funcionamiento de una organización científica llamada Global Energy Balance Network.
+En agosto de 2015, *The New York Times* publicó una investigación que documentaba algo que la industria de bebidas azucaradas había preferido mantener discreto: Coca-Cola había invertido al menos 1,5 millones de dólares en financiar la creación y el funcionamiento de una organización científica llamada Global Energy Balance Network. La organización tenía página web, sus miembros publicaban trabajos académicos y la red los amplificaba, promoviendo la idea de que la epidemia de obesidad se explicaba principalmente por el sedentarismo, no por la ingesta calórica. Su presidente, el investigador Steven Blair de la Universidad de Carolina del Sur, era uno de los expertos en actividad física más citados del mundo.
 
-La organización tenía página web, publicaba papers y promovía la idea de que la epidemia de obesidad se explicaba principalmente por el sedentarismo, no por la ingesta calórica. Su presidente, el investigador Steven Blair de la Universidad de Carolina del Sur, era uno de los expertos en actividad física más citados del mundo.
-
-Era ciencia legítima, producida por científicos reales, con afiliaciones institucionales respetables. El financiamiento de Coca-Cola no aparecía en los papers.
+Era ciencia legítima, producida por científicos reales, con afiliaciones institucionales respetables. El financiamiento de Coca-Cola no siempre se declaraba de forma clara o completa.
 
 ---
 
 La hipótesis que la Global Energy Balance Network promovía no era falsa. El sedentarismo es un factor de riesgo real para enfermedades crónicas. El ejercicio tiene efectos metabólicos documentados. Ninguno de esos hechos estaba en disputa.
 
-Lo que estaba en disputa era la jerarquía: ¿cuánto del problema de la obesidad se explica por lo que se come y cuánto por cuánto se mueve?
-
-La evidencia disponible en ese momento, y la que ha acumulado desde entonces, señala consistentemente que la dieta tiene un efecto mayor sobre el peso corporal que el ejercicio. No porque el ejercicio no importe —importa, y por muchas razones que van más allá del peso— sino porque es muy difícil compensar con actividad física el exceso calórico de una dieta alta en azúcares y ultraprocesados. Los nutricionistas tienen una frase para esto: no se puede superar una mala dieta corriendo.
+Lo que estaba en disputa era la jerarquía: ¿cuánto del problema de la obesidad se explica por lo que se come y cuánto por cuánto se mueve? La evidencia disponible en ese momento, y la que ha acumulado desde entonces, señala consistentemente que en promedio la dieta tiende a tener un impacto mayor sobre el peso corporal que el ejercicio. No porque el ejercicio no importe —importa, y por muchas razones que van más allá del peso— sino porque es muy difícil compensar con actividad física el exceso calórico de una dieta alta en azúcares y ultraprocesados. Los nutricionistas tienen una frase para esto: no se puede superar una mala dieta corriendo.
 
 Coca-Cola no inventó el debate. Lo amplificó, lo financió y lo posicionó estratégicamente en un momento en que los gobiernos discutían impuestos a las bebidas azucaradas.
 
@@ -28,9 +24,7 @@ Coca-Cola no inventó el debate. Lo amplificó, lo financió y lo posicionó est
 
 Los correos electrónicos obtenidos por *The New York Times* mostraban a ejecutivos de Coca-Cola coordinando mensajes con los investigadores de la red, sugiriendo énfasis, revisando borradores de comunicados de prensa. No era una relación de mecenazgo neutral. Era una colaboración orientada a un resultado.
 
-Después de la publicación del artículo, la Global Energy Balance Network cerró su página web. Steven Blair emitió una declaración reconociendo que debería haber declarado el financiamiento. Coca-Cola publicó un comunicado diciendo que se comprometía a mayor transparencia en sus alianzas con la comunidad científica.
-
-Ninguno de los papers fue retractado.
+Después de la publicación del artículo, la Global Energy Balance Network cerró su página web. Steven Blair emitió una declaración reconociendo que debería haber declarado el financiamiento. Coca-Cola publicó un comunicado diciendo que se comprometía a mayor transparencia en sus alianzas con la comunidad científica. No hubo retractaciones relevantes asociadas al caso.
 
 ---
 
@@ -38,7 +32,7 @@ Lo que el caso ilustra no es una anomalía. Es un mecanismo. La industria no nec
 
 El resultado no es ciencia falsa. Es ciencia incompleta, presentada de manera que desplaza la atención de donde el problema realmente está.
 
-En 2016, la revista *Obesity Reviews* publicó un análisis de 60 estudios sobre bebidas azucaradas y peso corporal. Los estudios financiados por la industria eran cinco veces más propensos a no encontrar relación entre el consumo de bebidas azucaradas y la obesidad que los estudios sin financiamiento industrial.
+Un análisis publicado en *PLOS Medicine* en 2013 encontró que los estudios sobre bebidas azucaradas y peso corporal financiados por la industria eran significativamente más propensos a no encontrar asociación entre su consumo y la obesidad que los estudios sin financiamiento industrial.
 
 La diferencia no estaba en los datos. Estaba en qué se decidió preguntar.
 
