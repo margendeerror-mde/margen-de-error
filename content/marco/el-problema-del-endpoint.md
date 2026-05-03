@@ -1,18 +1,21 @@
 ---
-titulo: "Medir lo que se puede medir"
+titulo: Medir lo que se puede medir
 seccion: marco
 industria: farmacéutica
-mecanismo: [diseño-sesgado, correlación-presentada-como-causalidad]
+mecanismo:
+  - diseño-sesgado
+  - omisión-de-datos
+  - captura-regulatoria
 tema: medicación-y-fármacos
-fecha: 2025-02-24
-resumen: "Los ensayos clínicos no siempre miden si los pacientes viven más o mejor. Con frecuencia miden si un número en un análisis de sangre mejora. La diferencia entre esas dos cosas ha costado vidas."
+fecha: 2025-02-24T00:00:00.000Z
+resumen: Los ensayos clínicos no siempre miden si los pacientes viven más o mejor. Con frecuencia miden si un número en un análisis de sangre mejora. La diferencia entre esas dos cosas ha costado vidas.
 ---
 
 Hay un tipo de error en la investigación médica que no requiere mala fe, no requiere conflicto de interés y no requiere que nadie mienta. Requiere solo una decisión de diseño que parece razonable y produce consecuencias que no lo son.
 
 El error se llama problema del endpoint sustituto.
 
----
+***
 
 **Qué es un endpoint**
 
@@ -26,7 +29,7 @@ Los endpoints sustitutos tienen ventajas prácticas enormes. Medir si alguien ti
 
 El problema es que mover ese número no siempre mueve el resultado.
 
----
+***
 
 **Casos en que el sustituto falló**
 
@@ -38,7 +41,7 @@ Cuando el Women's Health Initiative realizó el ensayo aleatorizado —el están
 
 La terapia hormonal mejoraba marcadores biológicos asociados con salud cardiovascular. Pero eso no era lo mismo que mejorar la salud cardiovascular.
 
----
+***
 
 Otro caso: el bezafibrato y los triglicéridos. Los fibratos son una clase de medicamentos que reducen los triglicéridos en sangre. Los triglicéridos elevados se asocian con mayor riesgo cardiovascular. La lógica del sustituto era directa: reducir triglicéridos debería reducir eventos cardiovasculares.
 
@@ -46,7 +49,7 @@ El ensayo BIP, publicado en 2000, mostró que el bezafibrato reducía los trigli
 
 El sustituto funcionó. El endpoint clínico no se movió.
 
----
+***
 
 El problema del endpoint sustituto no implica que todos los sustitutos sean malos predictores. Algunos funcionan bien: la presión arterial elevada predice el riesgo de accidente cerebrovascular con suficiente precisión como para que bajarla sea un objetivo clínico razonable. La carga viral en el VIH predice la progresión de la enfermedad con alta fiabilidad.
 
@@ -54,7 +57,7 @@ El problema es cuando el sustituto se adopta de forma acrítica, cuando se asume
 
 La FDA aprobó durante años medicamentos con base en endpoints sustitutos, con la condición de que los fabricantes realizaran estudios de confirmación posteriores. En una revisión de 2019 publicada en *JAMA Internal Medicine*, investigadores encontraron que de los 93 medicamentos aprobados por esa vía entre 2008 y 2012, menos de la mitad habían completado los estudios de confirmación requeridos al momento del análisis.
 
----
+***
 
 Lo que hace que este error sea difícil de corregir es que nadie está mintiendo. Los endpoints sustitutos son más fáciles de medir. Los ensayos son más cortos y más baratos. Las agencias reguladoras tienen presión para aprobar tratamientos rápido. Las empresas tienen presión para mostrar resultados. Los médicos aprenden a interpretar números de laboratorio como indicadores de salud porque, con frecuencia, lo son.
 
@@ -66,12 +69,12 @@ Lo que sí es posible, y no siempre ocurre, es ser explícito sobre la diferenci
 
 Esa distinción debería estar en el centro de cómo se comunica la investigación médica. Con frecuencia no está.
 
----
+***
 
 **Referencias**
 
-- Fleming TR, DeMets DL. "Surrogate End Points in Clinical Trials: Are We Being Misled?" *Annals of Internal Medicine*, 1996. DOI: 10.7326/0003-4819-125-7-199610010-00011
-- Manson JE et al. "Estrogen plus Progestin and the Risk of Coronary Heart Disease." *New England Journal of Medicine*, 2003. DOI: 10.1056/NEJMoa030808
-- Nissen SE. "Cardiovascular Effects of Diabetes Drugs: Emerging from the Dark Ages." *Annals of Internal Medicine*, 2012. DOI: 10.7326/0003-4819-157-9-201211060-00533
-- Naci H et al. "Availability of evidence of benefits on overall survival and quality of life of cancer drugs approved by European Medicines Agency." *BMJ*, 2017. DOI: 10.1136/bmj.j4530
-- Woloshin S et al. "The Fate of FDA Postapproval Studies." *NEJM*, 2017. DOI: 10.1056/NEJMsa1705800
+* Fleming TR, DeMets DL. "Surrogate End Points in Clinical Trials: Are We Being Misled?" *Annals of Internal Medicine*, 1996. DOI: 10.7326/0003-4819-125-7-199610010-00011
+* Manson JE et al. "Estrogen plus Progestin and the Risk of Coronary Heart Disease." *New England Journal of Medicine*, 2003. DOI: 10.1056/NEJMoa030808
+* Nissen SE. "Cardiovascular Effects of Diabetes Drugs: Emerging from the Dark Ages." *Annals of Internal Medicine*, 2012. DOI: 10.7326/0003-4819-157-9-201211060-00533
+* Naci H et al. "Availability of evidence of benefits on overall survival and quality of life of cancer drugs approved by European Medicines Agency." *BMJ*, 2017. DOI: 10.1136/bmj.j4530
+* Woloshin S et al. "The Fate of FDA Postapproval Studies." *NEJM*, 2017. DOI: 10.1056/NEJMsa1705800
