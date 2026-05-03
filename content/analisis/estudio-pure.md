@@ -6,6 +6,7 @@ mecanismo:
   - sesgo-de-publicación
   - omisión-de-datos
   - titular-engañoso
+  - correlación-presentada-como-causalidad
 tema: nutrición
 fecha: 2025-03-14T00:00:00.000Z
 resumen: 'En 2017, The Lancet publicó los resultados del estudio PURE: 135.335 personas de 18 países, seguidas durante 7,4 años. Los individuos con mayor consumo de grasas tenían menor mortalidad. Los individuos con mayor consumo de carbohidratos, mayor mortalidad. Los hallazgos entran en tensión con aspectos centrales de las guías dietéticas vigentes en la mayoría del mundo occidental. Las guías no cambiaron sustantivamente.'
