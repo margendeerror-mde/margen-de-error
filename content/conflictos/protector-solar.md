@@ -1,11 +1,15 @@
 ---
-titulo: "Lo que el protector solar no declara"
+titulo: Lo que el protector solar no declara
 seccion: conflicto
 industria: cosmética-y-cuidado-personal
-mecanismo: [financiamiento-de-estudio, titular-engañoso, diseño-sesgado]
+mecanismo:
+  - financiamiento-de-estudio
+  - titular-engañoso
+  - diseño-sesgado
+  - omisión-de-datos
 tema: luz-y-radiación
-fecha: 2025-01-15
-resumen: "El protector solar reduce la radiación UVB. Los rayos UVB producen vitamina D. La lógica parece directa. Pero la fisiología no siempre sigue la aritmética."
+fecha: 2025-01-15T00:00:00.000Z
+resumen: El protector solar reduce la radiación UVB. Los rayos UVB producen vitamina D. La lógica parece directa. Pero la fisiología no siempre sigue la aritmética.
 ---
 
 Hay afirmaciones científicas que, cuando las leés por primera vez, generan una incomodidad específica. No la incomodidad de lo complejo ni la de lo técnico. Sino la de lo conveniente. La de algo que encaja demasiado bien para alguien.
@@ -16,7 +20,7 @@ Leelo de nuevo. El protector solar —ese producto que funciona bloqueando los r
 
 ¿Cómo es eso posible?
 
----
+***
 
 Empecemos por lo básico, porque acá el mecanismo importa.
 
@@ -28,13 +32,13 @@ Parece aritmética. Pero la fisiología es más compleja: el bloqueo nunca es to
 
 And sin embargo, hay algo más.
 
----
+***
 
 En 2019 se publicó un estudio en el *British Journal of Dermatology* con la siguiente conclusión: el uso de protector solar en condiciones de vida real no reduce significativamente los niveles séricos de vitamina D. Incluso la Agencia SINC, el servicio de noticias científicas de referencia en España y Latinoamérica, lo cubrió con un título que podría haber sido escrito por el departamento de marketing de cualquier fabricante: el protector solar no perjudica la síntesis de vitamina D.
 
 Mensaje claro. Mensaje tranquilizador. Mensaje incompleto.
 
----
+***
 
 Parte de la explicación está en cómo la gente usa el protector. Los investigadores encontraron que los participantes se aplicaban el producto en cantidades muy por debajo de las necesarias para alcanzar el FPS indicado en el envase. La mayoría aplica entre un cuarto y la mitad de la dosis recomendada. Otros lo aplican tarde, no cubren zonas importantes, no lo reaplicán con la frecuencia indicada. Bajo esas condiciones, la piel recibe mucha más radiación UVB de la que el FPS teórico sugeriría.
 
@@ -42,7 +46,7 @@ Pero esa no es la única explicación. La evidencia del propio estudio, y de inv
 
 El titular, entonces, no era falso. Era selectivo.
 
----
+***
 
 Habría que detenerse en quién financia este tipo de investigación. Parte de la investigación en este campo ha recibido financiamiento de la industria del cuidado solar y del retail farmacéutico. La financiación corporativa no invalida automáticamente un resultado. Pero sí configura un contexto.
 
@@ -52,9 +56,9 @@ La ciencia no miente, en general. Simplemente a veces elige con mucho cuidado qu
 
 And resulta que esa parte siempre le queda bien a alguien.
 
----
+***
 
 **Referencias**
 
-- Neale RE et al. "The effect of sunscreen on vitamin D: a review." *British Journal of Dermatology*, 2019. DOI: 10.1111/bjd.17980
-- Agencia SINC. "El uso de protector solar no perjudica la síntesis de vitamina D." 2019.
+* Neale RE et al. "The effect of sunscreen on vitamin D: a review." *British Journal of Dermatology*, 2019. DOI: 10.1111/bjd.17980
+* Agencia SINC. "El uso de protector solar no perjudica la síntesis de vitamina D." 2019.
