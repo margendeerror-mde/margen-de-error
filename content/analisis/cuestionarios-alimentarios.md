@@ -8,7 +8,7 @@ mecanismo:
   - normalización-por-repetición
 tema: nutrición
 fecha: 2025-01-25T00:00:00.000Z
-resumen: 'Gran parte de lo que creemos saber sobre la relación entre dieta y enfermedad viene de estudios que preguntaron a las personas qué habían comido en el último año. Un análisis publicado en PLOS ONE encontró que esos datos son fisiológicamente imposibles en la mayoría de los casos. El problema no es menor: es el fundamento metodológico de décadas de recomendaciones nutricionales.'
+resumen: Gran parte de lo que creemos saber sobre la relación entre dieta y enfermedad viene de estudios que preguntaron a las personas qué habían comido. Un análisis publicado en PLOS ONE encontró que los datos de ingesta calórica de una de las bases de datos nutricionales más influyentes del mundo eran implausibles según modelos fisiológicos en la mayoría de los casos. El problema es real. Su alcance merece leerse con precisión.
 ---
 
 **El paper**
@@ -17,47 +17,46 @@ Archer E, Hand GA, Blair SN. "Validity of U.S. Nutritional Surveillance: Nationa
 
 **Qué dice**
 
-Los investigadores analizaron los datos de ingesta calórica reportada en la Encuesta Nacional de Salud y Nutrición de Estados Unidos (NHANES) entre 1971 y 2010 —una de las bases de datos nutricionales más influyentes del mundo, usada para formular políticas de salud pública y para decenas de miles de estudios publicados.
+Los investigadores analizaron los datos de ingesta calórica reportada en la Encuesta Nacional de Salud y Nutrición de Estados Unidos (NHANES) entre 1971 y 2010. NHANES es una de las bases de datos nutricionales más influyentes del mundo, usada para formular políticas de salud pública y para decenas de miles de estudios publicados. El instrumento principal que usa para medir la ingesta dietética es el recall de 24 horas: se le pide al participante que reconstruya todo lo que comió y bebió en el día anterior.
 
-Aplicaron ecuaciones de gasto energético establecidas para determinar si las calorías que los participantes decían consumir eran fisiológicamente plausibles: es decir, si era posible mantener el peso corporal reportado comiendo la cantidad que decían comer.
+Los investigadores aplicaron ecuaciones de gasto energético establecidas para determinar si las calorías que los participantes decían consumir eran fisiológicamente plausibles: si era posible mantener el peso corporal reportado comiendo la cantidad que decían comer.
 
-El resultado fue contundente: entre el 67% y el 72% de los datos de las mujeres, y entre el 59% y el 67% de los datos de los hombres, eran fisiológicamente implausibles. La mayoría de los participantes reportaba comer mucho menos de lo que hubiera sido necesario para mantener su peso.
+El resultado fue contundente: entre el 67% y el 72% de los datos de las mujeres, y entre el 59% y el 67% de los datos de los hombres, eran implausibles según esos modelos. La mayoría de los participantes reportaba comer mucho menos de lo que hubiera sido necesario para mantener su peso.
+
+Vale aclarar que esa metodología requiere supuestos sobre gasto energético y balance calórico que tienen sus propios márgenes de error. Las ecuaciones usadas no son perfectas, y el umbral de plausibilidad elegido por los autores es debatible. Incluso ajustando esos márgenes, la proporción de datos implausibles sigue siendo alta. Pero la magnitud exacta del problema depende de los supuestos que se adopten.
 
 **El método que produjo esos datos**
 
-El instrumento de medición es el cuestionario de frecuencia alimentaria (CFA). Su formato estándar: una lista de entre 100 y 200 alimentos; para cada uno, el encuestado indica con qué frecuencia lo consume (nunca, una vez por semana, varias veces por semana, diariamente) y en qué cantidad aproximada.
+El recall de 24 horas no es el único instrumento usado en epidemiología nutricional. Muchos estudios de cohorte usan cuestionarios de frecuencia alimentaria (CFA): listas de entre 100 y 200 alimentos en las que el encuestado indica con qué frecuencia consume cada uno y en qué cantidad aproximada, retrospectivamente a lo largo de meses o años. Ambos instrumentos comparten un problema de fondo, aunque por vías distintas.
 
-El problema es doble. Primero, la memoria episódica no funciona así. Recordar con precisión qué se comió en promedio durante el último año requiere un tipo de memoria que los humanos simplemente no tienen. Lo que se reporta es una reconstrucción, influida por lo que se considera deseable reportar, por los alimentos que se recuerdan mejor (los más salientes, no necesariamente los más frecuentes) y por la presentación de las opciones en el cuestionario.
-
-Segundo, hay un sesgo sistemático de deseabilidad social: las personas subreportan alimentos que perciben como poco saludables (azúcar, alcohol, ultraprocesados) y subrreportan alimentos que perciben como saludables (verduras, frutas). El efecto no es aleatorio; es direccional y consistente.
+El problema es doble. Primero, la memoria episódica no funciona con la precisión que estos métodos requieren. Lo que se reporta es una reconstrucción, influida por lo que se considera deseable reportar, por los alimentos que se recuerdan mejor y por la presentación de las opciones en el cuestionario. Segundo, hay un sesgo sistemático de deseabilidad social: las personas subreportan alimentos que perciben como poco saludables y sobrereportan los que perciben como saludables. El efecto no es aleatorio; es direccional y consistente.
 
 **Por qué importa**
 
-La epidemiología nutricional —el campo que estudia la relación entre dieta y enfermedad en poblaciones— descansa en gran medida sobre datos producidos con este método. Los estudios que vincularon la carne roja con el cáncer de colon, las grasas saturadas con la enfermedad cardíaca, el azúcar con la obesidad, y docenas de otras asociaciones que moldearon décadas de recomendaciones dietéticas, usaron cuestionarios de frecuencia alimentaria como fuente de datos primaria.
+Una parte sustancial de la epidemiología nutricional —el campo que estudia la relación entre dieta y enfermedad en poblaciones— descansa sobre datos producidos con estos métodos. Muchas asociaciones que moldearon décadas de recomendaciones dietéticas, como las que vinculan ciertos alimentos con el riesgo de cáncer o enfermedad cardiovascular, provienen de estudios que usaron recalls o cuestionarios de frecuencia alimentaria como fuente de datos primaria, aunque generalmente combinados con otros ajustes y métodos.
 
-Si los datos son sistemáticamente erróneos —no de forma aleatoria, sino sesgada en una dirección consistente— las conclusiones construidas sobre ellos también lo son. No necesariamente en sentido contrario, pero sí de manera no confiable.
-
-Un análisis de 2016 publicado en *Mayo Clinic Proceedings* por Edward Archer y colegas fue más directo: concluyeron que la epidemiología nutricional basada en recuerdo dietético auto-reportado es "pseudociencia" que no debería ser usada para formular políticas de salud pública.
+Si esos datos son sistemáticamente sesgados —no de forma aleatoria, sino en una dirección consistente— la incertidumbre de las conclusiones construidas sobre ellos aumenta. No necesariamente se invierten, pero sí se vuelven menos confiables de lo que su presentación habitual sugiere.
 
 **Qué tan sólido es el paper**
 
-El paper de 2013 tiene una metodología clara y verificable: aplicar ecuaciones de gasto energético conocidas a datos públicos y ver si los números cierran. No requiere asumir nada sobre causalidad ni sobre comportamiento humano: es aritmética metabólica.
+El paper de 2013 tiene una metodología clara y verificable: aplicar ecuaciones de gasto energético conocidas a datos públicos y determinar si los números son plausibles. Las críticas se han centrado principalmente en que las ecuaciones de gasto energético también tienen un margen de error, y que el umbral de plausibilidad elegido por los autores es debatible. Incluso ajustando esos márgenes, la proporción de datos implausibles sigue siendo alta.
 
-Las críticas al paper se han centrado principalmente en que las ecuaciones de gasto energético también tienen un margen de error, y que el umbral de "plausibilidad" elegido por los autores es debatible. Eso es cierto. Pero incluso ajustando esos márgenes, la proporción de datos implausibles sigue siendo alta.
-
-La publicación generó respuestas airadas de investigadores cuyas carreras dependen de la validez del método. Ese no es un argumento contra el paper. Pero sí es parte del contexto en que se leyó.
+Un análisis de 2015 publicado en Mayo Clinic Proceedings por Archer y colegas fue más directo: los autores argumentaron que la epidemiología nutricional basada en recuerdo dietético auto-reportado no debería ser usada para formular políticas de salud pública. Es una posición minoritaria y muy disputada. Investigadores como Amy Subar y colegas respondieron con críticas metodológicas sustantivas, señalando que los autores sobreestiman los problemas del método y subestiman su utilidad cuando se usa con los ajustes apropiados. Ese debate sigue abierto.
 
 **Dónde deja esto**
 
 La epidemiología nutricional no va a desaparecer porque sus datos sean imperfectos. Los ensayos clínicos aleatorizados en nutrición son difíciles, caros y tienen sus propias limitaciones. El campo está trabajando en métodos de medición más objetivos —biomarcadores, registros fotográficos de comidas, sensores continuos.
 
-Lo que sí debería cambiar es el grado de certeza con que se comunican sus resultados. "Comer carne roja aumenta el riesgo de cáncer de colon" es una afirmación que descansa sobre datos que, en un porcentaje alto, no son fisiológicamente coherentes. Eso no la hace falsa. La hace incierta de una manera que rara vez aparece en los titulares.
+Lo que sí debería cambiar es el grado de certeza con que se comunican sus resultados. Muchas asociaciones entre alimentos y enfermedad descansan sobre datos con limitaciones de medición conocidas y sistemáticas. Eso no las hace falsas. Las hace inciertas de una manera que rara vez aparece en los titulares.
 
 ***
 
 **Referencias**
 
-* Archer E, Hand GA, Blair SN. "Validity of U.S. Nutritional Surveillance." *PLOS ONE*, 2013. DOI: 10.1371/journal.pone.0076632
-* Archer E et al. "The Inadmissibility of What We Eat in America and NHANES Dietary Data in Nutrition and Obesity Research." *Mayo Clinic Proceedings*, 2015. DOI: 10.1016/j.mayocp.2015.04.009
-* Dhurandhar EI et al. "The ability of food frequency questionnaires to represent daily variation in diet." *PLOS ONE*, 2015. DOI: 10.1371/journal.pone.0136155
-* Subar AF et al. "Addressing Current Criticism Regarding the Value of Self-Report Dietary Data." *Journal of Nutrition*, 2015. DOI: 10.3945/jn.115.219634
+Archer E, Hand GA, Blair SN. "Validity of U.S. Nutritional Surveillance." *PLOS ONE*, 2013. DOI: 10.1371/journal.pone.0076632
+
+Archer E et al. "The Inadmissibility of What We Eat in America and NHANES Dietary Data in Nutrition and Obesity Research." *Mayo Clinic Proceedings*, 2015. DOI: 10.1016/j.mayocp.2015.04.009
+
+Dhurandhar EI et al. "The ability of food frequency questionnaires to represent daily variation in diet." *PLOS ONE*, 2015. DOI: 10.1371/journal.pone.0136155
+
+Subar AF et al. "Addressing Current Criticism Regarding the Value of Self-Report Dietary Data." *Journal of Nutrition*, 2015. DOI: 10.3945/jn.115.219634
