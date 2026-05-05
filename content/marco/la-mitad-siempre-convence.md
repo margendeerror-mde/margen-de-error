@@ -6,9 +6,9 @@ mecanismo:
   - efecto-marco
   - riesgo-relativo-vs-absoluto
   - comunicación-de-evidencia
-tema: salud-y-estadística
+tema: diagnóstico-y-clasificación
 fecha: 2026-05-05T00:00:00.000Z
-resumen: Médicos y pacientes toman decisiones distintas según cómo se presentan los mismos datos. El sistema elige, casi siempre, el número más grande (riesgo relativo) sobre el más útil (riesgo absoluto).
+resumen: 'Médicos y pacientes toman decisiones distintas según cómo se presentan los mismos datos. El sistema elige, casi siempre, el número más grande (riesgo relativo) sobre el más útil (riesgo absoluto).'
 ---
 
 Cuando un ensayo clínico anuncia que un medicamento "reduce el riesgo un 50%", la frase es matemáticamente correcta y clínicamente casi irrelevante: si el riesgo de base era del 2%, la reducción absoluta es de un punto porcentual. Décadas de investigación muestran que médicos y pacientes toman decisiones distintas según cómo se presentan los mismos datos. El sistema elige, casi siempre, el número más grande.
@@ -19,8 +19,8 @@ Un ensayo clínico anuncia que un medicamento reduce el riesgo de infarto en un 
 
 Lo que no dice el titular es esto: el riesgo de base era del dos por ciento. El medicamento lo llevó al uno. De cada cien personas que tomaron la droga, noventa y nueve no obtuvieron ningún beneficio. Una sí.
 
-**Reducción de riesgo relativo:** cincuenta por ciento.  
-**Reducción de riesgo absoluto:** un punto porcentual.  
+**Reducción de riesgo relativo:** cincuenta por ciento.\
+**Reducción de riesgo absoluto:** un punto porcentual.\
 **Número necesario para tratar:** cien.
 
 No son interpretaciones distintas del mismo dato. Son preguntas distintas. El riesgo relativo dice cuánto cambió tu probabilidad respecto al punto de partida. El riesgo absoluto dice cuánto cambió tu probabilidad en términos concretos. Ambos son matemáticamente correctos. El riesgo absoluto es el que permite evaluar mejor el impacto real para una persona.
@@ -61,14 +61,9 @@ Eso no es un error de comunicación. Es una consecuencia previsible de un sistem
 
 **Referencias**
 
-- Gigerenzer G, Gaissmaier W, Kurz-Milcke E, Schwartz LM, Woloshin S. "Helping Doctors and Patients Make Sense of Health Statistics." *Psychological Science in the Public Interest*, 2007; 8(2):53–96. DOI: 10.1111/j.1539-6053.2008.00033.x
-
-- Gigerenzer G, Edwards A. "Simple tools for understanding risks: from innumeracy to insight." *BMJ*, 2003; 327(7417):741–744. DOI: 10.1136/bmj.327.7417.741
-
-- Sheridan SL, Pignone MP, Lewis CL. "A randomized comparison of patients' understanding of number needed to treat and other common risk reduction formats." *Journal of General Internal Medicine*, 2003; 18(11):884–892. DOI: 10.1046/j.1525-1497.2003.21102.x
-
-- Ridker PM, Danielson E, Fonseca FAH, et al. (JUPITER Study Group). "Rosuvastatin to Prevent Vascular Events in Men and Women with Elevated C-Reactive Protein." *New England Journal of Medicine*, 2008; 359(21):2195–2207. DOI: 10.1056/NEJMoa0807646
-
-- Therapeutics Letter. "Expanded indication for rosuvastatin: is it warranted?" *Therapeutics Letter*, 2010; issue 77. University of British Columbia. Disponible en: www.ti.ubc.ca
-
-- National Institute for Health and Care Excellence (NICE). "Cardiovascular disease: risk assessment and reduction, including lipid modification." Clinical guideline CG181, 2014 (updated 2023). Disponible en: www.nice.org.uk/guidance/cg181
+* Gigerenzer G, Gaissmaier W, Kurz-Milcke E, Schwartz LM, Woloshin S. "Helping Doctors and Patients Make Sense of Health Statistics." *Psychological Science in the Public Interest*, 2007; 8(2):53–96. DOI: 10.1111/j.1539-6053.2008.00033.x
+* Gigerenzer G, Edwards A. "Simple tools for understanding risks: from innumeracy to insight." *BMJ*, 2003; 327(7417):741–744. DOI: 10.1136/bmj.327.7417.741
+* Sheridan SL, Pignone MP, Lewis CL. "A randomized comparison of patients' understanding of number needed to treat and other common risk reduction formats." *Journal of General Internal Medicine*, 2003; 18(11):884–892. DOI: 10.1046/j.1525-1497.2003.21102.x
+* Ridker PM, Danielson E, Fonseca FAH, et al. (JUPITER Study Group). "Rosuvastatin to Prevent Vascular Events in Men and Women with Elevated C-Reactive Protein." *New England Journal of Medicine*, 2008; 359(21):2195–2207. DOI: 10.1056/NEJMoa0807646
+* Therapeutics Letter. "Expanded indication for rosuvastatin: is it warranted?" *Therapeutics Letter*, 2010; issue 77. University of British Columbia. Disponible en: [www.ti.ubc.ca](http://www.ti.ubc.ca)
+* National Institute for Health and Care Excellence (NICE). "Cardiovascular disease: risk assessment and reduction, including lipid modification." Clinical guideline CG181, 2014 (updated 2023). Disponible en: [www.nice.org.uk/guidance/cg181](http://www.nice.org.uk/guidance/cg181)
