@@ -6,9 +6,9 @@ mecanismo:
   - autoridad-científica
   - incentivos-industriales
   - captura-de-agenda
-tema: nutrición-y-metabolismo
+tema: nutrición
 fecha: 2026-05-05T00:00:00.000Z
-resumen: En los años 50, John Yudkin identificó al azúcar como el principal culpable de las enfermedades cardíacas. Lo que siguió fue una campaña de descrédito orquestada por la autoridad científica y financiada por la industria.
+resumen: 'En los años 50, John Yudkin identificó al azúcar como el principal culpable de las enfermedades cardíacas. Lo que siguió fue una campaña de descrédito orquestada por la autoridad científica y financiada por la industria.'
 ---
 
 En los años cincuenta, el fisiólogo británico John Yudkin identificó una señal en los datos que nadie quiso integrar al modelo dominante: el azúcar, más que la grasa, se correlacionaba con marcadores de enfermedad cardiovascular. Lo que siguió no fue un debate científico limpio. Fue una historia sobre cómo la autoridad, los incentivos y el momento histórico pueden determinar qué preguntas se hacen y cuáles se archivan.
@@ -65,16 +65,10 @@ Yudkin tenía la señal. No tenía lo demás.
 
 **Referencias**
 
-- Yudkin J. "Dietary fat and dietary sugar in relation to ischaemic heart-disease and diabetes." *The Lancet*, 1964; 284(7349):4–5. DOI: 10.1016/S0140-6736(64)92509-8
-
-- Yudkin J. *Pure, White and Deadly*. London: Davis-Poynter, 1972.
-
-- Keys A. "Atherosclerosis: a problem in newer public health." *Journal of the Mount Sinai Hospital*, 1953; 20(2):118–139.
-
-- Kearns CE, Schmidt LA, Glantz SA. "Sugar Industry and Coronary Heart Disease Research: A Historical Analysis of Internal Industry Documents." *JAMA Internal Medicine*, 2016; 176(11):1680–1685. DOI: 10.1001/jamainternmed.2016.5394
-
-- Hegsted DM, McGandy RB, Myers ML, Stare FJ. "Quantitative effects of dietary fat on serum cholesterol in man." *American Journal of Clinical Nutrition*, 1965; 17(5):281–295.
-
-- Kearns CE, Glantz SA, Schmidt LA. "Sugar Industry Influence on the Scientific Agenda of the National Institute of Dental Research's 1971 National Caries Program." *PLOS Medicine*, 2015; 12(3):e1001798. DOI: 10.1371/journal.pmed.1001798
-
-- Te Morenga L, Mallard S, Mann J. "Dietary sugars and body weight: systematic review and meta-analyses of randomised controlled trials and cohort studies." *BMJ*, 2013; 346:e7492. DOI: 10.1136/bmj.e7492
+* Yudkin J. "Dietary fat and dietary sugar in relation to ischaemic heart-disease and diabetes." *The Lancet*, 1964; 284(7349):4–5. DOI: 10.1016/S0140-6736(64)92509-8
+* Yudkin J. *Pure, White and Deadly*. London: Davis-Poynter, 1972.
+* Keys A. "Atherosclerosis: a problem in newer public health." *Journal of the Mount Sinai Hospital*, 1953; 20(2):118–139.
+* Kearns CE, Schmidt LA, Glantz SA. "Sugar Industry and Coronary Heart Disease Research: A Historical Analysis of Internal Industry Documents." *JAMA Internal Medicine*, 2016; 176(11):1680–1685. DOI: 10.1001/jamainternmed.2016.5394
+* Hegsted DM, McGandy RB, Myers ML, Stare FJ. "Quantitative effects of dietary fat on serum cholesterol in man." *American Journal of Clinical Nutrition*, 1965; 17(5):281–295.
+* Kearns CE, Glantz SA, Schmidt LA. "Sugar Industry Influence on the Scientific Agenda of the National Institute of Dental Research's 1971 National Caries Program." *PLOS Medicine*, 2015; 12(3):e1001798. DOI: 10.1371/journal.pmed.1001798
+* Te Morenga L, Mallard S, Mann J. "Dietary sugars and body weight: systematic review and meta-analyses of randomised controlled trials and cohort studies." *BMJ*, 2013; 346:e7492. DOI: 10.1136/bmj.e7492
