@@ -13,8 +13,6 @@ resumen: En los años 50, John Yudkin identificó al azúcar como el principal c
 
 En los años cincuenta, el fisiólogo británico John Yudkin identificó una señal en los datos que nadie quiso integrar al modelo dominante: el azúcar, más que la grasa, se correlacionaba con marcadores de enfermedad cardiovascular. Lo que siguió no fue un debate científico limpio. Fue una historia sobre cómo la autoridad, los incentivos y el momento histórico pueden determinar qué preguntas se hacen y cuáles se archivan.
 
-***
-
 **Dos caminos, un ganador**
 
 En 1957, el mismo año en que Ancel Keys publicaba el primer esquema de su hipótesis grasa-corazón, Yudkin llegaba a una conclusión diferente. Los datos que tenía delante apuntaban al azúcar como la variable que mejor se correlacionaba con las tasas de enfermedad cardiovascular en distintas poblaciones.
@@ -27,8 +25,6 @@ La discusión no se dio solo en el plano de los datos. También se jugó en el t
 
 Y funcionó.
 
-***
-
 **La mano invisible**
 
 Lo que Yudkin no sabía —lo que nadie supo hasta 2016— era que parte de ese clima tenía financiamiento externo.
@@ -38,8 +34,6 @@ Ese año, Cristin Kearns, investigadora de la Universidad de California en San F
 La revisión se publicó en el *New England Journal of Medicine*. Los autores no declararon la fuente de financiamiento. El NEJM no exigía esa declaración en 1967.
 
 Uno de los autores, D. Mark Hegsted, terminó como jefe de nutrición del Departamento de Agricultura de Estados Unidos y fue uno de los arquitectos de las primeras guías dietarias federales. Las mismas guías que pusieron la grasa saturada en la cima de lo que había que evitar.
-
-***
 
 **Un libro tarde, una crisis temprano**
 
@@ -51,8 +45,6 @@ La que llegó fue póstuma. La crisis de obesidad, diabetes tipo 2 y síndrome m
 
 El paper de Kearns no resolvió el debate científico sobre grasas y azúcar. Ese debate sigue abierto y es genuinamente complejo. Lo que sí documentó fue algo más acotado y más sólido: que hubo actores con intereses económicos directos que intentaron orientar la producción científica en una dirección específica, y que lo lograron al menos en parte.
 
-***
-
 **La arquitectura del silencio**
 
 No es una historia de conspiración. Es una historia sobre cómo los incentivos y la autoridad pueden moldear el conocimiento colectivo por generaciones. Keys probablemente creía lo que decía. Los investigadores de Harvard probablemente creían que estaban haciendo buena ciencia. Nadie necesita ser corrupto para que el sistema funcione así.
@@ -60,8 +52,6 @@ No es una historia de conspiración. Es una historia sobre cómo los incentivos 
 Lo que hace falta es algo más simple: que alguien con más poder y mejores conexiones decida que tiene razón, y que alguien con una señal relevante no tenga ninguna de las dos cosas.
 
 Yudkin tenía la señal. No tenía lo demás.
-
-***
 
 **Referencias**
 

@@ -50,12 +50,10 @@ Cambiar las guías dietéticas es un proceso largo con múltiples actores instit
 
 El estudio PURE no demuestra que las guías actuales sean incorrectas. Demuestra que la evidencia sobre la que descansan es más disputada de lo que su presentación habitual sugiere.
 
-***
-
 **Referencias**
 
-Dehghan M et al. "Associations of fats and carbohydrate intake with cardiovascular disease and mortality in 18 countries." *The Lancet*, 2017. DOI: 10.1016/S0140-6736(17)32252-3
+* Dehghan M et al. "Associations of fats and carbohydrate intake with cardiovascular disease and mortality in 18 countries." *The Lancet*, 2017. DOI: 10.1016/S0140-6736(17)32252-3
 
-Siri-Tarino PW et al. "Meta-analysis of prospective cohort studies evaluating the association of saturated fat with cardiovascular disease." *American Journal of Clinical Nutrition*, 2010. DOI: 10.3945/ajcn.2009.27725
+* Siri-Tarino PW et al. "Meta-analysis of prospective cohort studies evaluating the association of saturated fat with cardiovascular disease." *American Journal of Clinical Nutrition*, 2010. DOI: 10.3945/ajcn.2009.27725
 
-Dietary Guidelines Advisory Committee. "Scientific Report of the 2020 Dietary Guidelines Advisory Committee." Washington DC: USDA, 2020.
+* Dietary Guidelines Advisory Committee. "Scientific Report of the 2020 Dietary Guidelines Advisory Committee." Washington DC: USDA, 2020.

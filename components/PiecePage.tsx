@@ -68,7 +68,7 @@ export default function PiecePage({
           </div>
         </header>
 
-        <div className="prose prose-lg content-serif prose-p:mb-8 prose-p:text-foreground prose-headings:font-serif prose-headings:tracking-tight prose-a:text-accent prose-a:no-underline hover:prose-a:border-b-accent prose-a:border-b prose-a:border-transparent prose-a:transition-all max-w-none">
+        <div className="prose prose-lg content-serif prose-p:text-foreground prose-headings:font-serif prose-headings:tracking-tight prose-a:text-accent prose-a:no-underline hover:prose-a:border-b-accent prose-a:border-b prose-a:border-transparent prose-a:transition-all max-w-none">
           <MDXRemote source={pieza.content} />
         </div>
       </div>

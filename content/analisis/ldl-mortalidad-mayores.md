@@ -45,12 +45,10 @@ No generó amplio impacto clínico, en parte porque contradice un consenso con r
 
 Lo que el paper sí aporta, leído con sus limitaciones en mente, es una observación que merece atención: la relación entre LDL y mortalidad total en adultos mayores no es simple ni uniforme en los estudios disponibles. Eso no demuestra que el colesterol alto proteja. Demuestra que la extrapolación directa de la hipótesis lipídica a todos los grupos etarios y a todos los resultados clínicos puede no ser completamente uniforme, y que esa complejidad merece estar en la conversación.
 
-***
-
 **Referencias**
 
-Ravnskov U et al. "Lack of an association or an inverse association between low-density-lipoprotein cholesterol and mortality in the elderly." *BMJ Open*, 2016. DOI: 10.1136/bmjopen-2015-010401
+* Ravnskov U et al. "Lack of an association or an inverse association between low-density-lipoprotein cholesterol and mortality in the elderly." *BMJ Open*, 2016. DOI: 10.1136/bmjopen-2015-010401
 
-Ference BA et al. "Low-density lipoproteins cause atherosclerotic cardiovascular disease." *European Heart Journal*, 2017. DOI: 10.1093/eurheartj/ehx144
+* Ference BA et al. "Low-density lipoproteins cause atherosclerotic cardiovascular disease." *European Heart Journal*, 2017. DOI: 10.1093/eurheartj/ehx144
 
-Krumholz HM et al. "Lack of Association between Cholesterol and Coronary Heart Disease Mortality and Morbidity." *JAMA,* 1994. DOI: 10.1001/jama.1994.03510350044034
+* Krumholz HM et al. "Lack of Association between Cholesterol and Coronary Heart Disease Mortality and Morbidity." *JAMA,* 1994. DOI: 10.1001/jama.1994.03510350044034

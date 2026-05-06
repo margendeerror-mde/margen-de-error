@@ -45,8 +45,6 @@ Cade nunca patentó nada. El litio es un mineral. No puede patentarse. El hecho 
 
 Uno de los descubrimientos más importantes en la historia del tratamiento del trastorno bipolar llegó por una sal que se usó para disolver otra cosa, en un hospital periférico, por un médico que nadie leía.
 
-***
-
 **Referencias**
 
 * Cade JF. "Lithium salts in the treatment of psychotic excitement." *Medical Journal of Australia*, 1949. PMID: 18152442

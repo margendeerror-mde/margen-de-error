@@ -18,8 +18,6 @@ En 1969, un ejecutivo de Brown & Williamson —una de las grandes tabacaleras es
 
 El memorando se volvió público décadas después, en los juicios contra la industria tabacalera. Pero para entonces, la estrategia que describía ya había sido adoptada por múltiples industrias.
 
-***
-
 La evidencia de que el tabaco causaba cáncer de pulmón empezó a acumularse en los años cuarenta. Para 1950, había estudios sólidos. Para 1964, el informe del Surgeon General de Estados Unidos era concluyente: fumar mata.
 
 La respuesta de la industria tabacalera no se limitó a negar la evidencia —cuestionando causalidad, desacreditando estudios, disputando mecanismos. También hizo algo más sofisticado: sembrar dudas sobre la calidad de esa misma evidencia, financiar investigación alternativa que produjera resultados ambiguos, y sostener públicamente que "el debate científico sigue abierto".
@@ -28,13 +26,9 @@ Para ejecutar esa estrategia, las tabacaleras crearon el Tobacco Industry Resear
 
 No tenían que ganar el debate científico. Solo tenían que mantenerlo vivo.
 
-***
-
 La estrategia funcionó durante décadas. Y cuando finalmente se volvió insostenible —cuando los documentos internos de las tabacaleras empezaron a hacerse públicos y mostraban que la industria sabía exactamente lo que estaba vendiendo— ya había sido exportada.
 
 La industria azucarera usó un manual similar en los años sesenta y setenta para disputar la evidencia sobre el azúcar y las enfermedades cardiovasculares, financiando en parte investigación que señalara a las grasas como el verdadero culpable. La industria del plomo la usó para retrasar la regulación del plomo en la nafta y en las pinturas. La industria de los combustibles fósiles la usó —y la sigue usando— para instalar dudas sobre el consenso climático. En distintos grados y con distintos niveles de evidencia disponible, el mismo patrón aparece en industria tras industria.
-
-***
 
 Lo que hace que esta estrategia sea difícil de combatir no es su sofisticación. Es que se mimetiza con el escepticismo legítimo.
 
@@ -43,8 +37,6 @@ La ciencia necesita el escepticismo. La revisión, la replicación, la exigencia
 Los historiadores de la ciencia Naomi Oreskes y Erik Conway documentaron esta genealogía en detalle en su libro *Merchants of Doubt* (2010). Lo que encontraron fue que no solo era la misma estrategia: en algunos casos eran incluso los mismos científicos, moviéndose de una industria a otra, aplicando el mismo modelo.
 
 La duda no fue un efecto secundario. Fue el producto.
-
-***
 
 **Referencias**
 

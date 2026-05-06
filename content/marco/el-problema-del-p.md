@@ -18,8 +18,6 @@ La idea era simple: si un experimento produce un resultado que, bajo la hipótes
 
 Noventa años después, `p < 0,05` es la puerta de entrada a las revistas científicas, el umbral que determina si una carrera académica avanza y el criterio con el que se toman decisiones de política pública y práctica clínica. Fisher no habría reconocido ese uso.
 
-***
-
 **Qué significa p \< 0,05 y qué no**
 
 El valor p responde a esta pregunta: si no hubiera ningún efecto real, ¿qué tan probable sería observar un resultado tan extremo como este, o más extremo, simplemente por azar?
@@ -30,8 +28,6 @@ Lo que no significa: que hay un 95% de probabilidad de que el efecto sea real. Q
 
 Estas confusiones no son raras entre el público general. Son comunes en papers publicados, en comunicados de prensa y en libros de texto.
 
-***
-
 **El problema estructural: publicar o perecer**
 
 El umbral de `p < 0,05` produce un sesgo sistémico cuando se combina con el sistema de incentivos de la investigación académica.
@@ -39,8 +35,6 @@ El umbral de `p < 0,05` produce un sesgo sistémico cuando se combina con el sis
 Los estudios con `p < 0,05` se publican. Los estudios con `p > 0,05` —que "no encontraron efecto"— se quedan en el cajón. No porque los investigadores sean deshonestos: el sistema de publicación simplemente no tiene interés en resultados negativos. El problema se llama publication bias o sesgo de publicación.
 
 La consecuencia es que la literatura científica publicada sobreestima sistemáticamente el tamaño de los efectos reales. Si de diez estudios sobre una intervención, tres encuentran un efecto significativo (por azar o por efecto real) y siete no lo encuentran, los tres se publican y los siete no. El lector de la literatura ve tres confirmaciones y ninguna refutación.
-
-***
 
 **El p-hacking**
 
@@ -50,8 +44,6 @@ El p-hacking —la práctica de probar múltiples opciones analíticas hasta enc
 
 En 2011, los psicólogos Joseph Simmons, Leif Nelson y Uri Simonsohn demostraron que con suficiente flexibilidad analítica podían producir, de forma reproducible, un resultado estadísticamente significativo para una hipótesis absurda: que escuchar la canción "When I'm Sixty-Four" de los Beatles hacía que los participantes fueran, en promedio, un año y medio más jóvenes. El resultado tenía `p < 0,05`. Era artefacto puro.
 
-***
-
 **La crisis de replicación**
 
 En 2015, un consorcio de 270 investigadores publicó en *Science* los resultados del Proyecto de Replicación en Psicología: habían intentado replicar 100 estudios publicados en revistas de psicología con alto factor de impacto. El 97% de los estudios originales tenía resultados estadísticamente significativos. En las replicaciones, solo el 36% produjo resultados significativos.
@@ -59,8 +51,6 @@ En 2015, un consorcio de 270 investigadores publicó en *Science* los resultados
 Estudios similares en medicina, neurociencia y economía encontraron tasas de replicación de entre el 50% y el 65% en áreas con mejores controles metodológicos.
 
 Esto no significa que la mitad de la ciencia sea falsa. Significa que el sistema de producción y publicación de resultados científicos tiene una tendencia estructural a producir falsos positivos, y que esa tendencia no ha sido corregida.
-
-***
 
 **Lo que está cambiando y lo que no**
 
@@ -71,8 +61,6 @@ Algunas revistas han adoptado políticas de pre-registro de estudios: los invest
 El sistema de incentivos académicos —donde publicar resultados positivos en revistas de alto impacto sigue siendo la moneda que determina contrataciones, fondos y reconocimiento— no ha cambiado sustancialmente.
 
 El p-valor seguirá siendo el guardián de la puerta mientras la puerta esté diseñada para dejar pasar principalmente resultados positivos.
-
-***
 
 **Referencias**
 

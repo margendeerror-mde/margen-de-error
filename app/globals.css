@@ -29,7 +29,23 @@
   }
 
   .content-serif {
-    @apply font-serif text-[18px] leading-[1.75];
+    @apply font-serif text-[18px] leading-[1.8];
+  }
+
+  .content-serif p {
+    @apply mb-12 last:mb-0;
+  }
+
+  .content-serif hr {
+    @apply border-none h-px bg-muted/20 my-16;
+  }
+  
+  .content-serif ul {
+    @apply list-disc pl-5 mb-8;
+  }
+  
+  .content-serif li {
+    @apply mb-4;
   }
 }
 

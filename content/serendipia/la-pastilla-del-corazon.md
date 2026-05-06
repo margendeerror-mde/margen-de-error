@@ -32,8 +32,6 @@ No hay protocolo que enseñe cuándo un efecto secundario merece convertirse en 
 
 El sildenafil llegó a donde llegó porque alguien leyó los registros clínicos con atención, y decidió que lo que estaba pasando era más interesante que lo que se suponía que tenía que pasar.
 
-***
-
 **Referencias**
 
 * Osterloh I. "How I discovered Viagra." *Cosmos Magazine*, 2015.

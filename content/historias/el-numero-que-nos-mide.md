@@ -16,8 +16,6 @@ El 17 de junio de 1998, los Institutos Nacionales de Salud de Estados Unidos pub
 
 Esa noche, 29 millones de estadounidenses se fueron a dormir con peso normal y se despertaron con sobrepeso. No habían cambiado nada. La implementación clínica de ese cambio fue gradual, pero la reclasificación estadística fue inmediata.
 
-***
-
 El índice de masa corporal —peso en kilogramos dividido por el cuadrado de la estatura en metros— no fue diseñado originalmente para evaluar la salud individual. Fue diseñado por Adolphe Quetelet, un matemático y astrónomo belga, en 1832, con un objetivo específico: describir estadísticamente las proporciones del "homme promedio" en una población. El diagnóstico clínico individual no era su propósito.
 
 Ese detalle se perdió en el camino.
@@ -28,31 +26,21 @@ Ese detalle también se perdió.
 
 Para la década de 1980, el IMC ya era usado ampliamente en contextos clínicos. Su atractivo era práctico: requería solo una cinta métrica y una balanza, era fácil de calcular y producía un número que facilitaba comparaciones y clasificaciones.
 
-***
-
 El problema es que el IMC no distingue entre músculo y grasa. No distingue entre grasa visceral —la que rodea los órganos, metabólicamente activa y asociada con riesgo cardiovascular— y grasa subcutánea, mucho menos problemática. No ajusta por edad, sexo ni etnia, a pesar de que la composición corporal varía sistemáticamente en todos esos ejes. Una persona con mucha masa muscular puede tener el mismo IMC que una persona con alto porcentaje de grasa corporal.
 
 Estas limitaciones eran conocidas. No impidieron que el índice se adoptara como estándar global.
-
-***
 
 La decisión de 1998 fue tomada por un comité de expertos convocado por los NIH. Reportes periodísticos y parlamentarios posteriores identificaron que algunos miembros del comité tenían vínculos financieros con la industria farmacéutica de adelgazamiento y con empresas de pérdida de peso comercial. Esa información no fue declarada en el momento. No todos los miembros del comité estaban en esa situación, y la presión por armonizar criterios con los de la Organización Mundial de la Salud —que ya usaba 25 como límite— era real e independiente. Los conflictos de interés de algunos miembros no invalidan esa presión. Pero tampoco desaparecen porque la decisión tuviera otras justificaciones.
 
 El cambio de umbral contribuyó a reforzar un contexto en el que el "sobrepeso" como categoría médica requería intervención. La intervención requería productos.
 
-***
-
 Hay estudios que muestran que el rango de IMC entre 25 y 30 —el "sobrepeso"— se ha asociado en algunos análisis con menor mortalidad total que el rango "normal" de 18,5 a 25, particularmente en adultos mayores. Este hallazgo, conocido como la "paradoja de la obesidad", fue sistematizado en un meta-análisis publicado en *JAMA* en 2013 por Katherine Flegal y colegas, con datos de 2,88 millones de personas. El resultado es debatido: hay argumentos metodológicos serios sobre confounding —tabaquismo, enfermedad previa— que complican la interpretación causal.
 
 El meta-análisis generó reacciones muy intensas de investigadores con posiciones contrarias. Eso es parte de cómo funciona la ciencia. Pero también ilustra cuánto estaba en juego: si el rango de "sobrepeso" no es el riesgo que se afirma, una parte sustancial de la arquitectura de intervención sanitaria construida alrededor de él requeriría revisión.
 
-***
-
 Quetelet inventó el índice para describir cómo eran las personas, no para prescribir cómo deberían ser. Un siglo y medio después, su fórmula determina si millones de personas reciben recomendaciones médicas de pérdida de peso, acceden a ciertos seguros de salud o son incluidas en ensayos clínicos.
 
 No es el peor instrumento disponible. Pero tampoco es lo que dicen que es.
-
-***
 
 **Referencias**
 

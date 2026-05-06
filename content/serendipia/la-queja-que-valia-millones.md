@@ -12,8 +12,6 @@ resumen: El minoxidil nació para tratar la hipertensión, pero un efecto advers
 
 El minoxidil fue desarrollado como vasodilatador para hipertensión severa. En los pacientes que lo tomaban, producía un efecto adverso llamativo: crecimiento de vello en zonas inesperadas. Alguien decidió mirar ese efecto desde otro ángulo. Lo que siguió fue el primer tratamiento aprobado por la FDA para la alopecia androgénica masculina, y uno de los casos más citados de descubrimiento por observación clínica no planificada.
 
-***
-
 **Un potente vasodilatador**
 
 En los años sesenta, los laboratorios de Upjohn sintetizaron una molécula con un perfil vasodilatador inusualmente potente. El objetivo era desarrollar un tratamiento para hipertensión severa resistente —casos donde los fármacos disponibles no lograban controlar la presión. El compuesto no funcionó para el objetivo inicial en esa formulación, pero su capacidad de relajar las paredes de los vasos sanguíneos era notable. Los químicos lo guardaron y siguieron trabajando.
@@ -22,8 +20,6 @@ A lo largo de los años setenta, cuando los médicos enfrentaban casos de hipert
 
 El problema era lo que hacía además.
 
-***
-
 **El efecto inesperado**
 
 Los efectos adversos del minoxidil oral eran manejables pero significativos. Retención de líquidos. Taquicardia refleja. Había que combinarlo con diuréticos y betabloqueantes para compensar. Y luego estaba el otro efecto, el que los pacientes mencionaban con incomodidad o con humor: pelo.
@@ -31,8 +27,6 @@ Los efectos adversos del minoxidil oral eran manejables pero significativos. Ret
 No en la cabeza, necesariamente. En la cara, en los brazos, en la espalda. El término técnico es hipertricosis: crecimiento de vello en zonas que normalmente no lo tienen o no en esa cantidad. En mujeres que tomaban el medicamento para la presión, el efecto era particularmente notorio.
 
 Los investigadores lo registraron como un efecto adverso a manejar. Siguieron adelante.
-
-***
 
 **Del brazo a la cabeza**
 
@@ -44,8 +38,6 @@ Los primeros reportes de casos con formulación tópica se publicaron alrededor 
 
 Primer tratamiento aprobado. Para una condición que afecta a la mitad de los hombres mayores de cincuenta años.
 
-***
-
 **El rodeo final**
 
 La historia tiene una vuelta adicional. El minoxidil oral —la formulación original— estuvo durante décadas en segundo plano, desplazado por el tópico. En los últimos años, con las patentes vencidas y el medicamento disponible como genérico, los dermatólogos empezaron a explorar dosis muy bajas —entre 0,25 y 2,5 miligramos diarios, frente a los 10 a 40 miligramos que se usaban para la hipertensión— para tratar la caída del cabello. Con ese rango de dosis, los efectos cardiovasculares son menores, aunque no desaparecen por completo: edema, taquicardia e hipotensión siguen siendo posibles y requieren seguimiento. El uso no es todavía estándar universal, pero la práctica clínica se está adelantando a las guías.
@@ -54,15 +46,11 @@ El medicamento que nació para la hipertensión, que tuvo como efecto adverso el
 
 No hay manera de haber planificado ese recorrido.
 
-***
-
 **Escuchar la queja**
 
 La serendipia en ciencia no es solo el hallazgo accidental. Es también la disposición a tomarse en serio lo que el protocolo no había pensado buscar. Los pacientes que se quejaban de hipertricosis no estaban aportando un dato irrelevante. Estaban describiendo un efecto que el fármaco producía con consistencia.
 
 La queja era la señal. Solo faltaba alguien que la escuchara distinto.
-
-***
 
 **Referencias**
 

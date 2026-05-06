@@ -13,8 +13,6 @@ resumen: 'La potencia estadística no es solo una cifra técnica; es el límite 
 
 Un estudio con pocos participantes que no encuentra efecto no demuestra que el efecto no existe. Un estudio con demasiados participantes puede encontrar efectos que existen pero cuya magnitud es trivial desde el punto de vista clínico o práctico. El tamaño muestral determina qué preguntas puede responder un estudio —y cuáles no. Esa limitación rara vez aparece en los titulares.
 
-***
-
 **Dos errores con nombre propio**
 
 En estadística, los errores que puede cometer un estudio al evaluar una hipótesis tienen nombres. El error tipo I es concluir que hay un efecto cuando en realidad no lo hay —un falso positivo. El error tipo II es concluir que no hay efecto cuando en realidad sí lo hay —un falso negativo. El umbral de `p < 0,05` fija la probabilidad de error tipo I. La probabilidad de error tipo II depende del tamaño muestral, del tamaño del efecto que se quiere detectar y de la variabilidad de los datos.
@@ -22,8 +20,6 @@ En estadística, los errores que puede cometer un estudio al evaluar una hipóte
 La potencia estadística de un estudio es la probabilidad de que, si el efecto que busca existe, el estudio lo detecte. Una potencia del 80% —el estándar convencional en muchos campos— significa que si el efecto es real, el estudio tiene un 20% de probabilidad de no encontrarlo. El tamaño muestral es el principal instrumento práctico para controlar esa probabilidad, junto con el tamaño del efecto esperado y la variabilidad de los datos.
 
 El problema es que calcular el tamaño muestral adecuado requiere estimar de antemano el efecto que se quiere detectar. En muchos campos, esas estimaciones se basan en estudios previos que tienden a sobreestimar los efectos reales, lo que produce estudios que tienen menos potencia de la que declaran.
-
-***
 
 **Cuando el estudio es demasiado chico**
 
@@ -33,8 +29,6 @@ En 1978, Freiman et al. publicaron en el *New England Journal of Medicine* un an
 
 El mismo problema persiste décadas después. Un análisis de Button et al. en *Nature Reviews Neuroscience* (2013) estimó que la potencia media de los estudios publicados en neurociencia era de alrededor del 20% bajo supuestos razonables sobre tamaños de efecto. En esas condiciones, la proporción de resultados positivos que son falsos puede ser alta, especialmente cuando el bajo poder se combina con sesgo de publicación.
 
-***
-
 **Cuando el estudio es demasiado grande**
 
 El problema inverso es menos discutido pero igualmente real. Un estudio con decenas de miles de participantes tiene potencia para detectar diferencias extremadamente pequeñas —diferencias que pueden ser estadísticamente significativas pero clínicamente triviales.
@@ -43,15 +37,11 @@ Considérese un fármaco que reduce la presión arterial sistólica en promedio 
 
 La distinción entre significancia estadística y significancia clínica existe desde hace décadas en la literatura metodológica. En la práctica, la confusión entre ambas es persistente. El tamaño del efecto y los intervalos de confianza son la información que permite evaluar si un resultado estadísticamente significativo importa. Esa información está disponible en los papers. Rara vez es la que circula.
 
-***
-
 **El ciclo de la imprecisión**
 
 Los estudios pequeños con efectos sobreestimados no son solo un problema de interpretación. Son la materia prima de meta-análisis posteriores. Cuando se combinan múltiples estudios con baja potencia, el resultado hereda sus sesgos: los que llegaron a publicarse son, en promedio, los que tuvieron resultados positivos. Los efectos reportados son, en promedio, más grandes que los efectos reales. Los estudios pequeños sobreestiman efectos por mecanismos relacionados pero distintos a los de los ensayos gratuitos detenidos temprano —en ambos casos opera la captura de fluctuaciones favorables, pero por vías diferentes. El meta-análisis puede producir una estimación precisa de un número que no corresponde a la realidad.
 
 Ioannidis describió este patrón en detalle: los primeros estudios en un campo tienden a mostrar efectos más grandes que los estudios de replicación más tardíos y más robustos. La tendencia de los hallazgos a oscilar entre resultados contradictorios antes de que la evidencia se estabilice es conocida como efecto Proteus.
-
-***
 
 **Lo que el tamaño muestral no puede resolver**
 
@@ -60,8 +50,6 @@ El tamaño muestral adecuado es condición necesaria para que un estudio sea inf
 Lo que sí hace el tamaño muestral es fijar los límites de lo que un estudio puede y no puede afirmar. Un estudio pequeño con resultado negativo no puede concluir que el tratamiento no funciona —solo puede concluir que no encontró evidencia de que funcione con la muestra que tenía. Un estudio grande con resultado positivo no puede, por sí solo, establecer la relevancia práctica del efecto encontrado.
 
 Esas limitaciones no son detalles técnicos. Son el contenido real de lo que el estudio demostró. La distancia entre eso y lo que el titular dice es, con frecuencia, el lugar donde la evidencia científica se convierte en otra cosa.
-
-***
 
 **Referencias**
 

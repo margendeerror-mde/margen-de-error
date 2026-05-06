@@ -13,13 +13,9 @@ resumen: El ensayo ACCORD mostró que un control glucémico intensivo aumentaba 
 
 El ensayo ACCORD, interrumpido en 2008 antes de su fecha prevista, mostró que los pacientes diabéticos asignados a un control glucémico intensivo presentaban mayor mortalidad que los del grupo estándar. Era un caso donde un ensayo grande reportó resultados contrarios a la práctica establecida. Lo que el estudio dejó abierto —por qué ocurrió— sigue siendo relevante para entender los límites de tratar marcadores en lugar de enfermedades.
 
-***
-
 **El peso de lo inusual**
 
 El paper tiene un nombre largo y burocrático que no anticipa lo que contiene: "Effects of Intensive Glucose Lowering in Type 2 Diabetes." Lo publicó el *New England Journal of Medicine* en junio de 2008. Lo firmaba el ACCORD Study Group —un consorcio de investigadores financiado por los Institutos Nacionales de Salud de Estados Unidos. Y lo que reportaba era, en el contexto de la medicina moderna, algo inusual: un ensayo clínico de gran escala interrumpido antes de tiempo porque el grupo de intervención presentaba mayor mortalidad.
-
-***
 
 **La lógica del marcador**
 
@@ -29,8 +25,6 @@ La lógica era sólida y tenía décadas de respaldo. Valores más bajos de HbA1
 
 No fue así.
 
-***
-
 **La interrupción**
 
 En febrero de 2008, con los pacientes llevando en promedio 3,5 años de seguimiento, el comité de monitoreo de datos interrumpió el brazo de tratamiento intensivo. En ese grupo habían muerto 257 pacientes, frente a 203 en el grupo de tratamiento estándar —un incremento del 22 por ciento en mortalidad total, estadísticamente robusto aunque de magnitud absoluta moderada. La diferencia era consistente al ajustar por covariables.
@@ -38,8 +32,6 @@ En febrero de 2008, con los pacientes llevando en promedio 3,5 años de seguimie
 El objetivo primario del estudio —eventos cardiovasculares mayores combinados— no mostró una reducción significativa, a diferencia de lo esperado. No era un resultado ambiguo. Era un patrón que apuntaba en la dirección opuesta a la hipótesis.
 
 El ensayo se publicó tres meses después de la interrupción, con todos los datos disponibles. El paper es notable por su austeridad: los investigadores presentan los números, discuten las limitaciones, proponen hipótesis sobre el mecanismo, y evitan la sobredramatización.
-
-***
 
 **El fallo de la inferencia**
 
@@ -51,8 +43,6 @@ El mecanismo sigue sin estar cerrado. Lo que el paper sí permite concluir es al
 
 Optimizar el número requería intervenciones que, en neto, dañaron a los pacientes.
 
-***
-
 **Consecuencias y límites**
 
 Los resultados del ACCORD modificaron las guías. Los objetivos glucémicos en pacientes de alto riesgo cardiovascular se volvieron más conservadores. Eso es lo que debería pasar y en este caso pasó.
@@ -60,8 +50,6 @@ Los resultados del ACCORD modificaron las guías. Los objetivos glucémicos en p
 Pero el principio general —tratar la diabetes agresivamente, alcanzar objetivos estrictos— sobrevivió al ensayo en gran medida intacto para poblaciones más jóvenes y de menor riesgo. Lo cual puede ser correcto o no. Lo que el ACCORD mostró es que la evidencia que sostenía ese principio era, en el mejor de los casos, incompleta.
 
 El marcador apuntaba en una dirección. El cuerpo, cuando lo empujás al límite, a veces se mueve en otra.
-
-***
 
 **Referencias**
 

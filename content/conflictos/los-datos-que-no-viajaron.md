@@ -13,8 +13,6 @@ resumen: En 2008, un análisis de datos de la FDA reveló que la eficacia de los
 
 En 2008, dos estudios independientes analizaron los mismos datos de la FDA sobre antidepresivos y llegaron a la misma conclusión: la literatura médica publicada sobreestimaba la eficacia de estos medicamentos porque los ensayos con resultados negativos, en su mayoría, nunca habían sido publicados. No hubo fraude declarado. Hubo un sistema funcionando con los incentivos que tenía.
 
-***
-
 **El registro oculto**
 
 En 2008, el *New England Journal of Medicine* publicó un estudio que no analizaba ningún ensayo clínico nuevo. Lo que analizaba era qué ensayos clínicos habían sido publicados y cuáles no.
@@ -22,8 +20,6 @@ En 2008, el *New England Journal of Medicine* publicó un estudio que no analiza
 El autor principal, Erick Turner, era psiquiatra y había trabajado como revisor en la FDA. Desde esa posición había tenido acceso a algo que los investigadores académicos y los médicos en ejercicio normalmente no ven: el registro completo de todos los ensayos clínicos enviados a la agencia para la aprobación de antidepresivos. No solo los publicados. Todos.
 
 Lo que encontró cuando comparó ambas listas no era exactamente una sorpresa. Pero verlo cuantificado era otra cosa.
-
-***
 
 **La mejor mitad de la historia**
 
@@ -33,8 +29,6 @@ De los 36 ensayos con resultados negativos o dudosos, 3 fueron publicados tal co
 
 El efecto acumulado sobre la literatura médica era significativo. Si un médico o un investigador leía todos los papers disponibles sobre esos antidepresivos, la eficacia promedio aparecía un treinta y dos por ciento mayor que si leía los datos completos de la FDA. La misma evidencia, filtrada por la publicación selectiva, producía una imagen del medicamento sustancialmente más favorable.
 
-***
-
 **¿Clínicamente relevante?**
 
 El mismo año, Irving Kirsch —psicólogo de la Universidad de Hull que llevaba años trabajando en el efecto placebo— publicó en *PLOS Medicine* un meta-análisis que usaba los mismos datos de la FDA, obtenidos mediante solicitudes de acceso a la información. Su pregunta era más concreta: ¿cuánto mejoran los pacientes con antidepresivos por encima de lo que mejorarían con placebo?
@@ -43,15 +37,11 @@ La respuesta promedio, para los seis antidepresivos más recetados de esa genera
 
 Kirsch encontró además que la diferencia sí era mayor en pacientes con depresión severa —puntajes altos en la escala de Hamilton. Para ese subgrupo, el beneficio parecía genuino. El problema era que ese resultado quedaba sepultado bajo una narrativa que había generalizado la eficacia a todo el espectro de la depresión.
 
-***
-
 **El sistema de incentivos**
 
 El mecanismo que explica la distorsión no requiere suponer mala fe. Requiere entender cómo funciona el sistema de publicación científica, que tiende a favorecer resultados positivos, tanto por decisiones editoriales como por los patrones de envío de los propios investigadores. Las farmacéuticas, que financian la mayoría de los ensayos clínicos de sus propios productos, tienen incentivos directos para no publicar lo que no les sirve. Y durante décadas no existió ningún mecanismo obligatorio de registro previo de ensayos clínicos que permitiera rastrear cuáles se habían hecho y cuáles no habían llegado a imprimirse.
 
 ClinicalTrials.gov se lanzó en 2000. El registro prospectivo obligatorio para publicación en journals de alto impacto se empezó a implementar gradualmente después del estudio 329 de GlaxoSmithKline sobre paroxetina en adolescentes —uno de los casos más documentados de este tipo de distorsión, en el que un ensayo con resultados negativos fue publicado como positivo. El paper que lo expuso en detalle llegó quince años después.
-
-***
 
 **Una señal distorsionada**
 
@@ -60,8 +50,6 @@ Lo que Turner y Kirsch documentaron no era una anomalía del sistema. Era el sis
 La pregunta que su trabajo deja abierta no es si los antidepresivos sirven. Para ciertos diagnósticos y cierta severidad, la evidencia sugiere que sí. La pregunta es cuántas decisiones clínicas se tomaron sobre la base de una literatura que representaba, sistemáticamente, la mejor mitad de la evidencia disponible.
 
 Los datos existían. Solo que no viajaron.
-
-***
 
 **Referencias**
 

@@ -37,8 +37,6 @@ El comité lo describió como “uno de los descubrimientos médicos más sorpre
 
 La bacteria siempre estuvo ahí. Lo que tardó en llegar no fue el descubrimiento. Fue el permiso para que fuera verdad.
 
-***
-
 **Referencias**
 
 * Marshall BJ, Warren JR. "Unidentified curved bacilli in the stomach of patients with gastritis and peptic ulceration." *The Lancet*, 1984. DOI: 10.1016/S0140-6736(84)91816-6

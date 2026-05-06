@@ -13,8 +13,6 @@ resumen: Médicos y pacientes toman decisiones distintas según cómo se present
 
 Cuando un ensayo clínico anuncia que un medicamento "reduce el riesgo un 50%", la frase es matemáticamente correcta y clínicamente casi irrelevante: si el riesgo de base era del 2%, la reducción absoluta es de un punto porcentual. Décadas de investigación muestran que médicos y pacientes toman decisiones distintas según cómo se presentan los mismos datos. El sistema elige, casi siempre, el número más grande.
 
-***
-
 Un ensayo clínico anuncia que un medicamento reduce el riesgo de infarto en un cincuenta por ciento. Los medios lo cubren. El cardiólogo en televisión dice: significativo. El comunicado de prensa dice: histórico.
 
 Lo que no dice el titular es esto: el riesgo de base era del dos por ciento. El medicamento lo llevó al uno. De cada cien personas que tomaron la droga, noventa y nueve no obtuvieron ningún beneficio. Una sí.
@@ -24,8 +22,6 @@ Lo que no dice el titular es esto: el riesgo de base era del dos por ciento. El 
 **Número necesario para tratar:** cien.
 
 No son interpretaciones distintas del mismo dato. Son preguntas distintas. El riesgo relativo dice cuánto cambió tu probabilidad respecto al punto de partida. El riesgo absoluto dice cuánto cambió tu probabilidad en términos concretos. Ambos son matemáticamente correctos. El riesgo absoluto es el que permite evaluar mejor el impacto real para una persona.
-
-***
 
 **El problema del diseño**
 
@@ -37,15 +33,11 @@ Los comunicados de prensa de las farmacéuticas casi siempre usan riesgo relativ
 
 No hay que suponer mala fe para entender el mecanismo. Un número más grande es más fácil de comunicar, y suele percibirse como más relevante en la práctica clínica y mediática. El sistema de incentivos hace el resto.
 
-***
-
 **El caso JUPITER**
 
 El ejemplo de las estatinas lo ilustra con precisión. El ensayo JUPITER —uno de los estudios que respaldó la expansión de las estatinas a poblaciones de bajo riesgo cardiovascular— encontró una reducción del cuarenta y cuatro por ciento en ataques cardíacos. Ese número circuló ampliamente. El que circuló menos fue este: la reducción absoluta fue de 0,59 puntos porcentuales. El número necesario para tratar durante casi dos años fue, según distintos análisis, de aproximadamente entre 95 y 120 pacientes, según el endpoint considerado.
 
 Ninguno de esos números prueba que las estatinas no sirven. Para personas con riesgo alto, el balance cambia. El punto no es que el tratamiento sea inútil. El punto es que la misma evidencia, presentada de maneras distintas, lleva a decisiones distintas.
-
-***
 
 **Hacia una norma de transparencia**
 
@@ -56,8 +48,6 @@ En la mayoría de los países, el paciente que escucha "este medicamento reduce 
 No porque sea difícil entenderlo. Sino porque nadie se lo enseñó, porque el sistema no lo presenta así, y porque la mitad siempre convence más que uno en cien.
 
 Eso no es un error de comunicación. Es una consecuencia previsible de un sistema donde publicar resultados grandes tiene más valor que comunicar resultados exactos.
-
-***
 
 **Referencias**
 

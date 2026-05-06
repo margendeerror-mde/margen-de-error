@@ -49,14 +49,12 @@ La epidemiología nutricional no va a desaparecer porque sus datos sean imperfec
 
 Lo que sí debería cambiar es el grado de certeza con que se comunican sus resultados. Muchas asociaciones entre alimentos y enfermedad descansan sobre datos con limitaciones de medición conocidas y sistemáticas. Eso no las hace falsas. Las hace inciertas de una manera que rara vez aparece en los titulares.
 
-***
-
 **Referencias**
 
-Archer E, Hand GA, Blair SN. "Validity of U.S. Nutritional Surveillance." *PLOS ONE*, 2013. DOI: 10.1371/journal.pone.0076632
+* Archer E, Hand GA, Blair SN. "Validity of U.S. Nutritional Surveillance." *PLOS ONE*, 2013. DOI: 10.1371/journal.pone.0076632
 
-Archer E et al. "The Inadmissibility of What We Eat in America and NHANES Dietary Data in Nutrition and Obesity Research." *Mayo Clinic Proceedings*, 2015. DOI: 10.1016/j.mayocp.2015.04.009
+* Archer E et al. "The Inadmissibility of What We Eat in America and NHANES Dietary Data in Nutrition and Obesity Research." *Mayo Clinic Proceedings*, 2015. DOI: 10.1016/j.mayocp.2015.04.009
 
-Dhurandhar EI et al. "The ability of food frequency questionnaires to represent daily variation in diet." *PLOS ONE*, 2015. DOI: 10.1371/journal.pone.0136155
+* Dhurandhar EI et al. "The ability of food frequency questionnaires to represent daily variation in diet." *PLOS ONE*, 2015. DOI: 10.1371/journal.pone.0136155
 
-Subar AF et al. "Addressing Current Criticism Regarding the Value of Self-Report Dietary Data." *Journal of Nutrition*, 2015. DOI: 10.3945/jn.115.219634
+* Subar AF et al. "Addressing Current Criticism Regarding the Value of Self-Report Dietary Data." *Journal of Nutrition*, 2015. DOI: 10.3945/jn.115.219634
