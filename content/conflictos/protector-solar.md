@@ -30,7 +30,7 @@ El protector solar funciona absorbiendo o reflejando esa radiación antes de que
 
 Parece aritmética. Pero la fisiología es más compleja: el bloqueo nunca es total, el proceso de síntesis tiene un umbral bajo, y cantidades pequeñas de radiación pueden ser suficientes para mantenerlo activo. La linealidad se rompe antes de lo que la lógica sugiere.
 
-And sin embargo, hay algo más.
+Y sin embargo, hay algo más.
 
 ***
 
@@ -54,7 +54,7 @@ La pregunta que vale hacerse no es si los investigadores mintieron. Probablement
 
 La ciencia no miente, en general. Simplemente a veces elige con mucho cuidado qué parte de la verdad contar.
 
-And resulta que esa parte siempre le queda bien a alguien.
+Y resulta que esa parte siempre le queda bien a alguien.
 
 ***
 
