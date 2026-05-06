@@ -8,7 +8,7 @@ mecanismo:
   - pre-registro
 tema: mente-y-conducta
 fecha: 2026-05-06T14:40:00.000Z
-resumen: 'Un experimento no empieza cuando se recluta el primer participante. Empieza cuando alguien decide qué medir, cuándo parar y cómo analizar los datos. Esas decisiones previas influyen de manera sustantiva en lo que el estudio es capaz de encontrar. El sesgo de confirmación no opera solo en la interpretación. Opera también en el diseño.'
+resumen: 'El sesgo de confirmación no espera a los resultados; se instala en la selección del outcome, en los criterios de parada y en la población elegida. Cómo el diseño de un estudio puede predeterminar su éxito antes de recolectar el primer dato.'
 ---
 
 Un experimento no empieza cuando se recluta el primer participante. Empieza cuando alguien decide qué medir, cuándo parar y cómo analizar los datos. Esas decisiones previas influyen de manera sustantiva en lo que el estudio es capaz de encontrar. El sesgo de confirmación no opera solo en la interpretación. Opera también en el diseño.

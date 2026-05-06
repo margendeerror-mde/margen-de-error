@@ -8,7 +8,7 @@ mecanismo:
   - titular-engañoso
 tema: diagnóstico-y-clasificación
 fecha: 2026-05-06T11:34:00.000Z
-resumen: 'Un estudio con pocos participantes que no encuentra efecto no demuestra que el efecto no existe. Un estudio con demasiados participantes puede encontrar efectos estadísticamente significativos pero triviales. El tamaño muestral determina qué preguntas puede responder un estudio y cuáles no.'
+resumen: 'La potencia estadística no es solo una cifra técnica; es el límite de lo que un estudio puede afirmar con honestidad. Por qué los estudios pequeños pueden ser engañosos y los demasiado grandes, irrelevantes para la práctica clínica.'
 ---
 
 Un estudio con pocos participantes que no encuentra efecto no demuestra que el efecto no existe. Un estudio con demasiados participantes puede encontrar efectos que existen pero cuya magnitud es trivial desde el punto de vista clínico o práctico. El tamaño muestral determina qué preguntas puede responder un estudio —y cuáles no. Esa limitación rara vez aparece en los titulares.

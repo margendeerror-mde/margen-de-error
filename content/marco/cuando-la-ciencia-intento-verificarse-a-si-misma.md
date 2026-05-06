@@ -8,7 +8,7 @@ mecanismo:
   - normalización-por-repetición
 tema: mente-y-conducta
 fecha: 2026-05-06T11:33:00.000Z
-resumen: 'En 2011, un grupo de investigadores propuso un experimento incómodo: tomar estudios publicados en revistas prestigiosas y simplemente repetirlos. El supuesto implícito de que los resultados son reproducibles fue puesto a prueba, revelando fallas estructurales en el sistema de producción y validación científica.'
+resumen: 'La reproducibilidad es el pilar de la ciencia, pero ¿qué sucede cuando se intenta poner a prueba sistemáticamente? Un análisis de los fallos estructurales que surgieron cuando los investigadores intentaron repetir los estudios más influyentes de la última década.'
 ---
 
 En 2011, un grupo de investigadores propuso un experimento incómodo: tomar estudios publicados en revistas prestigiosas y simplemente repetirlos. El supuesto implícito de la ciencia moderna —que los resultados publicados son reproducibles— nunca había sido evaluado de forma sistemática y a gran escala dentro de un campo completo. Cuando se evaluó, los resultados fueron perturbadores.
