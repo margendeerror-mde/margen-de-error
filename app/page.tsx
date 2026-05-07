@@ -64,7 +64,7 @@ const sections = [
   {
     id: 'newsletter',
     title: 'NEWSLETTER',
-    subtitle: 'Menos ruido, más método. Análisis semanal sobre el conocimiento científico.',
+    subtitle: 'Análisis semanal sobre el conocimiento científico.',
     bgColor: '#0A0A0A',
     textColor: '#FFFFFF',
     accentColor: '#CC0000',
@@ -91,15 +91,18 @@ export default function EntryPage() {
     const { scrollLeft, scrollTop, clientWidth, clientHeight } = e.currentTarget;
     if (clientWidth === 0 || clientHeight === 0) return;
     
-    let idx = isMobile 
-      ? Math.round(scrollTop / clientHeight)
-      : Math.round(scrollLeft / clientWidth);
+    // More conservative index calculation for mobile
+    // It will only switch to index 6 when you've scrolled at least 70% of the previous section
+    const ratio = isMobile ? scrollTop / clientHeight : scrollLeft / clientWidth;
+    let idx = Math.round(ratio);
     
-    // Safeguard: ensure idx doesn't exceed sections length and stays at last if at bottom
+    // Force index 5 (Marco) if we haven't reached the 70% mark of the transition to 6
+    if (isMobile && ratio > 5 && ratio < 5.7) {
+      idx = 5;
+    }
+
     if (idx >= sections.length) idx = sections.length - 1;
     
-    // Improved mobile detection: only hide if we are truly in the last section
-    // We use a smaller tolerance to avoid hiding on 'Marco' (index 5)
     if (idx !== activeIdx) {
       setActiveIdx(idx);
     }
