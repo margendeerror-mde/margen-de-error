@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-export default function GlobalMenu({ dark = false, activeIdx }: { dark?: boolean, activeIdx?: number }) {
+export default function GlobalMenu({ dark = false, activeIdx, forceHide }: { dark?: boolean, activeIdx?: number, forceHide?: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === '/';
@@ -20,8 +20,8 @@ export default function GlobalMenu({ dark = false, activeIdx }: { dark?: boolean
   // Hide the top-left logo on Home (index 0) because it's redundant with the main title
   const hideHomeLogo = activeIdx === 0;
   
-  // Hide the entire menu on Newsletter (index 6) to avoid overlap
-  const hideAllMenu = activeIdx === 6;
+  // Hide the entire menu on Newsletter when the parent tells us to
+  const hideAllMenu = forceHide || activeIdx === 6;
 
   return (
     <>

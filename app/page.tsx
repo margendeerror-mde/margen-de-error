@@ -79,6 +79,8 @@ export default function EntryPage() {
   const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
 
+  const [hideMenuProp, setHideMenuProp] = useState(false);
+
   useEffect(() => {
     setMounted(true);
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -91,21 +93,15 @@ export default function EntryPage() {
     const { scrollLeft, scrollTop, clientWidth, clientHeight } = e.currentTarget;
     if (clientWidth === 0 || clientHeight === 0) return;
     
-    // More conservative index calculation for mobile
-    // It will only switch to index 6 when you've scrolled at least 70% of the previous section
     const ratio = isMobile ? scrollTop / clientHeight : scrollLeft / clientWidth;
     let idx = Math.round(ratio);
     
-    // Force index 5 (Marco) if we haven't reached the 70% mark of the transition to 6
-    if (isMobile && ratio > 5 && ratio < 5.7) {
-      idx = 5;
-    }
-
     if (idx >= sections.length) idx = sections.length - 1;
-    
-    if (idx !== activeIdx) {
-      setActiveIdx(idx);
-    }
+    if (idx !== activeIdx) setActiveIdx(idx);
+
+    // Explicitly hide only when deep into the last section (Newsletter)
+    // We use 5.8 as threshold: only hide if we are 80% into the last section transition
+    setHideMenuProp(isMobile && ratio > 5.8);
   };
 
   const scrollTo = (idx: number) => {
@@ -130,7 +126,7 @@ export default function EntryPage() {
 
   return (
     <div className="fixed inset-0 z-[100] bg-black overflow-hidden font-sans">
-      <GlobalMenu dark={true} activeIdx={activeIdx} />
+      <GlobalMenu dark={true} activeIdx={activeIdx} forceHide={hideMenuProp} />
 
       <div 
         ref={containerRef}
