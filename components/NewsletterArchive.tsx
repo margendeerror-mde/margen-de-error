@@ -63,7 +63,7 @@ export default function NewsletterArchive() {
       </div>
       <div className="mt-12 text-center">
         <a 
-          href="https://mde.beehiiv.com" 
+          href="https://boletin.mde.uy" 
           target="_blank" 
           rel="noopener noreferrer"
           className="tag-text !text-[10px] hover:text-accent transition-colors"
