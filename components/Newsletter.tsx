@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import NewsletterArchive from './NewsletterArchive';
 
 export default function Newsletter() {
   const [email, setEmail] = useState('');
@@ -10,8 +11,6 @@ export default function Newsletter() {
     e.preventDefault();
     setStatus('loading');
     
-    // Placeholder for API call
-    // When the user provides the API key, we will implement the actual fetch to /api/subscribe
     try {
       const res = await fetch('/api/subscribe', {
         method: 'POST',
@@ -68,6 +67,8 @@ export default function Newsletter() {
             Algo salió mal. Por favor intenta de nuevo.
           </p>
         )}
+
+        <NewsletterArchive />
       </div>
     </section>
   );

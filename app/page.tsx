@@ -134,8 +134,8 @@ export default function EntryPage() {
           >
             <VisualDetail type={section.detail || 'none'} active={activeIdx === idx} />
 
-            <div className={`text-center px-6 z-10 transition-all duration-700 ease-out ${getAnimClass(idx)}`}>
-              <h2 className="font-extrabold text-[clamp(3.5rem,12vw,9rem)] leading-[0.9] tracking-[-0.04em] uppercase mb-8">
+            <div className={`text-center px-6 z-10 pt-12 md:pt-0 transition-all duration-700 ease-out ${getAnimClass(idx)}`}>
+              <h2 className="font-extrabold text-[clamp(2.5rem,15vw,9rem)] md:text-[clamp(3.5rem,12vw,9rem)] leading-[0.9] tracking-[-0.04em] uppercase mb-8">
                 {section.title}
               </h2>
 

@@ -29,13 +29,13 @@ export default function GlobalMenu({ dark = false }: { dark?: boolean }) {
       )}
 
       {/* Top Right Global Menu */}
-      <div className={`fixed top-8 right-8 z-[200] flex gap-8 items-start ${dark ? 'text-white' : 'text-black'}`}>
+      <div className={`fixed top-6 right-6 md:top-8 md:right-8 z-[200] flex gap-4 md:gap-8 items-start ${dark ? 'text-white' : 'text-black'}`}>
         <div 
           className="relative"
           onMouseEnter={() => setIsOpen(true)}
           onMouseLeave={() => setIsOpen(false)}
         >
-          <button className="tag-text !text-[10px] tracking-[0.15em] font-bold hover:text-accent transition-colors">
+          <button className={`tag-text !text-[10px] tracking-[0.15em] font-bold hover:text-accent transition-colors px-2 py-1 rounded ${dark ? 'bg-black/40 md:bg-transparent' : 'bg-white/40 md:bg-transparent'} backdrop-blur-sm md:backdrop-blur-none`}>
             SECCIONES
           </button>
           
@@ -58,7 +58,7 @@ export default function GlobalMenu({ dark = false }: { dark?: boolean }) {
 
         <Link 
           href="/red" 
-          className={`tag-text !text-[10px] tracking-[0.15em] font-bold hover:text-accent transition-colors ${pathname === '/red' ? 'text-accent' : ''}`}
+          className={`tag-text !text-[10px] tracking-[0.15em] font-bold hover:text-accent transition-colors px-2 py-1 rounded ${dark ? 'bg-black/40 md:bg-transparent' : 'bg-white/40 md:bg-transparent'} backdrop-blur-sm md:backdrop-blur-none ${pathname === '/red' ? 'text-accent' : ''}`}
         >
           RED
         </Link>
