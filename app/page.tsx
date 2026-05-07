@@ -64,7 +64,7 @@ const sections = [
   {
     id: 'newsletter',
     title: 'NEWSLETTER',
-    subtitle: 'Menos ruido, más método. Análisis quincenal sobre el conocimiento científico.',
+    subtitle: 'Menos ruido, más método. Análisis semanal sobre el conocimiento científico.',
     bgColor: '#0A0A0A',
     textColor: '#FFFFFF',
     accentColor: '#CC0000',

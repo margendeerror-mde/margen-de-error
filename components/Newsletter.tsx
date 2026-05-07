@@ -37,7 +37,7 @@ export default function Newsletter() {
           Menos ruido, más método.
         </h2>
         <p className="font-serif text-lg text-[#999] mb-12 italic leading-relaxed">
-          Recibe cada dos semanas un análisis sobre los sesgos, errores y serendipias que definen el conocimiento científico actual.
+          Recibe cada semana un análisis sobre los sesgos, errores y serendipias que definen el conocimiento científico actual.
         </p>
 
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 items-center">
