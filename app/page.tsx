@@ -99,9 +99,8 @@ export default function EntryPage() {
     if (idx >= sections.length) idx = sections.length - 1;
     if (idx !== activeIdx) setActiveIdx(idx);
 
-    // Explicitly hide only when deep into the last section (Newsletter)
-    // We use 5.8 as threshold: only hide if we are 80% into the last section transition
-    setHideMenuProp(isMobile && ratio > 5.8);
+    // Ultra-strict threshold: only hide if we are at 5.95 (95% into Newsletter)
+    setHideMenuProp(isMobile && ratio > 5.95);
   };
 
   const scrollTo = (idx: number) => {
