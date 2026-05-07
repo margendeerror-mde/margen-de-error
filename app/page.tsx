@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import GlobalMenu from '@/components/GlobalMenu';
+import Newsletter from '@/components/Newsletter';
 
 const sections = [
   {
@@ -59,6 +60,16 @@ const sections = [
     textColor: '#FFFFFF',
     accentColor: '#FFFFFF',
     detail: 'grid',
+  },
+  {
+    id: 'newsletter',
+    title: 'NEWSLETTER',
+    subtitle: 'Menos ruido, más método. Análisis quincenal sobre el conocimiento científico.',
+    bgColor: '#0A0A0A',
+    textColor: '#FFFFFF',
+    accentColor: '#CC0000',
+    detail: 'grid',
+    isNewsletter: true
   }
 ];
 
@@ -135,7 +146,7 @@ export default function EntryPage() {
               </div>
             </div>
 
-            {!section.isHome && (
+            {!section.isHome && !section.isNewsletter && (
               <div className={`absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-8 z-20 transition-all duration-700 ${getAnimClass(idx, 'delay-700')}`}>
                 <Link 
                   href={`/${section.id}`} 
@@ -144,6 +155,12 @@ export default function EntryPage() {
                 >
                   → LEER
                 </Link>
+              </div>
+            )}
+
+            {section.isNewsletter && (
+              <div className={`w-full max-w-[680px] z-10 transition-all duration-700 ${getAnimClass(idx, 'delay-700')}`}>
+                <Newsletter />
               </div>
             )}
           </section>

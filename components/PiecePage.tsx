@@ -4,6 +4,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
 import GlobalMenu from '@/components/GlobalMenu';
 import { SECCION_COLORS } from '@/lib/types';
+import Newsletter from '@/components/Newsletter';
 
 export default function PiecePage({ 
   params, 
@@ -71,6 +72,10 @@ export default function PiecePage({
         <div className="prose prose-lg content-serif prose-p:text-foreground prose-headings:font-serif prose-headings:tracking-tight prose-a:text-accent prose-a:no-underline hover:prose-a:border-b-accent prose-a:border-b prose-a:border-transparent prose-a:transition-all max-w-none">
           <MDXRemote source={pieza.content} />
         </div>
+      </div>
+      
+      <div className="mt-48">
+        <Newsletter />
       </div>
     </article>
   );
