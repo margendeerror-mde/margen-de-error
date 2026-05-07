@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-export default function GlobalMenu({ dark = false }: { dark?: boolean }) {
+export default function GlobalMenu({ dark = false, activeIdx }: { dark?: boolean, activeIdx?: number }) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === '/';
@@ -17,25 +17,36 @@ export default function GlobalMenu({ dark = false }: { dark?: boolean }) {
     { name: 'MARCO', href: '/marco' },
   ];
 
+  // Hide top-right menu on Newsletter section (index 6)
+  const hideMenu = activeIdx === 6;
+
   return (
     <>
-      {/* Top Left Home Link (Internal Pages Only) */}
-      {!isHome && (
-        <div className="fixed top-8 left-8 z-[200]">
-          <Link href="/" className="tag-text !text-[11px] tracking-[0.15em] font-bold text-black hover:text-accent transition-colors">
-            MARGEN DE ERROR
-          </Link>
-        </div>
-      )}
+      {/* Top Left Logo/Home Link */}
+      <div className={`fixed top-8 left-8 z-[200] transition-opacity duration-500 ${hideMenu ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+        <Link href="/">
+          {isHome ? (
+            <img 
+              src="/assets/logo.svg" 
+              alt="Margen de Error" 
+              className={`h-8 md:h-10 w-auto ${dark ? 'invert' : ''}`}
+            />
+          ) : (
+            <span className={`tag-text !text-[11px] tracking-[0.15em] font-bold hover:text-accent transition-colors ${dark ? 'text-white' : 'text-black'}`}>
+              MARGEN DE ERROR
+            </span>
+          )}
+        </Link>
+      </div>
 
       {/* Top Right Global Menu */}
-      <div className={`fixed top-6 right-6 md:top-8 md:right-8 z-[200] flex gap-4 md:gap-8 items-start ${dark ? 'text-white' : 'text-black'}`}>
+      <div className={`fixed top-6 right-6 md:top-8 md:right-8 z-[200] flex gap-4 md:gap-8 items-start transition-all duration-500 ${dark ? 'text-white' : 'text-black'} ${hideMenu ? 'opacity-0 pointer-events-none translate-y-[-20px]' : 'opacity-100 translate-y-0'}`}>
         <div 
           className="relative"
           onMouseEnter={() => setIsOpen(true)}
           onMouseLeave={() => setIsOpen(false)}
         >
-          <button className={`tag-text !text-[10px] tracking-[0.15em] font-bold hover:text-accent transition-colors px-2 py-1 rounded ${dark ? 'bg-black/40 md:bg-transparent' : 'bg-white/40 md:bg-transparent'} backdrop-blur-sm md:backdrop-blur-none`}>
+          <button className={`tag-text !text-[10px] tracking-[0.15em] font-bold hover:text-accent transition-colors px-2 py-1`}>
             SECCIONES
           </button>
           
@@ -58,7 +69,7 @@ export default function GlobalMenu({ dark = false }: { dark?: boolean }) {
 
         <Link 
           href="/red" 
-          className={`tag-text !text-[10px] tracking-[0.15em] font-bold hover:text-accent transition-colors px-2 py-1 rounded ${dark ? 'bg-black/40 md:bg-transparent' : 'bg-white/40 md:bg-transparent'} backdrop-blur-sm md:backdrop-blur-none ${pathname === '/red' ? 'text-accent' : ''}`}
+          className={`tag-text !text-[10px] tracking-[0.15em] font-bold hover:text-accent transition-colors px-2 py-1 ${pathname === '/red' ? 'text-accent' : ''}`}
         >
           RED
         </Link>

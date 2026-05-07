@@ -119,7 +119,7 @@ export default function EntryPage() {
 
   return (
     <div className="fixed inset-0 z-[100] bg-black overflow-hidden font-sans">
-      <GlobalMenu dark={true} />
+      <GlobalMenu dark={true} activeIdx={activeIdx} />
 
       <div 
         ref={containerRef}
