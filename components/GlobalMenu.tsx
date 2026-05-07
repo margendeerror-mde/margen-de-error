@@ -17,13 +17,16 @@ export default function GlobalMenu({ dark = false, activeIdx }: { dark?: boolean
     { name: 'MARCO', href: '/marco' },
   ];
 
-  // Hide top-right menu on Newsletter section (index 6)
-  const hideMenu = activeIdx === 6;
+  // Hide the top-left logo on Home (index 0) because it's redundant with the main title
+  const hideHomeLogo = activeIdx === 0;
+  
+  // Hide the entire menu on Newsletter (index 6) to avoid overlap
+  const hideAllMenu = activeIdx === 6;
 
   return (
     <>
       {/* Top Left Logo/Home Link */}
-      <div className={`fixed top-8 left-8 z-[200] transition-opacity duration-500 ${hideMenu ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+      <div className={`fixed top-8 left-8 z-[200] transition-all duration-700 ${hideAllMenu || hideHomeLogo ? 'opacity-0 pointer-events-none translate-x-[-20px]' : 'opacity-100 translate-x-0'}`}>
         <Link href="/">
           {isHome ? (
             <img 
@@ -40,7 +43,7 @@ export default function GlobalMenu({ dark = false, activeIdx }: { dark?: boolean
       </div>
 
       {/* Top Right Global Menu */}
-      <div className={`fixed top-6 right-6 md:top-8 md:right-8 z-[200] flex gap-4 md:gap-8 items-start transition-all duration-500 ${dark ? 'text-white' : 'text-black'} ${hideMenu ? 'opacity-0 pointer-events-none translate-y-[-20px]' : 'opacity-100 translate-y-0'}`}>
+      <div className={`fixed top-6 right-6 md:top-8 md:right-8 z-[200] flex gap-4 md:gap-8 items-start transition-all duration-700 ${dark ? 'text-white' : 'text-black'} ${hideAllMenu ? 'opacity-0 pointer-events-none translate-y-[-20px]' : 'opacity-100 translate-y-0'}`}>
         <div 
           className="relative"
           onMouseEnter={() => setIsOpen(true)}

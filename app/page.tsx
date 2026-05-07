@@ -94,6 +94,13 @@ export default function EntryPage() {
     const idx = isMobile 
       ? Math.round(scrollTop / clientHeight)
       : Math.round(scrollLeft / clientWidth);
+    
+    // On mobile, if we are very close to the bottom, force the last index to ensure menu hides
+    if (isMobile && scrollTop + clientHeight >= containerRef.current!.scrollHeight - 10) {
+      if (activeIdx !== sections.length - 1) setActiveIdx(sections.length - 1);
+      return;
+    }
+
     if (idx !== activeIdx) setActiveIdx(idx);
   };
 
