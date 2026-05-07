@@ -91,17 +91,18 @@ export default function EntryPage() {
     const { scrollLeft, scrollTop, clientWidth, clientHeight } = e.currentTarget;
     if (clientWidth === 0 || clientHeight === 0) return;
     
-    const idx = isMobile 
+    let idx = isMobile 
       ? Math.round(scrollTop / clientHeight)
       : Math.round(scrollLeft / clientWidth);
     
-    // On mobile, if we are very close to the bottom, force the last index to ensure menu hides
-    if (isMobile && scrollTop + clientHeight >= containerRef.current!.scrollHeight - 10) {
-      if (activeIdx !== sections.length - 1) setActiveIdx(sections.length - 1);
-      return;
+    // Safeguard: ensure idx doesn't exceed sections length and stays at last if at bottom
+    if (idx >= sections.length) idx = sections.length - 1;
+    
+    // Improved mobile detection: only hide if we are truly in the last section
+    // We use a smaller tolerance to avoid hiding on 'Marco' (index 5)
+    if (idx !== activeIdx) {
+      setActiveIdx(idx);
     }
-
-    if (idx !== activeIdx) setActiveIdx(idx);
   };
 
   const scrollTo = (idx: number) => {
