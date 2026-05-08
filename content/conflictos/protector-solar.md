@@ -50,5 +50,5 @@ Y resulta que esa parte siempre le queda bien a alguien.
 
 **Referencias**
 
-* Neale RE et al. ["The effect of sunscreen on vitamin D: a review."](https://doi.org/10.1111/bjd.17980) *British Journal of Dermatology*, 2019. DOI: [10.1111/bjd.17980](https://doi.org/10.1111/bjd.17980)
-* Agencia SINC. ["El uso de protector solar no perjudica la síntesis de vitamina D."](https://www.agenciasinc.es/Noticias/El-uso-de-protector-solar-no-perjudica-la-sintesis-de-vitamina-D) 2019.
+* Neale RE et al. "The effect of sunscreen on vitamin D: a review." *British Journal of Dermatology*, 2019. DOI: [10.1111/bjd.17980](https://doi.org/10.1111/bjd.17980)
+* Agencia SINC. "El uso de protector solar no perjudica la síntesis de vitamina D." 2019. [Link](https://www.agenciasinc.es/Noticias/El-uso-de-protector-solar-no-perjudica-la-sintesis-de-vitamina-D)

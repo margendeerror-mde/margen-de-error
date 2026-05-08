@@ -70,7 +70,31 @@ export default function PiecePage({
         </header>
 
         <div className="prose prose-lg content-serif prose-p:text-foreground prose-headings:font-serif prose-headings:tracking-tight prose-a:text-accent prose-a:no-underline hover:prose-a:border-b-accent prose-a:border-b prose-a:border-transparent prose-a:transition-all max-w-none">
-          <MDXRemote source={pieza.content} />
+          <MDXRemote 
+            source={pieza.content} 
+            components={{
+              a: ({ href, children, ...props }: any) => {
+                const isExternal = href?.startsWith('http');
+                if (isExternal) {
+                  return (
+                    <a 
+                      href={href}
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      {...props}
+                    >
+                      {children}
+                    </a>
+                  );
+                }
+                return (
+                  <Link href={href} {...props}>
+                    {children}
+                  </Link>
+                );
+              }
+            }}
+          />
         </div>
       </div>
       

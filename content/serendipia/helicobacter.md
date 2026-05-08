@@ -39,6 +39,6 @@ La bacteria siempre estuvo ahí. Lo que tardó en llegar no fue el descubrimient
 
 **Referencias**
 
-* Marshall BJ, Warren JR. ["Unidentified curved bacilli in the stomach of patients with gastritis and peptic ulceration."](https://doi.org/10.1016/S0140-6736(84)91816-6) *The Lancet*, 1984. DOI: [10.1016/S0140-6736(84)91816-6](https://doi.org/10.1016/S0140-6736(84)91816-6)
-* Marshall B. ["Autobiography."](https://www.nobelprize.org/prizes/medicine/2005/marshall/auto-biography/) Nobel Prize, 2005. Disponible en: [nobelprize.org](https://www.nobelprize.org)
-* Thagard P. ["How Scientists Explain Disease."](https://press.princeton.edu/books/hardcover/9485/how-scientists-explain-disease) Princeton University Press, 1999.
+* Marshall BJ, Warren JR. "Unidentified curved bacilli in the stomach of patients with gastritis and peptic ulceration." *The Lancet*, 1984. DOI: [10.1016/s0140-6736(84)91816-6](https://doi.org/10.1016/s0140-6736(84)91816-6)
+* Marshall B. "Autobiography." Nobel Prize, 2005. [Link](https://www.nobelprize.org/prizes/medicine/2005/marshall/auto-biography/)
+* Thagard P. "How Scientists Explain Disease." Princeton University Press, 1999. [Link](https://press.princeton.edu/books/hardcover/9485/how-scientists-explain-disease)

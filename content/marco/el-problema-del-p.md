@@ -64,8 +64,8 @@ El p-valor seguirá siendo el guardián de la puerta mientras la puerta esté di
 
 **Referencias**
 
-* Fisher RA. [*Statistical Methods for Research Workers*](http://psychclassics.yorku.ca/Fisher/Methods/). Oliver & Boyd, 1925.
-* Open Science Collaboration. ["Estimating the reproducibility of psychological science."](https://doi.org/10.1126/science.aac4716) *Science*, 2015. DOI: [10.1126/science.aac4716](https://doi.org/10.1126/science.aac4716)
-* Simmons JP, Nelson LD, Simonsohn U. ["False-Positive Psychology: Undisclosed Flexibility in Data Collection and Analysis."](https://doi.org/10.1177/0956797611417632) *Psychological Science*, 2011. DOI: [10.1177/0956797611417632](https://doi.org/10.1177/0956797611417632)
-* Wasserstein RL, Schirm AL, Lazar NA. ["Moving to a World Beyond 'p < 0.05'."](https://doi.org/10.1080/00031305.2019.1583913) *The American Statistician*, 2019. DOI: [10.1080/00031305.2019.1583913](https://doi.org/10.1080/00031305.2019.1583913)
-* Ioannidis JPA. ["Why Most Published Research Findings Are False."](https://doi.org/10.1371/journal.pmed.0020124) *PLOS Medicine*, 2005. DOI: [10.1371/journal.pmed.0020124](https://doi.org/10.1371/journal.pmed.0020124)
+* Fisher RA. *Statistical Methods for Research Workers*. Oliver & Boyd, 1925. [Link](http://psychclassics.yorku.ca/Fisher/Methods/)
+* Open Science Collaboration. "Estimating the reproducibility of psychological science." *Science*, 2015. DOI: [10.1126/science.aac4716](https://doi.org/10.1126/science.aac4716)
+* Simmons JP, Nelson LD, Simonsohn U. "False-Positive Psychology: Undisclosed Flexibility in Data Collection and Analysis." *Psychological Science*, 2011. DOI: [10.1177/0956797611417632](https://doi.org/10.1177/0956797611417632)
+* Wasserstein RL, Schirm AL, Lazar NA. "Moving to a World Beyond 'p < 0.05'." *The American Statistician*, 2019. DOI: [10.1080/00031305.2019.1583913](https://doi.org/10.1080/00031305.2019.1583913)
+* Ioannidis JPA. "Why Most Published Research Findings Are False." *PLOS Medicine*, 2005. DOI: [10.1371/journal.pmed.0020124](https://doi.org/10.1371/journal.pmed.0020124)

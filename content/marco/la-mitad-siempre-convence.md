@@ -51,14 +51,9 @@ Eso no es un error de comunicación. Es una consecuencia previsible de un sistem
 
 **Referencias**
 
-- Gigerenzer G, Gaissmaier W, Kurz-Milcke E, Schwartz LM, Woloshin S. ["Helping Doctors and Patients Make Sense of Health Statistics."](https://doi.org/10.1111/j.1539-6053.2008.00033.x) *Psychological Science in the Public Interest*, 2007; 8(2):53–96. DOI: [10.1111/j.1539-6053.2008.00033.x](https://doi.org/10.1111/j.1539-6053.2008.00033.x)
-
-- Gigerenzer G, Edwards A. ["Simple tools for understanding risks: from innumeracy to insight."](https://doi.org/10.1136/bmj.327.7417.741) *BMJ*, 2003; 327(7417):741–744. DOI: [10.1136/bmj.327.7417.741](https://doi.org/10.1136/bmj.327.7417.741)
-
-- Sheridan SL, Pignone MP, Lewis CL. ["A randomized comparison of patients' understanding of number needed to treat and other common risk reduction formats."](https://doi.org/10.1046/j.1525-1497.2003.21102.x) *Journal of General Internal Medicine*, 2003; 18(11):884–892. DOI: [10.1046/j.1525-1497.2003.21102.x](https://doi.org/10.1046/j.1525-1497.2003.21102.x)
-
-- Ridker PM, Danielson E, Fonseca FAH, et al. (JUPITER Study Group). ["Rosuvastatin to Prevent Vascular Events in Men and Women with Elevated C-Reactive Protein."](https://doi.org/10.1056/NEJMoa0807646) *New England Journal of Medicine*, 2008; 359(21):2195–2207. DOI: [10.1056/NEJMoa0807646](https://doi.org/10.1056/NEJMoa0807646)
-
-- Therapeutics Letter. ["Expanded indication for rosuvastatin: is it warranted?"](https://www.ti.ubc.ca/2010/09/23/expanded-indication-for-rosuvastatin-is-it-warranted/) *Therapeutics Letter*, 2010; issue 77. University of British Columbia. Disponible en: [www.ti.ubc.ca](https://www.ti.ubc.ca)
-
-- National Institute for Health and Care Excellence (NICE). ["Cardiovascular disease: risk assessment and reduction, including lipid modification."](https://www.nice.org.uk/guidance/cg181) Clinical guideline CG181, 2014 (updated 2023). Disponible en: [www.nice.org.uk/guidance/cg181](https://www.nice.org.uk/guidance/cg181)
+- Gigerenzer G, Gaissmaier W, Kurz-Milcke E, Schwartz LM, Woloshin S. "Helping Doctors and Patients Make Sense of Health Statistics." *Psychological Science in the Public Interest*, 2007; 8(2):53–96. DOI: [10.1111/j.1539-6053.2008.00033.x](https://doi.org/10.1111/j.1539-6053.2008.00033.x)
+- Gigerenzer G, Edwards A. "Simple tools for understanding risks: from innumeracy to insight." *BMJ*, 2003; 327(7417):741–744. DOI: [10.1136/bmj.327.7417.741](https://doi.org/10.1136/bmj.327.7417.741)
+- Sheridan SL, Pignone MP, Lewis CL. "A randomized comparison of patients' understanding of number needed to treat and other common risk reduction formats." *Journal of General Internal Medicine*, 2003; 18(11):884–892. DOI: [10.1046/j.1525-1497.2003.21102.x](https://doi.org/10.1046/j.1525-1497.2003.21102.x)
+- Ridker PM, Danielson E, Fonseca FAH, et al. (JUPITER Study Group). "Rosuvastatin to Prevent Vascular Events in Men and Women with Elevated C-Reactive Protein." *New England Journal of Medicine*, 2008; 359(21):2195–2207. DOI: [10.1056/NEJMoa0807646](https://doi.org/10.1056/NEJMoa0807646)
+- Therapeutics Letter. "Expanded indication for rosuvastatin: is it warranted?" *Therapeutics Letter*, 2010; issue 77. University of British Columbia. [Link](https://www.ti.ubc.ca/2010/09/23/expanded-indication-for-rosuvastatin-is-it-warranted/)
+- National Institute for Health and Care Excellence (NICE). "Cardiovascular disease: risk assessment and reduction, including lipid modification." Clinical guideline CG181, 2014 (updated 2023). [Link](https://www.nice.org.uk/guidance/cg181)

@@ -48,6 +48,7 @@ Las revistas científicas han endurecido sus políticas de declaración de confl
 
 **Referencias**
 
-- Fugh-Berman A. ["The Haunting of Medical Journals: How Ghostwriting Sold 'HRT'."](https://doi.org/10.1371/journal.pmed.1000335) *PLOS Medicine*, 2010. DOI: [10.1371/journal.pmed.1000335](https://doi.org/10.1371/journal.pmed.1000335)
-- Rossouw JE et al. ["Risks and Benefits of Estrogen Plus Progestin in Healthy Postmenopausal Women."](https://doi.org/10.1001/jama.288.3.321) *JAMA*, 2002. DOI: [10.1001/jama.288.3.321](https://doi.org/10.1001/jama.288.3.321)
-- Ross JS et al. ["Guest Authorship and Ghostwriting in Publications Related to Rofecoxib."](https://doi.org/10.1001/jama.299.15.1800) *JAMA*, 2008. DOI: [10.1001/jama.299.15.1800](https://doi.org/10.1001/jama.299.15.1800)
+- Sismondo S. "Ghosts in the Machine: Ghost Management of Information in the Medical Sciences." *Social Studies of Science*, 2009. DOI: [10.1177/0306312708101047](https://doi.org/10.1177/0306312708101047)
+- Fugh-Berman A. "The Haunting of Medical Journals: How Ghostwriting Sold 'HRT'." *PLOS Medicine*, 2010. DOI: [10.1371/journal.pmed.1000335](https://doi.org/10.1371/journal.pmed.1000335)
+- Rossouw JE et al. "Risks and Benefits of Estrogen Plus Progestin in Healthy Postmenopausal Women." *JAMA*, 2002. DOI: [10.1001/jama.288.3.321](https://doi.org/10.1001/jama.288.3.321)
+- Ross JS et al. "Guest Authorship and Ghostwriting in Publications Related to Rofecoxib." *JAMA*, 2008. DOI: [10.1001/jama.299.15.1800](https://doi.org/10.1001/jama.299.15.1800)
