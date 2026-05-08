@@ -53,14 +53,14 @@ El marcador apuntaba en una dirección. El cuerpo, cuando lo empujás al límite
 
 **Referencias**
 
-- ACCORD Study Group; Gerstein HC, Miller ME, Byington RP, et al. "Effects of Intensive Glucose Lowering in Type 2 Diabetes." *New England Journal of Medicine*, 2008; 358(24):2545–2559. DOI: 10.1056/NEJMoa0802743
+- ACCORD Study Group; Gerstein HC, Miller ME, Byington RP, et al. ["Effects of Intensive Glucose Lowering in Type 2 Diabetes."](https://doi.org/10.1056/NEJMoa0802743) *New England Journal of Medicine*, 2008; 358(24):2545–2559. DOI: [10.1056/NEJMoa0802743](https://doi.org/10.1056/NEJMoa0802743)
 
-- Riddle MC, Ambrosius WT, Brillon DJ, et al. "Epidemiologic Relationships Between A1C and All-Cause Mortality During a Median 3.4-Year Follow-up of Glycemic Treatment in the ACCORD Trial." *Diabetes Care*, 2010; 33(5):983–990. DOI: 10.2337/dc09-1278
+- Riddle MC, Ambrosius WT, Brillon DJ, et al. ["Epidemiologic Relationships Between A1C and All-Cause Mortality During a Median 3.4-Year Follow-up of Glycemic Treatment in the ACCORD Trial."](https://doi.org/10.2337/dc09-1278) *Diabetes Care*, 2010; 33(5):983–990. DOI: [10.2337/dc09-1278](https://doi.org/10.2337/dc09-1278)
 
-- Bonds DE, Miller ME, Bergenstal RM, et al. "The association between symptomatic, severe hypoglycaemia and mortality in type 2 diabetes: retrospective epidemiological analysis of the ACCORD study." *BMJ*, 2010; 340:b4909. DOI: 10.1136/bmj.b4909
+- Bonds DE, Miller ME, Bergenstal RM, et al. ["The association between symptomatic, severe hypoglycaemia and mortality in type 2 diabetes: retrospective epidemiological analysis of the ACCORD study."](https://doi.org/10.1136/bmj.b4909) *BMJ*, 2010; 340:b4909. DOI: [10.1136/bmj.b4909](https://doi.org/10.1136/bmj.b4909)
 
-- Calvert MJ, McManus RJ, Freemantle N. "Management of type 2 diabetes with multiple oral hypoglycaemic agents or insulin in primary care: retrospective cohort study." *British Journal of General Practice*, 2007; 57(539):455–460.
+- Calvert MJ, McManus RJ, Freemantle N. ["Management of type 2 diabetes with multiple oral hypoglycaemic agents or insulin in primary care: retrospective cohort study."](https://doi.org/10.3399/096016407780737482) *British Journal of General Practice*, 2007; 57(539):455–460. DOI: [10.3399/096016407780737482](https://doi.org/10.3399/096016407780737482)
 
-- Hayward RA, Reaven PD, Wiitala WL, et al. (VADT Investigators). "Follow-up of Glycemic Control and Cardiovascular Outcomes in Type 2 Diabetes." *New England Journal of Medicine*, 2015; 372(23):2197–2206. DOI: 10.1056/NEJMoa1414266
+- Hayward RA, Reaven PD, Wiitala WL, et al. (VADT Investigators). ["Follow-up of Glycemic Control and Cardiovascular Outcomes in Type 2 Diabetes."](https://doi.org/10.1056/NEJMoa1414266) *New England Journal of Medicine*, 2015; 372(23):2197–2206. DOI: [10.1056/NEJMoa1414266](https://doi.org/10.1056/NEJMoa1414266)
 
-- Boussageon R, Bejan-Angoulvant T, Saadatian-Elahi M, et al. "Effect of intensive glucose lowering treatment on all cause mortality, cardiovascular death, and microvascular events in type 2 diabetes: meta-analysis of randomised controlled trials." *BMJ*, 2011; 343:d4169. DOI: 10.1136/bmj.d4169
+- Boussageon R, Bejan-Angoulvant T, Saadatian-Elahi M, et al. ["Effect of intensive glucose lowering treatment on all cause mortality, cardiovascular death, and microvascular events in type 2 diabetes: meta-analysis of randomised controlled trials."](https://doi.org/10.1136/bmj.d4169) *BMJ*, 2011; 343:d4169. DOI: [10.1136/bmj.d4169](https://doi.org/10.1136/bmj.d4169)

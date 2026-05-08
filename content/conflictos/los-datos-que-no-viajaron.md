@@ -53,14 +53,14 @@ Los datos existían. Solo que no viajaron.
 
 **Referencias**
 
-- Turner EH, Matthews AM, Linardatos E, Tell RA, Rosenthal R. "Selective Publication of Antidepressant Trials and Its Influence on Apparent Efficacy." *New England Journal of Medicine*, 2008; 358(3):252–260. DOI: 10.1056/NEJMsa065779
+- Turner EH, Matthews AM, Linardatos E, Tell RA, Rosenthal R. ["Selective Publication of Antidepressant Trials and Its Influence on Apparent Efficacy."](https://doi.org/10.1056/NEJMsa065779) *New England Journal of Medicine*, 2008; 358(3):252–260. DOI: [10.1056/NEJMsa065779](https://doi.org/10.1056/NEJMsa065779)
 
-- Kirsch I, Deacon BJ, Huedo-Medina TB, Scoboria A, Moore TJ, Johnson BT. "Initial Severity and Antidepressant Benefits: A Meta-Analysis of Data Submitted to the Food and Drug Administration." *PLOS Medicine*, 2008; 5(2):e45. DOI: 10.1001/jamainternmed.2016.5394
+- Kirsch I, Deacon BJ, Huedo-Medina TB, Scoboria A, Moore TJ, Johnson BT. ["Initial Severity and Antidepressant Benefits: A Meta-Analysis of Data Submitted to the Food and Drug Administration."](https://doi.org/10.1371/journal.pmed.0050045) *PLOS Medicine*, 2008; 5(2):e45. DOI: [10.1371/journal.pmed.0050045](https://doi.org/10.1371/journal.pmed.0050045)
 
-- Le Noury J, Nardo JM, Healy D, et al. "Restoring Study 329: efficacy and harms of paroxetine and imipramine in treatment of major depression in adolescence." *BMJ*, 2015; 351:h4320. DOI: 10.1136/bmj.h4320
+- Le Noury J, Nardo JM, Healy D, et al. ["Restoring Study 329: efficacy and harms of paroxetine and imipramine in treatment of major depression in adolescence."](https://doi.org/10.1136/bmj.h4320) *BMJ*, 2015; 351:h4320. DOI: [10.1136/bmj.h4320](https://doi.org/10.1136/bmj.h4320)
 
-- Doshi P, Dickersin K, Healy D, Vedula SS, Jefferson T. "Restoring invisible and abandoned trials: a call for people to publish the findings." *BMJ*, 2013; 346:f2865. DOI: 10.1136/bmj.f2865
+- Doshi P, Dickersin K, Healy D, Vedula SS, Jefferson T. ["Restoring invisible and abandoned trials: a call for people to publish the findings."](https://doi.org/10.1136/bmj.f2865) *BMJ*, 2013; 346:f2865. DOI: [10.1136/bmj.f2865](https://doi.org/10.1136/bmj.f2865)
 
-- Goldacre B. *Bad Pharma: How Drug Companies Mislead Doctors and Harm Patients*. London: Fourth Estate, 2012.
+- Goldacre B. [*Bad Pharma: How Drug Companies Mislead Doctors and Harm Patients*](https://archive.org/details/badpharmahowdrug0000gold). London: Fourth Estate, 2012.
 
-- National Institute for Health and Care Excellence (NICE). "Depression in adults: treatment and management." Clinical guideline NG222, 2022. Disponible en: www.nice.org.uk/guidance/ng222
+- National Institute for Health and Care Excellence (NICE). ["Depression in adults: treatment and management."](https://www.nice.org.uk/guidance/ng222) Clinical guideline NG222, 2022. Disponible en: [www.nice.org.uk/guidance/ng222](https://www.nice.org.uk/guidance/ng222)

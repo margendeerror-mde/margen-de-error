@@ -54,14 +54,14 @@ La queja era la señal. Solo faltaba alguien que la escuchara distinto.
 
 **Referencias**
 
-- Zappacosta AR. "Reversal of baldness in patient receiving minoxidil for hypertension." *New England Journal of Medicine*, 1980; 303(25):1480–1481. DOI: 10.1056/NEJM198012183032517
+- Zappacosta AR. ["Reversal of baldness in patient receiving minoxidil for hypertension."](https://doi.org/10.1056/NEJM198012183032517) *New England Journal of Medicine*, 1980; 303(25):1480–1481. DOI: [10.1056/NEJM198012183032517](https://doi.org/10.1056/NEJM198012183032517)
 
-- Olsen EA, Weiner MS, Amara IA, DeLong ER. "Five-year follow-up of men with androgenetic alopecia treated with topical minoxidil." *Journal of the American Academy of Dermatology*, 1990; 22(4):643–646. DOI: 10.1016/0190-9622(90)70089-Q
+- Olsen EA, Weiner MS, Amara IA, DeLong ER. ["Five-year follow-up of men with androgenetic alopecia treated with topical minoxidil."](https://doi.org/10.1016/0190-9622(90)70089-Q) *Journal of the American Academy of Dermatology*, 1990; 22(4):643–646. DOI: [10.1016/0190-9622(90)70089-Q](https://doi.org/10.1016/0190-9622(90)70089-Q)
 
-- Messenger AG, Rundegren J. "Minoxidil: mechanisms of action on hair growth." *British Journal of Dermatology*, 2004; 150(2):186–194. DOI: 10.1111/j.1365-2133.2004.05785.x
+- Messenger AG, Rundegren J. ["Minoxidil: mechanisms of action on hair growth."](https://doi.org/10.1111/j.1365-2133.2004.05785.x) *British Journal of Dermatology*, 2004; 150(2):186–194. DOI: [10.1111/j.1365-2133.2004.05785.x](https://doi.org/10.1111/j.1365-2133.2004.05785.x)
 
-- Randolph M, Tosti A. "Oral minoxidil treatment for hair loss: A review of efficacy and safety." *Journal of the American Academy of Dermatology*, 2021; 84(3):737–746. DOI: 10.1016/j.jaad.2020.06.1009
+- Randolph M, Tosti A. ["Oral minoxidil treatment for hair loss: A review of efficacy and safety."](https://doi.org/10.1016/j.jaad.2020.06.1009) *Journal of the American Academy of Dermatology*, 2021; 84(3):737–746. DOI: [10.1016/j.jaad.2020.06.1009](https://doi.org/10.1016/j.jaad.2020.06.1009)
 
-- Vañó-Galván S, Pirmez R, Hermosa-Gelbard A, et al. "Safety of low-dose oral minoxidil for hair loss: A multicenter study of 1404 patients." *Journal of the American Academy of Dermatology*, 2021; 84(6):1737–1739. DOI: 10.1016/j.jaad.2021.02.054
+- Vañó-Galván S, Pirmez R, Hermosa-Gelbard A, et al. ["Safety of low-dose oral minoxidil for hair loss: A multicenter study of 1404 patients."](https://doi.org/10.1016/j.jaad.2021.02.054) *Journal of the American Academy of Dermatology*, 2021; 84(6):1737–1739. DOI: [10.1016/j.jaad.2021.02.054](https://doi.org/10.1016/j.jaad.2021.02.054)
 
-- Rossi A, Cantisani C, Melis L, Iorio A, Scali E, Calvieri S. "Minoxidil use in dermatology, side effects and recent patents." *Recent Patents on Inflammation & Allergy Drug Discovery*, 2012; 6(2):130–136. DOI: 10.2174/187221312800166859
+- Rossi A, Cantisani C, Melis L, Iorio A, Scali E, Calvieri S. ["Minoxidil use in dermatology, side effects and recent patents."](https://doi.org/10.2174/187221312800166859) *Recent Patents on Inflammation & Allergy Drug Discovery*, 2012; 6(2):130–136. DOI: [10.2174/187221312800166859](https://doi.org/10.2174/187221312800166859)

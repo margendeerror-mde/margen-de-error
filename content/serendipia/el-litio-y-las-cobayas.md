@@ -47,7 +47,7 @@ Uno de los descubrimientos más importantes en la historia del tratamiento del t
 
 **Referencias**
 
-* Cade JF. "Lithium salts in the treatment of psychotic excitement." *Medical Journal of Australia*, 1949. PMID: 18152442
-* Schou M et al. "The treatment of manic psychoses by the administration of lithium salts." *Journal of Neurology, Neurosurgery and Psychiatry*, 1954. DOI: 10.1136/jnnp.17.4.250
-* Mitchell PB, Hadzi-Pavlovic D. "Lithium treatment for bipolar disorder." *Bulletin of the World Health Organization*, 2000. PMID: 10859852
-* Shorter E. "The history of lithium therapy." *Bipolar Disorders*, 2009. DOI: 10.1111/j.1399-5618.2009.00706.x
+* Cade JF. ["Lithium salts in the treatment of psychotic excitement."](https://pubmed.ncbi.nlm.nih.gov/18152442/) *Medical Journal of Australia*, 1949. PMID: [18152442](https://pubmed.ncbi.nlm.nih.gov/18152442/)
+* Schou M et al. ["The treatment of manic psychoses by the administration of lithium salts."](https://doi.org/10.1136/jnnp.17.4.250) *Journal of Neurology, Neurosurgery and Psychiatry*, 1954. DOI: [10.1136/jnnp.17.4.250](https://doi.org/10.1136/jnnp.17.4.250)
+* Mitchell PB, Hadzi-Pavlovic D. ["Lithium treatment for bipolar disorder."](https://pubmed.ncbi.nlm.nih.gov/10859852/) *Bulletin of the World Health Organization*, 2000. PMID: [10859852](https://pubmed.ncbi.nlm.nih.gov/10859852/)
+* Shorter E. ["The history of lithium therapy."](https://doi.org/10.1111/j.1399-5618.2009.00706.x) *Bipolar Disorders*, 2009. DOI: [10.1111/j.1399-5618.2009.00706.x](https://doi.org/10.1111/j.1399-5618.2009.00706.x)

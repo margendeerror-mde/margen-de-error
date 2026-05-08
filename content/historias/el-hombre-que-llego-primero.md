@@ -55,16 +55,16 @@ Yudkin tenía la señal. No tenía lo demás.
 
 **Referencias**
 
-- Yudkin J. "Dietary fat and dietary sugar in relation to ischaemic heart-disease and diabetes." *The Lancet*, 1964; 284(7349):4–5. DOI: 10.1016/S0140-6736(64)92509-8
+- Yudkin J. ["Dietary fat and dietary sugar in relation to ischaemic heart-disease and diabetes."](https://doi.org/10.1016/S0140-6736(64)92509-8) *The Lancet*, 1964; 284(7349):4–5. DOI: [10.1016/S0140-6736(64)92509-8](https://doi.org/10.1016/S0140-6736(64)92509-8)
 
-- Yudkin J. *Pure, White and Deadly*. London: Davis-Poynter, 1972.
+- Yudkin J. [*Pure, White and Deadly*](https://www.penguin.co.uk/books/187979/pure-white-and-deadly-by-john-yudkin/9780241965283). London: Davis-Poynter, 1972.
 
-- Keys A. "Atherosclerosis: a problem in newer public health." *Journal of the Mount Sinai Hospital*, 1953; 20(2):118–139.
+- Keys A. ["Atherosclerosis: a problem in newer public health."](https://pubmed.ncbi.nlm.nih.gov/13085334/) *Journal of the Mount Sinai Hospital*, 1953; 20(2):118–139.
 
-- Kearns CE, Schmidt LA, Glantz SA. "Sugar Industry and Coronary Heart Disease Research: A Historical Analysis of Internal Industry Documents." *JAMA Internal Medicine*, 2016; 176(11):1680–1685. DOI: 10.1001/jamainternmed.2016.5394
+- Kearns CE, Schmidt LA, Glantz SA. ["Sugar Industry and Coronary Heart Disease Research: A Historical Analysis of Internal Industry Documents."](https://doi.org/10.1001/jamainternmed.2016.5394) *JAMA Internal Medicine*, 2016; 176(11):1680–1685. DOI: [10.1001/jamainternmed.2016.5394](https://doi.org/10.1001/jamainternmed.2016.5394)
 
-- Hegsted DM, McGandy RB, Myers ML, Stare FJ. "Quantitative effects of dietary fat on serum cholesterol in man." *American Journal of Clinical Nutrition*, 1965; 17(5):281–295.
+- Hegsted DM, McGandy RB, Myers ML, Stare FJ. ["Quantitative effects of dietary fat on serum cholesterol in man."](https://doi.org/10.1093/ajcn/17.5.281) *American Journal of Clinical Nutrition*, 1965; 17(5):281–295. DOI: [10.1093/ajcn/17.5.281](https://doi.org/10.1093/ajcn/17.5.281)
 
-- Kearns CE, Glantz SA, Schmidt LA. "Sugar Industry Influence on the Scientific Agenda of the National Institute of Dental Research's 1971 National Caries Program." *PLOS Medicine*, 2015; 12(3):e1001798. DOI: 10.1371/journal.pmed.1001798
+- Kearns CE, Glantz SA, Schmidt LA. ["Sugar Industry Influence on the Scientific Agenda of the National Institute of Dental Research's 1971 National Caries Program."](https://doi.org/10.1371/journal.pmed.1001798) *PLOS Medicine*, 2015; 12(3):e1001798. DOI: [10.1371/journal.pmed.1001798](https://doi.org/10.1371/journal.pmed.1001798)
 
-- Te Morenga L, Mallard S, Mann J. "Dietary sugars and body weight: systematic review and meta-analyses of randomised controlled trials and cohort studies." *BMJ*, 2013; 346:e7492. DOI: 10.1136/bmj.e7492
+- Te Morenga L, Mallard S, Mann J. ["Dietary sugars and body weight: systematic review and meta-analyses of randomised controlled trials and cohort studies."](https://doi.org/10.1136/bmj.e7492) *BMJ*, 2013; 346:e7492. DOI: [10.1136/bmj.e7492](https://doi.org/10.1136/bmj.e7492)

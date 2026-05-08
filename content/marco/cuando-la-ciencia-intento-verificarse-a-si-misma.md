@@ -53,10 +53,10 @@ La crisis de replicación no fue una revelación sobre la corrupción de la cien
 
 **Referencias**
 
-* Open Science Collaboration. "Estimating the reproducibility of psychological science." *Science*, 2015. DOI: 10.1126/science.aac4716
-* Begley CG, Ellis LM. "Raise standards for preclinical cancer research." *Nature*, 2012. DOI: 10.1038/483531a
-* Prinz F, Schlange T, Asadullah K. "Believe it or not: how much can we rely on published data on potential drug targets?" *Nature Reviews Drug Discovery*, 2011. DOI: 10.1038/nrd3439-c1
-* Camerer CF et al. "Evaluating replicability of laboratory experiments in economics." *Science*, 2016. DOI: 10.1126/science.aaf0918
-* Rosenthal R. "The file drawer problem and tolerance for null results." *Psychological Bulletin*, 1979. DOI: 10.1037/0033-2909.86.3.638
-* Nosek BA et al. "Promoting an open research culture." *Science*, 2015. DOI: 10.1126/science.aab2374
-* Ioannidis JPA. "Why Most Published Research Findings Are False." *PLOS Medicine*, 2005. DOI: 10.1371/journal.pmed.0020124
+* Open Science Collaboration. ["Estimating the reproducibility of psychological science."](https://doi.org/10.1126/science.aac4716) *Science*, 2015. DOI: [10.1126/science.aac4716](https://doi.org/10.1126/science.aac4716)
+* Begley CG, Ellis LM. ["Raise standards for preclinical cancer research."](https://doi.org/10.1038/483531a) *Nature*, 2012. DOI: [10.1038/483531a](https://doi.org/10.1038/483531a)
+* Prinz F, Schlange T, Asadullah K. ["Believe it or not: how much can we rely on published data on potential drug targets?"](https://doi.org/10.1038/nrd3439-c1) *Nature Reviews Drug Discovery*, 2011. DOI: [10.1038/nrd3439-c1](https://doi.org/10.1038/nrd3439-c1)
+* Camerer CF et al. ["Evaluating replicability of laboratory experiments in economics."](https://doi.org/10.1126/science.aaf0918) *Science*, 2016. DOI: [10.1126/science.aaf0918](https://doi.org/10.1126/science.aaf0918)
+* Rosenthal R. ["The file drawer problem and tolerance for null results."](https://doi.org/10.1037/0033-2909.86.3.638) *Psychological Bulletin*, 1979. DOI: [10.1037/0033-2909.86.3.638](https://doi.org/10.1037/0033-2909.86.3.638)
+* Nosek BA et al. ["Promoting an open research culture."](https://doi.org/10.1126/science.aab2374) *Science*, 2015. DOI: [10.1126/science.aab2374](https://doi.org/10.1126/science.aab2374)
+* Ioannidis JPA. ["Why Most Published Research Findings Are False."](https://doi.org/10.1371/journal.pmed.0020124) *PLOS Medicine*, 2005. DOI: [10.1371/journal.pmed.0020124](https://doi.org/10.1371/journal.pmed.0020124)

@@ -47,6 +47,10 @@
   .content-serif li {
     @apply mb-4;
   }
+
+  .content-serif a {
+    @apply text-accent no-underline border-b border-accent/30 hover:border-accent transition-all;
+  }
 }
 
 /* Red Page overrides */

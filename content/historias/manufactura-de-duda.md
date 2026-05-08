@@ -40,7 +40,7 @@ La duda no fue un efecto secundario. Fue el producto.
 
 **Referencias**
 
-* Oreskes N, Conway EM. *Merchants of Doubt*. Bloomsbury Press, 2010.
-* Proctor RN. *Golden Holocaust: Origins of the Cigarette Catastrophe and the Case for Abolition*. University of California Press, 2011.
-* Michaels D. *Doubt is Their Product: How Industry's Assault on Science Threatens Your Health*. Oxford University Press, 2008.
-* Memorando interno de Brown & Williamson, 1969. Disponible en: UCSF Industry Documents Library.
+* Oreskes N, Conway EM. [*Merchants of Doubt*](https://www.bloomsbury.com/us/merchants-of-doubt-9781608193943/). Bloomsbury Press, 2010.
+* Proctor RN. [*Golden Holocaust: Origins of the Cigarette Catastrophe and the Case for Abolition*](https://www.ucpress.edu/book/9780520270169/golden-holocaust). University of California Press, 2011.
+* Michaels D. [*Doubt is Their Product: How Industry's Assault on Science Threatens Your Health*](https://global.oup.com/academic/product/doubt-is-their-product-9780195300673). Oxford University Press, 2008.
+* Memorando interno de Brown & Williamson, 1969. Disponible en: [UCSF Industry Documents Library](https://www.industrydocuments.ucsf.edu/tobacco/docs/#id=psdw0040).

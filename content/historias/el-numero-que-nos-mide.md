@@ -44,7 +44,7 @@ No es el peor instrumento disponible. Pero tampoco es lo que dicen que es.
 
 **Referencias**
 
-* Keys A et al. "Indices of relative weight and obesity." *Journal of Chronic Diseases*, 1972. DOI: 10.1016/0021-9681(72)90027-6
-* Flegal KM et al. "Association of All-Cause Mortality With Overweight and Obesity Using Standard Body Mass Index Categories." *JAMA*, 2013. DOI: 10.1001/jama.2012.113905
-* Campos P et al. "The epidemiology of overweight and obesity: public health crisis or moral panic?" *International Journal of Epidemiology*, 2006. DOI: 10.1093/ije/dyi254
-* Ulijaszek SJ, Kerr DA. "Anthropometric measurement error and the assessment of nutritional status." *British Journal of Nutrition*, 1999. DOI: 10.1017/S0007114599000392
+* Keys A et al. ["Indices of relative weight and obesity."](https://doi.org/10.1016/0021-9681(72)90027-6) *Journal of Chronic Diseases*, 1972. DOI: [10.1016/0021-9681(72)90027-6](https://doi.org/10.1016/0021-9681(72)90027-6)
+* Flegal KM et al. ["Association of All-Cause Mortality With Overweight and Obesity Using Standard Body Mass Index Categories."](https://doi.org/10.1001/jama.2012.113905) *JAMA*, 2013. DOI: [10.1001/jama.2012.113905](https://doi.org/10.1001/jama.2012.113905)
+* Campos P et al. ["The epidemiology of overweight and obesity: public health crisis or moral panic?"](https://doi.org/10.1093/ije/dyi254) *International Journal of Epidemiology*, 2006. DOI: [10.1093/ije/dyi254](https://doi.org/10.1093/ije/dyi254)
+* Ulijaszek SJ, Kerr DA. ["Anthropometric measurement error and the assessment of nutritional status."](https://doi.org/10.1017/S0007114599000392) *British Journal of Nutrition*, 1999. DOI: [10.1017/S0007114599000392](https://doi.org/10.1017/S0007114599000392)

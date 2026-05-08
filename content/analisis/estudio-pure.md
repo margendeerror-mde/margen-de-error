@@ -52,8 +52,8 @@ El estudio PURE no demuestra que las guías actuales sean incorrectas. Demuestra
 
 **Referencias**
 
-* Dehghan M et al. "Associations of fats and carbohydrate intake with cardiovascular disease and mortality in 18 countries." *The Lancet*, 2017. DOI: 10.1016/S0140-6736(17)32252-3
+* Dehghan M et al. ["Associations of fats and carbohydrate intake with cardiovascular disease and mortality in 18 countries."](https://doi.org/10.1016/S0140-6736(17)32252-3) *The Lancet*, 2017. DOI: [10.1016/S0140-6736(17)32252-3](https://doi.org/10.1016/S0140-6736(17)32252-3)
 
-* Siri-Tarino PW et al. "Meta-analysis of prospective cohort studies evaluating the association of saturated fat with cardiovascular disease." *American Journal of Clinical Nutrition*, 2010. DOI: 10.3945/ajcn.2009.27725
+* Siri-Tarino PW et al. ["Meta-analysis of prospective cohort studies evaluating the association of saturated fat with cardiovascular disease."](https://doi.org/10.3945/ajcn.2009.27725) *American Journal of Clinical Nutrition*, 2010. DOI: [10.3945/ajcn.2009.27725](https://doi.org/10.3945/ajcn.2009.27725)
 
-* Dietary Guidelines Advisory Committee. "Scientific Report of the 2020 Dietary Guidelines Advisory Committee." Washington DC: USDA, 2020.
+* Dietary Guidelines Advisory Committee. ["Scientific Report of the 2020 Dietary Guidelines Advisory Committee."](https://www.dietaryguidelines.gov/2020-advisory-committee-report) Washington DC: USDA, 2020.

@@ -39,7 +39,7 @@ La diferencia no estaba en los datos. Estaba en qué se decidió preguntar.
 
 **Referencias**
 
-* Sanger-Katz M, O'Connor A. "Coca-Cola Funds Scientists Who Shift Blame for Obesity Away From Bad Diets." *The New York Times*, 9 de agosto de 2015.
-* Bes-Rastrollo M et al. "Financial Conflicts of Interest and Reporting Bias Regarding the Association between Sugar-Sweetened Beverages and Weight Gain." *PLOS Medicine*, 2013. DOI: 10.1371/journal.pmed.1001578
-* Hall KD et al. "Ultra-Processed Diets Cause Excess Calorie Intake and Obesity." *Cell Metabolism*, 2019. DOI: 10.1016/j.cmet.2019.05.008
-* Malhotra A et al. "It is time to bust the myth of physical inactivity and obesity." *British Journal of Sports Medicine*, 2015. DOI: 10.1136/bjsports-2015-094911
+* Sanger-Katz M, O'Connor A. ["Coca-Cola Funds Scientists Who Shift Blame for Obesity Away From Bad Diets."](https://www.nytimes.com/2015/08/10/science/coca-cola-funds-scientists-who-shift-blame-for-obesity-away-from-bad-diets.html) *The New York Times*, 9 de agosto de 2015.
+* Bes-Rastrollo M et al. ["Financial Conflicts of Interest and Reporting Bias Regarding the Association between Sugar-Sweetened Beverages and Weight Gain."](https://doi.org/10.1371/journal.pmed.1001578) *PLOS Medicine*, 2013. DOI: [10.1371/journal.pmed.1001578](https://doi.org/10.1371/journal.pmed.1001578)
+* Hall KD et al. ["Ultra-Processed Diets Cause Excess Calorie Intake and Obesity."](https://doi.org/10.1016/j.cmet.2019.05.008) *Cell Metabolism*, 2019. DOI: [10.1016/j.cmet.2019.05.008](https://doi.org/10.1016/j.cmet.2019.05.008)
+* Malhotra A et al. ["It is time to bust the myth of physical inactivity and obesity."](https://doi.org/10.1136/bjsports-2015-094911) *British Journal of Sports Medicine*, 2015. DOI: [10.1136/bjsports-2015-094911](https://doi.org/10.1136/bjsports-2015-094911)

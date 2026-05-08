@@ -53,9 +53,9 @@ Esas limitaciones no son detalles técnicos. Son el contenido real de lo que el 
 
 **Referencias**
 
-* Freiman JA et al. "The importance of beta, the type II error and sample size in the design and interpretation of the randomized control trial." *New England Journal of Medicine*, 1978. DOI: 10.1056/NEJM197809282991304
-* Button KS et al. "Power failure: why small sample size undermines the reliability of neuroscience." *Nature Reviews Neuroscience*, 2013. DOI: 10.1038/nrn3475
-* Ioannidis JPA. "Why Most Published Research Findings Are False." *PLOS Medicine*, 2005. DOI: 10.1371/journal.pmed.0020124
-* Ioannidis JPA, Trikalinos TA. "An exploratory test for an excess of significant findings." *Clinical Trials*, 2007. DOI: 10.1177/1740774507079441
-* Cohen J. "The statistical power of abnormal-social psychological research: a review." *Journal of Abnormal and Social Psychology*, 1962. DOI: 10.1037/h0045186
-* Guyatt GH et al. "Determining optimal therapy — randomized trials in individual patients." *New England Journal of Medicine*, 1986. DOI: 10.1056/NEJM198601163140301
+* Freiman JA et al. ["The importance of beta, the type II error and sample size in the design and interpretation of the randomized control trial."](https://doi.org/10.1056/NEJM197809282991304) *New England Journal of Medicine*, 1978. DOI: [10.1056/NEJM197809282991304](https://doi.org/10.1056/NEJM197809282991304)
+* Button KS et al. ["Power failure: why small sample size undermines the reliability of neuroscience."](https://doi.org/10.1038/nrn3475) *Nature Reviews Neuroscience*, 2013. DOI: [10.1038/nrn3475](https://doi.org/10.1038/nrn3475)
+* Ioannidis JPA. ["Why Most Published Research Findings Are False."](https://doi.org/10.1371/journal.pmed.0020124) *PLOS Medicine*, 2005. DOI: [10.1371/journal.pmed.0020124](https://doi.org/10.1371/journal.pmed.0020124)
+* Ioannidis JPA, Trikalinos TA. ["An exploratory test for an excess of significant findings."](https://doi.org/10.1177/1740774507079441) *Clinical Trials*, 2007. DOI: [10.1177/1740774507079441](https://doi.org/10.1177/1740774507079441)
+* Cohen J. ["The statistical power of abnormal-social psychological research: a review."](https://doi.org/10.1037/h0045186) *Journal of Abnormal and Social Psychology*, 1962. DOI: [10.1037/h0045186](https://doi.org/10.1037/h0045186)
+* Guyatt GH et al. ["Determining optimal therapy — randomized trials in individual patients."](https://doi.org/10.1056/NEJM198601163140301) *New England Journal of Medicine*, 1986. DOI: [10.1056/NEJM198601163140301](https://doi.org/10.1056/NEJM198601163140301)

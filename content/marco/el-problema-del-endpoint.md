@@ -61,8 +61,8 @@ Esa distinción debería estar en el centro de cómo se comunica la investigaci�
 
 **Referencias**
 
-* Fleming TR, DeMets DL. "Surrogate End Points in Clinical Trials: Are We Being Misled?" *Annals of Internal Medicine*, 1996. DOI: 10.7326/0003-4819-125-7-199610010-00011
-* Manson JE et al. "Estrogen plus Progestin and the Risk of Coronary Heart Disease." *New England Journal of Medicine*, 2003. DOI: 10.1056/NEJMoa030808
-* Nissen SE. "Cardiovascular Effects of Diabetes Drugs: Emerging from the Dark Ages." *Annals of Internal Medicine*, 2012. DOI: 10.7326/0003-4819-157-9-201211060-00533
-* Naci H et al. "Availability of evidence of benefits on overall survival and quality of life of cancer drugs approved by European Medicines Agency." *BMJ*, 2017. DOI: 10.1136/bmj.j4530
-* Woloshin S et al. "The Fate of FDA Postapproval Studies." *NEJM*, 2017. DOI: 10.1056/NEJMsa1705800
+* Fleming TR, DeMets DL. ["Surrogate End Points in Clinical Trials: Are We Being Misled?"](https://doi.org/10.7326/0003-4819-125-7-199610010-00011) *Annals of Internal Medicine*, 1996. DOI: [10.7326/0003-4819-125-7-199610010-00011](https://doi.org/10.7326/0003-4819-125-7-199610010-00011)
+* Manson JE et al. ["Estrogen plus Progestin and the Risk of Coronary Heart Disease."](https://doi.org/10.1056/NEJMoa030808) *New England Journal of Medicine*, 2003. DOI: [10.1056/NEJMoa030808](https://doi.org/10.1056/NEJMoa030808)
+* Nissen SE. ["Cardiovascular Effects of Diabetes Drugs: Emerging from the Dark Ages."](https://doi.org/10.7326/0003-4819-157-9-201211060-00533) *Annals of Internal Medicine*, 2012. DOI: [10.7326/0003-4819-157-9-201211060-00533](https://doi.org/10.7326/0003-4819-157-9-201211060-00533)
+* Naci H et al. ["Availability of evidence of benefits on overall survival and quality of life of cancer drugs approved by European Medicines Agency."](https://doi.org/10.1136/bmj.j4530) *BMJ*, 2017. DOI: [10.1136/bmj.j4530](https://doi.org/10.1136/bmj.j4530)
+* Woloshin S et al. ["The Fate of FDA Postapproval Studies."](https://doi.org/10.1056/NEJMsa1705800) *NEJM*, 2017. DOI: [10.1056/NEJMsa1705800](https://doi.org/10.1056/NEJMsa1705800)
