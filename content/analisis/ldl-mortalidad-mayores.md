@@ -50,4 +50,4 @@ Lo que el paper sí aporta, leído con sus limitaciones en mente, es una observa
 * Ravnskov U et al. "Lack of an association or an inverse association between low-density-lipoprotein cholesterol and mortality in the elderly." *BMJ Open*, 2016. DOI: [10.1136/bmjopen-2015-010401](https://doi.org/10.1136/bmjopen-2015-010401)
 * DuBroff R, de Lorgeril M. "Cholesterol confusion and statin controversy." *World Journal of Cardiology*, 2015. DOI: [10.4330/wjc.v7.i7.404](https://doi.org/10.4330/wjc.v7.i7.404)
 * Ference BA et al. "Low-density lipoproteins cause atherosclerotic cardiovascular disease." *European Heart Journal*, 2017. DOI: [10.1093/eurheartj/ehx144](https://doi.org/10.1093/eurheartj/ehx144)
-* Krumholz HM et al. "Lack of Association between Cholesterol and Coronary Heart Disease Mortality and Morbidity." *JAMA*, 1994. DOI: [10.1001/jama.1994.03520170045034](https://jamanetwork.com/journals/jama/article-abstract/381733)
+* Krumholz HM et al. "[Lack of Association between Cholesterol and Coronary Heart Disease Mortality and Morbidity.](https://jamanetwork.com/journals/jama/article-abstract/381733)" *JAMA*, 1994.
