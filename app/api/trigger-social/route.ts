@@ -11,7 +11,7 @@ export async function POST() {
     }
 
     // 1. Obtener el último post de Beehiiv
-    const postsRes = await fetch(`https://api.beehiiv.com/v2/publications/${PUBLICATION_ID}/posts?status=confirmed&limit=1`, {
+    const postsRes = await fetch(`https://api.beehiiv.com/v2/publications/${PUBLICATION_ID}/posts?status=confirmed&limit=1&order_by=publish_date&direction=desc`, {
       headers: { Authorization: `Bearer ${API_KEY}` }
     });
     
