@@ -8,7 +8,7 @@ mecanismo:
   - diseño-sesgado
 tema: medicación-y-fármacos
 fecha: 2026-05-05T00:00:00.000Z
-resumen: El ensayo ACCORD mostró que un control glucémico intensivo aumentaba la mortalidad en pacientes diabéticos, desafiando la lógica de tratar marcadores biológicos en lugar de resultados clínicos reales.
+resumen: 'El ensayo ACCORD mostró que un control glucémico intensivo aumentaba la mortalidad en pacientes diabéticos, desafiando la lógica de tratar marcadores biológicos en lugar de resultados clínicos reales.'
 ---
 
 El ensayo ACCORD, interrumpido en 2008 antes de su fecha prevista, mostró que los pacientes diabéticos asignados a un control glucémico intensivo presentaban mayor mortalidad que los del grupo estándar. Era un caso donde un ensayo grande reportó resultados contrarios a la práctica establecida. Lo que el estudio dejó abierto —por qué ocurrió— sigue siendo relevante para entender los límites de tratar marcadores en lugar de enfermedades.
@@ -53,16 +53,10 @@ El marcador apuntaba en una dirección. El cuerpo, cuando lo empujás al límite
 
 **Referencias**
 
-- ACCORD Study Group; Gerstein HC, Miller ME, Byington RP, et al. "Effects of Intensive Glucose Lowering in Type 2 Diabetes." *New England Journal of Medicine*, 2008; 358(24):2545–2559. DOI: [10.1056/NEJMoa0802743](https://doi.org/10.1056/NEJMoa0802743)
-
-- Riddle MC, Ambrosius WT, Brillon DJ, et al. "Epidemiologic Relationships Between A1C and All-Cause Mortality During a Median 3.4-Year Follow-up of Glycemic Treatment in the ACCORD Trial." *Diabetes Care*, 2010; 33(5):983–990. DOI: [10.2337/dc09-1278](https://doi.org/10.2337/dc09-1278)
-
-- Bonds DE, Miller ME, Bergenstal RM, et al. "The association between symptomatic, severe hypoglycaemia and mortality in type 2 diabetes: retrospective epidemiological analysis of the ACCORD study." *BMJ*, 2010; 340:b4909. DOI: [10.1136/bmj.b4909](https://doi.org/10.1136/bmj.b4909)
-
-- Calvert MJ, McManus RJ, Freemantle N. "Management of type 2 diabetes with multiple oral hypoglycaemic agents or insulin in primary care: retrospective cohort study." *British Journal of General Practice*, 2007; 57(539):455–460. DOI: [10.3399/096016407780737482](https://doi.org/10.3399/096016407780737482)
-
-- Hayward RA et al. "Follow-up of Glycemic Control and Cardiovascular Outcomes in Type 2 Diabetes." *New England Journal of Medicine*, 2015. DOI: [10.1056/NEJMoa1414266](https://doi.org/10.1056/NEJMoa1414266)
-
-- Montori VM, Guyatt GH. "Users' Guides to the Medical Literature: How to Use a Systematic Review and Meta-analysis." *JAMA*, 2009. DOI: [10.1001/jama.2009.1126](https://doi.org/10.1001/jama.2009.1126)
-
-- Boussageon R, Bejan-Angoulvant T, Saadatian-Elahi M, et al. "Effect of intensive glucose lowering treatment on all cause mortality, cardiovascular death, and microvascular events in type 2 diabetes: meta-analysis of randomised controlled trials." *BMJ*, 2011; 343:d4169. DOI: [10.1136/bmj.d4169](https://doi.org/10.1136/bmj.d4169)
+* ACCORD Study Group; Gerstein HC, Miller ME, Byington RP, et al. "Effects of Intensive Glucose Lowering in Type 2 Diabetes." *New England Journal of Medicine*, 2008; 358(24):2545–2559. DOI: [10.1056/NEJMoa0802743](https://doi.org/10.1056/NEJMoa0802743)
+* Riddle MC, Ambrosius WT, Brillon DJ, et al. "Epidemiologic Relationships Between A1C and All-Cause Mortality During a Median 3.4-Year Follow-up of Glycemic Treatment in the ACCORD Trial." *Diabetes Care*, 2010; 33(5):983–990. DOI: [10.2337/dc09-1278](https://doi.org/10.2337/dc09-1278)
+* Bonds DE, Miller ME, Bergenstal RM, et al. "The association between symptomatic, severe hypoglycaemia and mortality in type 2 diabetes: retrospective epidemiological analysis of the ACCORD study." *BMJ*, 2010; 340:b4909. DOI: [10.1136/bmj.b4909](https://doi.org/10.1136/bmj.b4909)
+* Calvert MJ, McManus RJ, Freemantle N. "[Management of type 2 diabetes with multiple oral hypoglycaemic agents or insulin in primary care: retrospective cohort study.](https://bjgp.org/content/bjgp/57/539/455.full.pdf)" *British Journal of General Practice*, 2007; 57(539):455–460. 
+* Hayward RA et al. "Follow-up of Glycemic Control and Cardiovascular Outcomes in Type 2 Diabetes." *New England Journal of Medicine*, 2015. DOI: [10.1056/NEJMoa1414266](https://doi.org/10.1056/NEJMoa1414266)
+* Montori VM, Guyatt GH. "Users' Guides to the Medical Literature: How to Use a Systematic Review and Meta-analysis." *JAMA*, 2009. DOI: [10.1001/jama.2009.1126](https://doi.org/10.1001/jama.2009.1126)
+* Boussageon R, Bejan-Angoulvant T, Saadatian-Elahi M, et al. "Effect of intensive glucose lowering treatment on all cause mortality, cardiovascular death, and microvascular events in type 2 diabetes: meta-analysis of randomised controlled trials." *BMJ*, 2011; 343:d4169. DOI: [10.1136/bmj.d4169](https://doi.org/10.1136/bmj.d4169)
