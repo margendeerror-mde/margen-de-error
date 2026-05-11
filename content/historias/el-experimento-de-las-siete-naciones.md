@@ -47,5 +47,5 @@ Lo que sí permite saber es que una hipótesis convertida en política pública 
 * Keys A. ["Atherosclerosis: a problem in newer public health."](https://pubmed.ncbi.nlm.nih.gov/13085148/) *Journal of the Mount Sinai Hospital*, 1953.
 * Yerushalmy J, Hilleboe HE. ["Fat in the diet and mortality from heart disease."](https://pubmed.ncbi.nlm.nih.gov/13441073/) *New York State Journal of Medicine*, 1957.
 * Chowdhury R et al. "Association of dietary, circulating, and supplement fatty acids with coronary risk." *Annals of Internal Medicine*, 2014. DOI: [10.7326/M13-1788](https://doi.org/10.7326/M13-1788)
-* Ramsden CE et al. "Re-evaluation of the traditional diet-heart hypothesis." *BMJ*, 2016. DOI: [10.1136/bmj.i4547](https://doi.org/10.1136/bmj.i4547)
+* Ramsden CE et al. "Re-evaluation of the traditional diet-heart hypothesis." *BMJ*, 2016. DOI:[ 10.1136/bmj.i1246](https://www.bmj.com/content/353/bmj.i1246)
 * Teicholz N. *The Big Fat Surprise*. Simon & Schuster, 2014. [Link](https://thebigfatsurprise.com/)
