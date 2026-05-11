@@ -57,7 +57,7 @@ Yudkin tenía la señal. No tenía lo demás.
 
 * Yudkin J. "Dietary fat and dietary sugar in relation to ischaemic heart-disease and diabetes." *The Lancet*, 1964; 284(7349):4–5. DOI: [10.1016/s0140-6736(64)90002-9](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736\(64\)90002-9/fulltext)
 * Yudkin J. *Pure, [White and Deadly](http://www.teethforlife.co.za/images/Pure,%20White%20and%20Deadly%20-%20%20John%20Yudkin.pdf)*. London: Davis-Poynter, 1972.
-* Keys A. "Atherosclerosis: a problem in newer public health." *Journal of the Mount Sinai Hospital*, 1953; 20(2):118–139. [Link](https://pubmed.ncbi.nlm.nih.gov/13085334/)
+* Keys A. ["Atherosclerosis: a problem in newer public health."](http://www.epi.umn.edu/cvdepi/wp-content/uploads/2014/03/Keys-Atherosclerosis-A-Problem-in-Newer-Public-Health.pdf) *Journal of the Mount Sinai Hospital*, 1953; 20(2):118–139.
 * Kearns CE, Schmidt LA, Glantz SA. "Sugar Industry and Coronary Heart Disease Research: A Historical Analysis of Internal Industry Documents." *JAMA Internal Medicine*, 2016; 176(11):1680–1685. DOI: [10.1001/jamainternmed.2016.5394](https://doi.org/10.1001/jamainternmed.2016.5394)
 * Hegsted DM, McGandy RB, Myers ML, Stare FJ. "Quantitative effects of dietary fat on serum cholesterol in man." *American Journal of Clinical Nutrition*, 1965; 17(5):281–295. DOI: [10.1093/ajcn/17.5.281](https://doi.org/10.1093/ajcn/17.5.281)
 * Kearns CE, Glantz SA, Schmidt LA. "Sugar Industry Influence on the Scientific Agenda of the National Institute of Dental Research's 1971 National Caries Program." *PLOS Medicine*, 2015; 12(3):e1001798. DOI: [10.1371/journal.pmed.1001798](https://doi.org/10.1371/journal.pmed.1001798)
