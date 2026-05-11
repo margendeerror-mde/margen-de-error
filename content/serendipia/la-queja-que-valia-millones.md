@@ -7,7 +7,7 @@ mecanismo:
   - financiamiento-de-estudio
 tema: medicación-y-fármacos
 fecha: 2026-05-05T00:00:00.000Z
-resumen: El minoxidil nació para tratar la hipertensión, pero un efecto adverso —el crecimiento de vello— lo convirtió en el primer fármaco aprobado para la alopecia, en un giro clínico imposible de planificar.
+resumen: 'El minoxidil nació para tratar la hipertensión, pero un efecto adverso —el crecimiento de vello— lo convirtió en el primer fármaco aprobado para la alopecia, en un giro clínico imposible de planificar.'
 ---
 
 El minoxidil fue desarrollado como vasodilatador para hipertensión severa. En los pacientes que lo tomaban, producía un efecto adverso llamativo: crecimiento de vello en zonas inesperadas. Alguien decidió mirar ese efecto desde otro ángulo. Lo que siguió fue el primer tratamiento aprobado por la FDA para la alopecia androgénica masculina, y uno de los casos más citados de descubrimiento por observación clínica no planificada.
@@ -54,9 +54,9 @@ La queja era la señal. Solo faltaba alguien que la escuchara distinto.
 
 **Referencias**
 
-- Zappacosta AR. "Reversal of baldness in patient receiving minoxidil for hypertension." *New England Journal of Medicine*, 1980; 303(25):1480–1481. DOI: [10.1056/NEJM198012183032517](https://doi.org/10.1056/NEJM198012183032517)
-- Olsen EA, Weiner MS, Amara IA, DeLong ER. "Five-year follow-up of men with androgenetic alopecia treated with topical minoxidil." *Journal of the American Academy of Dermatology*, 1990; 22(4):643–646. DOI: [10.1016/0190-9622(90)70089-Z](https://doi.org/10.1016/0190-9622(90)70089-Z)
-- Messenger AG, Rundegren J. "Minoxidil: mechanisms of action on hair growth." *British Journal of Dermatology*, 2004; 150(2):186–194. DOI: [10.1111/j.1365-2133.2004.05785.x](https://doi.org/10.1111/j.1365-2133.2004.05785.x)
-- Randolph M, Tosti A. "Oral minoxidil treatment for hair loss: A review of efficacy and safety." *Journal of the American Academy of Dermatology*, 2021; 84(3):737–746. DOI: [10.1016/j.jaad.2020.06.1009](https://doi.org/10.1016/j.jaad.2020.06.1009)
-- Vañó-Galván S, Pirmez R, Hermosa-Gelbard A, et al. "Safety of low-dose oral minoxidil for hair loss: A multicenter study of 1404 patients." *Journal of the American Academy of Dermatology*, 2021; 84(6):1737–1739. DOI: [10.1016/j.jaad.2021.02.054](https://doi.org/10.1016/j.jaad.2021.02.054)
-- Rossi A, Cantisani C, Melis L, Iorio A, Scali E, Calvieri S. "Minoxidil use in dermatology, side effects and recent patents." *Recent Patents on Inflammation & Allergy Drug Discovery*, 2012; 6(2):130–136. DOI: [10.2174/187221312800166859](https://doi.org/10.2174/187221312800166859)
+* Zappacosta AR. "Reversal of baldness in patient receiving minoxidil for hypertension." *New England Journal of Medicine*, 1980; 303(25):1480–1481. DOI: [10.1056/NEJM198012183032516](https://www.nejm.org/doi/10.1056/nejm198012183032516?url_ver=Z39.88-2003\&rfr_id=ori:rid:crossref.org\&rfr_dat=cr_pub%20%200pubmed)
+* Olsen EA, Weiner MS, Amara IA, DeLong ER. "Five-year follow-up of men with androgenetic alopecia treated with topical minoxidil." *Journal of the American Academy of Dermatology*, 1990; 22(4):643–646. DOI: [10.1016/0190-9622(90)70089-Z](https://doi.org/10.1016/0190-9622\(90\)70089-Z)
+* Messenger AG, Rundegren J. "Minoxidil: mechanisms of action on hair growth." *British Journal of Dermatology*, 2004; 150(2):186–194. DOI: [10.1111/j.1365-2133.2004.05785.x](https://doi.org/10.1111/j.1365-2133.2004.05785.x)
+* Randolph M, Tosti A. "Oral minoxidil treatment for hair loss: A review of efficacy and safety." *Journal of the American Academy of Dermatology*, 2021; 84(3):737–746. DOI: [10.1016/j.jaad.2020.06.1009](https://doi.org/10.1016/j.jaad.2020.06.1009)
+* Vañó-Galván S, Pirmez R, Hermosa-Gelbard A, et al. "Safety of low-dose oral minoxidil for hair loss: A multicenter study of 1404 patients." *Journal of the American Academy of Dermatology*, 2021; 84(6):1737–1739. DOI: [10.1016/j.jaad.2021.02.054](https://doi.org/10.1016/j.jaad.2021.02.054)
+* Rossi A, Cantisani C, Melis L, Iorio A, Scali E, Calvieri S. "Minoxidil use in dermatology, side effects and recent patents." *Recent Patents on Inflammation & Allergy Drug Discovery*, 2012; 6(2):130–136. DOI: [10.2174/187221312800166859](https://doi.org/10.2174/187221312800166859)
