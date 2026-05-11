@@ -44,9 +44,6 @@ Los dermatólogos, que son los especialistas a quienes más se les consulta sobr
 **Referencias**
 
 * Lindqvist PG et al. "Avoidance of sun exposure as a risk factor for major causes of death." *Journal of Internal Medicine*, 2016. DOI: [10.1111/joim.12496](https://doi.org/10.1111/joim.12496)
-
 * Lindqvist PG et al. "Avoidance of sun exposure is a risk factor for all-cause mortality." *Journal of Internal Medicine*, 2014. [Link](https://pubmed.ncbi.nlm.nih.gov/24697969/)
-
-* Weller RB. "Sunlight Has Cardiovascular Benefits Independently of Vitamin D." *Blood Purification*, 2016. DOI: [10.1159/000441980](https://doi.org/10.1159/000441980)
-
+* Weller RB. "Sunlight Has Cardiovascular Benefits Independently of Vitamin D." *Blood Purification*, 2016. DOI: [10.1159/000441266](https://karger.com/bpu/article-abstract/41/1-3/130/328295/Sunlight-Has-Cardiovascular-Benefits-Independently?redirectedFrom=fulltext)
 * van der Rhee H et al. "Is prevention of cancer by sun exposure more than just the effect of vitamin D?" *European Journal of Cancer*, 2013. DOI: [10.1016/j.ejca.2012.11.001](https://doi.org/10.1016/j.ejca.2012.11.001)
