@@ -34,7 +34,6 @@ El sildenafil llegó a donde llegó porque alguien leyó los registros clínicos
 
 **Referencias**
 
-* Osterloh I. "How I discovered Viagra." *Cosmos Magazine*, 2015. [Link](https://cosmosmagazine.com/health/how-i-discovered-viagra/)
 * Boolell M et al. "Sildenafil: an orally active type 5 cyclic GMP-specific phosphodiesterase inhibitor for the treatment of penile erectile dysfunction." *International Journal of Impotence Research*, 1996. DOI: [10.1038/sj.ijir.3900179](https://doi.org/10.1038/sj.ijir.3900179)
-* Ghofrani HA et al. "Sildenafil for treatment of lung fibrosis and pulmonary hypertension." *The Lancet*, 2002. DOI: [10.1016/S0140-6736(02)09897-6](https://doi.org/10.1016/S0140-6736(02)09897-6)
+* Ghofrani HA et al. "Sildenafil for treatment of lung fibrosis and pulmonary hypertension." *The Lancet*, 2002. DOI: [10.1016/S0140-6736(02)09897-6](https://doi.org/10.1016/S0140-6736\(02\)09897-6)
 * Frishman WH. "beta-Adrenergic blockers: a 50-year historical perspective." *American Journal of Therapeutics*, 2008. DOI: [10.1097/MJT.0b013e318188bdca](https://doi.org/10.1097/MJT.0b013e318188bdca)
