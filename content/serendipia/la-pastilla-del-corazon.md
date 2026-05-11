@@ -36,4 +36,4 @@ El sildenafil llegó a donde llegó porque alguien leyó los registros clínicos
 
 * Boolell M et al. "Sildenafil: an orally active type 5 cyclic GMP-specific phosphodiesterase inhibitor for the treatment of penile erectile dysfunction." *International Journal of Impotence Research*, 1996. PMID: [8858389](https://pubmed.ncbi.nlm.nih.gov/8858389/)
 * Ghofrani HA et al. "Sildenafil for treatment of lung fibrosis and pulmonary hypertension." *The Lancet*, 2002.  DOI: [10.1016/S0140-6736(02)11024-5](https://pubmed.ncbi.nlm.nih.gov/12354470/)
-* Frishman WH. "beta-Adrenergic blockers: a 50-year historical perspective." *American Journal of Therapeutics*, 2008. DOI: [10.1097/MJT.0b013e318188bdca](https://doi.org/10.1097/MJT.0b013e318188bdca)
+* Frishman WH. "beta-Adrenergic blockers: a 50-year historical perspective." *American Journal of Therapeutics*, 2008. DOI: [10.1097/MJT.0b013e318188bdca](https://pubmed.ncbi.nlm.nih.gov/19127141/)
