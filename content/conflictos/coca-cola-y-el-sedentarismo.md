@@ -40,7 +40,7 @@ La diferencia no estaba en los datos. Estaba en qué se decidió preguntar.
 **Referencias**
 
 * Serôdio P et al. "Coca-Cola — a model of transparency in research partnerships? A network analysis of Coca-Cola's research funding (2008–2016)." *Public Health Nutrition*, 2018. DOI: [10.1017/S136898001700307X](https://doi.org/10.1017/S136898001700307X)
-* O’Connor A. "Coca-Cola Funds Scientists Who Shift Blame for Obesity Away From Bad Diets." *The New York Times*, 2015. [Link](https://www.nytimes.com/2015/08/10/science/coca-cola-funds-scientists-who-shift-blame-for-obesity-away-from-bad-diets.html)
+* O’Connor A. ["Coca-Cola Funds Scientists Who Shift Blame for Obesity Away From Bad Diets."](https://archive.nytimes.com/well.blogs.nytimes.com/2015/08/09/coca-cola-funds-scientists-who-shift-blame-for-obesity-away-from-bad-diets/) *The New York Times*, 2015.
 * Global Energy Balance Network (GEBN). Controversia sobre el financiamiento de Coca-Cola y el sesgo en la investigación del balance energético, 2015.
 * Bes-Rastrollo M et al. "Financial Conflicts of Interest and Reporting Bias Regarding the Association between Sugar-Sweetened Beverages and Weight Gain." *PLOS Medicine*, 2013. DOI: [10.1371/journal.pmed.1001578](https://doi.org/10.1371/journal.pmed.1001578)
 * Hall KD et al. "Ultra-Processed Diets Cause Excess Calorie Intake and Obesity." *Cell Metabolism*, 2019. DOI: [10.1016/j.cmet.2019.05.008](https://doi.org/10.1016/j.cmet.2019.05.008)
