@@ -57,7 +57,6 @@ El sesgo de confirmación es una parte constitutiva del proceso científico que 
 
 * Wason PC. "On the failure to eliminate hypotheses in a conceptual task." *Quarterly Journal of Experimental Psychology*, 1960. DOI: [10.1080/17470216008416717](https://doi.org/10.1080/17470216008416717)
 * Montori VM et al. "Randomized trials stopped early for benefit: a systematic review." *JAMA*, 2005. DOI: [10.1001/jama.294.17.2203](https://doi.org/10.1001/jama.294.17.2203)
-* Guyatt GH et al. "Surrogate endpoints in trials: a call for better reporting." *BMJ*, 2012. DOI: [10.1136/bmj.e4848](https://doi.org/10.1136/bmj.e4848)
 * Kaplan RM, Irvin VL. "Likelihood of null effects of large NHLBI clinical trials has increased over time." *PLOS ONE*, 2015. DOI: [10.1371/journal.pone.0132382](https://doi.org/10.1371/journal.pone.0132382)
 * Chan AW et al. "Empirical evidence for selective reporting of outcomes in randomized trials." *JAMA*, 2004. DOI: [10.1001/jama.291.20.2457](https://doi.org/10.1001/jama.291.20.2457)
 * Kunda Z. "The case for motivated reasoning." *Psychological Bulletin*, 1990. DOI: [10.1037/0033-2909.108.3.480](https://doi.org/10.1037/0033-2909.108.3.480)
