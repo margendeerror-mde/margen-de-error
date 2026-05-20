@@ -1,5 +1,5 @@
 ---
-titulo: El experimento que ya tiene ganador
+titulo: Cuando el diseño es también la conclusión
 seccion: marco
 industria: institucional-académica
 mecanismo:
