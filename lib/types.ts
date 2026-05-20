@@ -3,7 +3,8 @@ export const SECCIONES = [
   'conflictos',
   'serendipia',
   'analisis',
-  'marco'
+  'marco',
+  'podcast'
 ] as const;
 
 export const INDUSTRIAS = [
@@ -95,4 +96,5 @@ export const SECCION_COLORS: Record<string, string> = {
   serendipia: "#2E5F7A", // Azul pizarra
   analisis:   "#4A6741", // Verde musgo
   marco:      "#5C4A7A", // Violeta ceniza
+  podcast:    "#1DB954", // Spotify Green
 };

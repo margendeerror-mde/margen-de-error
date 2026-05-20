@@ -15,6 +15,7 @@ export default function GlobalMenu({ dark = false, activeIdx, forceHide }: { dar
     { name: 'SERENDIPIA', href: '/serendipia' },
     { name: 'ANÁLISIS', href: '/analisis' },
     { name: 'MARCO', href: '/marco' },
+    { name: 'PODCAST', href: '/podcast' },
   ];
 
   // Hide the top-left logo on Home (index 0) because it's redundant with the main title
