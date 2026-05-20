@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-const SECCIONES = ['historias', 'conflictos', 'serendipia', 'analisis', 'marco'];
+const SECCIONES = ['historias', 'conflictos', 'serendipia', 'analisis', 'marco', 'podcast'];
 
 export interface Pieza {
   slug: string;
@@ -15,6 +15,7 @@ export interface Pieza {
   tema: string;
   content: string;
   href: string;
+  spotifyUrl?: string;
 }
 
 export function normalizeTag(val: unknown): string[] {
@@ -48,6 +49,7 @@ export function getPiezasBySeccion(seccion: string): Pieza[] {
         tema: String(data.tema || ''),
         content,
         href: `/${seccion}/${slug}`,
+        spotifyUrl: String(data.spotifyUrl || ''),
       };
     })
     .sort((a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime());
@@ -77,6 +79,7 @@ export function getPieza(seccion: string, slug: string): Pieza | null {
     tema: String(data.tema || ''),
     content,
     href: `/${seccion}/${slug}`,
+    spotifyUrl: String(data.spotifyUrl || ''),
   };
 }
 

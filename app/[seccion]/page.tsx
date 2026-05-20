@@ -9,6 +9,7 @@ export async function generateStaticParams() {
     { seccion: 'serendipia' },
     { seccion: 'analisis' },
     { seccion: 'marco' },
+    { seccion: 'podcast' },
   ];
 }
 
@@ -32,6 +33,10 @@ const SECCION_INFO: Record<string, { title: string, description: string }> = {
   marco: {
     title: 'MARCO',
     description: 'Explorando la máquina que produce conocimiento: incentivos, instituciones y metodologías.'
+  },
+  podcast: {
+    title: 'PODCAST',
+    description: 'Versión en audio de nuestros artículos y análisis sobre ciencia, incentivos y conflictos.'
   }
 };
 

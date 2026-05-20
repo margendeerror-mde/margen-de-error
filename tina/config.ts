@@ -106,6 +106,24 @@ export default defineConfig({
         },
         fields: camposComunes(),
       },
+      {
+        name: "podcast",
+        label: "Podcast",
+        path: "content/podcast",
+        format: "md",
+        ui: {
+          filename: {
+            slugify: (values) =>
+              values?.titulo
+                ?.toLowerCase()
+                .replace(/ /g, '-')
+                .replace(/[^\w-]+/g, '')
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '') || '',
+          },
+        },
+        fields: camposComunes(),
+      },
     ],
   },
 });
@@ -124,7 +142,7 @@ function camposComunes() {
       name: "seccion",
       label: "Sección",
       required: true,
-      options: ["historia", "conflicto", "serendipia", "análisis", "marco"],
+      options: ["historia", "conflicto", "serendipia", "análisis", "marco", "podcast"],
     },
     {
       type: "string" as const,
@@ -177,6 +195,13 @@ function camposComunes() {
       label: "Resumen",
       required: true,
       ui: { component: "textarea" },
+    },
+    {
+      type: "string" as const,
+      name: "spotifyUrl",
+      label: "Enlace o ID de Spotify (opcional)",
+      description: "Pega el enlace del episodio (ej: https://open.spotify.com/episode/...) o el ID del episodio. Aparecerá al final del artículo.",
+      required: false,
     },
     {
       type: "rich-text" as const,

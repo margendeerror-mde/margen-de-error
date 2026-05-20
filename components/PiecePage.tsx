@@ -96,6 +96,24 @@ export default function PiecePage({
             }}
           />
         </div>
+
+        {pieza.spotifyUrl && (
+          <div className="mt-16 pt-16 border-t" style={{ borderColor: `${accentColor}33` }}>
+            <h3 className="font-serif text-2xl mb-6 font-bold tracking-tight" style={{ color: accentColor }}>
+              Escuchá el episodio
+            </h3>
+            <iframe 
+              style={{ borderRadius: '12px' }} 
+              src={pieza.spotifyUrl.replace('open.spotify.com/episode/', 'open.spotify.com/embed/episode/').replace('open.spotify.com/show/', 'open.spotify.com/embed/show/').split('?')[0] + '?utm_source=generator&theme=0'} 
+              width="100%" 
+              height="152" 
+              frameBorder="0" 
+              allowFullScreen 
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+              loading="lazy"
+            ></iframe>
+          </div>
+        )}
       </div>
       
       <div className="mt-48">
