@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"next dev\"",
-    "build": "if [ -n \"$TINA_TOKEN\" ]; then tinacms build; else echo 'Skipping Tina build (no token)'; fi && next build",
+    "build": "if [ -n \"$TINA_TOKEN\" ]; then tinacms build --skip-index; else echo 'Skipping Tina build (no token)'; fi && next build",
     "start": "next start",
     "lint": "next lint"
   },
