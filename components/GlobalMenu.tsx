@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { SECCION_COLORS } from '@/lib/types';
 
 export default function GlobalMenu({ dark = false, activeIdx, forceHide }: { dark?: boolean, activeIdx?: number, forceHide?: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,12 +11,12 @@ export default function GlobalMenu({ dark = false, activeIdx, forceHide }: { dar
   const isHome = pathname === '/';
 
   const sections = [
-    { name: 'HISTORIAS', href: '/historias' },
-    { name: 'CONFLICTOS', href: '/conflictos' },
-    { name: 'SERENDIPIA', href: '/serendipia' },
-    { name: 'ANÁLISIS', href: '/analisis' },
-    { name: 'MARCO', href: '/marco' },
-    { name: 'PODCAST', href: '/podcast' },
+    { name: 'HISTORIAS', href: '/historias', key: 'historias' },
+    { name: 'CONFLICTOS', href: '/conflictos', key: 'conflictos' },
+    { name: 'ANÁLISIS', href: '/analisis', key: 'analisis' },
+    { name: 'MARCO', href: '/marco', key: 'marco' },
+    { name: 'SERENDIPIA', href: '/serendipia', key: 'serendipia' },
+    { name: 'PODCAST', href: '/podcast', key: 'podcast' },
   ];
 
   // Hide the top-left logo on Home (index 0) because it's redundant with the main title
@@ -57,15 +58,19 @@ export default function GlobalMenu({ dark = false, activeIdx, forceHide }: { dar
           {isOpen && (
             <div className="absolute top-full right-0 pt-4 animate-in fade-in duration-150">
               <div className={`flex flex-col gap-3 p-6 min-w-[160px] text-right ${dark ? 'bg-black/90' : 'bg-white/90'} backdrop-blur-md shadow-xl`}>
-                {sections.map(s => (
-                  <Link 
-                    key={s.href} 
-                    href={s.href}
-                    className={`tag-text !text-[9px] hover:text-accent transition-colors ${pathname === s.href ? 'text-accent' : ''}`}
-                  >
-                    {s.name}
-                  </Link>
-                ))}
+                {sections.map(s => {
+                  const color = SECCION_COLORS[s.key] || '#CC0000';
+                  return (
+                    <Link 
+                      key={s.href} 
+                      href={s.href}
+                      className={`tag-text !text-[11px] font-bold transition-colors ${pathname === s.href ? '' : 'opacity-80 hover:opacity-100'}`}
+                      style={{ color }}
+                    >
+                      {s.name}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           )}

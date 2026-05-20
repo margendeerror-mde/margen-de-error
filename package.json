@@ -6,7 +6,8 @@
     "dev": "TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"next dev\"",
     "build": "if [ -n \"$TINA_TOKEN\" ]; then tinacms build --skip-cloud-checks; else echo 'Skipping Tina build (no token)'; fi && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sync-podcast": "node scripts/sync-podcast.js"
   },
   "dependencies": {
     "d3": "^7.9.0",
