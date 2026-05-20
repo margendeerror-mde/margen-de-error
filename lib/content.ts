@@ -29,30 +29,32 @@ export function getPiezasBySeccion(seccion: string): Pieza[] {
   const dir = path.join(process.cwd(), 'content', seccion);
   if (!fs.existsSync(dir)) return [];
 
-  return fs.readdirSync(dir)
-    .filter(f => f.endsWith('.md'))
-    .map(filename => {
-      const slug = filename.replace('.md', '');
-      const raw = fs.readFileSync(path.join(dir, filename), 'utf-8');
-      const { data, content } = matter(raw);
-      
-      return {
-        slug,
-        seccion,
-        titulo: String(data.titulo || ''),
-        resumen: String(data.resumen || ''),
-        fecha: data.fecha instanceof Date 
-          ? data.fecha.toISOString().split('T')[0] 
-          : String(data.fecha || ''),
-        industria: String(data.industria || ''),
-        mecanismo: normalizeTag(data.mecanismo),
-        tema: String(data.tema || ''),
-        content,
-        href: `/${seccion}/${slug}`,
-        spotifyUrl: String(data.spotifyUrl || ''),
-      };
-    })
-    .sort((a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime());
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
+  if (files.length === 0) return [];
+
+  const piezas = files.map(filename => {
+    const slug = filename.replace('.md', '');
+    const raw = fs.readFileSync(path.join(dir, filename), 'utf-8');
+    const { data, content } = matter(raw);
+    
+    return {
+      slug,
+      seccion,
+      titulo: String(data.titulo || ''),
+      resumen: String(data.resumen || ''),
+      fecha: data.fecha instanceof Date 
+        ? data.fecha.toISOString().split('T')[0] 
+        : String(data.fecha || ''),
+      industria: String(data.industria || ''),
+      mecanismo: normalizeTag(data.mecanismo),
+      tema: String(data.tema || ''),
+      content,
+      href: `/${seccion}/${slug}`,
+      spotifyUrl: String(data.spotifyUrl || ''),
+    };
+  });
+
+  return piezas.sort((a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime());
 }
 
 export function getAllPiezas(): Pieza[] {
