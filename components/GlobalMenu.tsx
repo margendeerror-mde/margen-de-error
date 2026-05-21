@@ -57,13 +57,9 @@ export default function GlobalMenu({ dark = false, activeIdx, forceHide }: { dar
             <div className="absolute top-full right-0 pt-4 animate-in fade-in duration-150">
               <div className={`flex flex-col gap-3 p-6 min-w-[160px] text-right ${dark ? 'bg-black/90' : 'bg-white/90'} backdrop-blur-md shadow-xl`}>
                 {sections.map(s => {
-                  const isPodcast = s.key === 'podcast';
-                  // Podcast: siempre verde. Resto: negro por defecto, color de sección en hover.
-                  const color = isPodcast
-                    ? SECCION_COLORS['podcast']
-                    : hoveredKey === s.key
-                      ? SECCION_COLORS[s.key]
-                      : dark ? '#ffffff' : '#000000';
+                  const color = hoveredKey === s.key
+                    ? SECCION_COLORS[s.key]
+                    : dark ? '#ffffff' : '#000000';
 
                   return (
                     <Link

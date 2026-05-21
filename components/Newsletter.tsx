@@ -30,7 +30,7 @@ export default function Newsletter() {
   };
 
   return (
-    <section id="newsletter" className="bg-[#0A0A0A] text-[#FAFAF8] py-24 px-6 border-y border-white/5">
+    <section id="newsletter" className="bg-[#0A0A0A] text-[#FAFAF8] py-24 pb-32 px-6 border-y border-white/5">
       <div className="max-w-[680px] mx-auto text-center">
         <h2 className="font-serif text-[clamp(1.8rem,4vw,2.5rem)] leading-tight mb-6 font-bold tracking-tight">
           Menos ruido, más método.

@@ -10,6 +10,7 @@ mecanismo:
 tema: mente-y-conducta
 fecha: 2025-02-10T00:00:00.000Z
 resumen: 'En los años cincuenta, las tabacaleras desarrollaron una estrategia para disputar la evidencia científica que las comprometía: no era necesario demostrar que el tabaco era inocuo. Solo había que instalar la duda. Esa estrategia sobrevivió a las tabacaleras y hoy está en todas partes.'
+spotifyUrl: 'https://open.spotify.com/episode/7MzeKUrh0b2rkkIgUPFYmC'
 ---
 
 En 1969, un ejecutivo de Brown & Williamson —una de las grandes tabacaleras estadounidenses— escribió una frase en un memorando interno que resume con precisión inusual cómo funciona la desinformación industrial:

@@ -210,14 +210,14 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
         .attr("opacity", n => {
           const baseOpacity = getFilteredOpacity(n);
           if (!activeHover) return baseOpacity;
-          
+          // If this node is filtered out, keep low opacity even when hovering other nodes
+          if (baseOpacity === 0) return 0.05;
+
           if (n.id === activeHover.id) return 1;
-          
-          const isConnected = links.some(l => 
-            ((l.source as Node).id === activeHover.id && (l.target as Node).id === n.id) || 
+          const isConnected = links.some(l =>
+            ((l.source as Node).id === activeHover.id && (l.target as Node).id === n.id) ||
             ((l.target as Node).id === activeHover.id && (l.source as Node).id === n.id)
           );
-          
           return isConnected ? Math.max(baseOpacity, 0.8) : 0.05;
         });
 
@@ -243,7 +243,10 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
         updateMapVisuals(null);
       })
       .on("click", (event, d) => {
-        router.push(d.href);
+        // Open article in a new tab to keep network view
+        if (typeof window !== 'undefined') {
+          window.open(d.href, '_blank');
+        }
       });
 
     simulation.on("tick", () => {
