@@ -211,7 +211,7 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
           const baseOpacity = getFilteredOpacity(n);
           if (!activeHover) return baseOpacity;
           // If this node is filtered out, keep low opacity even when hovering other nodes
-          if (baseOpacity === 0) return 0.05;
+          if (baseOpacity === 0.05) return 0.05;
 
           if (n.id === activeHover.id) return 1;
           const isConnected = links.some(l =>

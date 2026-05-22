@@ -1,14 +1,15 @@
 ---
-titulo: "La duda fue el producto"
+titulo: La duda fue el producto
 seccion: podcast
 industria: tabaco
 mecanismo:
   - manufactura-de-duda
   - financiamiento-de-estudio
 tema: medicación-y-fármacos
-fecha: 2026-05-20T12:00:00.000Z
+fecha: '2026-05-15T12:00:00.000Z'
 resumen: >-
-  Cómo las tabacaleras desarrollaron una estrategia que hoy usan todas las industrias.
+  Cómo las tabacaleras desarrollaron una estrategia que hoy usan todas las
+  industrias.
 spotifyUrl: 'https://open.spotify.com/episode/7MzeKUrh0b2rkkIgUPFYmC'
 ---
 

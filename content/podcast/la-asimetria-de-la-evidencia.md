@@ -1,12 +1,13 @@
 ---
-titulo: "La asimetría de la evidencia"
+titulo: La asimetría de la evidencia
 seccion: podcast
 industria: medios-y-comunicación
 mecanismo: []
 tema: nutrición
-fecha: 2026-05-20T12:00:00.000Z
+fecha: '2026-05-19T12:00:00.000Z'
 resumen: >-
-  Un estudio enorme apuntó en dirección contraria a las recomendaciones dietéticas vigentes. Lo que pasó después dice tanto como los datos.
+  Un estudio enorme apuntó en dirección contraria a las recomendaciones
+  dietéticas vigentes. Lo que pasó después dice tanto como los datos.
 spotifyUrl: 'https://open.spotify.com/episode/3JLBBtvQ7zRQgEqg7J4Mhc'
 ---
 
