@@ -20,7 +20,9 @@ export default function NewsletterArchive() {
         const res = await fetch('/api/newsletter-posts');
         if (res.ok) {
           const data = await res.json();
-          setPosts(data.data || []);
+          const allPosts = data.data || [];
+          const sorted = allPosts.sort((a: BeehiivPost, b: BeehiivPost) => new Date(b.publish_date).getTime() - new Date(a.publish_date).getTime());
+          setPosts(sorted.slice(0, 2));
         }
       } catch (err) {
         console.error('Error fetching posts:', err);
