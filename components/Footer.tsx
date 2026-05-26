@@ -23,10 +23,10 @@ export default function Footer() {
         </div>
         
         <div className="flex gap-8">
-          <Link href="#" className="tag-text !text-[10px] tracking-[0.1em] hover:text-accent transition-colors">
-            [INSTAGRAM]
+          <Link href="https://www.linkedin.com/in/margen-de-error-mde/" target="_blank" rel="noopener noreferrer" className="tag-text !text-[10px] tracking-[0.1em] hover:text-accent transition-colors">
+            [LINKEDIN]
           </Link>
-          <Link href="#" className="tag-text !text-[10px] tracking-[0.1em] hover:text-accent transition-colors">
+          <Link href="https://x.com/mde_uy" target="_blank" rel="noopener noreferrer" className="tag-text !text-[10px] tracking-[0.1em] hover:text-accent transition-colors">
             [X / TWITTER]
           </Link>
           <Link href="/privacidad" className="tag-text !text-[10px] tracking-[0.1em] hover:text-accent transition-colors">
