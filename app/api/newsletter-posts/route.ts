@@ -10,7 +10,7 @@ export async function GET() {
     }
 
     const response = await fetch(
-      `https://api.beehiiv.com/v2/publications/${PUBLICATION_ID}/posts?status=confirmed&limit=3`,
+      `https://api.beehiiv.com/v2/publications/${PUBLICATION_ID}/posts?status=confirmed&order_by=publish_date&direction=desc&limit=2`,
       {
         method: 'GET',
         headers: {
