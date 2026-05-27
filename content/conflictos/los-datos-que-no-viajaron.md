@@ -1,5 +1,5 @@
 ---
-titulo: Los datos que no viajaron
+titulo: La evidencia invisible
 seccion: conflictos
 industria: farmacéutica
 mecanismo:
@@ -8,7 +8,7 @@ mecanismo:
   - diseño-sesgado
 tema: medicación-y-fármacos
 fecha: 2026-05-05T00:00:00.000Z
-resumen: En 2008, un análisis de datos de la FDA reveló que la eficacia de los antidepresivos estaba sobreestimada debido a que la mayoría de los ensayos con resultados negativos nunca se publicaron.
+resumen: 'En 2008, un análisis de datos de la FDA reveló que la eficacia de los antidepresivos estaba sobreestimada debido a que la mayoría de los ensayos con resultados negativos nunca se publicaron.'
 ---
 
 En 2008, dos estudios independientes analizaron los mismos datos de la FDA sobre antidepresivos y llegaron a la misma conclusión: la literatura médica publicada sobreestimaba la eficacia de estos medicamentos porque los ensayos con resultados negativos, en su mayoría, nunca habían sido publicados. No hubo fraude declarado. Hubo un sistema funcionando con los incentivos que tenía.
@@ -53,9 +53,9 @@ Los datos existían. Solo que no viajaron.
 
 **Referencias**
 
-- Turner EH et al. "Selective Publication of Antidepressant Trials and Its Influence on Apparent Efficacy." *New England Journal of Medicine*, 2008. DOI: [10.1056/NEJMsa065779](https://doi.org/10.1056/NEJMsa065779)
-- Kirsch I, Deacon BJ, Huedo-Medina TB, Scoboria A, Moore TJ, Johnson BT. "Initial Severity and Antidepressant Benefits: A Meta-Analysis of Data Submitted to the Food and Drug Administration." *PLOS Medicine*, 2008; 5(2):e45. DOI: [10.1371/journal.pmed.0050045](https://doi.org/10.1371/journal.pmed.0050045)
-- Le Noury J, Nardo JM, Healy D, et al. "Restoring Study 329: efficacy and harms of paroxetine and imipramine in treatment of major depression in adolescence." *BMJ*, 2015; 351:h4320. DOI: [10.1136/bmj.h4320](https://doi.org/10.1136/bmj.h4320)
-- Doshi P, Dickersin K, Healy D, Vedula SS, Jefferson T. "Restoring invisible and abandoned trials: a call for people to publish the findings." *BMJ*, 2013; 346:f2865. DOI: [10.1136/bmj.f2865](https://doi.org/10.1136/bmj.f2865)
-- Goldacre B. *Bad Pharma: How Drug Companies Mislead Doctors and Harm Patients*. London: Fourth Estate, 2012. [Link](https://archive.org/details/badpharmahowdrug0000gold)
-- National Institute for Health and Care Excellence (NICE). "Depression in adults: treatment and management." Clinical guideline NG222, 2022. [Link](https://www.nice.org.uk/guidance/ng222)
+* Turner EH et al. "Selective Publication of Antidepressant Trials and Its Influence on Apparent Efficacy." *New England Journal of Medicine*, 2008. DOI: [10.1056/NEJMsa065779](https://doi.org/10.1056/NEJMsa065779)
+* Kirsch I, Deacon BJ, Huedo-Medina TB, Scoboria A, Moore TJ, Johnson BT. "Initial Severity and Antidepressant Benefits: A Meta-Analysis of Data Submitted to the Food and Drug Administration." *PLOS Medicine*, 2008; 5(2):e45. DOI: [10.1371/journal.pmed.0050045](https://doi.org/10.1371/journal.pmed.0050045)
+* Le Noury J, Nardo JM, Healy D, et al. "Restoring Study 329: efficacy and harms of paroxetine and imipramine in treatment of major depression in adolescence." *BMJ*, 2015; 351:h4320. DOI: [10.1136/bmj.h4320](https://doi.org/10.1136/bmj.h4320)
+* Doshi P, Dickersin K, Healy D, Vedula SS, Jefferson T. "Restoring invisible and abandoned trials: a call for people to publish the findings." *BMJ*, 2013; 346:f2865. DOI: [10.1136/bmj.f2865](https://doi.org/10.1136/bmj.f2865)
+* Goldacre B. *Bad Pharma: How Drug Companies Mislead Doctors and Harm Patients*. London: Fourth Estate, 2012. [Link](https://archive.org/details/badpharmahowdrug0000gold)
+* National Institute for Health and Care Excellence (NICE). "Depression in adults: treatment and management." Clinical guideline NG222, 2022. [Link](https://www.nice.org.uk/guidance/ng222)
