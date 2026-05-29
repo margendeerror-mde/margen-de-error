@@ -4,7 +4,7 @@ seccion: podcast
 industria: medios-y-comunicación
 mecanismo: []
 tema: mente-y-conducta
-fecha: 2026-05-26T12:00:00.000Z
+fecha: '2026-05-26T12:00:00.000Z'
 resumen: >-
   Cómo una carta de 101 palabras ayudó a sostener una narrativa que costó cientos de miles de vidas.
 spotifyUrl: 'https://open.spotify.com/episode/2F0Dh5mufMVHHhGJFMPc3Y?si=bh5eb43WSGmLtJuhv8nc2w'

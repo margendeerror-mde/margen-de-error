@@ -121,7 +121,7 @@ seccion: podcast
 industria: medios-y-comunicación
 mecanismo: []
 tema: mente-y-conducta
-fecha: ${dateStr}
+fecha: '${dateStr}'
 resumen: >-
   ${description.split('\n')[0].replace(/"/g, '\\"')}
 spotifyUrl: '${url}'
