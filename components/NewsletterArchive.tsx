@@ -22,7 +22,7 @@ export default function NewsletterArchive() {
           const data = await res.json();
           const allPosts = data.data || [];
           const sorted = allPosts.sort((a: BeehiivPost, b: BeehiivPost) => new Date(b.publish_date).getTime() - new Date(a.publish_date).getTime());
-          setPosts(sorted.slice(0, 2));
+          setPosts(sorted.slice(0, 1));
         }
       } catch (err) {
         console.error('Error fetching posts:', err);
@@ -40,8 +40,8 @@ export default function NewsletterArchive() {
   if (posts.length === 0) return null;
 
   return (
-    <div className="mt-20 text-left border-t border-white/10 pt-12">
-      <h3 className="tag-text !text-[11px] mb-8 opacity-40">ÚLTIMOS ENVÍOS</h3>
+    <div className="mt-12 text-left border-t border-white/10 pt-12">
+      <h3 className="tag-text !text-[11px] mb-8 opacity-40">ÚLTIMO ENVÍO</h3>
       <div className="grid gap-8">
         {posts.map((post) => (
           <a 

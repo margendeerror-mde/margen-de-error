@@ -21,25 +21,27 @@ export default function GlobalMenu({ dark = false, activeIdx, forceHide }: { dar
   ];
 
   const hideHomeLogo = activeIdx === 0;
-  const hideAllMenu = forceHide || activeIdx === 6;
+  const hideAllMenu = forceHide || activeIdx === 7;
 
   return (
     <>
       {/* Top Left Logo/Home Link */}
       <div className={`fixed top-8 left-8 z-[200] transition-all duration-700 ${hideAllMenu || hideHomeLogo ? 'opacity-0 pointer-events-none translate-x-[-20px]' : 'opacity-100 translate-x-0'}`}>
-        <Link href="/">
-          {isHome ? (
+        {isHome ? (
+          <a href="/">
             <img
               src="/assets/logo.svg"
               alt="Margen de Error"
               className={`h-8 md:h-10 w-auto ${dark ? 'invert' : ''}`}
             />
-          ) : (
+          </a>
+        ) : (
+          <Link href="/">
             <span className={`tag-text !text-[11px] tracking-[0.15em] font-bold hover:text-accent transition-colors ${dark ? 'text-white' : 'text-black'}`}>
               MARGEN DE ERROR
             </span>
-          )}
-        </Link>
+          </Link>
+        )}
       </div>
 
       {/* Top Right Global Menu */}

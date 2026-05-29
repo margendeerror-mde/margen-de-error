@@ -168,7 +168,7 @@ export default function EntryPage() {
                   className="tag-text !text-[14px] tracking-[0.3em] font-bold hover:opacity-70 transition-opacity"
                   style={{ color: section.accentColor }}
                 >
-                  → LEER
+                  → {section.id === 'podcast' ? 'ESCUCHAR' : 'LEER'}
                 </Link>
               </div>
             )}
