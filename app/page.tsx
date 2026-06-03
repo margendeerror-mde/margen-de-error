@@ -35,15 +35,6 @@ const sections = [
     detail: 'glitch',
   },
   {
-    id: 'serendipia',
-    title: 'SERENDIPIA',
-    subtitle: 'Lo que la ciencia encontró sin buscar.',
-    bgColor: '#2E5F7A',
-    textColor: '#FFFFFF',
-    accentColor: '#FFFFFF',
-    detail: 'dots',
-  },
-  {
     id: 'analisis',
     title: 'ANÁLISIS',
     subtitle: 'Papers que merecen más atención de la que reciben.',
@@ -60,6 +51,24 @@ const sections = [
     textColor: '#FFFFFF',
     accentColor: '#FFFFFF',
     detail: 'grid',
+  },
+  {
+    id: 'serendipia',
+    title: 'SERENDIPIA',
+    subtitle: 'Lo que la ciencia encontró sin buscar.',
+    bgColor: '#2E5F7A',
+    textColor: '#FFFFFF',
+    accentColor: '#FFFFFF',
+    detail: 'dots',
+  },
+  {
+    id: 'podcast',
+    title: 'PODCAST',
+    subtitle: 'Versión en audio de nuestros artículos y análisis sobre ciencia, incentivos y conflictos.',
+    bgColor: '#1DB954',
+    textColor: '#FFFFFF',
+    accentColor: '#FFFFFF',
+    detail: 'line',
   },
   {
     id: 'newsletter',
@@ -135,13 +144,13 @@ export default function EntryPage() {
         {sections.map((section, idx) => (
           <section 
             key={section.id}
-            className="w-screen h-screen shrink-0 snap-start relative flex flex-col items-center justify-center overflow-hidden transition-colors duration-1000"
+            className={`w-screen h-screen shrink-0 snap-start relative flex flex-col items-center overflow-hidden transition-colors duration-1000 ${section.isNewsletter ? 'justify-start pt-20 md:pt-24' : 'justify-center'}`}
             style={{ backgroundColor: section.bgColor, color: section.textColor }}
           >
             <VisualDetail type={section.detail || 'none'} active={activeIdx === idx} />
 
-            <div className={`text-center px-6 z-10 pt-12 md:pt-0 transition-all duration-700 ease-out ${getAnimClass(idx)}`}>
-              <h2 className="font-extrabold text-[clamp(2.5rem,15vw,9rem)] md:text-[clamp(3.5rem,12vw,9rem)] leading-[0.9] tracking-[-0.04em] uppercase mb-8">
+            <div className={`text-center px-6 z-10 transition-all duration-700 ease-out ${getAnimClass(idx)} ${section.isNewsletter ? 'mb-4' : 'pt-12 md:pt-0'}`}>
+              <h2 className={`font-extrabold leading-[0.9] tracking-[-0.04em] uppercase ${section.isNewsletter ? 'text-[clamp(2rem,10vw,5rem)] md:text-[clamp(2.5rem,8vw,6rem)] mb-4' : 'text-[clamp(2.5rem,15vw,9rem)] md:text-[clamp(3.5rem,12vw,9rem)] mb-8'}`}>
                 {section.title}
               </h2>
 
@@ -159,7 +168,7 @@ export default function EntryPage() {
                   className="tag-text !text-[14px] tracking-[0.3em] font-bold hover:opacity-70 transition-opacity"
                   style={{ color: section.accentColor }}
                 >
-                  → LEER
+                  → {section.id === 'podcast' ? 'ESCUCHAR' : 'LEER'}
                 </Link>
               </div>
             )}

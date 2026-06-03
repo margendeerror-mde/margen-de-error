@@ -10,6 +10,7 @@ export default function PieceCard({ pieza, featured = false }: { pieza: Pieza, f
     <Link 
       href={`/${seccionUrl}/${pieza.slug}`}
       className={`group flex flex-col transition-all relative ${featured ? 'md:col-span-2' : 'col-span-1'}`}
+      style={{ '--hover-color': accentColor } as React.CSSProperties}
     >
       <div 
         className="flex gap-6 border-l-2 pl-6 transition-colors duration-500"
@@ -29,7 +30,7 @@ export default function PieceCard({ pieza, featured = false }: { pieza: Pieza, f
             <span className="tag-text !text-muted/60 !text-[9px]">{pieza.industria}</span>
           </div>
           
-          <h3 className={`mb-4 group-hover:text-accent transition-colors leading-[1.05] ${
+          <h3 className={`mb-4 group-hover:text-[color:var(--hover-color)] transition-colors leading-[1.05] ${
             featured 
               ? 'font-sans font-bold text-[clamp(2.2rem,5vw,4rem)] tracking-[-0.03em]' 
               : 'title-serif text-xl md:text-2xl'
