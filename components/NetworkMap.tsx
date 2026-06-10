@@ -266,7 +266,7 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
         const baseOpacity = isVisible ? lineOpacity(link.weight) : 0.01;
 
         if (!currentHover) return baseOpacity;
-        const isConnected = source.id === currentHover.id || target.id === currentHover.id;
+        const isConnected = source.id === currentHover?.id || target.id === currentHover?.id;
         return isConnected ? 0.8 : 0.01;
       });
 
@@ -281,12 +281,12 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
           return Math.max(0.2, 0.7 + z * 0.3); // Back nodes are slightly faded
         }
 
-        if (d.id === currentHover.id) return 1;
+        if (d.id === currentHover?.id) return 1;
         const isConnected = links.some(l => {
           const src = l.source as Node;
           const tgt = l.target as Node;
-          return (src.id === currentHover.id && tgt.id === d.id) ||
-                 (tgt.id === currentHover.id && src.id === d.id);
+          return (src.id === currentHover?.id && tgt.id === d.id) ||
+                 (tgt.id === currentHover?.id && src.id === d.id);
         });
         return isConnected ? 0.8 : 0.05;
       });
