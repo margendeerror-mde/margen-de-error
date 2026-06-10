@@ -250,9 +250,10 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
         return `M ${source.x} ${source.y} Q ${cx} ${cy} ${target.x} ${target.y}`;
       });
 
-      linkPath.attr("stroke-opacity", (d: any) => {
-        const source = d.source as Node;
-        const target = d.target as Node;
+      linkPath.attr("stroke-opacity", (d: unknown) => {
+        const link = d as Link;
+        const source = link.source;
+        const target = link.target;
         const filters = activeFiltersRef.current;
         const getMatch = (node: Node) => {
           const s = filters.seccion.length === 0 || filters.seccion.includes(node.pieza.seccion);
@@ -262,7 +263,7 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
           return s && t && i && m;
         };
         const isVisible = getMatch(source) && getMatch(target);
-        const baseOpacity = isVisible ? lineOpacity(d.weight) : 0.01;
+        const baseOpacity = isVisible ? lineOpacity(link.weight) : 0.01;
 
         if (!currentHover) return baseOpacity;
         const isConnected = source.id === currentHover.id || target.id === currentHover.id;
