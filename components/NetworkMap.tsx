@@ -317,7 +317,7 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
         d.fy = null;
       });
 
-    nodeGroup.call(drag);
+    nodeGroup.call(drag as unknown as (selection: typeof nodeGroup) => void);
 
     nodeGroup
       .on("mouseover", (event, d) => {
