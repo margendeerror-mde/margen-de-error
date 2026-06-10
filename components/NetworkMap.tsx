@@ -274,7 +274,8 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
     if (!svgRef.current) return;
     const svg = d3.select(svgRef.current);
     svg.selectAll("g.node-group").transition().duration(500)
-      .attr("opacity", (n: any) => {
+      .attr("opacity", (d: unknown) => {
+        const n = d as Node;
         const sF = activeFilters.seccion.length === 0 || activeFilters.seccion.includes(n.pieza.seccion);
         const tF = activeFilters.tema.length === 0 || activeFilters.tema.includes(n.pieza.tema);
         const iF = activeFilters.industria.length === 0 || activeFilters.industria.includes(n.pieza.industria);
@@ -285,8 +286,9 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
       });
       
     svg.selectAll("path").transition().duration(500)
-      .attr("stroke-opacity", (l: any) => {
-        const getMatch = (node: any) => {
+      .attr("stroke-opacity", (d: unknown) => {
+        const l = d as Link;
+        const getMatch = (node: Node) => {
           const s = activeFilters.seccion.length === 0 || activeFilters.seccion.includes(node.pieza.seccion);
           const t = activeFilters.tema.length === 0 || activeFilters.tema.includes(node.pieza.tema);
           const i = activeFilters.industria.length === 0 || activeFilters.industria.includes(node.pieza.industria);
