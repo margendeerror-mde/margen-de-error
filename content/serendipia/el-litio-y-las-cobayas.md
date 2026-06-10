@@ -1,6 +1,8 @@
 ---
 titulo: El litio y las cobayas tranquilas
 seccion: serendipia
+temporada: 2
+capitulo: 6
 industria: farmacéutica
 mecanismo:
   - omisión-de-datos

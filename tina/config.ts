@@ -209,5 +209,17 @@ function camposComunes() {
       label: "Contenido",
       isBody: true,
     },
+    {
+      type: "number" as const,
+      name: "temporada",
+      label: "Temporada (1-3)",
+      required: false,
+    },
+    {
+      type: "number" as const,
+      name: "capitulo",
+      label: "Capítulo (1-8)",
+      required: false,
+    },
   ];
 }

@@ -1,6 +1,8 @@
 ---
 titulo: La mitad siempre convence
 seccion: marco
+temporada: 3
+capitulo: 3
 industria: farmacéutica
 mecanismo:
   - titular-engañoso

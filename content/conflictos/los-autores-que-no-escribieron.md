@@ -1,6 +1,8 @@
 ---
 titulo: "Los autores que firmaron papers que no escribieron"
 seccion: conflicto
+temporada: 3
+capitulo: 6
 industria: farmacéutica
 mecanismo: [conflicto-de-interés-no-declarado, financiamiento-de-estudio, omisión-de-datos]
 tema: medicación-y-fármacos

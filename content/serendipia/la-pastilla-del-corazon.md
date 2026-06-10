@@ -1,6 +1,8 @@
 ---
 titulo: La pastilla que nadie quiso devolver
 seccion: serendipia
+temporada: 2
+capitulo: 7
 industria: farmacéutica
 mecanismo:
   - omisión-de-datos

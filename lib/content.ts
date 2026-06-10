@@ -16,6 +16,8 @@ export interface Pieza {
   content: string;
   href: string;
   spotifyUrl?: string;
+  temporada?: number;
+  capitulo?: number;
 }
 
 export function normalizeTag(val: unknown): string[] {
@@ -51,6 +53,8 @@ export function getPiezasBySeccion(seccion: string): Pieza[] {
       content,
       href: `/${seccion}/${slug}`,
       spotifyUrl: String(data.spotifyUrl || ''),
+      temporada: data.temporada ? Number(data.temporada) : undefined,
+      capitulo: data.capitulo ? Number(data.capitulo) : undefined,
     };
   });
 
@@ -82,6 +86,8 @@ export function getPieza(seccion: string, slug: string): Pieza | null {
     content,
     href: `/${seccion}/${slug}`,
     spotifyUrl: String(data.spotifyUrl || ''),
+    temporada: data.temporada ? Number(data.temporada) : undefined,
+    capitulo: data.capitulo ? Number(data.capitulo) : undefined,
   };
 }
 

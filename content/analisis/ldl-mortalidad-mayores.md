@@ -1,6 +1,8 @@
 ---
 titulo: Lo que un paper sobre colesterol en adultos mayores no puede concluir
 seccion: análisis
+temporada: 3
+capitulo: 4
 industria: farmacéutica
 mecanismo:
   - sesgo-de-publicación

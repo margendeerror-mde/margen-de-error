@@ -1,6 +1,8 @@
 ---
 titulo: La luz que nos falta
 seccion: historia
+temporada: 2
+capitulo: 4
 industria: cosmética-y-cuidado-personal
 mecanismo:
   - titular-engañoso

@@ -1,6 +1,8 @@
 ---
 titulo: El número que nos mide a todos
 seccion: historia
+temporada: 2
+capitulo: 3
 industria: seguros-de-salud
 mecanismo:
   - normalización-por-repetición

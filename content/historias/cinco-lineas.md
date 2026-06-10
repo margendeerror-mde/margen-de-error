@@ -1,6 +1,8 @@
 ---
 titulo: Cinco líneas que ayudaron a sostener una narrativa
 seccion: historia
+temporada: 1
+capitulo: 4
 industria: farmacéutica
 mecanismo:
   - correlación-presentada-como-causalidad

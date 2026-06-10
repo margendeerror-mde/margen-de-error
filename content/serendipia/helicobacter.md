@@ -1,6 +1,8 @@
 ---
 titulo: El médico que se tomó la bacteria
 seccion: serendipia
+temporada: 2
+capitulo: 5
 industria: farmacéutica
 mecanismo:
   - normalización-por-repetición

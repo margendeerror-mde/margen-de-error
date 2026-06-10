@@ -1,6 +1,8 @@
 ---
 titulo: El problema no es lo que comés. Es que no te movés.
 seccion: conflicto
+temporada: 3
+capitulo: 8
 industria: alimentaria
 mecanismo:
   - financiamiento-de-estudio

@@ -1,6 +1,8 @@
 ---
 titulo: Medir lo que se puede medir
 seccion: marco
+temporada: 3
+capitulo: 2
 industria: farmacéutica
 mecanismo:
   - diseño-sesgado

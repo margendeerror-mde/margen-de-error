@@ -1,6 +1,8 @@
 ---
 titulo: El hombre que eligió siete países
 seccion: historia
+temporada: 2
+capitulo: 1
 industria: alimentaria
 mecanismo:
   - cherry-picking

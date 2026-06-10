@@ -1,6 +1,8 @@
 ---
 titulo: El hombre que llegó primero
 seccion: historias
+temporada: 2
+capitulo: 2
 industria: alimentaria
 mecanismo:
   - financiamiento-de-estudio

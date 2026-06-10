@@ -1,6 +1,8 @@
 ---
 titulo: El problema del p menor a cero coma cero cinco
 seccion: marco
+temporada: 1
+capitulo: 8
 industria: institucional-académica
 mecanismo:
   - diseño-sesgado

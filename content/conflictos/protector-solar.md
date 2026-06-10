@@ -1,6 +1,8 @@
 ---
 titulo: Lo que el protector solar no declara
 seccion: conflicto
+temporada: 3
+capitulo: 7
 industria: cosmética-y-cuidado-personal
 mecanismo:
   - financiamiento-de-estudio

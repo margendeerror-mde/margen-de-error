@@ -1,6 +1,8 @@
 ---
 titulo: El estudio que midió lo que la gente recordaba haber comido
 seccion: análisis
+temporada: 3
+capitulo: 1
 industria: institucional-académica
 mecanismo:
   - diseño-sesgado

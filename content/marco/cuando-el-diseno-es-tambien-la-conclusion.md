@@ -1,6 +1,8 @@
 ---
 titulo: Cuando el diseño es también la conclusión
 seccion: marco
+temporada: 1
+capitulo: 3
 industria: institucional-académica
 mecanismo:
   - sesgo-de-confirmación

@@ -6,16 +6,19 @@ import { Pieza } from '@/lib/content';
 import { SECCION_COLORS, TEMA_COLORS, SECCIONES, INDUSTRIAS, MECANISMOS, TEMAS } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 
-interface Node extends d3.SimulationNodeDatum {
+interface Node {
   id: string;
   pieza: Pieza;
+  x: number;
+  y: number;
   radius: number;
   href: string;
+  angle: number;
 }
 
-interface Link extends d3.SimulationLinkDatum<Node> {
-  source: string | Node;
-  target: string | Node;
+interface Link {
+  source: Node;
+  target: Node;
   weight: number;
 }
 
@@ -82,15 +85,35 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
 
     const { width, height } = windowSize;
 
-    // Build Nodes
-    const nodes: Node[] = piezas.map(p => ({
-      id: p.href,
-      pieza: p,
-      radius: 0,
-      href: p.href
-    }));
+    // Filter out podcasts and sort by Temporada & Capitulo
+    const validPiezas = piezas
+      .filter(p => p.seccion !== 'podcast' && p.temporada && p.capitulo)
+      .sort((a, b) => {
+        if (a.temporada !== b.temporada) return (a.temporada || 0) - (b.temporada || 0);
+        return (a.capitulo || 0) - (b.capitulo || 0);
+      });
 
-    // Build Links
+    // Circular layout math
+    const totalNodes = validPiezas.length;
+    const circleRadius = isMobile ? Math.min(width, height) / 2.5 : Math.min(width, height) / 2.8;
+    const cx = width / 2;
+    const cy = height / 2;
+
+    const nodes: Node[] = validPiezas.map((p, i) => {
+      // Start at top (12 o'clock) and go clockwise
+      const angle = (i / totalNodes) * 2 * Math.PI - Math.PI / 2;
+      return {
+        id: p.href,
+        pieza: p,
+        x: cx + circleRadius * Math.cos(angle),
+        y: cy + circleRadius * Math.sin(angle),
+        angle: angle,
+        radius: isMobile ? 14 : 22,
+        href: p.href
+      };
+    });
+
+    // Build Links (same logic, but stored with actual source/target objects)
     const links: Link[] = [];
     for (let i = 0; i < nodes.length; i++) {
       for (let j = i + 1; j < nodes.length; j++) {
@@ -101,26 +124,20 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
         if (a.tema && b.tema && a.tema === b.tema) weight += 3;
         if (a.industria && b.industria && a.industria === b.industria) weight += 2;
         
-        const sharedMecanismos = a.mecanismo.filter(m => b.mecanismo.includes(m));
+        const sharedMecanismos = a.mecanismo?.filter(m => b.mecanismo?.includes(m)) || [];
         weight += sharedMecanismos.length;
 
         if (a.seccion === b.seccion) weight += 1;
 
         if (weight >= 2) {
           links.push({
-            source: nodes[i].id,
-            target: nodes[j].id,
+            source: nodes[i],
+            target: nodes[j],
             weight
           });
         }
       }
     }
-
-    // Calculate radius based on degree
-    nodes.forEach(n => {
-      const degree = links.filter(l => l.source === n.id || l.target === n.id).length;
-      n.radius = (isMobile ? 12 : 18) + Math.sqrt(degree) * (isMobile ? 4 : 6);
-    });
 
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
@@ -128,22 +145,17 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
     const g = svg.append("g");
 
     const zoom = d3.zoom<SVGSVGElement, unknown>()
-      .scaleExtent([0.1, 8])
+      .scaleExtent([0.5, 4])
       .on("zoom", (event) => g.attr("transform", event.transform));
     svg.call(zoom);
 
-    const simulation = d3.forceSimulation<Node>(nodes)
-      .force("link", d3.forceLink<Node, Link>(links).id(d => d.id).distance(isMobile ? 60 : 120).strength(0.3))
-      .force("charge", d3.forceManyBody().strength(isMobile ? -40 : -80))
-      .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("collision", d3.forceCollide<Node>().radius(d => d.radius + (isMobile ? 10 : 20)))
-      .alphaDecay(0.04)
-      .velocityDecay(0.6);
+    // Initial transform to center the circle if zoomed or panned by default
+    // We start at zoom 1, centered, which is default.
 
     const lineOpacity = (weight: number) => {
-      if (weight >= 6) return 0.7;
-      if (weight >= 4) return 0.45;
-      if (weight >= 2) return 0.25;
+      if (weight >= 6) return 0.6;
+      if (weight >= 4) return 0.4;
+      if (weight >= 2) return 0.2;
       return 0.1;
     };
 
@@ -153,13 +165,32 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
       return 1;
     };
 
-    const link = g.append("g")
-      .selectAll("line")
+    // Draw lines as quadratic bezier curves through the center
+    const linkPath = g.append("g")
+      .selectAll("path")
       .data(links)
-      .join("line")
+      .join("path")
+      .attr("fill", "none")
       .attr("stroke", "#FFFFFF")
       .attr("stroke-opacity", d => lineOpacity(d.weight))
-      .attr("stroke-width", d => lineWidth(d.weight));
+      .attr("stroke-width", d => lineWidth(d.weight))
+      .attr("d", d => {
+        // Curve goes towards the center (cx, cy) to avoid a straight line crossing other nodes
+        // Adjust control point slightly off-center to create organic woven effect
+        const cpX = cx;
+        const cpY = cy;
+        return \`M \${d.source.x} \${d.source.y} Q \${cpX} \${cpY} \${d.target.x} \${d.target.y}\`;
+      });
+
+    // Draw the "path" ring
+    g.append("circle")
+      .attr("cx", cx)
+      .attr("cy", cy)
+      .attr("r", circleRadius)
+      .attr("fill", "none")
+      .attr("stroke", "rgba(255,255,255,0.05)")
+      .attr("stroke-width", 1)
+      .attr("stroke-dasharray", "4,4");
 
     const nodeGroup = g.append("g")
       .selectAll("g")
@@ -167,41 +198,31 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
       .join("g")
       .attr("class", "node-group")
       .style("cursor", "pointer")
-      .call(d3.drag<SVGGElement, Node>()
-        .on("start", (event, d) => {
-          if (!event.active) simulation.alphaTarget(0.1).restart();
-          d.fx = d.x; d.fy = d.y;
-        })
-        .on("drag", (event, d) => {
-          d.fx = event.x; d.fy = event.y;
-        })
-        .on("end", (event, d) => {
-          if (!event.active) simulation.alphaTarget(0);
-          d.fx = null; d.fy = null;
-        }) as any);
+      .attr("transform", d => \`translate(\${d.x},\${d.y})\`);
 
     nodeGroup.append("circle")
       .attr("r", d => d.radius)
       .attr("fill", d => TEMA_COLORS[d.pieza.tema] || '#666')
       .attr("stroke", "#FFFFFF")
-      .attr("stroke-opacity", 0.1)
-      .attr("stroke-width", 1);
+      .attr("stroke-opacity", 0.3)
+      .attr("stroke-width", 1.5);
 
     nodeGroup.append("text")
-      .text(d => d.pieza.titulo.substring(0, 3).toUpperCase())
+      .text(d => \`T\${d.pieza.temporada}C\${d.pieza.capitulo}\`)
       .attr("text-anchor", "middle")
       .attr("dy", ".35em")
-      .attr("font-size", isMobile ? "6px" : "8px")
+      .attr("font-size", isMobile ? "8px" : "10px")
       .attr("font-family", "var(--font-sans)")
       .attr("font-weight", "bold")
-      .attr("fill", "#0A0A0A");
+      .attr("fill", "#0A0A0A")
+      .style("pointer-events", "none");
 
     const getFilteredOpacity = (n: Node) => {
       const sF = activeFilters.seccion.length === 0 || activeFilters.seccion.includes(n.pieza.seccion);
       const tF = activeFilters.tema.length === 0 || activeFilters.tema.includes(n.pieza.tema);
       const iF = activeFilters.industria.length === 0 || activeFilters.industria.includes(n.pieza.industria);
       const mF = activeFilters.mecanismo.length === 0 || 
-                activeFilters.mecanismo.every((m: string) => n.pieza.mecanismo.includes(m));
+                activeFilters.mecanismo.every((m: string) => n.pieza.mecanismo?.includes(m));
       return (sF && tF && iF && mF) ? 1 : 0.05;
     };
 
@@ -210,55 +231,43 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
         .attr("opacity", n => {
           const baseOpacity = getFilteredOpacity(n);
           if (!activeHover) return baseOpacity;
-          // If this node is filtered out, keep low opacity even when hovering other nodes
           if (baseOpacity === 0.05) return 0.05;
 
           if (n.id === activeHover.id) return 1;
           const isConnected = links.some(l =>
-            ((l.source as Node).id === activeHover.id && (l.target as Node).id === n.id) ||
-            ((l.target as Node).id === activeHover.id && (l.source as Node).id === n.id)
+            (l.source.id === activeHover.id && l.target.id === n.id) ||
+            (l.target.id === activeHover.id && l.source.id === n.id)
           );
           return isConnected ? Math.max(baseOpacity, 0.8) : 0.05;
         });
 
-      link.transition().duration(200)
+      linkPath.transition().duration(200)
         .attr("stroke-opacity", l => {
           const baseOpacity = lineOpacity(l.weight);
           if (!activeHover) return baseOpacity;
           
-          const isConnected = (l.source as Node).id === activeHover.id || (l.target as Node).id === activeHover.id;
-          return isConnected ? 0.6 : 0.01;
+          const isConnected = l.source.id === activeHover.id || l.target.id === activeHover.id;
+          return isConnected ? 0.8 : 0.01;
         });
     };
 
     nodeGroup
       .on("mouseover", (event, d) => {
-        d3.select(event.currentTarget).select("circle").attr("stroke-opacity", 1).attr("stroke-width", 2);
+        d3.select(event.currentTarget).select("circle").attr("stroke-opacity", 1).attr("stroke-width", 2.5);
         setHoveredNode(d);
         updateMapVisuals(d);
       })
       .on("mouseout", (event, d) => {
-        d3.select(event.currentTarget).select("circle").attr("stroke-opacity", 0.1).attr("stroke-width", 1);
+        d3.select(event.currentTarget).select("circle").attr("stroke-opacity", 0.3).attr("stroke-width", 1.5);
         setHoveredNode(null);
         updateMapVisuals(null);
       })
       .on("click", (event, d) => {
-        // Open article in a new tab to keep network view
         if (typeof window !== 'undefined') {
           window.open(d.href, '_blank');
         }
       });
 
-    simulation.on("tick", () => {
-      link
-        .attr("x1", d => (d.source as Node).x!)
-        .attr("y1", d => (d.source as Node).y!)
-        .attr("x2", d => (d.target as Node).x!)
-        .attr("y2", d => (d.target as Node).y!);
-      nodeGroup.attr("transform", d => `translate(${d.x},${d.y})`);
-    });
-
-    return () => { simulation.stop(); };
   }, [piezas, windowSize, router, isMobile]);
 
   useEffect(() => {
@@ -269,21 +278,19 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
         const sF = activeFilters.seccion.length === 0 || activeFilters.seccion.includes(n.pieza.seccion);
         const tF = activeFilters.tema.length === 0 || activeFilters.tema.includes(n.pieza.tema);
         const iF = activeFilters.industria.length === 0 || activeFilters.industria.includes(n.pieza.industria);
-        // AND logic for mechanisms: piece must have ALL selected mechanisms
         const mF = activeFilters.mecanismo.length === 0 || 
-                  activeFilters.mecanismo.every((m: string) => n.pieza.mecanismo.includes(m));
+                  activeFilters.mecanismo.every((m: string) => n.pieza.mecanismo?.includes(m));
         
         return (sF && tF && iF && mF) ? 1 : 0.05;
       });
       
-    svg.selectAll("line").transition().duration(500)
+    svg.selectAll("path").transition().duration(500)
       .attr("stroke-opacity", (l: any) => {
-        // Link visibility also follows strict intersection
         const getMatch = (node: any) => {
           const s = activeFilters.seccion.length === 0 || activeFilters.seccion.includes(node.pieza.seccion);
           const t = activeFilters.tema.length === 0 || activeFilters.tema.includes(node.pieza.tema);
           const i = activeFilters.industria.length === 0 || activeFilters.industria.includes(node.pieza.industria);
-          const m = activeFilters.mecanismo.length === 0 || activeFilters.mecanismo.every((mec: string) => node.pieza.mecanismo.includes(mec));
+          const m = activeFilters.mecanismo.length === 0 || activeFilters.mecanismo.every((mec: string) => node.pieza.mecanismo?.includes(mec));
           return s && t && i && m;
         };
 
@@ -295,21 +302,21 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
   return (
     <div className="flex w-full h-full bg-[#0A0A0A] relative overflow-hidden dark-mode font-sans">
       {/* Sidebar / Bottom Panel */}
-      <div className={`
+      <div className={\`
         fixed z-[220] bg-[#0A0A0A]/95 backdrop-blur-xl border-white/10 transition-transform duration-500
-        ${isMobile 
-          ? `bottom-0 left-0 w-full h-[60%] border-t ${sidebarOpen ? 'translate-y-0' : 'translate-y-full'}`
-          : `left-0 top-0 h-full w-72 border-r ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`
+        \${isMobile 
+          ? \`bottom-0 left-0 w-full h-[60%] border-t \${sidebarOpen ? 'translate-y-0' : 'translate-y-full'}\`
+          : \`left-0 top-0 h-full w-72 border-r \${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}\`
         }
         overflow-y-auto scrollbar-hide
-      `}>
-        <div className={`p-8 ${isMobile ? 'pt-8' : 'pt-32'}`}>
+      \`}>
+        <div className={\`p-8 \${isMobile ? 'pt-8' : 'pt-32'}\`}>
           <div className="flex justify-between items-center mb-12">
             <h3 className="tag-text !text-white font-bold tracking-widest">FILTROS</h3>
             <button onClick={() => setSidebarOpen(false)} className="tag-text opacity-50 hover:opacity-100">CERRAR</button>
           </div>
           <div className="space-y-10">
-            <FilterSection label="SECCIÓN" options={SECCIONES} active={activeFilters.seccion} toggle={(v) => toggleFilter('seccion', v)} isSeccion />
+            <FilterSection label="SECCIÓN" options={SECCIONES.filter(s => s !== 'podcast')} active={activeFilters.seccion} toggle={(v) => toggleFilter('seccion', v)} isSeccion />
             <FilterSection label="TEMA" options={TEMAS} active={activeFilters.tema} toggle={(v) => toggleFilter('tema', v)} />
             <FilterSection label="INDUSTRIA" options={INDUSTRIAS} active={activeFilters.industria} toggle={(v) => toggleFilter('industria', v)} />
             <FilterSection label="MECANISMO" options={MECANISMOS} active={activeFilters.mecanismo} toggle={(v) => toggleFilter('mecanismo', v)} />
@@ -319,11 +326,11 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
 
       <button 
         onClick={() => setSidebarOpen(true)} 
-        className={`fixed z-[210] transition-all flex items-center gap-2
-          ${isMobile 
+        className={\`fixed z-[210] transition-all flex items-center gap-2
+          \${isMobile 
             ? 'bottom-10 left-6 bg-white text-black px-5 py-3 rounded-full shadow-2xl opacity-100' 
             : 'bottom-8 left-8 tag-text text-white/50 hover:text-white hover:opacity-100'
-          }`}
+          }\`}
       >
         <span className={isMobile ? "text-[10px] font-bold tracking-widest" : "tag-text"}>
           {isMobile ? 'FILTROS' : '☰ FILTROS'}
@@ -341,9 +348,9 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
 
       <div className="absolute bottom-8 right-8 z-20 text-right pointer-events-none hidden md:block">
         <p className="font-serif text-xs opacity-40 leading-relaxed">
-          Cada nodo es una pieza.<br />
-          Cada color es un tema.<br />
-          Cada línea es una conexión.
+          Un viaje circular de 3 temporadas.<br />
+          24 historias que se conectan entre sí.<br />
+          Las curvas revelan patrones ocultos.
         </p>
       </div>
 
@@ -352,7 +359,7 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
         {hoveredNode && (
           <div className="absolute bottom-24 left-1/2 -translate-x-1/2 bg-white text-[#0A0A0A] p-6 max-w-sm pointer-events-none animate-in fade-in slide-in-from-bottom-4 shadow-2xl z-[230]">
             <span className="tag-text block mb-2 uppercase font-bold" style={{ color: SECCION_COLORS[hoveredNode.pieza.seccion] || '#000' }}>
-              {hoveredNode.pieza.seccion}
+              {hoveredNode.pieza.seccion} — TEMP {hoveredNode.pieza.temporada} | CAP {hoveredNode.pieza.capitulo}
             </span>
             <h3 className="font-serif text-2xl leading-[1.1] mb-4">{hoveredNode.pieza.titulo}</h3>
             <div className="space-y-1">

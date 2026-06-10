@@ -1,6 +1,8 @@
 ---
 titulo: La evidencia invisible
 seccion: conflictos
+temporada: 1
+capitulo: 5
 industria: farmacéutica
 mecanismo:
   - sesgo-de-publicación

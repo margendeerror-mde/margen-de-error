@@ -1,6 +1,8 @@
 ---
 titulo: Cuando la ciencia intentó verificarse a sí misma
 seccion: marco
+temporada: 1
+capitulo: 6
 industria: institucional-académica
 mecanismo:
   - sesgo-de-publicación

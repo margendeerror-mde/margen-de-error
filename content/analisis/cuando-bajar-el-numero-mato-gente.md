@@ -1,6 +1,8 @@
 ---
 titulo: Cuando bajar el número mató gente
 seccion: analisis
+temporada: 3
+capitulo: 5
 industria: farmacéutica
 mecanismo:
   - correlación-presentada-como-causalidad

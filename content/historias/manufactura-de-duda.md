@@ -1,6 +1,8 @@
 ---
 titulo: La duda como producto
 seccion: historia
+temporada: 1
+capitulo: 1
 industria: tabaco
 mecanismo:
   - manufactura-de-duda

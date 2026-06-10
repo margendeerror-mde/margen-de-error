@@ -1,6 +1,8 @@
 ---
 titulo: El tamaño de la muestra no es un detalle técnico
 seccion: marco
+temporada: 1
+capitulo: 7
 industria: institucional-académica
 mecanismo:
   - diseño-sesgado

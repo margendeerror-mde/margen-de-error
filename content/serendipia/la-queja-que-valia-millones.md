@@ -1,6 +1,8 @@
 ---
 titulo: La queja que valía millones
 seccion: serendipia
+temporada: 2
+capitulo: 8
 industria: farmacéutica
 mecanismo:
   - migración-de-estrategia

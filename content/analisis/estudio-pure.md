@@ -1,6 +1,8 @@
 ---
-titulo: El estudio de 135.000 personas que no produjo cambios sustantivos en las guías
+titulo: La asimetría de la evidencia
 seccion: análisis
+temporada: 1
+capitulo: 2
 industria: alimentaria
 mecanismo:
   - sesgo-de-publicación
