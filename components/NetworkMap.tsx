@@ -89,13 +89,8 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
 
     const { width, height } = windowSize;
 
-    // Filter out podcasts and sort by Temporada & Capitulo
-    const validPiezas = piezas
-      .filter(p => p.seccion !== 'podcast' && p.temporada && p.capitulo)
-      .sort((a, b) => {
-        if (a.temporada !== b.temporada) return (a.temporada || 0) - (b.temporada || 0);
-        return (a.capitulo || 0) - (b.capitulo || 0);
-      });
+    // Filter out podcasts
+    const validPiezas = piezas.filter(p => p.seccion !== 'podcast' && p.seccion);
 
     const totalNodes = validPiezas.length;
     const cx = width / 2;
@@ -148,10 +143,32 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
 
     const g = svg.append("g");
 
-    const zoom = d3.zoom<SVGSVGElement, unknown>()
-      .scaleExtent([0.5, 4])
-      .on("zoom", (event) => g.attr("transform", event.transform));
-    svg.call(zoom);
+    // Replace zoom with drag-to-spin
+    let dragOffset = 0;
+    const svgDrag = d3.drag<SVGSVGElement, unknown>()
+      .on("drag", (event) => {
+        dragOffset = event.dx * 0.005;
+      })
+      .on("end", () => {
+        const decay = setInterval(() => {
+          dragOffset *= 0.9;
+          if (Math.abs(dragOffset) < 0.0001) {
+             dragOffset = 0;
+             clearInterval(decay);
+          }
+        }, 16);
+      });
+    svg.call(svgDrag);
+    
+    // Add 3D shine gradient
+    const defs = svg.append("defs");
+    const shine = defs.append("radialGradient")
+      .attr("id", "node-shine")
+      .attr("cx", "30%")
+      .attr("cy", "30%")
+      .attr("r", "70%");
+    shine.append("stop").attr("offset", "0%").attr("stop-color", "#ffffff").attr("stop-opacity", 0.6);
+    shine.append("stop").attr("offset", "100%").attr("stop-color", "#ffffff").attr("stop-opacity", 0);
 
     const lineOpacity = (weight: number) => {
       if (weight >= 6) return 0.5;
@@ -193,17 +210,23 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
       .style("cursor", "pointer");
 
     nodeGroup.append("circle")
+      .attr("class", "base-circle")
       .attr("fill", d => TEMA_COLORS[d.pieza.tema] || '#666')
       .attr("stroke", "#FFFFFF")
       .attr("stroke-opacity", 0.3)
       .attr("stroke-width", 1.5);
 
+    nodeGroup.append("circle")
+      .attr("class", "shine-circle")
+      .attr("fill", "url(#node-shine)")
+      .style("pointer-events", "none");
+
     nodeGroup.append("text")
-      .text(d => d.pieza.seccion.toUpperCase())
+      .text(d => d.pieza.seccion.charAt(0).toUpperCase())
       .attr("text-anchor", "middle")
       .attr("font-family", "var(--font-sans)")
-      .attr("font-weight", "600")
-      .attr("fill", "rgba(255,255,255,0.7)")
+      .attr("font-weight", "800")
+      .attr("fill", "rgba(255,255,255,0.9)")
       .style("pointer-events", "none");
 
     const getFilteredOpacity = (n: Node) => {
@@ -231,7 +254,7 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
       nodes.forEach((d: Node) => {
         // Calculate theoretical angle on the ellipse
         let currentAngle = Math.atan2((d.y - cy) / ry, (d.x - cx) / rx);
-        currentAngle += 0.001; // Constant slow orbital rotation
+        currentAngle += 0.001 + dragOffset; // Orbital rotation + drag spin
         
         const targetX = cx + Math.cos(currentAngle) * rx;
         const targetY = cy + Math.sin(currentAngle) * ry;
@@ -292,12 +315,12 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
       });
 
       // 3D perspective scales
-      nodeGroup.select("circle")
-        .attr("r", d => d.radius * (0.8 + (d.z || 0) * 0.2));
+      nodeGroup.selectAll("circle")
+        .attr("r", (d: any) => d.radius * (0.8 + (d.z || 0) * 0.2));
 
       nodeGroup.select("text")
-        .attr("font-size", d => `${(isMobile ? 7 : 9) * (0.8 + (d.z || 0) * 0.2)}px`)
-        .attr("dy", d => d.radius * (0.8 + (d.z || 0) * 0.2) + 12);
+        .attr("font-size", d => `${(isMobile ? 10 : 12) * (0.8 + (d.z || 0) * 0.2)}px`)
+        .attr("dy", d => (d.radius * (0.8 + (d.z || 0) * 0.2)) * 0.35); // Center text vertically
     });
 
     // Interaction
@@ -321,12 +344,12 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
 
     nodeGroup
       .on("mouseover", (event, d) => {
-        d3.select(event.currentTarget).select("circle").attr("stroke-opacity", 1).attr("stroke-width", 2.5);
+        d3.select(event.currentTarget).select(".base-circle").attr("stroke-opacity", 1).attr("stroke-width", 2.5);
         setHoveredNode(d);
         currentHover = d;
       })
       .on("mouseout", (event, d) => {
-        d3.select(event.currentTarget).select("circle").attr("stroke-opacity", 0.3).attr("stroke-width", 1.5);
+        d3.select(event.currentTarget).select(".base-circle").attr("stroke-opacity", 0.3).attr("stroke-width", 1.5);
         setHoveredNode(null);
         currentHover = null;
       })
@@ -390,8 +413,8 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
 
       <div className="absolute bottom-8 right-8 z-20 text-right pointer-events-none hidden md:block">
         <p className="font-serif text-xs opacity-40 leading-relaxed">
-          Un viaje circular de 3 temporadas.<br />
-          24 historias que se conectan entre sí.<br />
+          La red de la evidencia.<br />
+          Historias que se conectan entre sí.<br />
           Las curvas revelan patrones ocultos.
         </p>
       </div>
@@ -401,7 +424,7 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
         {hoveredNode && (
           <div className="absolute bottom-24 left-1/2 -translate-x-1/2 bg-white text-[#0A0A0A] p-6 max-w-sm pointer-events-none animate-in fade-in slide-in-from-bottom-4 shadow-2xl z-[230]">
             <span className="tag-text block mb-2 uppercase font-bold" style={{ color: SECCION_COLORS[hoveredNode.pieza.seccion] || '#000' }}>
-              {hoveredNode.pieza.seccion} — TEMP {hoveredNode.pieza.temporada} | CAP {hoveredNode.pieza.capitulo}
+              {hoveredNode.pieza.seccion}
             </span>
             <h3 className="font-serif text-2xl leading-[1.1] mb-4">{hoveredNode.pieza.titulo}</h3>
             <div className="space-y-1">
