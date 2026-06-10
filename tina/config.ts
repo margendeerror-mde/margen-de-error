@@ -204,12 +204,6 @@ function camposComunes() {
       required: false,
     },
     {
-      type: "rich-text" as const,
-      name: "body",
-      label: "Contenido",
-      isBody: true,
-    },
-    {
       type: "number" as const,
       name: "temporada",
       label: "Temporada (1-3)",
@@ -220,6 +214,12 @@ function camposComunes() {
       name: "capitulo",
       label: "Capítulo (1-8)",
       required: false,
+    },
+    {
+      type: "rich-text" as const,
+      name: "body",
+      label: "Contenido",
+      isBody: true,
     },
   ];
 }
