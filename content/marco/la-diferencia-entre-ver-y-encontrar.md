@@ -1,5 +1,5 @@
 ---
-titulo: El tamaño de la muestra no es un detalle técnico
+titulo: La diferencia entre ver y encontrar
 seccion: marco
 temporada: 1
 capitulo: 7
