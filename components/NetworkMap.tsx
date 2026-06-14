@@ -2,13 +2,12 @@
 
 import { useEffect, useRef, useState, useMemo } from 'react';
 import * as d3 from 'd3';
-import type { Pieza } from '@/lib/content';
 import { SECCION_COLORS, SECCIONES, INDUSTRIAS, MECANISMOS, TEMAS } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 
 interface BaseNode {
   id: string;
-  pieza: Pieza;
+  pieza: any;
   px: number; // base sphere X (-1 to 1)
   py: number; // base sphere Y (-1 to 1)
   pz: number; // base sphere Z (-1 to 1)
@@ -21,7 +20,7 @@ interface Link {
   weight: number;
 }
 
-export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
+export default function NetworkMap({ piezas }: { piezas: any[] }) {
   const svgRef = useRef<SVGSVGElement>(null);
   const htmlNodesRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -135,7 +134,7 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
       }
     }
 
-    const getFilteredOpacity = (p: Pieza) => {
+    const getFilteredOpacity = (p: any) => {
       const filters = activeFiltersRef.current;
       const sF = filters.seccion.length === 0 || filters.seccion.includes(p.seccion);
       const tF = filters.tema.length === 0 || filters.tema.includes(p.tema);
