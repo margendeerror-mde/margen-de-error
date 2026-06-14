@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useMemo } from 'react';
 import * as d3 from 'd3';
 import { Pieza } from '@/lib/content';
-import { SECCION_COLORS, TEMA_COLORS, SECCIONES, INDUSTRIAS, MECANISMOS, TEMAS } from '@/lib/types';
+import { SECCION_COLORS, SECCIONES, INDUSTRIAS, MECANISMOS, TEMAS } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 
 interface BaseNode {
@@ -237,7 +237,8 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
         isDragging = false;
       });
 
-    d3.select(containerRef.current).call(drag);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    d3.select(containerRef.current as HTMLDivElement).call(drag as any);
 
     const timer = d3.timer(() => {
       if (!isDragging) {
@@ -286,7 +287,7 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
         return \`M \${src.x} \${src.y} Q \${qx} \${qy} \${tgt.x} \${tgt.y}\`;
       });
 
-      linkPaths.attr("stroke-opacity", (d: any) => {
+      linkPaths.attr("stroke-opacity", (d: unknown) => {
         const link = d as Link;
         const srcF = getFilteredOpacity(link.source.pieza) === 1;
         const tgtF = getFilteredOpacity(link.target.pieza) === 1;
