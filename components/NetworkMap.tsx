@@ -1,10 +1,8 @@
-// @ts-nocheck
-/* eslint-disable */
 'use client';
 
 import { useEffect, useRef, useState, useMemo } from 'react';
 import * as d3 from 'd3';
-import { Pieza } from '@/lib/content';
+import type { Pieza } from '@/lib/content';
 import { SECCION_COLORS, SECCIONES, INDUSTRIAS, MECANISMOS, TEMAS } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 
