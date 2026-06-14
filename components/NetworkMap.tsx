@@ -283,7 +283,7 @@ export default function NetworkMap({ piezas }: { piezas: any[] }) {
         // Control point pulls the curve towards the center of the sphere slightly
         const qx = cx + (src.x + tgt.x - 2 * cx) * 0.3;
         const qy = cy + (src.y + tgt.y - 2 * cy) * 0.3;
-        return \`M \${src.x} \${src.y} Q \${qx} \${qy} \${tgt.x} \${tgt.y}\`;
+        return `M ${src.x} ${src.y} Q ${qx} ${qy} ${tgt.x} ${tgt.y}`;
       });
 
       linkPaths.attr("stroke-opacity", (d: unknown) => {
@@ -312,7 +312,7 @@ export default function NetworkMap({ piezas }: { piezas: any[] }) {
         const p = projectedNodes.get(d.id);
         if (!p) return "";
         const scale = 0.6 + (p.z + 1) * 0.25; // z: -1 (back) to 1 (front)
-        return \`translate(calc(\${p.x}px - 50%), calc(\${p.y}px - 50%)) scale(\${scale})\`;
+        return `translate(calc(${p.x}px - 50%), calc(${p.y}px - 50%)) scale(${scale})`;
       });
 
       nodeDivs.style("z-index", d => {
@@ -349,15 +349,15 @@ export default function NetworkMap({ piezas }: { piezas: any[] }) {
   return (
     <div className="flex w-full h-full bg-[#0A0A0A] relative overflow-hidden dark-mode font-sans">
       {/* Sidebar / Bottom Panel */}
-      <div className={\`
+      <div className={`
         fixed z-[220] bg-[#0A0A0A]/95 backdrop-blur-xl border-white/10 transition-transform duration-500
-        \${isMobile 
-          ? \`bottom-0 left-0 w-full h-[60%] border-t \${sidebarOpen ? 'translate-y-0' : 'translate-y-full'}\`
-          : \`left-0 top-0 h-full w-72 border-r \${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}\`
+        ${isMobile 
+          ? `bottom-0 left-0 w-full h-[60%] border-t ${sidebarOpen ? 'translate-y-0' : 'translate-y-full'}`
+          : `left-0 top-0 h-full w-72 border-r ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`
         }
         overflow-y-auto scrollbar-hide
-      \`}>
-        <div className={\`p-8 \${isMobile ? 'pt-8' : 'pt-32'}\`}>
+      `}>
+        <div className={`p-8 ${isMobile ? 'pt-8' : 'pt-32'}`}>
           <div className="flex justify-between items-center mb-12">
             <h3 className="tag-text !text-white font-bold tracking-widest">FILTROS</h3>
             <button onClick={() => setSidebarOpen(false)} className="tag-text opacity-50 hover:opacity-100">CERRAR</button>
@@ -373,11 +373,11 @@ export default function NetworkMap({ piezas }: { piezas: any[] }) {
 
       <button 
         onClick={() => setSidebarOpen(true)} 
-        className={\`fixed z-[210] transition-all flex items-center gap-2
-          \${isMobile 
+        className={`fixed z-[210] transition-all flex items-center gap-2
+          ${isMobile 
             ? 'bottom-10 left-6 bg-white text-black px-5 py-3 rounded-full shadow-2xl opacity-100' 
             : 'bottom-8 left-8 tag-text text-white/50 hover:text-white hover:opacity-100'
-          }\`}
+          }`}
       >
         <span className={isMobile ? "text-[10px] font-bold tracking-widest" : "tag-text"}>
           {isMobile ? 'FILTROS' : '☰ FILTROS'}
