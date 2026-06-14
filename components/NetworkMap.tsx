@@ -5,9 +5,18 @@ import * as d3 from 'd3';
 import { SECCION_COLORS, SECCIONES, INDUSTRIAS, MECANISMOS, TEMAS } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 
+interface MinimalPieza {
+  href: string;
+  seccion: string;
+  tema?: string;
+  industria?: string;
+  mecanismo?: string[];
+  titulo: string;
+}
+
 interface BaseNode {
   id: string;
-  pieza: any;
+  pieza: MinimalPieza;
   px: number; // base sphere X (-1 to 1)
   py: number; // base sphere Y (-1 to 1)
   pz: number; // base sphere Z (-1 to 1)
@@ -20,7 +29,7 @@ interface Link {
   weight: number;
 }
 
-export default function NetworkMap({ piezas }: { piezas: any[] }) {
+export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
   const svgRef = useRef<SVGSVGElement>(null);
   const htmlNodesRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -134,7 +143,7 @@ export default function NetworkMap({ piezas }: { piezas: any[] }) {
       }
     }
 
-    const getFilteredOpacity = (p: any) => {
+    const getFilteredOpacity = (p: MinimalPieza) => {
       const filters = activeFiltersRef.current;
       const sF = filters.seccion.length === 0 || filters.seccion.includes(p.seccion);
       const tF = filters.tema.length === 0 || filters.tema.includes(p.tema);
@@ -184,7 +193,7 @@ export default function NetworkMap({ piezas }: { piezas: any[] }) {
         hoveredNodeId = d.id;
         d3.select(event.currentTarget).style("border-color", "rgba(255,255,255,0.8)");
       })
-      .on("mouseleave", (event, d) => {
+      .on("mouseleave", (event) => {
         hoveredNodeId = null;
         d3.select(event.currentTarget).style("border-color", "rgba(255,255,255,0.1)");
       });
@@ -266,7 +275,7 @@ export default function NetworkMap({ piezas }: { piezas: any[] }) {
         const z2 = n.py * sinP + z1 * cosP;
 
         // Scale down Z so the back is slightly smaller
-        const scale = 0.7 + (z2 + 1) * 0.25; // z2 goes from -1 to 1
+        // const scale = 0.7 + (z2 + 1) * 0.25; // z2 goes from -1 to 1
 
         projectedNodes.set(n.id, {
           x: cx + x1 * R,
