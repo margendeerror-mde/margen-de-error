@@ -6,25 +6,24 @@ import { Pieza } from '@/lib/content';
 import { SECCION_COLORS, TEMA_COLORS, SECCIONES, INDUSTRIAS, MECANISMOS, TEMAS } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 
-interface Node extends d3.SimulationNodeDatum {
+interface BaseNode {
   id: string;
   pieza: Pieza;
-  x: number;
-  y: number;
+  px: number; // base sphere X (-1 to 1)
+  py: number; // base sphere Y (-1 to 1)
+  pz: number; // base sphere Z (-1 to 1)
   radius: number;
-  href: string;
-  angle: number;
-  z?: number;
 }
 
 interface Link {
-  source: Node;
-  target: Node;
+  source: BaseNode;
+  target: BaseNode;
   weight: number;
 }
 
 export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
   const svgRef = useRef<SVGSVGElement>(null);
+  const htmlNodesRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
@@ -40,7 +39,6 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
     activeFiltersRef.current = activeFilters;
   }, [activeFilters]);
 
-  const [hoveredNode, setHoveredNode] = useState<Node | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
@@ -85,31 +83,30 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
   const clearFilters = () => setActiveFilters({ seccion: [], tema: [], industria: [], mecanismo: [] });
 
   useEffect(() => {
-    if (!svgRef.current || windowSize.width === 0 || piezas.length === 0) return;
+    if (!svgRef.current || !htmlNodesRef.current || !containerRef.current || windowSize.width === 0 || piezas.length === 0) return;
 
     const { width, height } = windowSize;
 
     // Filter out podcasts
     const validPiezas = piezas.filter(p => p.seccion !== 'podcast' && p.seccion);
-
     const totalNodes = validPiezas.length;
+    
+    // 3D Sphere bounds
     const cx = width / 2;
     const cy = height / 2;
-    // 3D Ellipse bounds
-    const rx = isMobile ? width * 0.45 : width * 0.35;
-    const ry = isMobile ? height * 0.35 : height * 0.25;
+    const R = isMobile ? Math.min(width, height) * 0.40 : Math.min(width, height) * 0.35;
 
-    const nodes: Node[] = validPiezas.map((p, i) => {
-      const angle = (i / totalNodes) * 2 * Math.PI - Math.PI / 2;
+    // 1. Distribute nodes on a Fibonacci sphere
+    const nodes: BaseNode[] = validPiezas.map((p, i) => {
+      const phi = Math.acos(1 - 2 * (i + 0.5) / totalNodes);
+      const theta = Math.PI * (1 + Math.sqrt(5)) * (i + 0.5);
       return {
         id: p.href,
         pieza: p,
-        x: cx + Math.cos(angle) * rx,
-        y: cy + Math.sin(angle) * ry,
-        angle: angle,
-        radius: isMobile ? 12 : 18,
-        href: p.href,
-        z: Math.sin(angle)
+        px: Math.cos(theta) * Math.sin(phi),
+        py: Math.sin(theta) * Math.sin(phi),
+        pz: Math.cos(phi),
+        radius: isMobile ? 14 : 18,
       };
     });
 
@@ -138,244 +135,229 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
       }
     }
 
+    const getFilteredOpacity = (p: Pieza) => {
+      const filters = activeFiltersRef.current;
+      const sF = filters.seccion.length === 0 || filters.seccion.includes(p.seccion);
+      const tF = filters.tema.length === 0 || filters.tema.includes(p.tema);
+      const iF = filters.industria.length === 0 || filters.industria.includes(p.industria);
+      const mF = filters.mecanismo.length === 0 || 
+                filters.mecanismo.every((m: string) => p.mecanismo?.includes(m));
+      return (sF && tF && iF && mF) ? 1 : 0.05;
+    };
+
+    // 2. Render SVG Links
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
-
-    const g = svg.append("g");
-
-    // Replace zoom with drag-to-spin
-    let dragOffset = 0;
-    const svgDrag = d3.drag<SVGSVGElement, unknown>()
-      .on("drag", (event) => {
-        dragOffset = event.dx * 0.005;
-      })
-      .on("end", () => {
-        const decay = setInterval(() => {
-          dragOffset *= 0.9;
-          if (Math.abs(dragOffset) < 0.0001) {
-             dragOffset = 0;
-             clearInterval(decay);
-          }
-        }, 16);
-      });
-    svg.call(svgDrag);
-    
-    // Add 3D shine gradient
-    const defs = svg.append("defs");
-    const shine = defs.append("radialGradient")
-      .attr("id", "node-shine")
-      .attr("cx", "30%")
-      .attr("cy", "30%")
-      .attr("r", "70%");
-    shine.append("stop").attr("offset", "0%").attr("stop-color", "#ffffff").attr("stop-opacity", 0.6);
-    shine.append("stop").attr("offset", "100%").attr("stop-color", "#ffffff").attr("stop-opacity", 0);
+    const gLinks = svg.append("g");
 
     const lineOpacity = (weight: number) => {
-      if (weight >= 6) return 0.5;
-      if (weight >= 4) return 0.3;
-      if (weight >= 2) return 0.15;
+      if (weight >= 6) return 0.4;
+      if (weight >= 4) return 0.2;
+      if (weight >= 2) return 0.1;
       return 0.05;
     };
 
-    const lineWidth = (weight: number) => {
-      if (weight >= 6) return 2;
-      if (weight >= 4) return 1.5;
-      return 1;
-    };
-
-    const linkPath = g.append("g")
-      .selectAll("path")
+    const linkPaths = gLinks.selectAll("path")
       .data(links)
       .join("path")
       .attr("fill", "none")
       .attr("stroke", "#FFFFFF")
-      .attr("stroke-width", d => lineWidth(d.weight));
-
-    // Optional: Draw a subtle orbit ring just for aesthetics
-    g.append("ellipse")
-      .attr("cx", cx)
-      .attr("cy", cy)
-      .attr("rx", rx)
-      .attr("ry", ry)
-      .attr("fill", "none")
-      .attr("stroke", "rgba(255,255,255,0.03)")
-      .attr("stroke-dasharray", "4,4")
+      .attr("stroke-width", d => d.weight >= 4 ? 1.5 : 0.5)
       .style("pointer-events", "none");
 
-    const nodeGroup = g.append("g")
-      .selectAll("g")
+    // 3. Render HTML Nodes (Glassmorphism Capsules)
+    const htmlContainer = d3.select(htmlNodesRef.current);
+    htmlContainer.selectAll('*').remove();
+
+    let hoveredNodeId: string | null = null;
+
+    const nodeDivs = htmlContainer.selectAll("div.node-capsule")
       .data(nodes)
-      .join("g")
-      .attr("class", "node-group")
-      .style("cursor", "pointer");
-
-    nodeGroup.append("circle")
-      .attr("class", "base-circle")
-      .attr("fill", d => TEMA_COLORS[d.pieza.tema] || '#666')
-      .attr("stroke", "#FFFFFF")
-      .attr("stroke-opacity", 0.3)
-      .attr("stroke-width", 1.5);
-
-    nodeGroup.append("circle")
-      .attr("class", "shine-circle")
-      .attr("fill", "url(#node-shine)")
-      .style("pointer-events", "none");
-
-    nodeGroup.append("text")
-      .text(d => d.pieza.seccion.charAt(0).toUpperCase())
-      .attr("text-anchor", "middle")
-      .attr("font-family", "var(--font-sans)")
-      .attr("font-weight", "800")
-      .attr("fill", "rgba(255,255,255,0.9)")
-      .style("pointer-events", "none");
-
-    const getFilteredOpacity = (n: Node) => {
-      const filters = activeFiltersRef.current;
-      const sF = filters.seccion.length === 0 || filters.seccion.includes(n.pieza.seccion);
-      const tF = filters.tema.length === 0 || filters.tema.includes(n.pieza.tema);
-      const iF = filters.industria.length === 0 || filters.industria.includes(n.pieza.industria);
-      const mF = filters.mecanismo.length === 0 || 
-                filters.mecanismo.every((m: string) => n.pieza.mecanismo?.includes(m));
-      return (sF && tF && iF && mF) ? 1 : 0.05;
-    };
-
-    // Physics Simulation with elliptical constraints
-    const simulation = d3.forceSimulation(nodes)
-      .force("charge", d3.forceManyBody().strength(-30))
-      .force("collide", d3.forceCollide().radius(d => (d as Node).radius + 15).iterations(2))
-      .alphaTarget(0.01) // keeps moving slowly indefinitely
-      .velocityDecay(0.3);
-
-    // active hover state reference to sync with continuous tick
-    let currentHover: Node | null = null;
-
-    simulation.on("tick", () => {
-      // 1. Orbital motion and bounds
-      nodes.forEach((d: Node) => {
-        // Calculate theoretical angle on the ellipse
-        let currentAngle = Math.atan2((d.y - cy) / ry, (d.x - cx) / rx);
-        currentAngle += 0.001 + dragOffset; // Orbital rotation + drag spin
-        
-        const targetX = cx + Math.cos(currentAngle) * rx;
-        const targetY = cy + Math.sin(currentAngle) * ry;
-        
-        // Gently pull node towards the moving target
-        d.x += (targetX - d.x) * 0.05;
-        d.y += (targetY - d.y) * 0.05;
-        
-        d.z = Math.sin(currentAngle);
-      });
-
-      // 2. Render links
-      linkPath.attr("d", d => {
-        const source = d.source as Node;
-        const target = d.target as Node;
-        return `M ${source.x} ${source.y} Q ${cx} ${cy} ${target.x} ${target.y}`;
-      });
-
-      linkPath.attr("stroke-opacity", (d: unknown) => {
-        const link = d as Link;
-        const source = link.source;
-        const target = link.target;
-        const filters = activeFiltersRef.current;
-        const getMatch = (node: Node) => {
-          const s = filters.seccion.length === 0 || filters.seccion.includes(node.pieza.seccion);
-          const t = filters.tema.length === 0 || filters.tema.includes(node.pieza.tema);
-          const i = filters.industria.length === 0 || filters.industria.includes(node.pieza.industria);
-          const m = filters.mecanismo.length === 0 || filters.mecanismo.every((mec: string) => node.pieza.mecanismo?.includes(mec));
-          return s && t && i && m;
-        };
-        const isVisible = getMatch(source) && getMatch(target);
-        const baseOpacity = isVisible ? lineOpacity(link.weight) : 0.01;
-
-        if (!currentHover) return baseOpacity;
-        const isConnected = source.id === currentHover?.id || target.id === currentHover?.id;
-        return isConnected ? 0.8 : 0.01;
-      });
-
-      // 3. Render Nodes
-      nodeGroup.attr("transform", d => `translate(${d.x},${d.y})`);
-
-      nodeGroup.attr("opacity", d => {
-        const baseOpacity = getFilteredOpacity(d);
-        if (!currentHover) {
-          if (baseOpacity === 0.05) return 0.05;
-          const z = d.z || 0;
-          return Math.max(0.2, 0.7 + z * 0.3); // Back nodes are slightly faded
+      .join("div")
+      .attr("class", "node-capsule absolute top-0 left-0 cursor-pointer pointer-events-auto select-none")
+      .style("transform-origin", "center center")
+      .on("click", (event, d) => {
+        if (!event.defaultPrevented) {
+          router.push(d.id);
         }
-
-        if (d.id === currentHover?.id) return 1;
-        const isConnected = links.some(l => {
-          const src = l.source as Node;
-          const tgt = l.target as Node;
-          return (src.id === currentHover?.id && tgt.id === d.id) ||
-                 (tgt.id === currentHover?.id && src.id === d.id);
-        });
-        return isConnected ? 0.8 : 0.05;
+      })
+      .on("mouseenter", (event, d) => {
+        hoveredNodeId = d.id;
+        d3.select(event.currentTarget).style("border-color", "rgba(255,255,255,0.8)");
+      })
+      .on("mouseleave", (event, d) => {
+        hoveredNodeId = null;
+        d3.select(event.currentTarget).style("border-color", "rgba(255,255,255,0.1)");
       });
 
-      // 3D perspective scales
-      nodeGroup.selectAll("circle")
-        .attr("r", (d: any) => d.radius * (0.8 + (d.z || 0) * 0.2));
-
-      nodeGroup.select("text")
-        .attr("font-size", d => `${(isMobile ? 10 : 12) * (0.8 + (d.z || 0) * 0.2)}px`)
-        .attr("dy", d => (d.radius * (0.8 + (d.z || 0) * 0.2)) * 0.35); // Center text vertically
+    // Build capsule inner HTML
+    nodeDivs.html(d => {
+      const color = SECCION_COLORS[d.pieza.seccion] || '#666';
+      const initial = d.pieza.seccion.charAt(0).toUpperCase();
+      const title = d.pieza.titulo;
+      // Truncate title
+      const shortTitle = title.length > 25 ? title.substring(0, 25) + '...' : title;
+      
+      return `
+        <div class="flex items-center gap-2 pr-3 py-1 pl-1 rounded-full border border-white/10 shadow-lg backdrop-blur-md transition-colors duration-300" 
+             style="background: rgba(20,20,20,0.4);">
+          <div class="flex items-center justify-center font-bold text-[11px] text-white/90 rounded-full shrink-0" 
+               style="background-color: ${color}; width: 28px; height: 28px;">
+            ${initial}
+          </div>
+          <span class="text-xs font-serif text-white/80 whitespace-nowrap overflow-hidden">
+            ${shortTitle}
+          </span>
+        </div>
+      `;
     });
 
-    // Interaction
-    const drag = d3.drag<SVGGElement, Node>()
-      .on("start", (event, d) => {
-        if (!event.active) simulation.alphaTarget(0.1).restart();
-        d.fx = d.x;
-        d.fy = d.y;
+    // 4. Rotation State & Animation Loop
+    let currentYaw = 0;
+    let currentPitch = 0;
+    let targetYaw = 0;
+    let targetPitch = 0;
+    
+    // Auto-spin base
+    let autoYaw = 0;
+    let isDragging = false;
+
+    const drag = d3.drag<HTMLDivElement, unknown>()
+      .on("start", () => {
+        isDragging = true;
       })
-      .on("drag", (event, d) => {
-        d.fx = event.x;
-        d.fy = event.y;
+      .on("drag", (event) => {
+        targetYaw += event.dx * 0.01;
+        targetPitch -= event.dy * 0.01;
+        
+        // Constrain pitch to avoid flipping upside down completely
+        targetPitch = Math.max(-Math.PI/2.5, Math.min(Math.PI/2.5, targetPitch));
       })
-      .on("end", (event, d) => {
-        if (!event.active) simulation.alphaTarget(0.01);
-        d.fx = null;
-        d.fy = null;
+      .on("end", () => {
+        isDragging = false;
       });
 
-    nodeGroup.call(drag as unknown as (selection: typeof nodeGroup) => void);
+    d3.select(containerRef.current).call(drag);
 
-    nodeGroup
-      .on("mouseover", (event, d) => {
-        d3.select(event.currentTarget).select(".base-circle").attr("stroke-opacity", 1).attr("stroke-width", 2.5);
-        setHoveredNode(d);
-        currentHover = d;
-      })
-      .on("mouseout", (event, d) => {
-        d3.select(event.currentTarget).select(".base-circle").attr("stroke-opacity", 0.3).attr("stroke-width", 1.5);
-        setHoveredNode(null);
-        currentHover = null;
-      })
-      .on("click", (event, d) => {
-        if (typeof window !== 'undefined') {
-          window.open(d.href, '_blank');
+    const timer = d3.timer(() => {
+      if (!isDragging) {
+        autoYaw += 0.001; // slow continuous spin
+      }
+      
+      // Interpolate towards target for smooth drag
+      currentYaw += (targetYaw + autoYaw - currentYaw) * 0.1;
+      currentPitch += (targetPitch - currentPitch) * 0.1;
+
+      const cosY = Math.cos(currentYaw);
+      const sinY = Math.sin(currentYaw);
+      const cosP = Math.cos(currentPitch);
+      const sinP = Math.sin(currentPitch);
+
+      // Pre-calculate transformed positions for all nodes
+      const projectedNodes = new Map<string, {x: number, y: number, z: number}>();
+
+      nodes.forEach(n => {
+        // Yaw rotation (Y axis)
+        const x1 = n.px * cosY - n.pz * sinY;
+        const z1 = n.px * sinY + n.pz * cosY;
+        
+        // Pitch rotation (X axis)
+        const y2 = n.py * cosP - z1 * sinP;
+        const z2 = n.py * sinP + z1 * cosP;
+
+        // Scale down Z so the back is slightly smaller
+        const scale = 0.7 + (z2 + 1) * 0.25; // z2 goes from -1 to 1
+
+        projectedNodes.set(n.id, {
+          x: cx + x1 * R,
+          y: cy + y2 * R,
+          z: z2
+        });
+      });
+
+      // Update Links (Bezier curves dipping towards the center)
+      linkPaths.attr("d", d => {
+        const src = projectedNodes.get(d.source.id);
+        const tgt = projectedNodes.get(d.target.id);
+        if (!src || !tgt) return "";
+        // Control point pulls the curve towards the center of the sphere slightly
+        const qx = cx + (src.x + tgt.x - 2 * cx) * 0.3;
+        const qy = cy + (src.y + tgt.y - 2 * cy) * 0.3;
+        return \`M \${src.x} \${src.y} Q \${qx} \${qy} \${tgt.x} \${tgt.y}\`;
+      });
+
+      linkPaths.attr("stroke-opacity", (d: any) => {
+        const link = d as Link;
+        const srcF = getFilteredOpacity(link.source.pieza) === 1;
+        const tgtF = getFilteredOpacity(link.target.pieza) === 1;
+        
+        if (!srcF || !tgtF) return 0.01;
+
+        const src = projectedNodes.get(link.source.id);
+        const tgt = projectedNodes.get(link.target.id);
+        const avgZ = ((src?.z || 0) + (tgt?.z || 0)) / 2;
+        
+        const isHovered = hoveredNodeId === link.source.id || hoveredNodeId === link.target.id;
+        if (hoveredNodeId && !isHovered) return 0.01;
+
+        let op = lineOpacity(link.weight);
+        if (isHovered) op = 0.8;
+        
+        // fade back lines
+        return op * Math.max(0.1, (avgZ + 1) / 2);
+      });
+
+      // Update HTML Nodes
+      nodeDivs.style("transform", d => {
+        const p = projectedNodes.get(d.id);
+        if (!p) return "";
+        const scale = 0.6 + (p.z + 1) * 0.25; // z: -1 (back) to 1 (front)
+        return \`translate(calc(\${p.x}px - 50%), calc(\${p.y}px - 50%)) scale(\${scale})\`;
+      });
+
+      nodeDivs.style("z-index", d => {
+        const p = projectedNodes.get(d.id);
+        return p ? Math.floor((p.z + 1) * 100) : 0;
+      });
+
+      nodeDivs.style("opacity", d => {
+        const baseOpacity = getFilteredOpacity(d.pieza);
+        if (baseOpacity < 1) return baseOpacity;
+
+        const p = projectedNodes.get(d.id);
+        const z = p ? p.z : 0;
+        
+        if (hoveredNodeId) {
+          if (hoveredNodeId === d.id) return 1;
+          const isConnected = links.some(l => 
+            (l.source.id === hoveredNodeId && l.target.id === d.id) ||
+            (l.target.id === hoveredNodeId && l.source.id === d.id)
+          );
+          return isConnected ? 0.8 : 0.1;
         }
+
+        return Math.max(0.3, 0.5 + (z + 1) * 0.3);
       });
+
+    });
 
     return () => {
-      simulation.stop();
+      timer.stop();
     };
   }, [piezas, windowSize, router, isMobile]);
 
   return (
     <div className="flex w-full h-full bg-[#0A0A0A] relative overflow-hidden dark-mode font-sans">
       {/* Sidebar / Bottom Panel */}
-      <div className={`
+      <div className={\`
         fixed z-[220] bg-[#0A0A0A]/95 backdrop-blur-xl border-white/10 transition-transform duration-500
-        ${isMobile 
-          ? `bottom-0 left-0 w-full h-[60%] border-t ${sidebarOpen ? 'translate-y-0' : 'translate-y-full'}`
-          : `left-0 top-0 h-full w-72 border-r ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`
+        \${isMobile 
+          ? \`bottom-0 left-0 w-full h-[60%] border-t \${sidebarOpen ? 'translate-y-0' : 'translate-y-full'}\`
+          : \`left-0 top-0 h-full w-72 border-r \${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}\`
         }
         overflow-y-auto scrollbar-hide
-      `}>
-        <div className={`p-8 ${isMobile ? 'pt-8' : 'pt-32'}`}>
+      \`}>
+        <div className={\`p-8 \${isMobile ? 'pt-8' : 'pt-32'}\`}>
           <div className="flex justify-between items-center mb-12">
             <h3 className="tag-text !text-white font-bold tracking-widest">FILTROS</h3>
             <button onClick={() => setSidebarOpen(false)} className="tag-text opacity-50 hover:opacity-100">CERRAR</button>
@@ -391,11 +373,11 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
 
       <button 
         onClick={() => setSidebarOpen(true)} 
-        className={`fixed z-[210] transition-all flex items-center gap-2
-          ${isMobile 
+        className={\`fixed z-[210] transition-all flex items-center gap-2
+          \${isMobile 
             ? 'bottom-10 left-6 bg-white text-black px-5 py-3 rounded-full shadow-2xl opacity-100' 
             : 'bottom-8 left-8 tag-text text-white/50 hover:text-white hover:opacity-100'
-          }`}
+          }\`}
       >
         <span className={isMobile ? "text-[10px] font-bold tracking-widest" : "tag-text"}>
           {isMobile ? 'FILTROS' : '☰ FILTROS'}
@@ -415,24 +397,16 @@ export default function NetworkMap({ piezas }: { piezas: Pieza[] }) {
         <p className="font-serif text-xs opacity-40 leading-relaxed">
           La red de la evidencia.<br />
           Historias que se conectan entre sí.<br />
-          Las curvas revelan patrones ocultos.
+          Explorá el universo de MDE arrastrando la esfera.
         </p>
       </div>
 
-      <div ref={containerRef} className="flex-1 relative">
-        <svg ref={svgRef} className="w-full h-full" />
-        {hoveredNode && (
-          <div className="absolute bottom-24 left-1/2 -translate-x-1/2 bg-white text-[#0A0A0A] p-6 max-w-sm pointer-events-none animate-in fade-in slide-in-from-bottom-4 shadow-2xl z-[230]">
-            <span className="tag-text block mb-2 uppercase font-bold" style={{ color: SECCION_COLORS[hoveredNode.pieza.seccion] || '#000' }}>
-              {hoveredNode.pieza.seccion}
-            </span>
-            <h3 className="font-serif text-2xl leading-[1.1] mb-4">{hoveredNode.pieza.titulo}</h3>
-            <div className="space-y-1">
-              <p className="tag-text !text-black/40">TEMA: <span className="text-black">{hoveredNode.pieza.tema}</span></p>
-              <p className="tag-text !text-black/40">INDUSTRIA: <span className="text-black">{hoveredNode.pieza.industria}</span></p>
-            </div>
-          </div>
-        )}
+      <div ref={containerRef} className="flex-1 relative cursor-grab active:cursor-grabbing">
+        {/* SVG background for drawing bezier curves */}
+        <svg ref={svgRef} className="absolute inset-0 w-full h-full pointer-events-none" />
+        
+        {/* HTML overlay for drawing interactive glass capsules */}
+        <div ref={htmlNodesRef} className="absolute inset-0 w-full h-full pointer-events-none" />
       </div>
     </div>
   );
