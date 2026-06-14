@@ -146,8 +146,8 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
     const getFilteredOpacity = (p: MinimalPieza) => {
       const filters = activeFiltersRef.current;
       const sF = filters.seccion.length === 0 || filters.seccion.includes(p.seccion);
-      const tF = filters.tema.length === 0 || filters.tema.includes(p.tema);
-      const iF = filters.industria.length === 0 || filters.industria.includes(p.industria);
+      const tF = filters.tema.length === 0 || (p.tema ? filters.tema.includes(p.tema) : false);
+      const iF = filters.industria.length === 0 || (p.industria ? filters.industria.includes(p.industria) : false);
       const mF = filters.mecanismo.length === 0 || 
                 filters.mecanismo.every((m: string) => p.mecanismo?.includes(m));
       return (sF && tF && iF && mF) ? 1 : 0.05;
