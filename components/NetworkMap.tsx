@@ -114,7 +114,7 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
         px: Math.cos(theta) * Math.sin(phi),
         py: Math.sin(theta) * Math.sin(phi),
         pz: Math.cos(phi),
-        radius: isMobile ? 14 : 18,
+        radius: isMobile ? 24 : 32,
       };
     });
 
@@ -170,7 +170,8 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
       .join("path")
       .attr("fill", "none")
       .attr("stroke", "#FFFFFF")
-      .attr("stroke-width", d => d.weight >= 4 ? 1.5 : 0.5)
+      .attr("stroke-width", d => d.weight >= 4 ? 2 : 0.8)
+      .style("filter", "drop-shadow(0px 0px 4px rgba(255,255,255,0.3))")
       .style("pointer-events", "none");
 
     // 3. Render HTML Nodes (Glassmorphism Capsules)
@@ -191,11 +192,12 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
       })
       .on("mouseenter", (event, d) => {
         hoveredNodeId = d.id;
-        d3.select(event.currentTarget).style("border-color", "rgba(255,255,255,0.8)");
+        d3.select(event.currentTarget).select('.sphere-node').style("box-shadow", "inset -8px -8px 20px rgba(0,0,0,0.6), inset 3px 3px 15px rgba(255,255,255,0.9), 0 0 30px rgba(255,255,255,0.8)");
       })
-      .on("mouseleave", (event) => {
+      .on("mouseleave", (event, d) => {
         hoveredNodeId = null;
-        d3.select(event.currentTarget).style("border-color", "rgba(255,255,255,0.1)");
+        const color = SECCION_COLORS[d.pieza.seccion] || '#666';
+        d3.select(event.currentTarget).select('.sphere-node').style("box-shadow", `inset -8px -8px 20px rgba(0,0,0,0.6), inset 3px 3px 15px rgba(255,255,255,0.4), 0 0 20px ${color}40`);
       });
 
     // Build capsule inner HTML
@@ -203,19 +205,19 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
       const color = SECCION_COLORS[d.pieza.seccion] || '#666';
       const initial = d.pieza.seccion.charAt(0).toUpperCase();
       const title = d.pieza.titulo;
-      // Truncate title
-      const shortTitle = title.length > 25 ? title.substring(0, 25) + '...' : title;
       
       return `
-        <div class="flex items-center gap-2 pr-3 py-1 pl-1 rounded-full border border-white/10 shadow-lg backdrop-blur-md transition-colors duration-300" 
-             style="background: rgba(20,20,20,0.4);">
-          <div class="flex items-center justify-center font-bold text-[11px] text-white/90 rounded-full shrink-0" 
-               style="background-color: ${color}; width: 28px; height: 28px;">
+        <div class="relative group" style="width: ${d.radius * 2}px; height: ${d.radius * 2}px;">
+          <div class="sphere-node absolute inset-0 flex items-center justify-center font-bold text-white/90 rounded-full transition-all duration-300" 
+               style="background: radial-gradient(circle at 30% 30%, ${color}, #000000 120%); box-shadow: inset -8px -8px 20px rgba(0,0,0,0.6), inset 3px 3px 15px rgba(255,255,255,0.4), 0 0 20px ${color}40; font-size: ${d.radius * 0.9}px;">
             ${initial}
           </div>
-          <span class="text-xs font-serif text-white/80 whitespace-nowrap overflow-hidden">
-            ${shortTitle}
-          </span>
+          <!-- Title tooltip -->
+          <div class="absolute top-[110%] left-1/2 -translate-x-1/2 mt-2 px-3 py-1.5 bg-black/90 backdrop-blur-xl border border-white/20 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-max max-w-[200px] shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+            <span class="text-xs font-serif text-white/90 whitespace-normal text-center block leading-tight">
+              ${title}
+            </span>
+          </div>
         </div>
       `;
     });
@@ -320,8 +322,16 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
       nodeDivs.style("transform", d => {
         const p = projectedNodes.get(d.id);
         if (!p) return "";
-        const scale = 0.6 + (p.z + 1) * 0.25; // z: -1 (back) to 1 (front)
+        const scale = 1 + p.z * 0.7; // Exaggerate scale: back is 0.3, front is 1.7
         return `translate(calc(${p.x}px - 50%), calc(${p.y}px - 50%)) scale(${scale})`;
+      });
+
+      // Depth of field: blur nodes in the back
+      nodeDivs.style("filter", d => {
+        const p = projectedNodes.get(d.id);
+        if (!p) return "";
+        const blurPx = p.z < -0.2 ? Math.abs(p.z + 0.2) * 5 : 0;
+        return blurPx > 0 ? `blur(${blurPx}px)` : 'none';
       });
 
       nodeDivs.style("z-index", d => {
