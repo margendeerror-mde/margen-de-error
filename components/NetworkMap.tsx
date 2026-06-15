@@ -399,14 +399,7 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
         </button>
       )}
 
-      <div className="absolute bottom-8 right-8 z-20 text-right pointer-events-none hidden md:block">
-        <p className="font-serif text-xs opacity-40 leading-relaxed">
-          El pizarrón del detective.<br />
-          Descubre cómo las historias se relacionan <br />
-          a través de los mismos mecanismos de error.<br />
-          <span className="opacity-50 mt-2 block">Zoom: Scroll | Mover lienzo: Arrastrar | Mover nodos: Arrastrar nodo</span>
-        </p>
-      </div>
+
 
       <div ref={containerRef} className="flex-1 relative">
         <svg ref={svgRef} className="absolute inset-0 w-full h-full" />
