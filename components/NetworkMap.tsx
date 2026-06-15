@@ -14,24 +14,23 @@ interface MinimalPieza {
   titulo: string;
 }
 
-interface BaseNode {
+type NodeType = 'mecanismo' | 'pieza';
+
+interface GraphNode extends d3.SimulationNodeDatum {
   id: string;
-  pieza: MinimalPieza;
-  px: number; // base sphere X (-1 to 1)
-  py: number; // base sphere Y (-1 to 1)
-  pz: number; // base sphere Z (-1 to 1)
+  type: NodeType;
+  name: string;
+  pieza?: MinimalPieza;
   radius: number;
 }
 
-interface Link {
-  source: BaseNode;
-  target: BaseNode;
-  weight: number;
+interface GraphLink extends d3.SimulationLinkDatum<GraphNode> {
+  source: string | GraphNode;
+  target: string | GraphNode;
 }
 
 export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
   const svgRef = useRef<SVGSVGElement>(null);
-  const htmlNodesRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
@@ -91,59 +90,66 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
   const clearFilters = () => setActiveFilters({ seccion: [], tema: [], industria: [], mecanismo: [] });
 
   useEffect(() => {
-    if (!svgRef.current || !htmlNodesRef.current || !containerRef.current || windowSize.width === 0 || piezas.length === 0) return;
+    if (!svgRef.current || !containerRef.current || windowSize.width === 0 || piezas.length === 0) return;
 
     const { width, height } = windowSize;
 
     // Filter out podcasts
     const validPiezas = piezas.filter(p => p.seccion !== 'podcast' && p.seccion);
-    const totalNodes = validPiezas.length;
     
-    // 3D Sphere bounds
-    const cx = width / 2;
-    const cy = height / 2;
-    const R = isMobile ? Math.min(width, height) * 0.40 : Math.min(width, height) * 0.35;
+    // 1. Build Bipartite Graph Data
+    const nodesMap = new Map<string, GraphNode>();
+    const links: GraphLink[] = [];
 
-    // 1. Distribute nodes on a Fibonacci sphere
-    const nodes: BaseNode[] = validPiezas.map((p, i) => {
-      const phi = Math.acos(1 - 2 * (i + 0.5) / totalNodes);
-      const theta = Math.PI * (1 + Math.sqrt(5)) * (i + 0.5);
-      return {
-        id: p.href,
-        pieza: p,
-        px: Math.cos(theta) * Math.sin(phi),
-        py: Math.sin(theta) * Math.sin(phi),
-        pz: Math.cos(phi),
-        radius: isMobile ? 24 : 32,
-      };
+    // Extract all unique mecanismos from the valid pieces
+    const uniqueMecanismos = new Set<string>();
+    validPiezas.forEach(p => {
+      if (p.mecanismo) {
+        p.mecanismo.forEach(m => uniqueMecanismos.add(m));
+      }
     });
 
-    const links: Link[] = [];
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        const a = nodes[i].pieza;
-        const b = nodes[j].pieza;
-        let weight = 0;
+    // Create Mecanismo Nodes (Hubs)
+    uniqueMecanismos.forEach(mName => {
+      const id = `mec_${mName}`;
+      nodesMap.set(id, {
+        id,
+        type: 'mecanismo',
+        name: mName.toUpperCase().replace(/-/g, ' '),
+        radius: isMobile ? 30 : 40,
+        x: width / 2 + (Math.random() - 0.5) * 100,
+        y: height / 2 + (Math.random() - 0.5) * 100
+      });
+    });
 
-        if (a.tema && b.tema && a.tema === b.tema) weight += 3;
-        if (a.industria && b.industria && a.industria === b.industria) weight += 2;
-        
-        const sharedMecanismos = a.mecanismo?.filter(m => b.mecanismo?.includes(m)) || [];
-        weight += sharedMecanismos.length;
+    // Create Pieza Nodes (Satellites) and Links
+    validPiezas.forEach(p => {
+      const id = p.href;
+      nodesMap.set(id, {
+        id,
+        type: 'pieza',
+        name: p.titulo,
+        pieza: p,
+        radius: isMobile ? 8 : 12,
+        x: width / 2 + (Math.random() - 0.5) * width,
+        y: height / 2 + (Math.random() - 0.5) * height
+      });
 
-        if (a.seccion === b.seccion) weight += 1;
-
-        if (weight >= 2) {
+      // Link to its mechanisms
+      if (p.mecanismo) {
+        p.mecanismo.forEach(mName => {
           links.push({
-            source: nodes[i],
-            target: nodes[j],
-            weight
+            source: id,
+            target: `mec_${mName}`
           });
-        }
+        });
       }
-    }
+    });
 
-    const getFilteredOpacity = (p: MinimalPieza) => {
+    const nodes = Array.from(nodesMap.values());
+
+    const getFilteredOpacity = (p: MinimalPieza | undefined) => {
+      if (!p) return 1; // Mechanism nodes don't get filtered directly by these rules, they just fade if no children are visible.
       const filters = activeFiltersRef.current;
       const sF = filters.seccion.length === 0 || filters.seccion.includes(p.seccion);
       const tF = filters.tema.length === 0 || (p.tema ? filters.tema.includes(p.tema) : false);
@@ -153,217 +159,198 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
       return (sF && tF && iF && mF) ? 1 : 0.05;
     };
 
-    // 2. Render SVG Links
+    // Initialize SVG
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
-    const gLinks = svg.append("g");
 
-    const lineOpacity = (weight: number) => {
-      if (weight >= 6) return 0.4;
-      if (weight >= 4) return 0.2;
-      if (weight >= 2) return 0.1;
-      return 0.05;
-    };
+    // Zoom container
+    const gMain = svg.append("g").attr("class", "zoom-container");
+    const gLinks = gMain.append("g").attr("class", "links");
+    const gNodes = gMain.append("g").attr("class", "nodes");
 
-    const linkPaths = gLinks.selectAll("path")
+    const zoom = d3.zoom<SVGSVGElement, unknown>()
+      .scaleExtent([0.1, 4])
+      .on("zoom", (e) => gMain.attr("transform", e.transform));
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    svg.call(zoom as any);
+
+    // Initial Zoom Fit
+    d3.zoomIdentity.translate(width / 2, height / 2).scale(0.8);
+
+    // 2. Setup D3 Force Simulation
+    const simulation = d3.forceSimulation<GraphNode>(nodes)
+      .force("link", d3.forceLink<GraphNode, GraphLink>(links).id(d => d.id).distance(100).strength(0.5))
+      .force("charge", d3.forceManyBody().strength(d => (d as GraphNode).type === 'mecanismo' ? -800 : -200))
+      .force("center", d3.forceCenter(width / 2, height / 2))
+      .force("collide", d3.forceCollide().radius(d => (d as GraphNode).radius + 10).iterations(2));
+
+    // 3. Render Links
+    const linkPaths = gLinks.selectAll("line")
       .data(links)
-      .join("path")
-      .attr("fill", "none")
-      .attr("stroke", "#FFFFFF")
-      .attr("stroke-width", d => d.weight >= 4 ? 2 : 0.8)
-      .style("filter", "drop-shadow(0px 0px 4px rgba(255,255,255,0.3))")
+      .join("line")
+      .attr("stroke", "#444")
+      .attr("stroke-width", 1)
       .style("pointer-events", "none");
 
-    // 3. Render HTML Nodes (Glassmorphism Capsules)
-    const htmlContainer = d3.select(htmlNodesRef.current);
-    htmlContainer.selectAll('*').remove();
-
+    // 4. Render Nodes
     let hoveredNodeId: string | null = null;
+    let hoveredConnectedIds: Set<string> = new Set();
 
-    const nodeDivs = htmlContainer.selectAll("div.node-capsule")
+    const nodeGroups = gNodes.selectAll("g.node")
       .data(nodes)
-      .join("div")
-      .attr("class", "node-capsule absolute top-0 left-0 cursor-pointer pointer-events-auto select-none")
-      .style("transform-origin", "center center")
+      .join("g")
+      .attr("class", "node cursor-pointer")
       .on("click", (event, d) => {
-        if (!event.defaultPrevented) {
-          router.push(d.id);
+        if (!event.defaultPrevented && d.type === 'pieza' && d.pieza) {
+          router.push(d.pieza.href);
         }
       })
       .on("mouseenter", (event, d) => {
         hoveredNodeId = d.id;
-        d3.select(event.currentTarget).select('.sphere-node').style("box-shadow", "inset -8px -8px 20px rgba(0,0,0,0.6), inset 3px 3px 15px rgba(255,255,255,0.9), 0 0 30px rgba(255,255,255,0.8)");
+        hoveredConnectedIds = new Set();
+        
+        // Find connected nodes
+        links.forEach(l => {
+          const srcId = typeof l.source === 'string' ? l.source : l.source.id;
+          const tgtId = typeof l.target === 'string' ? l.target : l.target.id;
+          
+          if (srcId === d.id) hoveredConnectedIds.add(tgtId);
+          if (tgtId === d.id) hoveredConnectedIds.add(srcId);
+        });
+
+        updateHighlights();
       })
-      .on("mouseleave", (event, d) => {
+      .on("mouseleave", () => {
         hoveredNodeId = null;
-        const color = SECCION_COLORS[d.pieza.seccion] || '#666';
-        d3.select(event.currentTarget).select('.sphere-node').style("box-shadow", `inset -8px -8px 20px rgba(0,0,0,0.6), inset 3px 3px 15px rgba(255,255,255,0.4), 0 0 20px ${color}40`);
+        hoveredConnectedIds.clear();
+        updateHighlights();
       });
 
-    // Build capsule inner HTML
-    nodeDivs.html(d => {
-      const color = SECCION_COLORS[d.pieza.seccion] || '#666';
-      const initial = d.pieza.seccion.charAt(0).toUpperCase();
-      const title = d.pieza.titulo;
-      
-      return `
-        <div class="relative group" style="width: ${d.radius * 2}px; height: ${d.radius * 2}px;">
-          <div class="sphere-node absolute inset-0 flex items-center justify-center font-bold text-white/90 rounded-full transition-all duration-300" 
-               style="background: radial-gradient(circle at 30% 30%, ${color}, #000000 120%); box-shadow: inset -8px -8px 20px rgba(0,0,0,0.6), inset 3px 3px 15px rgba(255,255,255,0.4), 0 0 20px ${color}40; font-size: ${d.radius * 0.9}px;">
-            ${initial}
-          </div>
-          <!-- Title tooltip -->
-          <div class="absolute top-[110%] left-1/2 -translate-x-1/2 mt-2 px-3 py-1.5 bg-black/90 backdrop-blur-xl border border-white/20 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-max max-w-[200px] shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-            <span class="text-xs font-serif text-white/90 whitespace-normal text-center block leading-tight">
-              ${title}
-            </span>
-          </div>
-        </div>
-      `;
-    });
-
-    // 4. Rotation State & Animation Loop
-    let currentYaw = 0;
-    let currentPitch = 0;
-    let targetYaw = 0;
-    let targetPitch = 0;
-    
-    // Auto-spin base
-    let autoYaw = 0;
-    let isDragging = false;
-
-    const drag = d3.drag<HTMLDivElement, unknown>()
-      .on("start", () => {
-        isDragging = true;
+    // Node Circles
+    nodeGroups.append("circle")
+      .attr("r", d => d.radius)
+      .attr("fill", d => {
+        if (d.type === 'mecanismo') return '#222';
+        return d.pieza ? (SECCION_COLORS[d.pieza.seccion] || '#666') : '#666';
       })
-      .on("drag", (event) => {
-        targetYaw += event.dx * 0.01;
-        targetPitch -= event.dy * 0.01;
-        
-        // Constrain pitch to avoid flipping upside down completely
-        targetPitch = Math.max(-Math.PI/2.5, Math.min(Math.PI/2.5, targetPitch));
+      .attr("stroke", d => d.type === 'mecanismo' ? '#CC0000' : 'rgba(255,255,255,0.2)')
+      .attr("stroke-width", d => d.type === 'mecanismo' ? 2 : 1)
+      .style("transition", "all 0.3s ease");
+
+    // Mechanism Labels (always visible, centered in big nodes or just below)
+    nodeGroups.filter(d => d.type === 'mecanismo')
+      .append("text")
+      .text(d => d.name)
+      .attr("dy", d => d.radius + 15)
+      .attr("text-anchor", "middle")
+      .attr("fill", "#FFF")
+      .attr("class", "font-sans text-[10px] tracking-widest uppercase font-bold pointer-events-none")
+      .style("text-shadow", "0px 2px 4px rgba(0,0,0,1)");
+
+    // HTML Tooltip overlay for Piezas
+    const tooltipDiv = d3.select(containerRef.current).append("div")
+      .attr("class", "absolute pointer-events-none opacity-0 bg-black/90 backdrop-blur-md border border-white/20 rounded p-2 z-50 text-white font-serif text-xs max-w-[200px] text-center shadow-2xl transition-opacity duration-200")
+      .style("transform", "translate(-50%, -120%)");
+
+    nodeGroups.filter(d => d.type === 'pieza')
+      .on("mouseenter.tooltip", (event, d) => {
+        const [x, y] = d3.pointer(event, containerRef.current);
+        tooltipDiv
+          .html(d.name)
+          .style("left", `${x}px`)
+          .style("top", `${y - d.radius}px`)
+          .style("opacity", 1);
       })
-      .on("end", () => {
-        isDragging = false;
+      .on("mouseleave.tooltip", () => {
+        tooltipDiv.style("opacity", 0);
+      })
+      .on("mousemove.tooltip", (event, d) => {
+        const [x, y] = d3.pointer(event, containerRef.current);
+        tooltipDiv
+          .style("left", `${x}px`)
+          .style("top", `${y - d.radius}px`);
+      });
+
+    // Drag behavior
+    const drag = d3.drag<SVGGElement, GraphNode>()
+      .on("start", (event, d) => {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      })
+      .on("drag", (event, d) => {
+        d.fx = event.x;
+        d.fy = event.y;
+      })
+      .on("end", (event, d) => {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
       });
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    d3.select(containerRef.current as HTMLDivElement).call(drag as any);
+    nodeGroups.call(drag as any);
 
-    const timer = d3.timer(() => {
-      if (!isDragging) {
-        autoYaw += 0.001; // slow continuous spin
-      }
-      
-      // Interpolate towards target for smooth drag
-      currentYaw += (targetYaw + autoYaw - currentYaw) * 0.1;
-      currentPitch += (targetPitch - currentPitch) * 0.1;
-
-      const cosY = Math.cos(currentYaw);
-      const sinY = Math.sin(currentYaw);
-      const cosP = Math.cos(currentPitch);
-      const sinP = Math.sin(currentPitch);
-
-      // Pre-calculate transformed positions for all nodes
-      const projectedNodes = new Map<string, {x: number, y: number, z: number}>();
-
-      nodes.forEach(n => {
-        // Yaw rotation (Y axis)
-        const x1 = n.px * cosY - n.pz * sinY;
-        const z1 = n.px * sinY + n.pz * cosY;
+    // Update Highlight function
+    function updateHighlights() {
+      // Re-evaluate filters in case they changed, though activeFilters changing triggers a full re-render right now
+      nodeGroups.style("opacity", d => {
+        const baseOp = d.type === 'pieza' ? getFilteredOpacity(d.pieza) : 1;
         
-        // Pitch rotation (X axis)
-        const y2 = n.py * cosP - z1 * sinP;
-        const z2 = n.py * sinP + z1 * cosP;
+        if (baseOp < 1) return 0.05; // Filtered out completely
 
-        // Scale down Z so the back is slightly smaller
-        // const scale = 0.7 + (z2 + 1) * 0.25; // z2 goes from -1 to 1
-
-        projectedNodes.set(n.id, {
-          x: cx + x1 * R,
-          y: cy + y2 * R,
-          z: z2
-        });
-      });
-
-      // Update Links (Bezier curves dipping towards the center)
-      linkPaths.attr("d", d => {
-        const src = projectedNodes.get(d.source.id);
-        const tgt = projectedNodes.get(d.target.id);
-        if (!src || !tgt) return "";
-        // Control point pulls the curve towards the center of the sphere slightly
-        const qx = cx + (src.x + tgt.x - 2 * cx) * 0.3;
-        const qy = cy + (src.y + tgt.y - 2 * cy) * 0.3;
-        return `M ${src.x} ${src.y} Q ${qx} ${qy} ${tgt.x} ${tgt.y}`;
-      });
-
-      linkPaths.attr("stroke-opacity", (d: unknown) => {
-        const link = d as Link;
-        const srcF = getFilteredOpacity(link.source.pieza) === 1;
-        const tgtF = getFilteredOpacity(link.target.pieza) === 1;
-        
-        if (!srcF || !tgtF) return 0.01;
-
-        const src = projectedNodes.get(link.source.id);
-        const tgt = projectedNodes.get(link.target.id);
-        const avgZ = ((src?.z || 0) + (tgt?.z || 0)) / 2;
-        
-        const isHovered = hoveredNodeId === link.source.id || hoveredNodeId === link.target.id;
-        if (hoveredNodeId && !isHovered) return 0.01;
-
-        let op = lineOpacity(link.weight);
-        if (isHovered) op = 0.8;
-        
-        // fade back lines
-        return op * Math.max(0.1, (avgZ + 1) / 2);
-      });
-
-      // Update HTML Nodes
-      nodeDivs.style("transform", d => {
-        const p = projectedNodes.get(d.id);
-        if (!p) return "";
-        const scale = 1 + p.z * 0.7; // Exaggerate scale: back is 0.3, front is 1.7
-        return `translate(calc(${p.x}px - 50%), calc(${p.y}px - 50%)) scale(${scale})`;
-      });
-
-      // Depth of field: blur nodes in the back
-      nodeDivs.style("filter", d => {
-        const p = projectedNodes.get(d.id);
-        if (!p) return "";
-        const blurPx = p.z < -0.2 ? Math.abs(p.z + 0.2) * 5 : 0;
-        return blurPx > 0 ? `blur(${blurPx}px)` : 'none';
-      });
-
-      nodeDivs.style("z-index", d => {
-        const p = projectedNodes.get(d.id);
-        return p ? Math.floor((p.z + 1) * 100) : 0;
-      });
-
-      nodeDivs.style("opacity", d => {
-        const baseOpacity = getFilteredOpacity(d.pieza);
-        if (baseOpacity < 1) return baseOpacity;
-
-        const p = projectedNodes.get(d.id);
-        const z = p ? p.z : 0;
-        
         if (hoveredNodeId) {
-          if (hoveredNodeId === d.id) return 1;
-          const isConnected = links.some(l => 
-            (l.source.id === hoveredNodeId && l.target.id === d.id) ||
-            (l.target.id === hoveredNodeId && l.source.id === d.id)
-          );
-          return isConnected ? 0.8 : 0.1;
+          if (d.id === hoveredNodeId || hoveredConnectedIds.has(d.id)) return 1;
+          return 0.1;
         }
 
-        return Math.max(0.3, 0.5 + (z + 1) * 0.3);
+        return 1;
       });
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      linkPaths.attr("stroke", (d: any) => {
+        const srcId = typeof d.source === 'string' ? d.source : d.source.id;
+        const tgtId = typeof d.target === 'string' ? d.target : d.target.id;
+        
+        if (hoveredNodeId) {
+          if (srcId === hoveredNodeId || tgtId === hoveredNodeId) return "#CC0000";
+          return "transparent";
+        }
+        return "#333";
+      })
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .attr("stroke-width", (d: any) => {
+        const srcId = typeof d.source === 'string' ? d.source : d.source.id;
+        const tgtId = typeof d.target === 'string' ? d.target : d.target.id;
+        if (hoveredNodeId && (srcId === hoveredNodeId || tgtId === hoveredNodeId)) return 2;
+        return 1;
+      });
+    }
+
+    // Apply initial filters
+    updateHighlights();
+
+    // Simulation Tick
+    simulation.on("tick", () => {
+      linkPaths
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        .attr("x1", (d: any) => d.source.x)
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        .attr("y1", (d: any) => d.source.y)
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        .attr("x2", (d: any) => d.target.x)
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        .attr("y2", (d: any) => d.target.y);
+
+      nodeGroups.attr("transform", d => `translate(${d.x},${d.y})`);
     });
 
     return () => {
-      timer.stop();
+      simulation.stop();
+      tooltipDiv.remove();
     };
-  }, [piezas, windowSize, router, isMobile]);
+  }, [piezas, windowSize, router, isMobile, activeFilters]); // Added activeFilters to dependency array so it redraws/re-filters instantly
 
   return (
     <div className="flex w-full h-full bg-[#0A0A0A] relative overflow-hidden dark-mode font-sans">
@@ -414,18 +401,15 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
 
       <div className="absolute bottom-8 right-8 z-20 text-right pointer-events-none hidden md:block">
         <p className="font-serif text-xs opacity-40 leading-relaxed">
-          La red de la evidencia.<br />
-          Historias que se conectan entre sí.<br />
-          Explorá el universo de MDE arrastrando la esfera.
+          El pizarrón del detective.<br />
+          Descubre cómo las historias se relacionan <br />
+          a través de los mismos mecanismos de error.<br />
+          <span className="opacity-50 mt-2 block">Zoom: Scroll | Mover lienzo: Arrastrar | Mover nodos: Arrastrar nodo</span>
         </p>
       </div>
 
-      <div ref={containerRef} className="flex-1 relative cursor-grab active:cursor-grabbing">
-        {/* SVG background for drawing bezier curves */}
-        <svg ref={svgRef} className="absolute inset-0 w-full h-full pointer-events-none" />
-        
-        {/* HTML overlay for drawing interactive glass capsules */}
-        <div ref={htmlNodesRef} className="absolute inset-0 w-full h-full pointer-events-none" />
+      <div ref={containerRef} className="flex-1 relative">
+        <svg ref={svgRef} className="absolute inset-0 w-full h-full" />
       </div>
     </div>
   );
