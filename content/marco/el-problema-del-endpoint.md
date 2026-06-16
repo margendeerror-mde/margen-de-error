@@ -5,9 +5,8 @@ temporada: 3
 capitulo: 2
 industria: farmacéutica
 mecanismo:
-  - diseño-sesgado
-  - omisión-de-datos
-  - captura-regulatoria
+  - 'diseño-sesgado'
+  - 'captura-regulatoria'
 tema: medicación-y-fármacos
 fecha: 2025-02-24T00:00:00.000Z
 resumen: Los ensayos clínicos no siempre miden si los pacientes viven más o mejor. Con frecuencia miden si un número en un análisis de sangre mejora. La diferencia entre esas dos cosas ha costado vidas.

@@ -5,8 +5,8 @@ temporada: 2
 capitulo: 6
 industria: farmacéutica
 mecanismo:
-  - omisión-de-datos
-  - migración-de-estrategia
+  - 'omisión-de-datos'
+  - 'migración-de-estrategia'
 tema: mente-y-conducta
 fecha: 2025-03-11T00:00:00.000Z
 resumen: |

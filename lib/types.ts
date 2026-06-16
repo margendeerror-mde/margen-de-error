@@ -36,7 +36,9 @@ export const MECANISMOS = [
   'experto-capturado',
   'manufactura-de-duda',
   'normalización-por-repetición',
-  'correlación-presentada-como-causalidad'
+  'correlación-presentada-como-causalidad',
+  'preregistro',
+  'sesgo-de-confirmacion'
 ] as const;
 
 export const TEMAS = [

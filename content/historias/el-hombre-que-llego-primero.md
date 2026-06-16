@@ -5,9 +5,8 @@ temporada: 2
 capitulo: 2
 industria: alimentaria
 mecanismo:
-  - financiamiento-de-estudio
-  - experto-capturado
-  - sesgo-de-publicación
+  - 'experto-capturado'
+  - 'sesgo-de-publicación'
 tema: nutrición
 fecha: 2026-05-05T00:00:00.000Z
 resumen: 'En los años 50, John Yudkin identificó al azúcar como el principal culpable de las enfermedades cardíacas. Lo que siguió fue una campaña de descrédito orquestada por la autoridad científica y financiada por la industria.'

@@ -5,10 +5,8 @@ temporada: 2
 capitulo: 3
 industria: seguros-de-salud
 mecanismo:
-  - normalización-por-repetición
-  - captura-regulatoria
-  - titular-engañoso
-  - conflicto-de-interés-no-declarado
+  - 'captura-regulatoria'
+  - 'normalización-por-repetición'
 tema: diagnóstico-y-clasificación
 fecha: 2025-03-03T00:00:00.000Z
 resumen: 'En 1998, un comité de expertos de los NIH bajó el umbral de ''sobrepeso'' de 27,8 a 25. En términos estadísticos, de un momento a otro, 29 millones de estadounidenses pasaron a tener sobrepeso sin haber engordado un gramo. El índice de masa corporal fue inventado por un matemático belga en 1832 para estudiar poblaciones, no personas.'

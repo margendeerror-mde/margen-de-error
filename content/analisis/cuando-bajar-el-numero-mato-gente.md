@@ -5,9 +5,8 @@ temporada: 3
 capitulo: 5
 industria: farmacéutica
 mecanismo:
-  - correlación-presentada-como-causalidad
-  - normalización-por-repetición
-  - diseño-sesgado
+  - 'correlación-presentada-como-causalidad'
+  - 'diseño-sesgado'
 tema: medicación-y-fármacos
 fecha: 2026-05-05T00:00:00.000Z
 resumen: 'El ensayo ACCORD mostró que un control glucémico intensivo aumentaba la mortalidad en pacientes diabéticos, desafiando la lógica de tratar marcadores biológicos en lugar de resultados clínicos reales.'

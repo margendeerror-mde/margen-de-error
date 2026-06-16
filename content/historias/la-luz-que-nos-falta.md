@@ -5,9 +5,8 @@ temporada: 2
 capitulo: 4
 industria: cosmética-y-cuidado-personal
 mecanismo:
-  - titular-engañoso
-  - normalización-por-repetición
-  - omisión-de-datos
+  - 'normalización-por-repetición'
+  - 'omisión-de-datos'
 tema: luz-y-radiación
 fecha: 2025-01-10T00:00:00.000Z
 resumen: 'Durante décadas, el énfasis de la salud pública se desplazó fuertemente hacia la evitación del sol. Un estudio sueco que siguió a treinta mil mujeres durante dos décadas sugiere que esa postura puede tener costos que no se calcularon bien.'

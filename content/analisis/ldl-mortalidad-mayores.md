@@ -5,9 +5,8 @@ temporada: 3
 capitulo: 4
 industria: farmacéutica
 mecanismo:
-  - sesgo-de-publicación
-  - omisión-de-datos
-  - correlación-presentada-como-causalidad
+  - 'sesgo-de-publicación'
+  - 'correlación-presentada-como-causalidad'
 tema: medicación-y-fármacos
 fecha: 2025-02-18T00:00:00.000Z
 resumen: 'En 2016, una revisión sistemática publicada en BMJ Open analizó datos de 68.000 adultos mayores y encontró que niveles altos de LDL se asociaban con menor mortalidad total en varios de los estudios revisados. El hallazgo plantea tensiones con la interpretación habitual de la hipótesis lipídica en ese grupo etario. El paper existe, merece ser leído, y sus limitaciones también merecen ser entendidas.'

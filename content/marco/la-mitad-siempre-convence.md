@@ -5,9 +5,8 @@ temporada: 3
 capitulo: 3
 industria: farmacéutica
 mecanismo:
-  - titular-engañoso
-  - omisión-de-datos
-  - diseño-sesgado
+  - 'titular-engañoso'
+  - 'omisión-de-datos'
 tema: medicación-y-fármacos
 fecha: 2026-05-05T00:00:00.000Z
 resumen: 'Médicos y pacientes toman decisiones distintas según cómo se presentan los mismos datos. El sistema elige, casi siempre, el número más grande (riesgo relativo) sobre el más útil (riesgo absoluto).'

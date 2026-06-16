@@ -5,13 +5,9 @@ temporada: 3
 capitulo: 8
 industria: alimentaria
 mecanismo:
-  - financiamiento-de-estudio
-  - experto-capturado
-  - titular-engañoso
-  - diseño-sesgado
-  - omisión-de-datos
-  - conflicto-de-interés-no-declarado
-  - manufactura-de-duda
+  - 'financiamiento-de-estudio'
+  - 'experto-capturado'
+  - 'manufactura-de-duda'
 tema: nutrición
 fecha: 2025-02-05T00:00:00.000Z
 resumen: 'En 2015, The New York Times reveló que Coca-Cola había financiado con millones de dólares una red de científicos dedicada a sostener que la obesidad se explica por el sedentarismo, no por el azúcar. El argumento era técnicamente posible. La selección de qué parte investigar no era inocente.'

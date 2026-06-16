@@ -5,8 +5,8 @@ temporada: 2
 capitulo: 8
 industria: farmacéutica
 mecanismo:
-  - migración-de-estrategia
-  - financiamiento-de-estudio
+  - 'migración-de-estrategia'
+  - 'financiamiento-de-estudio'
 tema: medicación-y-fármacos
 fecha: 2026-05-05T00:00:00.000Z
 resumen: 'El minoxidil nació para tratar la hipertensión, pero un efecto adverso —el crecimiento de vello— lo convirtió en el primer fármaco aprobado para la alopecia, en un giro clínico imposible de planificar.'

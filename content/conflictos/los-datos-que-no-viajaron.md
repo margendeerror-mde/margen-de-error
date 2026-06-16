@@ -5,9 +5,8 @@ temporada: 1
 capitulo: 5
 industria: farmacéutica
 mecanismo:
-  - sesgo-de-publicación
-  - omisión-de-datos
-  - diseño-sesgado
+  - 'sesgo-de-publicación'
+  - 'omisión-de-datos'
 tema: medicación-y-fármacos
 fecha: 2026-05-05T00:00:00.000Z
 resumen: 'En 2008, un análisis de datos de la FDA reveló que la eficacia de los antidepresivos estaba sobreestimada debido a que la mayoría de los ensayos con resultados negativos nunca se publicaron.'

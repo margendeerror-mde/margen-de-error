@@ -5,9 +5,8 @@ temporada: 3
 capitulo: 1
 industria: institucional-académica
 mecanismo:
-  - diseño-sesgado
-  - omisión-de-datos
-  - normalización-por-repetición
+  - 'diseño-sesgado'
+  - 'omisión-de-datos'
 tema: nutrición
 fecha: 2025-01-25T00:00:00.000Z
 resumen: Gran parte de lo que creemos saber sobre la relación entre dieta y enfermedad viene de estudios que preguntaron a las personas qué habían comido. Un análisis publicado en PLOS ONE encontró que los datos de ingesta calórica de una de las bases de datos nutricionales más influyentes del mundo eran implausibles según modelos fisiológicos en la mayoría de los casos. El problema es real. Su alcance merece leerse con precisión.
