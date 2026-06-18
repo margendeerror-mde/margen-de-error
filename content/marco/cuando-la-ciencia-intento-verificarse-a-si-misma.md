@@ -5,9 +5,8 @@ temporada: 1
 capitulo: 6
 industria: institucional-académica
 mecanismo:
-  - sesgo-de-publicación
-  - diseño-sesgado
-  - normalización-por-repetición
+  - 'sesgo-de-publicación'
+  - 'preregistro'
 tema: mente-y-conducta
 fecha: 2026-05-06T11:33:00.000Z
 resumen: 'La reproducibilidad es el pilar de la ciencia, pero ¿qué sucede cuando se intenta poner a prueba sistemáticamente? Un análisis de los fallos estructurales que surgieron cuando los investigadores intentaron repetir los estudios más influyentes de la última década.'

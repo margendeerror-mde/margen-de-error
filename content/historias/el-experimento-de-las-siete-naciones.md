@@ -5,10 +5,8 @@ temporada: 2
 capitulo: 1
 industria: alimentaria
 mecanismo:
-  - cherry-picking
-  - normalización-por-repetición
-  - experto-capturado
-  - correlación-presentada-como-causalidad
+  - 'cherry-picking'
+  - 'correlación-presentada-como-causalidad'
 tema: nutrición
 fecha: 2025-01-28T00:00:00.000Z
 resumen: Ancel Keys utilizó un subconjunto de países cuando publicó el estudio que redefinió la nutrición del siglo XX. Los que incluyó mostraban la correlación que él esperaba encontrar. La selección ha sido criticada desde entonces. El debate sigue abierto.

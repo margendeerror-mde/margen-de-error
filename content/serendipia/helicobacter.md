@@ -5,7 +5,8 @@ temporada: 2
 capitulo: 5
 industria: farmacéutica
 mecanismo:
-  - normalización-por-repetición
+  - 'normalización-por-repetición'
+  - 'experto-capturado'
 tema: microbioma
 fecha: 2025-01-22T00:00:00.000Z
 resumen: 'En 1984, Barry Marshall se tomó un vaso con Helicobacter pylori para demostrar lo que la comunidad médica tardaba en aceptar: que la enfermedad gástrica podía tener origen infeccioso. Le dieron el Nobel veinte años después.'

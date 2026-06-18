@@ -101,16 +101,34 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
     const nodesMap = new Map<string, GraphNode>();
     const links: GraphLink[] = [];
 
+    const isPiezaVisible = (p: MinimalPieza) => {
+      const filters = activeFiltersRef.current;
+      const sF = filters.seccion.length === 0 || filters.seccion.includes(p.seccion);
+      const tF = filters.tema.length === 0 || (p.tema ? filters.tema.includes(p.tema) : false);
+      const iF = filters.industria.length === 0 || (p.industria ? filters.industria.includes(p.industria) : false);
+      const mF = filters.mecanismo.length === 0 || 
+                filters.mecanismo.every((m: string) => p.mecanismo?.includes(m));
+      return sF && tF && iF && mF;
+    };
+
+    const hasActiveFilters = activeFiltersRef.current.seccion.length > 0 || 
+                             activeFiltersRef.current.tema.length > 0 || 
+                             activeFiltersRef.current.industria.length > 0 || 
+                             activeFiltersRef.current.mecanismo.length > 0;
+
     // Extract all unique mecanismos from the valid pieces
-    const uniqueMecanismos = new Set<string>();
+    // If filters are active, only keep mechanisms that are connected to visible pieces
+    const visibleMecanismos = new Set<string>();
     validPiezas.forEach(p => {
       if (p.mecanismo) {
-        p.mecanismo.forEach(m => uniqueMecanismos.add(m));
+        if (!hasActiveFilters || isPiezaVisible(p)) {
+          p.mecanismo.forEach(m => visibleMecanismos.add(m));
+        }
       }
     });
 
     // Create Mecanismo Nodes (Hubs)
-    uniqueMecanismos.forEach(mName => {
+    visibleMecanismos.forEach(mName => {
       const id = `mec_${mName}`;
       nodesMap.set(id, {
         id,
@@ -135,13 +153,15 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
         y: height / 2 + (Math.random() - 0.5) * height
       });
 
-      // Link to its mechanisms
+      // Link to its mechanisms (only if the mechanism is in the graph)
       if (p.mecanismo) {
         p.mecanismo.forEach(mName => {
-          links.push({
-            source: id,
-            target: `mec_${mName}`
-          });
+          if (visibleMecanismos.has(mName)) {
+            links.push({
+              source: id,
+              target: `mec_${mName}`
+            });
+          }
         });
       }
     });
@@ -150,13 +170,7 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
 
     const getFilteredOpacity = (p: MinimalPieza | undefined) => {
       if (!p) return 1; // Mechanism nodes don't get filtered directly by these rules, they just fade if no children are visible.
-      const filters = activeFiltersRef.current;
-      const sF = filters.seccion.length === 0 || filters.seccion.includes(p.seccion);
-      const tF = filters.tema.length === 0 || (p.tema ? filters.tema.includes(p.tema) : false);
-      const iF = filters.industria.length === 0 || (p.industria ? filters.industria.includes(p.industria) : false);
-      const mF = filters.mecanismo.length === 0 || 
-                filters.mecanismo.every((m: string) => p.mecanismo?.includes(m));
-      return (sF && tF && iF && mF) ? 1 : 0.05;
+      return isPiezaVisible(p) ? 1 : 0.05;
     };
 
     // Initialize SVG
@@ -175,6 +189,19 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     svg.call(zoom as any);
 
+    // Clear mobile selection if user taps the background
+    svg.on("click", (event) => {
+      // The event target could be the svg element itself or the main g container if they miss a node
+      if (event.target.tagName === 'svg' || event.target.tagName === 'g' || event.target.tagName === 'rect') {
+        if (selectedNodeIdForMobile) {
+          selectedNodeIdForMobile = null;
+          hoveredNodeId = null;
+          hoveredConnectedIds.clear();
+          updateHighlights();
+        }
+      }
+    });
+
     // Initial Zoom Fit
     d3.zoomIdentity.translate(width / 2, height / 2).scale(0.8);
 
@@ -182,8 +209,24 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
     const simulation = d3.forceSimulation<GraphNode>(nodes)
       .force("link", d3.forceLink<GraphNode, GraphLink>(links).id(d => d.id).distance(100).strength(0.5))
       .force("charge", d3.forceManyBody().strength(d => (d as GraphNode).type === 'mecanismo' ? -800 : -200))
-      .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("collide", d3.forceCollide().radius(d => (d as GraphNode).radius + 10).iterations(2));
+      .force("collide", d3.forceCollide().radius(d => {
+        const node = d as GraphNode;
+        if (node.type === 'mecanismo') {
+          // Pill collision radius (approximate based on width)
+          return Math.max(node.name.length * 4 + 30, 50);
+        }
+        return node.radius + 10;
+      }).iterations(2));
+
+    if (hasActiveFilters) {
+      // Bipartite Layout: Mecanismos left, Piezas right
+      simulation
+        .force("x", d3.forceX<GraphNode>(d => d.type === 'mecanismo' ? width * 0.3 : width * 0.7).strength(0.6))
+        .force("y", d3.forceY<GraphNode>(height / 2).strength(0.1));
+    } else {
+      // Cosmos Hairball
+      simulation.force("center", d3.forceCenter(width / 2, height / 2));
+    }
 
     // 3. Render Links
     const linkPaths = gLinks.selectAll("line")
@@ -196,6 +239,7 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
     // 4. Render Nodes
     let hoveredNodeId: string | null = null;
     let hoveredConnectedIds: Set<string> = new Set();
+    let selectedNodeIdForMobile: string | null = null;
 
     const nodeGroups = gNodes.selectAll("g.node")
       .data(nodes)
@@ -203,6 +247,27 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
       .attr("class", "node cursor-pointer")
       .on("click", (event, d) => {
         if (!event.defaultPrevented && d.type === 'pieza' && d.pieza) {
+          const isMobile = window.innerWidth <= 768 || ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+          if (isMobile) {
+            if (selectedNodeIdForMobile !== d.id) {
+              // First click: Highlight and center connections
+              selectedNodeIdForMobile = d.id;
+              
+              hoveredNodeId = d.id;
+              hoveredConnectedIds = new Set();
+              links.forEach(l => {
+                const srcId = typeof l.source === 'string' ? l.source : l.source.id;
+                const tgtId = typeof l.target === 'string' ? l.target : l.target.id;
+                if (srcId === d.id) hoveredConnectedIds.add(tgtId);
+                if (tgtId === d.id) hoveredConnectedIds.add(srcId);
+              });
+              updateHighlights();
+              
+              event.preventDefault();
+              return;
+            }
+          }
+          // Second click on mobile, or first click on desktop
           router.push(d.pieza.href);
         }
       })
@@ -227,23 +292,34 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
         updateHighlights();
       });
 
-    // Node Circles
-    nodeGroups.append("circle")
+    // Render Piezas (Circles)
+    const piezaGroups = nodeGroups.filter(d => d.type === 'pieza');
+    piezaGroups.append("circle")
       .attr("r", d => d.radius)
-      .attr("fill", d => {
-        if (d.type === 'mecanismo') return '#222';
-        return d.pieza ? (SECCION_COLORS[d.pieza.seccion] || '#666') : '#666';
-      })
-      .attr("stroke", d => d.type === 'mecanismo' ? '#CC0000' : 'rgba(255,255,255,0.2)')
-      .attr("stroke-width", d => d.type === 'mecanismo' ? 2 : 1)
+      .attr("fill", d => d.pieza ? (SECCION_COLORS[d.pieza.seccion] || '#666') : '#666')
+      .attr("stroke", 'rgba(255,255,255,0.2)')
+      .attr("stroke-width", 1)
       .style("transition", "all 0.3s ease");
 
-    // Mechanism Labels (always visible, centered in big nodes or just below)
-    nodeGroups.filter(d => d.type === 'mecanismo')
-      .append("text")
+    // Render Mecanismos (Pills)
+    const mecGroups = nodeGroups.filter(d => d.type === 'mecanismo');
+    mecGroups.append("rect")
+      .attr("rx", 15)
+      .attr("ry", 15)
+      .attr("height", 30)
+      .attr("width", d => Math.max(d.name.length * 8 + 30, 100))
+      .attr("x", d => -Math.max(d.name.length * 8 + 30, 100) / 2)
+      .attr("y", -15)
+      .attr("fill", "#222")
+      .attr("stroke", "#CC0000")
+      .attr("stroke-width", 2)
+      .style("transition", "all 0.3s ease");
+
+    mecGroups.append("text")
       .text(d => d.name)
-      .attr("dy", d => d.radius + 15)
       .attr("text-anchor", "middle")
+      .attr("dominant-baseline", "central")
+      .attr("y", 1) // slight optical vertical alignment
       .attr("fill", "#FFF")
       .attr("class", "font-sans text-[10px] tracking-widest uppercase font-bold pointer-events-none")
       .style("text-shadow", "0px 2px 4px rgba(0,0,0,1)");

@@ -5,10 +5,8 @@ temporada: 1
 capitulo: 1
 industria: tabaco
 mecanismo:
-  - manufactura-de-duda
-  - migración-de-estrategia
-  - financiamiento-de-estudio
-  - experto-capturado
+  - 'manufactura-de-duda'
+  - 'migración-de-estrategia'
 tema: mente-y-conducta
 fecha: 2025-02-10T00:00:00.000Z
 resumen: 'En los años cincuenta, las tabacaleras desarrollaron una estrategia para disputar la evidencia científica que las comprometía: no era necesario demostrar que el tabaco era inocuo. Solo había que instalar la duda. Esa estrategia sobrevivió a las tabacaleras y hoy está en todas partes.'

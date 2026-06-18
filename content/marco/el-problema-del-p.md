@@ -5,10 +5,8 @@ temporada: 1
 capitulo: 8
 industria: institucional-académica
 mecanismo:
-  - diseño-sesgado
-  - sesgo-de-publicación
-  - cherry-picking
-  - normalización-por-repetición
+  - 'cherry-picking'
+  - 'diseño-sesgado'
 tema: diagnóstico-y-clasificación
 fecha: 2025-03-18T00:00:00.000Z
 resumen: 'La ciencia moderna decidió que un resultado es ''significativo'' si la probabilidad de que ocurra por azar es menor al 5%. El criterio tiene 90 años, fue adoptado por convención y su creador advirtió que no debía usarse como se usa. La crisis de replicación de la última década sugiere que ese umbral nos ha llevado a creer cosas que probablemente no son verdad.'

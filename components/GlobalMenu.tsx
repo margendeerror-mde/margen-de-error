@@ -30,9 +30,9 @@ export default function GlobalMenu({ dark = false, activeIdx, forceHide }: { dar
         {isHome ? (
           <a href="/">
             <img
-              src="/assets/logo.svg"
+              src={dark ? "/assets/logo-white.png" : "/assets/logo-black.png"}
               alt="Margen de Error"
-              className={`h-8 md:h-10 w-auto ${dark ? 'invert' : ''}`}
+              className={`h-12 md:h-14 w-auto object-contain drop-shadow-sm`}
             />
           </a>
         ) : (

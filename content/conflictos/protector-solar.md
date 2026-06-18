@@ -5,10 +5,8 @@ temporada: 3
 capitulo: 7
 industria: cosmética-y-cuidado-personal
 mecanismo:
-  - financiamiento-de-estudio
-  - titular-engañoso
-  - diseño-sesgado
-  - omisión-de-datos
+  - 'titular-engañoso'
+  - 'omisión-de-datos'
 tema: luz-y-radiación
 fecha: 2025-01-15T00:00:00.000Z
 resumen: El protector solar reduce la radiación UVB. Los rayos UVB producen vitamina D. La lógica parece directa. Pero la fisiología no siempre sigue la aritmética.

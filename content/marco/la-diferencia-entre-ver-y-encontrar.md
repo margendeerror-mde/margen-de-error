@@ -5,9 +5,8 @@ temporada: 1
 capitulo: 7
 industria: institucional-académica
 mecanismo:
-  - diseño-sesgado
-  - sesgo-de-publicación
-  - titular-engañoso
+  - 'diseño-sesgado'
+  - 'titular-engañoso'
 tema: diagnóstico-y-clasificación
 fecha: 2026-05-06T11:34:00.000Z
 resumen: 'La potencia estadística no es solo una cifra técnica; es el límite de lo que un estudio puede afirmar con honestidad. Por qué los estudios pequeños pueden ser engañosos y los demasiado grandes, irrelevantes para la práctica clínica.'

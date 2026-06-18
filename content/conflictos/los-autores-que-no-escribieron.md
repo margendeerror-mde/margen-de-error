@@ -4,7 +4,9 @@ seccion: conflicto
 temporada: 3
 capitulo: 6
 industria: farmacéutica
-mecanismo: [conflicto-de-interés-no-declarado, financiamiento-de-estudio, omisión-de-datos]
+mecanismo:
+  - 'conflicto-de-interés-no-declarado'
+  - 'financiamiento-de-estudio'
 tema: medicación-y-fármacos
 fecha: 2025-03-07
 resumen: "Entre 1997 y 2005, una empresa contratada por Wyeth escribió al menos 26 artículos científicos —identificados en documentos de litigación— favorables a su terapia hormonal sustitutiva y consiguió que médicos académicos los firmaran como autores. El fármaco, aprobado para millones de mujeres, aumentaba el riesgo de cáncer de mama. Los papers tendían a minimizar o no enfatizar estos riesgos."

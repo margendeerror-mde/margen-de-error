@@ -5,9 +5,8 @@ temporada: 1
 capitulo: 3
 industria: institucional-académica
 mecanismo:
-  - sesgo-de-confirmación
-  - diseño-sesgado
-  - pre-registro
+  - 'diseño-sesgado'
+  - 'sesgo-de-confirmacion'
 tema: mente-y-conducta
 fecha: 2026-05-06T14:40:00.000Z
 resumen: 'El sesgo de confirmación no espera a los resultados; se instala en la selección del outcome, en los criterios de parada y en la población elegida. Cómo el diseño de un estudio puede predeterminar su éxito antes de recolectar el primer dato.'
