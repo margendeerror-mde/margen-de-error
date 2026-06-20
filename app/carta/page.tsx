@@ -35,10 +35,10 @@ export default function CartaPage() {
       <div className="max-w-[540px] w-full mx-auto relative z-10">
         <Link href="/" className="inline-block mb-16 opacity-80 hover:opacity-100 transition-opacity">
           <div className="dark:hidden">
-            <Image src="/assets/logo-black.png" alt="Margen de Error" width={140} height={40} className="object-contain mix-blend-multiply" />
+            <Image src="/assets/logo-black.png" alt="Margen de Error" width={140} height={40} className="object-contain" style={{ mixBlendMode: 'multiply' }} />
           </div>
           <div className="hidden dark:block">
-            <Image src="/assets/logo-white.png" alt="Margen de Error" width={140} height={40} className="object-contain mix-blend-screen" />
+            <Image src="/assets/logo-white.png" alt="Margen de Error" width={140} height={40} className="object-contain" style={{ mixBlendMode: 'screen' }} />
           </div>
         </Link>
         
@@ -55,9 +55,12 @@ export default function CartaPage() {
 
         <div className="mt-24 pt-12 border-t border-black/10 dark:border-white/10">
           {status === 'success' ? (
-            <div className="animate-fade-in text-center">
+            <div className="animate-fade-in text-center space-y-2">
               <p className="font-serif italic text-accent text-lg">
                 ¡Gracias por sumarte! Por favor revisa tu correo para confirmar la suscripción.
+              </p>
+              <p className="font-sans text-[11px] text-black/50 dark:text-white/50 tracking-wider">
+                (puede haber llegado a tu carpeta de spam)
               </p>
             </div>
           ) : (

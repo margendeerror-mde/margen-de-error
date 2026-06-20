@@ -32,7 +32,8 @@ export default function GlobalMenu({ dark = false, activeIdx, forceHide }: { dar
             <img
               src={dark ? "/assets/logo-white.png" : "/assets/logo-black.png"}
               alt="Margen de Error"
-              className={`h-12 md:h-14 w-auto object-contain drop-shadow-sm ${dark ? 'mix-blend-screen' : 'mix-blend-multiply'}`}
+              className={`h-12 md:h-14 w-auto object-contain drop-shadow-sm`}
+              style={{ mixBlendMode: dark ? 'screen' : 'multiply' }}
             />
           </a>
         ) : (
