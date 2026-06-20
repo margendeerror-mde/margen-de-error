@@ -35,10 +35,10 @@ export default function CartaPage() {
       <div className="max-w-[540px] w-full mx-auto relative z-10">
         <Link href="/" className="inline-block mb-16 opacity-80 hover:opacity-100 transition-opacity">
           <div className="dark:hidden">
-            <Image src="/assets/logo-black.png" alt="Margen de Error" width={140} height={40} className="object-contain" />
+            <Image src="/assets/logo-black.png" alt="Margen de Error" width={140} height={40} className="object-contain mix-blend-multiply" />
           </div>
           <div className="hidden dark:block">
-            <Image src="/assets/logo-white.png" alt="Margen de Error" width={140} height={40} className="object-contain" />
+            <Image src="/assets/logo-white.png" alt="Margen de Error" width={140} height={40} className="object-contain mix-blend-screen" />
           </div>
         </Link>
         
