@@ -37,7 +37,7 @@ const SECCION_INFO: Record<string, { title: string, description: string }> = {
   },
   podcast: {
     title: 'PODCAST',
-    description: 'Versión en audio de nuestros artículos y análisis sobre ciencia, incentivos y conflictos.'
+    description: 'Otra forma de acercarse al análisis y explorar la construcción de la ciencia, sus incentivos y conflictos.'
   }
 };
 

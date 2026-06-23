@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from 'react';
 import { Pieza, SECCION_COLORS } from '@/lib/types';
 import PieceCard from '@/components/PieceCard';
 import GlobalMenu from '@/components/GlobalMenu';
@@ -41,6 +44,18 @@ export default function PodcastLayout({ title, description, seccion, piezas }: S
     .map(Number)
     .sort((a, b) => b - a);
 
+  // By default, expand the newest season
+  const [expandedSeasons, setExpandedSeasons] = useState<Record<number, boolean>>({
+    [sortedSeasons[0]]: true
+  });
+
+  const toggleSeason = (season: number) => {
+    setExpandedSeasons(prev => ({
+      ...prev,
+      [season]: !prev[season]
+    }));
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 min-h-screen bg-[#FAFAF8] text-[#0A0A0A] font-sans">
       <GlobalMenu />
@@ -58,25 +73,43 @@ export default function PodcastLayout({ title, description, seccion, piezas }: S
       </header>
 
       <div className="flex flex-col gap-y-32">
-        {sortedSeasons.map((season) => (
-          <section key={season}>
-            <div className="mb-12 border-b border-gray-200 pb-4">
-              <h2 className="text-3xl font-bold tracking-tight text-[#0A0A0A]">
-                Temporada {season}
-              </h2>
-              {SEASON_TITLES[season] && (
-                <p className="text-xl font-serif text-[#666] mt-2">
-                  {SEASON_TITLES[season]}
-                </p>
-              )}
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
-              {groupedPiezas[season].map(pieza => (
-                <PieceCard key={pieza.slug} pieza={pieza} />
-              ))}
-            </div>
-          </section>
-        ))}
+        {sortedSeasons.map((season) => {
+          const isExpanded = expandedSeasons[season];
+          return (
+            <section key={season} className="border-b border-gray-200 pb-8">
+              <button 
+                onClick={() => toggleSeason(season)}
+                className="w-full text-left flex items-center justify-between group cursor-pointer"
+              >
+                <div>
+                  <h2 className="text-3xl font-bold tracking-tight text-[#0A0A0A] group-hover:text-black transition-colors">
+                    Temporada {season}
+                  </h2>
+                  {SEASON_TITLES[season] && (
+                    <p className="text-xl font-serif text-[#666] mt-2 group-hover:text-[#444] transition-colors">
+                      {SEASON_TITLES[season]}
+                    </p>
+                  )}
+                </div>
+                <div className="flex items-center justify-center w-12 h-12 rounded-full border border-gray-200 group-hover:border-gray-400 transition-colors">
+                  <span className={`transform transition-transform duration-300 text-2xl ${isExpanded ? 'rotate-180' : ''}`}>
+                    ↓
+                  </span>
+                </div>
+              </button>
+              
+              <div 
+                className={`grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24 transition-all duration-500 overflow-hidden ${
+                  isExpanded ? 'mt-16 max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                {groupedPiezas[season].map(pieza => (
+                  <PieceCard key={pieza.slug} pieza={pieza} />
+                ))}
+              </div>
+            </section>
+          );
+        })}
       </div>
     </div>
   );
