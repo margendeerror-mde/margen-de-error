@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"next dev\"",
-    "build": "if [ -n \"$TINA_TOKEN\" ]; then tinacms build --skip-cloud-checks; else echo 'Skipping Tina build (no token)'; fi && next build",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "sync-podcast": "node scripts/sync-podcast.js"
@@ -16,12 +16,10 @@
     "next": "16.2.4",
     "next-mdx-remote": "^6.0.0",
     "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "tinacms": "^3.7.5"
+    "react-dom": "19.2.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "@tinacms/cli": "^2.2.5",
     "@types/d3": "^7.4.3",
     "@types/node": "^20",
     "@types/react": "^19",
