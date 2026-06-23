@@ -29,8 +29,8 @@ export default function PodcastLayout({ title, description, seccion, piezas }: S
   // Sort episodes inside seasons
   Object.keys(groupedPiezas).forEach((season) => {
     groupedPiezas[Number(season)].sort((a, b) => {
-      const epA = a.episodio || 0;
-      const epB = b.episodio || 0;
+      const epA = a.capitulo || 0;
+      const epB = b.capitulo || 0;
       // Ascending order: Episode 1, 2, 3...
       return epA - epB; 
     });

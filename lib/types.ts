@@ -71,7 +71,7 @@ export interface PiezaFrontmatter {
   fecha: string; // YYYY-MM-DD
   resumen: string;
   temporada?: number;
-  episodio?: number;
+  capitulo?: number;
 }
 
 export interface Pieza extends PiezaFrontmatter {
