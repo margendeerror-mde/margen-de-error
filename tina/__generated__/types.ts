@@ -92,6 +92,8 @@ export type Query = {
   analisisConnection: AnalisisConnection;
   marco: Marco;
   marcoConnection: MarcoConnection;
+  podcast: Podcast;
+  podcastConnection: PodcastConnection;
 };
 
 
@@ -190,12 +192,28 @@ export type QueryMarcoConnectionArgs = {
   filter?: InputMaybe<MarcoFilter>;
 };
 
+
+export type QueryPodcastArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryPodcastConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<PodcastFilter>;
+};
+
 export type DocumentFilter = {
   historias?: InputMaybe<HistoriasFilter>;
   conflictos?: InputMaybe<ConflictosFilter>;
   serendipia?: InputMaybe<SerendipiaFilter>;
   analisis?: InputMaybe<AnalisisFilter>;
   marco?: InputMaybe<MarcoFilter>;
+  podcast?: InputMaybe<PodcastFilter>;
 };
 
 export type DocumentConnectionEdges = {
@@ -235,7 +253,7 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Historias | Conflictos | Serendipia | Analisis | Marco | Folder;
+export type DocumentNode = Historias | Conflictos | Serendipia | Analisis | Marco | Podcast | Folder;
 
 export type Historias = Node & Document & {
   __typename?: 'Historias';
@@ -246,6 +264,9 @@ export type Historias = Node & Document & {
   tema: Scalars['String']['output'];
   fecha: Scalars['String']['output'];
   resumen: Scalars['String']['output'];
+  spotifyUrl?: Maybe<Scalars['String']['output']>;
+  temporada?: Maybe<Scalars['Float']['output']>;
+  capitulo?: Maybe<Scalars['Float']['output']>;
   body?: Maybe<Scalars['JSON']['output']>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
@@ -267,6 +288,16 @@ export type DatetimeFilter = {
   in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+export type NumberFilter = {
+  lt?: InputMaybe<Scalars['Float']['input']>;
+  lte?: InputMaybe<Scalars['Float']['input']>;
+  gte?: InputMaybe<Scalars['Float']['input']>;
+  gt?: InputMaybe<Scalars['Float']['input']>;
+  eq?: InputMaybe<Scalars['Float']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
+};
+
 export type RichTextFilter = {
   startsWith?: InputMaybe<Scalars['String']['input']>;
   eq?: InputMaybe<Scalars['String']['input']>;
@@ -281,6 +312,9 @@ export type HistoriasFilter = {
   tema?: InputMaybe<StringFilter>;
   fecha?: InputMaybe<DatetimeFilter>;
   resumen?: InputMaybe<StringFilter>;
+  spotifyUrl?: InputMaybe<StringFilter>;
+  temporada?: InputMaybe<NumberFilter>;
+  capitulo?: InputMaybe<NumberFilter>;
   body?: InputMaybe<RichTextFilter>;
 };
 
@@ -306,6 +340,9 @@ export type Conflictos = Node & Document & {
   tema: Scalars['String']['output'];
   fecha: Scalars['String']['output'];
   resumen: Scalars['String']['output'];
+  spotifyUrl?: Maybe<Scalars['String']['output']>;
+  temporada?: Maybe<Scalars['Float']['output']>;
+  capitulo?: Maybe<Scalars['Float']['output']>;
   body?: Maybe<Scalars['JSON']['output']>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
@@ -320,6 +357,9 @@ export type ConflictosFilter = {
   tema?: InputMaybe<StringFilter>;
   fecha?: InputMaybe<DatetimeFilter>;
   resumen?: InputMaybe<StringFilter>;
+  spotifyUrl?: InputMaybe<StringFilter>;
+  temporada?: InputMaybe<NumberFilter>;
+  capitulo?: InputMaybe<NumberFilter>;
   body?: InputMaybe<RichTextFilter>;
 };
 
@@ -345,6 +385,9 @@ export type Serendipia = Node & Document & {
   tema: Scalars['String']['output'];
   fecha: Scalars['String']['output'];
   resumen: Scalars['String']['output'];
+  spotifyUrl?: Maybe<Scalars['String']['output']>;
+  temporada?: Maybe<Scalars['Float']['output']>;
+  capitulo?: Maybe<Scalars['Float']['output']>;
   body?: Maybe<Scalars['JSON']['output']>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
@@ -359,6 +402,9 @@ export type SerendipiaFilter = {
   tema?: InputMaybe<StringFilter>;
   fecha?: InputMaybe<DatetimeFilter>;
   resumen?: InputMaybe<StringFilter>;
+  spotifyUrl?: InputMaybe<StringFilter>;
+  temporada?: InputMaybe<NumberFilter>;
+  capitulo?: InputMaybe<NumberFilter>;
   body?: InputMaybe<RichTextFilter>;
 };
 
@@ -384,6 +430,9 @@ export type Analisis = Node & Document & {
   tema: Scalars['String']['output'];
   fecha: Scalars['String']['output'];
   resumen: Scalars['String']['output'];
+  spotifyUrl?: Maybe<Scalars['String']['output']>;
+  temporada?: Maybe<Scalars['Float']['output']>;
+  capitulo?: Maybe<Scalars['Float']['output']>;
   body?: Maybe<Scalars['JSON']['output']>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
@@ -398,6 +447,9 @@ export type AnalisisFilter = {
   tema?: InputMaybe<StringFilter>;
   fecha?: InputMaybe<DatetimeFilter>;
   resumen?: InputMaybe<StringFilter>;
+  spotifyUrl?: InputMaybe<StringFilter>;
+  temporada?: InputMaybe<NumberFilter>;
+  capitulo?: InputMaybe<NumberFilter>;
   body?: InputMaybe<RichTextFilter>;
 };
 
@@ -423,6 +475,9 @@ export type Marco = Node & Document & {
   tema: Scalars['String']['output'];
   fecha: Scalars['String']['output'];
   resumen: Scalars['String']['output'];
+  spotifyUrl?: Maybe<Scalars['String']['output']>;
+  temporada?: Maybe<Scalars['Float']['output']>;
+  capitulo?: Maybe<Scalars['Float']['output']>;
   body?: Maybe<Scalars['JSON']['output']>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
@@ -437,6 +492,9 @@ export type MarcoFilter = {
   tema?: InputMaybe<StringFilter>;
   fecha?: InputMaybe<DatetimeFilter>;
   resumen?: InputMaybe<StringFilter>;
+  spotifyUrl?: InputMaybe<StringFilter>;
+  temporada?: InputMaybe<NumberFilter>;
+  capitulo?: InputMaybe<NumberFilter>;
   body?: InputMaybe<RichTextFilter>;
 };
 
@@ -451,6 +509,51 @@ export type MarcoConnection = Connection & {
   pageInfo: PageInfo;
   totalCount: Scalars['Float']['output'];
   edges?: Maybe<Array<Maybe<MarcoConnectionEdges>>>;
+};
+
+export type Podcast = Node & Document & {
+  __typename?: 'Podcast';
+  titulo: Scalars['String']['output'];
+  seccion: Scalars['String']['output'];
+  industria: Scalars['String']['output'];
+  mecanismo?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  tema: Scalars['String']['output'];
+  fecha: Scalars['String']['output'];
+  resumen: Scalars['String']['output'];
+  spotifyUrl?: Maybe<Scalars['String']['output']>;
+  temporada?: Maybe<Scalars['Float']['output']>;
+  capitulo?: Maybe<Scalars['Float']['output']>;
+  body?: Maybe<Scalars['JSON']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type PodcastFilter = {
+  titulo?: InputMaybe<StringFilter>;
+  seccion?: InputMaybe<StringFilter>;
+  industria?: InputMaybe<StringFilter>;
+  mecanismo?: InputMaybe<StringFilter>;
+  tema?: InputMaybe<StringFilter>;
+  fecha?: InputMaybe<DatetimeFilter>;
+  resumen?: InputMaybe<StringFilter>;
+  spotifyUrl?: InputMaybe<StringFilter>;
+  temporada?: InputMaybe<NumberFilter>;
+  capitulo?: InputMaybe<NumberFilter>;
+  body?: InputMaybe<RichTextFilter>;
+};
+
+export type PodcastConnectionEdges = {
+  __typename?: 'PodcastConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Podcast>;
+};
+
+export type PodcastConnection = Connection & {
+  __typename?: 'PodcastConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<PodcastConnectionEdges>>>;
 };
 
 export type Mutation = {
@@ -470,6 +573,8 @@ export type Mutation = {
   createAnalisis: Analisis;
   updateMarco: Marco;
   createMarco: Marco;
+  updatePodcast: Podcast;
+  createPodcast: Podcast;
 };
 
 
@@ -565,12 +670,25 @@ export type MutationCreateMarcoArgs = {
   params: MarcoMutation;
 };
 
+
+export type MutationUpdatePodcastArgs = {
+  relativePath: Scalars['String']['input'];
+  params: PodcastMutation;
+};
+
+
+export type MutationCreatePodcastArgs = {
+  relativePath: Scalars['String']['input'];
+  params: PodcastMutation;
+};
+
 export type DocumentUpdateMutation = {
   historias?: InputMaybe<HistoriasMutation>;
   conflictos?: InputMaybe<ConflictosMutation>;
   serendipia?: InputMaybe<SerendipiaMutation>;
   analisis?: InputMaybe<AnalisisMutation>;
   marco?: InputMaybe<MarcoMutation>;
+  podcast?: InputMaybe<PodcastMutation>;
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -580,6 +698,7 @@ export type DocumentMutation = {
   serendipia?: InputMaybe<SerendipiaMutation>;
   analisis?: InputMaybe<AnalisisMutation>;
   marco?: InputMaybe<MarcoMutation>;
+  podcast?: InputMaybe<PodcastMutation>;
 };
 
 export type HistoriasMutation = {
@@ -590,6 +709,9 @@ export type HistoriasMutation = {
   tema?: InputMaybe<Scalars['String']['input']>;
   fecha?: InputMaybe<Scalars['String']['input']>;
   resumen?: InputMaybe<Scalars['String']['input']>;
+  spotifyUrl?: InputMaybe<Scalars['String']['input']>;
+  temporada?: InputMaybe<Scalars['Float']['input']>;
+  capitulo?: InputMaybe<Scalars['Float']['input']>;
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
@@ -601,6 +723,9 @@ export type ConflictosMutation = {
   tema?: InputMaybe<Scalars['String']['input']>;
   fecha?: InputMaybe<Scalars['String']['input']>;
   resumen?: InputMaybe<Scalars['String']['input']>;
+  spotifyUrl?: InputMaybe<Scalars['String']['input']>;
+  temporada?: InputMaybe<Scalars['Float']['input']>;
+  capitulo?: InputMaybe<Scalars['Float']['input']>;
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
@@ -612,6 +737,9 @@ export type SerendipiaMutation = {
   tema?: InputMaybe<Scalars['String']['input']>;
   fecha?: InputMaybe<Scalars['String']['input']>;
   resumen?: InputMaybe<Scalars['String']['input']>;
+  spotifyUrl?: InputMaybe<Scalars['String']['input']>;
+  temporada?: InputMaybe<Scalars['Float']['input']>;
+  capitulo?: InputMaybe<Scalars['Float']['input']>;
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
@@ -623,6 +751,9 @@ export type AnalisisMutation = {
   tema?: InputMaybe<Scalars['String']['input']>;
   fecha?: InputMaybe<Scalars['String']['input']>;
   resumen?: InputMaybe<Scalars['String']['input']>;
+  spotifyUrl?: InputMaybe<Scalars['String']['input']>;
+  temporada?: InputMaybe<Scalars['Float']['input']>;
+  capitulo?: InputMaybe<Scalars['Float']['input']>;
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
@@ -634,25 +765,44 @@ export type MarcoMutation = {
   tema?: InputMaybe<Scalars['String']['input']>;
   fecha?: InputMaybe<Scalars['String']['input']>;
   resumen?: InputMaybe<Scalars['String']['input']>;
+  spotifyUrl?: InputMaybe<Scalars['String']['input']>;
+  temporada?: InputMaybe<Scalars['Float']['input']>;
+  capitulo?: InputMaybe<Scalars['Float']['input']>;
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
-export type HistoriasPartsFragment = { __typename: 'Historias', titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, body?: any | null };
+export type PodcastMutation = {
+  titulo?: InputMaybe<Scalars['String']['input']>;
+  seccion?: InputMaybe<Scalars['String']['input']>;
+  industria?: InputMaybe<Scalars['String']['input']>;
+  mecanismo?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tema?: InputMaybe<Scalars['String']['input']>;
+  fecha?: InputMaybe<Scalars['String']['input']>;
+  resumen?: InputMaybe<Scalars['String']['input']>;
+  spotifyUrl?: InputMaybe<Scalars['String']['input']>;
+  temporada?: InputMaybe<Scalars['Float']['input']>;
+  capitulo?: InputMaybe<Scalars['Float']['input']>;
+  body?: InputMaybe<Scalars['JSON']['input']>;
+};
 
-export type ConflictosPartsFragment = { __typename: 'Conflictos', titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, body?: any | null };
+export type HistoriasPartsFragment = { __typename: 'Historias', titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, spotifyUrl?: string | null, temporada?: number | null, capitulo?: number | null, body?: any | null };
 
-export type SerendipiaPartsFragment = { __typename: 'Serendipia', titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, body?: any | null };
+export type ConflictosPartsFragment = { __typename: 'Conflictos', titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, spotifyUrl?: string | null, temporada?: number | null, capitulo?: number | null, body?: any | null };
 
-export type AnalisisPartsFragment = { __typename: 'Analisis', titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, body?: any | null };
+export type SerendipiaPartsFragment = { __typename: 'Serendipia', titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, spotifyUrl?: string | null, temporada?: number | null, capitulo?: number | null, body?: any | null };
 
-export type MarcoPartsFragment = { __typename: 'Marco', titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, body?: any | null };
+export type AnalisisPartsFragment = { __typename: 'Analisis', titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, spotifyUrl?: string | null, temporada?: number | null, capitulo?: number | null, body?: any | null };
+
+export type MarcoPartsFragment = { __typename: 'Marco', titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, spotifyUrl?: string | null, temporada?: number | null, capitulo?: number | null, body?: any | null };
+
+export type PodcastPartsFragment = { __typename: 'Podcast', titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, spotifyUrl?: string | null, temporada?: number | null, capitulo?: number | null, body?: any | null };
 
 export type HistoriasQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type HistoriasQuery = { __typename?: 'Query', historias: { __typename: 'Historias', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type HistoriasQuery = { __typename?: 'Query', historias: { __typename: 'Historias', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, spotifyUrl?: string | null, temporada?: number | null, capitulo?: number | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type HistoriasConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -664,14 +814,14 @@ export type HistoriasConnectionQueryVariables = Exact<{
 }>;
 
 
-export type HistoriasConnectionQuery = { __typename?: 'Query', historiasConnection: { __typename?: 'HistoriasConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'HistoriasConnectionEdges', cursor: string, node?: { __typename: 'Historias', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type HistoriasConnectionQuery = { __typename?: 'Query', historiasConnection: { __typename?: 'HistoriasConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'HistoriasConnectionEdges', cursor: string, node?: { __typename: 'Historias', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, spotifyUrl?: string | null, temporada?: number | null, capitulo?: number | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type ConflictosQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type ConflictosQuery = { __typename?: 'Query', conflictos: { __typename: 'Conflictos', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type ConflictosQuery = { __typename?: 'Query', conflictos: { __typename: 'Conflictos', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, spotifyUrl?: string | null, temporada?: number | null, capitulo?: number | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type ConflictosConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -683,14 +833,14 @@ export type ConflictosConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ConflictosConnectionQuery = { __typename?: 'Query', conflictosConnection: { __typename?: 'ConflictosConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ConflictosConnectionEdges', cursor: string, node?: { __typename: 'Conflictos', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type ConflictosConnectionQuery = { __typename?: 'Query', conflictosConnection: { __typename?: 'ConflictosConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ConflictosConnectionEdges', cursor: string, node?: { __typename: 'Conflictos', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, spotifyUrl?: string | null, temporada?: number | null, capitulo?: number | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type SerendipiaQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type SerendipiaQuery = { __typename?: 'Query', serendipia: { __typename: 'Serendipia', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type SerendipiaQuery = { __typename?: 'Query', serendipia: { __typename: 'Serendipia', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, spotifyUrl?: string | null, temporada?: number | null, capitulo?: number | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type SerendipiaConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -702,14 +852,14 @@ export type SerendipiaConnectionQueryVariables = Exact<{
 }>;
 
 
-export type SerendipiaConnectionQuery = { __typename?: 'Query', serendipiaConnection: { __typename?: 'SerendipiaConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'SerendipiaConnectionEdges', cursor: string, node?: { __typename: 'Serendipia', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type SerendipiaConnectionQuery = { __typename?: 'Query', serendipiaConnection: { __typename?: 'SerendipiaConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'SerendipiaConnectionEdges', cursor: string, node?: { __typename: 'Serendipia', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, spotifyUrl?: string | null, temporada?: number | null, capitulo?: number | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type AnalisisQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type AnalisisQuery = { __typename?: 'Query', analisis: { __typename: 'Analisis', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type AnalisisQuery = { __typename?: 'Query', analisis: { __typename: 'Analisis', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, spotifyUrl?: string | null, temporada?: number | null, capitulo?: number | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type AnalisisConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -721,14 +871,14 @@ export type AnalisisConnectionQueryVariables = Exact<{
 }>;
 
 
-export type AnalisisConnectionQuery = { __typename?: 'Query', analisisConnection: { __typename?: 'AnalisisConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'AnalisisConnectionEdges', cursor: string, node?: { __typename: 'Analisis', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type AnalisisConnectionQuery = { __typename?: 'Query', analisisConnection: { __typename?: 'AnalisisConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'AnalisisConnectionEdges', cursor: string, node?: { __typename: 'Analisis', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, spotifyUrl?: string | null, temporada?: number | null, capitulo?: number | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type MarcoQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type MarcoQuery = { __typename?: 'Query', marco: { __typename: 'Marco', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type MarcoQuery = { __typename?: 'Query', marco: { __typename: 'Marco', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, spotifyUrl?: string | null, temporada?: number | null, capitulo?: number | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type MarcoConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -740,7 +890,26 @@ export type MarcoConnectionQueryVariables = Exact<{
 }>;
 
 
-export type MarcoConnectionQuery = { __typename?: 'Query', marcoConnection: { __typename?: 'MarcoConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'MarcoConnectionEdges', cursor: string, node?: { __typename: 'Marco', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type MarcoConnectionQuery = { __typename?: 'Query', marcoConnection: { __typename?: 'MarcoConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'MarcoConnectionEdges', cursor: string, node?: { __typename: 'Marco', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, spotifyUrl?: string | null, temporada?: number | null, capitulo?: number | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
+export type PodcastQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type PodcastQuery = { __typename?: 'Query', podcast: { __typename: 'Podcast', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, spotifyUrl?: string | null, temporada?: number | null, capitulo?: number | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type PodcastConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<PodcastFilter>;
+}>;
+
+
+export type PodcastConnectionQuery = { __typename?: 'Query', podcastConnection: { __typename?: 'PodcastConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PodcastConnectionEdges', cursor: string, node?: { __typename: 'Podcast', id: string, titulo: string, seccion: string, industria: string, mecanismo?: Array<string | null> | null, tema: string, fecha: string, resumen: string, spotifyUrl?: string | null, temporada?: number | null, capitulo?: number | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export const HistoriasPartsFragmentDoc = gql`
     fragment HistoriasParts on Historias {
@@ -752,6 +921,9 @@ export const HistoriasPartsFragmentDoc = gql`
   tema
   fecha
   resumen
+  spotifyUrl
+  temporada
+  capitulo
   body
 }
     `;
@@ -765,6 +937,9 @@ export const ConflictosPartsFragmentDoc = gql`
   tema
   fecha
   resumen
+  spotifyUrl
+  temporada
+  capitulo
   body
 }
     `;
@@ -778,6 +953,9 @@ export const SerendipiaPartsFragmentDoc = gql`
   tema
   fecha
   resumen
+  spotifyUrl
+  temporada
+  capitulo
   body
 }
     `;
@@ -791,6 +969,9 @@ export const AnalisisPartsFragmentDoc = gql`
   tema
   fecha
   resumen
+  spotifyUrl
+  temporada
+  capitulo
   body
 }
     `;
@@ -804,6 +985,25 @@ export const MarcoPartsFragmentDoc = gql`
   tema
   fecha
   resumen
+  spotifyUrl
+  temporada
+  capitulo
+  body
+}
+    `;
+export const PodcastPartsFragmentDoc = gql`
+    fragment PodcastParts on Podcast {
+  __typename
+  titulo
+  seccion
+  industria
+  mecanismo
+  tema
+  fecha
+  resumen
+  spotifyUrl
+  temporada
+  capitulo
   body
 }
     `;
@@ -1092,6 +1292,63 @@ export const MarcoConnectionDocument = gql`
   }
 }
     ${MarcoPartsFragmentDoc}`;
+export const PodcastDocument = gql`
+    query podcast($relativePath: String!) {
+  podcast(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...PodcastParts
+  }
+}
+    ${PodcastPartsFragmentDoc}`;
+export const PodcastConnectionDocument = gql`
+    query podcastConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PodcastFilter) {
+  podcastConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...PodcastParts
+      }
+    }
+  }
+}
+    ${PodcastPartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
@@ -1124,6 +1381,12 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     marcoConnection(variables?: MarcoConnectionQueryVariables, options?: C): Promise<{data: MarcoConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: MarcoConnectionQueryVariables, query: string}> {
         return requester<{data: MarcoConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: MarcoConnectionQueryVariables, query: string}, MarcoConnectionQueryVariables>(MarcoConnectionDocument, variables, options);
+      },
+    podcast(variables: PodcastQueryVariables, options?: C): Promise<{data: PodcastQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PodcastQueryVariables, query: string}> {
+        return requester<{data: PodcastQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PodcastQueryVariables, query: string}, PodcastQueryVariables>(PodcastDocument, variables, options);
+      },
+    podcastConnection(variables?: PodcastConnectionQueryVariables, options?: C): Promise<{data: PodcastConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PodcastConnectionQueryVariables, query: string}> {
+        return requester<{data: PodcastConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PodcastConnectionQueryVariables, query: string}, PodcastConnectionQueryVariables>(PodcastConnectionDocument, variables, options);
       }
     };
   }

@@ -64,6 +64,8 @@ type Query {
   analisisConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AnalisisFilter): AnalisisConnection!
   marco(relativePath: String): Marco!
   marcoConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: MarcoFilter): MarcoConnection!
+  podcast(relativePath: String): Podcast!
+  podcastConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PodcastFilter): PodcastConnection!
 }
 
 input DocumentFilter {
@@ -72,6 +74,7 @@ input DocumentFilter {
   serendipia: SerendipiaFilter
   analisis: AnalisisFilter
   marco: MarcoFilter
+  podcast: PodcastFilter
 }
 
 type DocumentConnectionEdges {
@@ -97,7 +100,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Historias | Conflictos | Serendipia | Analisis | Marco | Folder
+union DocumentNode = Historias | Conflictos | Serendipia | Analisis | Marco | Podcast | Folder
 
 type Historias implements Node & Document {
   titulo: String!
@@ -107,6 +110,9 @@ type Historias implements Node & Document {
   tema: String!
   fecha: String!
   resumen: String!
+  spotifyUrl: String
+  temporada: Float
+  capitulo: Float
   body: JSON
   id: ID!
   _sys: SystemInfo!
@@ -128,6 +134,16 @@ input DatetimeFilter {
   in: [String]
 }
 
+input NumberFilter {
+  lt: Float
+  lte: Float
+  gte: Float
+  gt: Float
+  eq: Float
+  exists: Boolean
+  in: [Float]
+}
+
 input RichTextFilter {
   startsWith: String
   eq: String
@@ -142,6 +158,9 @@ input HistoriasFilter {
   tema: StringFilter
   fecha: DatetimeFilter
   resumen: StringFilter
+  spotifyUrl: StringFilter
+  temporada: NumberFilter
+  capitulo: NumberFilter
   body: RichTextFilter
 }
 
@@ -164,6 +183,9 @@ type Conflictos implements Node & Document {
   tema: String!
   fecha: String!
   resumen: String!
+  spotifyUrl: String
+  temporada: Float
+  capitulo: Float
   body: JSON
   id: ID!
   _sys: SystemInfo!
@@ -178,6 +200,9 @@ input ConflictosFilter {
   tema: StringFilter
   fecha: DatetimeFilter
   resumen: StringFilter
+  spotifyUrl: StringFilter
+  temporada: NumberFilter
+  capitulo: NumberFilter
   body: RichTextFilter
 }
 
@@ -200,6 +225,9 @@ type Serendipia implements Node & Document {
   tema: String!
   fecha: String!
   resumen: String!
+  spotifyUrl: String
+  temporada: Float
+  capitulo: Float
   body: JSON
   id: ID!
   _sys: SystemInfo!
@@ -214,6 +242,9 @@ input SerendipiaFilter {
   tema: StringFilter
   fecha: DatetimeFilter
   resumen: StringFilter
+  spotifyUrl: StringFilter
+  temporada: NumberFilter
+  capitulo: NumberFilter
   body: RichTextFilter
 }
 
@@ -236,6 +267,9 @@ type Analisis implements Node & Document {
   tema: String!
   fecha: String!
   resumen: String!
+  spotifyUrl: String
+  temporada: Float
+  capitulo: Float
   body: JSON
   id: ID!
   _sys: SystemInfo!
@@ -250,6 +284,9 @@ input AnalisisFilter {
   tema: StringFilter
   fecha: DatetimeFilter
   resumen: StringFilter
+  spotifyUrl: StringFilter
+  temporada: NumberFilter
+  capitulo: NumberFilter
   body: RichTextFilter
 }
 
@@ -272,6 +309,9 @@ type Marco implements Node & Document {
   tema: String!
   fecha: String!
   resumen: String!
+  spotifyUrl: String
+  temporada: Float
+  capitulo: Float
   body: JSON
   id: ID!
   _sys: SystemInfo!
@@ -286,6 +326,9 @@ input MarcoFilter {
   tema: StringFilter
   fecha: DatetimeFilter
   resumen: StringFilter
+  spotifyUrl: StringFilter
+  temporada: NumberFilter
+  capitulo: NumberFilter
   body: RichTextFilter
 }
 
@@ -298,6 +341,48 @@ type MarcoConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
   edges: [MarcoConnectionEdges]
+}
+
+type Podcast implements Node & Document {
+  titulo: String!
+  seccion: String!
+  industria: String!
+  mecanismo: [String]
+  tema: String!
+  fecha: String!
+  resumen: String!
+  spotifyUrl: String
+  temporada: Float
+  capitulo: Float
+  body: JSON
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input PodcastFilter {
+  titulo: StringFilter
+  seccion: StringFilter
+  industria: StringFilter
+  mecanismo: StringFilter
+  tema: StringFilter
+  fecha: DatetimeFilter
+  resumen: StringFilter
+  spotifyUrl: StringFilter
+  temporada: NumberFilter
+  capitulo: NumberFilter
+  body: RichTextFilter
+}
+
+type PodcastConnectionEdges {
+  cursor: String!
+  node: Podcast
+}
+
+type PodcastConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [PodcastConnectionEdges]
 }
 
 type Mutation {
@@ -316,6 +401,8 @@ type Mutation {
   createAnalisis(relativePath: String!, params: AnalisisMutation!): Analisis!
   updateMarco(relativePath: String!, params: MarcoMutation!): Marco!
   createMarco(relativePath: String!, params: MarcoMutation!): Marco!
+  updatePodcast(relativePath: String!, params: PodcastMutation!): Podcast!
+  createPodcast(relativePath: String!, params: PodcastMutation!): Podcast!
 }
 
 input DocumentUpdateMutation {
@@ -324,6 +411,7 @@ input DocumentUpdateMutation {
   serendipia: SerendipiaMutation
   analisis: AnalisisMutation
   marco: MarcoMutation
+  podcast: PodcastMutation
   relativePath: String
 }
 
@@ -333,6 +421,7 @@ input DocumentMutation {
   serendipia: SerendipiaMutation
   analisis: AnalisisMutation
   marco: MarcoMutation
+  podcast: PodcastMutation
 }
 
 input HistoriasMutation {
@@ -343,6 +432,9 @@ input HistoriasMutation {
   tema: String
   fecha: String
   resumen: String
+  spotifyUrl: String
+  temporada: Float
+  capitulo: Float
   body: JSON
 }
 
@@ -354,6 +446,9 @@ input ConflictosMutation {
   tema: String
   fecha: String
   resumen: String
+  spotifyUrl: String
+  temporada: Float
+  capitulo: Float
   body: JSON
 }
 
@@ -365,6 +460,9 @@ input SerendipiaMutation {
   tema: String
   fecha: String
   resumen: String
+  spotifyUrl: String
+  temporada: Float
+  capitulo: Float
   body: JSON
 }
 
@@ -376,6 +474,9 @@ input AnalisisMutation {
   tema: String
   fecha: String
   resumen: String
+  spotifyUrl: String
+  temporada: Float
+  capitulo: Float
   body: JSON
 }
 
@@ -387,6 +488,23 @@ input MarcoMutation {
   tema: String
   fecha: String
   resumen: String
+  spotifyUrl: String
+  temporada: Float
+  capitulo: Float
+  body: JSON
+}
+
+input PodcastMutation {
+  titulo: String
+  seccion: String
+  industria: String
+  mecanismo: [String]
+  tema: String
+  fecha: String
+  resumen: String
+  spotifyUrl: String
+  temporada: Float
+  capitulo: Float
   body: JSON
 }
 

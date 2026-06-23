@@ -1,0 +1,3460 @@
+[
+  {
+    "text": "En",
+    "startMs": 0,
+    "endMs": 435,
+    "timestampMs": 0,
+    "confidence": 1
+  },
+  {
+    "text": "1969,",
+    "startMs": 485,
+    "endMs": 920,
+    "timestampMs": 485,
+    "confidence": 1
+  },
+  {
+    "text": "un",
+    "startMs": 970,
+    "endMs": 1405,
+    "timestampMs": 970,
+    "confidence": 1
+  },
+  {
+    "text": "ejecutivo",
+    "startMs": 1455,
+    "endMs": 1890,
+    "timestampMs": 1455,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 1940,
+    "endMs": 2375,
+    "timestampMs": 1940,
+    "confidence": 1
+  },
+  {
+    "text": "una",
+    "startMs": 2425,
+    "endMs": 2860,
+    "timestampMs": 2425,
+    "confidence": 1
+  },
+  {
+    "text": "tabacalera",
+    "startMs": 2910,
+    "endMs": 3345,
+    "timestampMs": 2910,
+    "confidence": 1
+  },
+  {
+    "text": "escribió",
+    "startMs": 3395,
+    "endMs": 3830,
+    "timestampMs": 3395,
+    "confidence": 1
+  },
+  {
+    "text": "una",
+    "startMs": 3880,
+    "endMs": 4315,
+    "timestampMs": 3880,
+    "confidence": 1
+  },
+  {
+    "text": "frase",
+    "startMs": 4365,
+    "endMs": 4800,
+    "timestampMs": 4365,
+    "confidence": 1
+  },
+  {
+    "text": "interna",
+    "startMs": 4850,
+    "endMs": 5285,
+    "timestampMs": 4850,
+    "confidence": 1
+  },
+  {
+    "text": "que",
+    "startMs": 5335,
+    "endMs": 5770,
+    "timestampMs": 5335,
+    "confidence": 1
+  },
+  {
+    "text": "resumía",
+    "startMs": 5820,
+    "endMs": 6255,
+    "timestampMs": 5820,
+    "confidence": 1
+  },
+  {
+    "text": "una",
+    "startMs": 6305,
+    "endMs": 6740,
+    "timestampMs": 6305,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 6790,
+    "endMs": 7225,
+    "timestampMs": 6790,
+    "confidence": 1
+  },
+  {
+    "text": "las",
+    "startMs": 7275,
+    "endMs": 7710,
+    "timestampMs": 7275,
+    "confidence": 1
+  },
+  {
+    "text": "estrategias",
+    "startMs": 7760,
+    "endMs": 8195,
+    "timestampMs": 7760,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 8245,
+    "endMs": 8680,
+    "timestampMs": 8245,
+    "confidence": 1
+  },
+  {
+    "text": "comunicación",
+    "startMs": 8730,
+    "endMs": 9165,
+    "timestampMs": 8730,
+    "confidence": 1
+  },
+  {
+    "text": "más",
+    "startMs": 9215,
+    "endMs": 9650,
+    "timestampMs": 9215,
+    "confidence": 1
+  },
+  {
+    "text": "efectivas",
+    "startMs": 9700,
+    "endMs": 10135,
+    "timestampMs": 9700,
+    "confidence": 1
+  },
+  {
+    "text": "del",
+    "startMs": 10185,
+    "endMs": 10620,
+    "timestampMs": 10185,
+    "confidence": 1
+  },
+  {
+    "text": "último",
+    "startMs": 10670,
+    "endMs": 11105,
+    "timestampMs": 10670,
+    "confidence": 1
+  },
+  {
+    "text": "siglo.\n“La",
+    "startMs": 11155,
+    "endMs": 11590,
+    "timestampMs": 11155,
+    "confidence": 1
+  },
+  {
+    "text": "duda",
+    "startMs": 11640,
+    "endMs": 12075,
+    "timestampMs": 11640,
+    "confidence": 1
+  },
+  {
+    "text": "es",
+    "startMs": 12125,
+    "endMs": 12560,
+    "timestampMs": 12125,
+    "confidence": 1
+  },
+  {
+    "text": "nuestro",
+    "startMs": 12610,
+    "endMs": 13045,
+    "timestampMs": 12610,
+    "confidence": 1
+  },
+  {
+    "text": "producto.”\nNo",
+    "startMs": 13095,
+    "endMs": 13530,
+    "timestampMs": 13095,
+    "confidence": 1
+  },
+  {
+    "text": "era",
+    "startMs": 13580,
+    "endMs": 14015,
+    "timestampMs": 13580,
+    "confidence": 1
+  },
+  {
+    "text": "una",
+    "startMs": 14065,
+    "endMs": 14500,
+    "timestampMs": 14065,
+    "confidence": 1
+  },
+  {
+    "text": "declaración",
+    "startMs": 14550,
+    "endMs": 14985,
+    "timestampMs": 14550,
+    "confidence": 1
+  },
+  {
+    "text": "pública.\nNo",
+    "startMs": 15035,
+    "endMs": 15470,
+    "timestampMs": 15035,
+    "confidence": 1
+  },
+  {
+    "text": "era",
+    "startMs": 15520,
+    "endMs": 15955,
+    "timestampMs": 15520,
+    "confidence": 1
+  },
+  {
+    "text": "un",
+    "startMs": 16005,
+    "endMs": 16440,
+    "timestampMs": 16005,
+    "confidence": 1
+  },
+  {
+    "text": "slogan.\nEra",
+    "startMs": 16490,
+    "endMs": 16925,
+    "timestampMs": 16490,
+    "confidence": 1
+  },
+  {
+    "text": "un",
+    "startMs": 16975,
+    "endMs": 17410,
+    "timestampMs": 16975,
+    "confidence": 1
+  },
+  {
+    "text": "memorando",
+    "startMs": 17460,
+    "endMs": 17895,
+    "timestampMs": 17460,
+    "confidence": 1
+  },
+  {
+    "text": "interno",
+    "startMs": 17945,
+    "endMs": 18380,
+    "timestampMs": 17945,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 18430,
+    "endMs": 18865,
+    "timestampMs": 18430,
+    "confidence": 1
+  },
+  {
+    "text": "Brown",
+    "startMs": 18915,
+    "endMs": 19350,
+    "timestampMs": 18915,
+    "confidence": 1
+  },
+  {
+    "text": "&",
+    "startMs": 19400,
+    "endMs": 19835,
+    "timestampMs": 19400,
+    "confidence": 1
+  },
+  {
+    "text": "Williamson,",
+    "startMs": 19885,
+    "endMs": 20320,
+    "timestampMs": 19885,
+    "confidence": 1
+  },
+  {
+    "text": "una",
+    "startMs": 20370,
+    "endMs": 20805,
+    "timestampMs": 20370,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 20855,
+    "endMs": 21290,
+    "timestampMs": 20855,
+    "confidence": 1
+  },
+  {
+    "text": "las",
+    "startMs": 21340,
+    "endMs": 21775,
+    "timestampMs": 21340,
+    "confidence": 1
+  },
+  {
+    "text": "grandes",
+    "startMs": 21825,
+    "endMs": 22260,
+    "timestampMs": 21825,
+    "confidence": 1
+  },
+  {
+    "text": "tabacaleras",
+    "startMs": 22310,
+    "endMs": 22745,
+    "timestampMs": 22310,
+    "confidence": 1
+  },
+  {
+    "text": "estadounidenses.\nLa",
+    "startMs": 22795,
+    "endMs": 23230,
+    "timestampMs": 22795,
+    "confidence": 1
+  },
+  {
+    "text": "frase",
+    "startMs": 23280,
+    "endMs": 23715,
+    "timestampMs": 23280,
+    "confidence": 1
+  },
+  {
+    "text": "se",
+    "startMs": 23765,
+    "endMs": 24200,
+    "timestampMs": 23765,
+    "confidence": 1
+  },
+  {
+    "text": "hizo",
+    "startMs": 24250,
+    "endMs": 24685,
+    "timestampMs": 24250,
+    "confidence": 1
+  },
+  {
+    "text": "pública",
+    "startMs": 24735,
+    "endMs": 25170,
+    "timestampMs": 24735,
+    "confidence": 1
+  },
+  {
+    "text": "décadas",
+    "startMs": 25220,
+    "endMs": 25655,
+    "timestampMs": 25220,
+    "confidence": 1
+  },
+  {
+    "text": "después,",
+    "startMs": 25705,
+    "endMs": 26140,
+    "timestampMs": 25705,
+    "confidence": 1
+  },
+  {
+    "text": "durante",
+    "startMs": 26190,
+    "endMs": 26625,
+    "timestampMs": 26190,
+    "confidence": 1
+  },
+  {
+    "text": "los",
+    "startMs": 26675,
+    "endMs": 27110,
+    "timestampMs": 26675,
+    "confidence": 1
+  },
+  {
+    "text": "juicios",
+    "startMs": 27160,
+    "endMs": 27595,
+    "timestampMs": 27160,
+    "confidence": 1
+  },
+  {
+    "text": "contra",
+    "startMs": 27645,
+    "endMs": 28080,
+    "timestampMs": 27645,
+    "confidence": 1
+  },
+  {
+    "text": "la",
+    "startMs": 28130,
+    "endMs": 28565,
+    "timestampMs": 28130,
+    "confidence": 1
+  },
+  {
+    "text": "industria.\nPero",
+    "startMs": 28615,
+    "endMs": 29050,
+    "timestampMs": 28615,
+    "confidence": 1
+  },
+  {
+    "text": "para",
+    "startMs": 29100,
+    "endMs": 29535,
+    "timestampMs": 29100,
+    "confidence": 1
+  },
+  {
+    "text": "entonces,",
+    "startMs": 29585,
+    "endMs": 30020,
+    "timestampMs": 29585,
+    "confidence": 1
+  },
+  {
+    "text": "la",
+    "startMs": 30070,
+    "endMs": 30505,
+    "timestampMs": 30070,
+    "confidence": 1
+  },
+  {
+    "text": "estrategia",
+    "startMs": 30555,
+    "endMs": 30990,
+    "timestampMs": 30555,
+    "confidence": 1
+  },
+  {
+    "text": "ya",
+    "startMs": 31040,
+    "endMs": 31475,
+    "timestampMs": 31040,
+    "confidence": 1
+  },
+  {
+    "text": "había",
+    "startMs": 31525,
+    "endMs": 31960,
+    "timestampMs": 31525,
+    "confidence": 1
+  },
+  {
+    "text": "sobrevivido",
+    "startMs": 32010,
+    "endMs": 32445,
+    "timestampMs": 32010,
+    "confidence": 1
+  },
+  {
+    "text": "al",
+    "startMs": 32495,
+    "endMs": 32930,
+    "timestampMs": 32495,
+    "confidence": 1
+  },
+  {
+    "text": "tabaco.\nPorque",
+    "startMs": 32980,
+    "endMs": 33415,
+    "timestampMs": 32980,
+    "confidence": 1
+  },
+  {
+    "text": "las",
+    "startMs": 33465,
+    "endMs": 33900,
+    "timestampMs": 33465,
+    "confidence": 1
+  },
+  {
+    "text": "tabacaleras",
+    "startMs": 33950,
+    "endMs": 34385,
+    "timestampMs": 33950,
+    "confidence": 1
+  },
+  {
+    "text": "descubrieron",
+    "startMs": 34435,
+    "endMs": 34870,
+    "timestampMs": 34435,
+    "confidence": 1
+  },
+  {
+    "text": "algo",
+    "startMs": 34920,
+    "endMs": 35355,
+    "timestampMs": 34920,
+    "confidence": 1
+  },
+  {
+    "text": "importante.\nNo",
+    "startMs": 35405,
+    "endMs": 35840,
+    "timestampMs": 35405,
+    "confidence": 1
+  },
+  {
+    "text": "necesitaban",
+    "startMs": 35890,
+    "endMs": 36325,
+    "timestampMs": 35890,
+    "confidence": 1
+  },
+  {
+    "text": "demostrar",
+    "startMs": 36375,
+    "endMs": 36810,
+    "timestampMs": 36375,
+    "confidence": 1
+  },
+  {
+    "text": "que",
+    "startMs": 36860,
+    "endMs": 37295,
+    "timestampMs": 36860,
+    "confidence": 1
+  },
+  {
+    "text": "fumar",
+    "startMs": 37345,
+    "endMs": 37780,
+    "timestampMs": 37345,
+    "confidence": 1
+  },
+  {
+    "text": "era",
+    "startMs": 37830,
+    "endMs": 38265,
+    "timestampMs": 37830,
+    "confidence": 1
+  },
+  {
+    "text": "seguro.\nSolo",
+    "startMs": 38315,
+    "endMs": 38750,
+    "timestampMs": 38315,
+    "confidence": 1
+  },
+  {
+    "text": "necesitaban",
+    "startMs": 38800,
+    "endMs": 39235,
+    "timestampMs": 38800,
+    "confidence": 1
+  },
+  {
+    "text": "impedir",
+    "startMs": 39285,
+    "endMs": 39720,
+    "timestampMs": 39285,
+    "confidence": 1
+  },
+  {
+    "text": "que",
+    "startMs": 39770,
+    "endMs": 40205,
+    "timestampMs": 39770,
+    "confidence": 1
+  },
+  {
+    "text": "existiera",
+    "startMs": 40255,
+    "endMs": 40690,
+    "timestampMs": 40255,
+    "confidence": 1
+  },
+  {
+    "text": "certeza",
+    "startMs": 40740,
+    "endMs": 41175,
+    "timestampMs": 40740,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 41225,
+    "endMs": 41660,
+    "timestampMs": 41225,
+    "confidence": 1
+  },
+  {
+    "text": "que",
+    "startMs": 41710,
+    "endMs": 42145,
+    "timestampMs": 41710,
+    "confidence": 1
+  },
+  {
+    "text": "hacía",
+    "startMs": 42195,
+    "endMs": 42630,
+    "timestampMs": 42195,
+    "confidence": 1
+  },
+  {
+    "text": "daño.\nPara",
+    "startMs": 42680,
+    "endMs": 43115,
+    "timestampMs": 42680,
+    "confidence": 1
+  },
+  {
+    "text": "los",
+    "startMs": 43165,
+    "endMs": 43600,
+    "timestampMs": 43165,
+    "confidence": 1
+  },
+  {
+    "text": "años",
+    "startMs": 43650,
+    "endMs": 44085,
+    "timestampMs": 43650,
+    "confidence": 1
+  },
+  {
+    "text": "cincuenta,",
+    "startMs": 44135,
+    "endMs": 44570,
+    "timestampMs": 44135,
+    "confidence": 1
+  },
+  {
+    "text": "la",
+    "startMs": 44620,
+    "endMs": 45055,
+    "timestampMs": 44620,
+    "confidence": 1
+  },
+  {
+    "text": "evidencia",
+    "startMs": 45105,
+    "endMs": 45540,
+    "timestampMs": 45105,
+    "confidence": 1
+  },
+  {
+    "text": "que",
+    "startMs": 45590,
+    "endMs": 46025,
+    "timestampMs": 45590,
+    "confidence": 1
+  },
+  {
+    "text": "vinculaba",
+    "startMs": 46075,
+    "endMs": 46510,
+    "timestampMs": 46075,
+    "confidence": 1
+  },
+  {
+    "text": "el",
+    "startMs": 46560,
+    "endMs": 46995,
+    "timestampMs": 46560,
+    "confidence": 1
+  },
+  {
+    "text": "cigarrillo",
+    "startMs": 47045,
+    "endMs": 47480,
+    "timestampMs": 47045,
+    "confidence": 1
+  },
+  {
+    "text": "con",
+    "startMs": 47530,
+    "endMs": 47965,
+    "timestampMs": 47530,
+    "confidence": 1
+  },
+  {
+    "text": "el",
+    "startMs": 48015,
+    "endMs": 48450,
+    "timestampMs": 48015,
+    "confidence": 1
+  },
+  {
+    "text": "cáncer",
+    "startMs": 48500,
+    "endMs": 48935,
+    "timestampMs": 48500,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 48985,
+    "endMs": 49420,
+    "timestampMs": 48985,
+    "confidence": 1
+  },
+  {
+    "text": "pulmón",
+    "startMs": 49470,
+    "endMs": 49905,
+    "timestampMs": 49470,
+    "confidence": 1
+  },
+  {
+    "text": "empezaba",
+    "startMs": 49955,
+    "endMs": 50390,
+    "timestampMs": 49955,
+    "confidence": 1
+  },
+  {
+    "text": "a",
+    "startMs": 50440,
+    "endMs": 50875,
+    "timestampMs": 50440,
+    "confidence": 1
+  },
+  {
+    "text": "volverse",
+    "startMs": 50925,
+    "endMs": 51360,
+    "timestampMs": 50925,
+    "confidence": 1
+  },
+  {
+    "text": "difícil",
+    "startMs": 51410,
+    "endMs": 51845,
+    "timestampMs": 51410,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 51895,
+    "endMs": 52330,
+    "timestampMs": 51895,
+    "confidence": 1
+  },
+  {
+    "text": "ignorar.\nLos",
+    "startMs": 52380,
+    "endMs": 52815,
+    "timestampMs": 52380,
+    "confidence": 1
+  },
+  {
+    "text": "estudios",
+    "startMs": 52865,
+    "endMs": 53300,
+    "timestampMs": 52865,
+    "confidence": 1
+  },
+  {
+    "text": "se",
+    "startMs": 53350,
+    "endMs": 53785,
+    "timestampMs": 53350,
+    "confidence": 1
+  },
+  {
+    "text": "acumulaban.\nLas",
+    "startMs": 53835,
+    "endMs": 54270,
+    "timestampMs": 53835,
+    "confidence": 1
+  },
+  {
+    "text": "asociaciones",
+    "startMs": 54320,
+    "endMs": 54755,
+    "timestampMs": 54320,
+    "confidence": 1
+  },
+  {
+    "text": "aparecían",
+    "startMs": 54805,
+    "endMs": 55240,
+    "timestampMs": 54805,
+    "confidence": 1
+  },
+  {
+    "text": "una",
+    "startMs": 55290,
+    "endMs": 55725,
+    "timestampMs": 55290,
+    "confidence": 1
+  },
+  {
+    "text": "y",
+    "startMs": 55775,
+    "endMs": 56210,
+    "timestampMs": 55775,
+    "confidence": 1
+  },
+  {
+    "text": "otra",
+    "startMs": 56260,
+    "endMs": 56695,
+    "timestampMs": 56260,
+    "confidence": 1
+  },
+  {
+    "text": "vez.\nY",
+    "startMs": 56745,
+    "endMs": 57180,
+    "timestampMs": 56745,
+    "confidence": 1
+  },
+  {
+    "text": "en",
+    "startMs": 57230,
+    "endMs": 57665,
+    "timestampMs": 57230,
+    "confidence": 1
+  },
+  {
+    "text": "1964,",
+    "startMs": 57715,
+    "endMs": 58150,
+    "timestampMs": 57715,
+    "confidence": 1
+  },
+  {
+    "text": "el",
+    "startMs": 58200,
+    "endMs": 58635,
+    "timestampMs": 58200,
+    "confidence": 1
+  },
+  {
+    "text": "informe",
+    "startMs": 58685,
+    "endMs": 59120,
+    "timestampMs": 58685,
+    "confidence": 1
+  },
+  {
+    "text": "del",
+    "startMs": 59170,
+    "endMs": 59605,
+    "timestampMs": 59170,
+    "confidence": 1
+  },
+  {
+    "text": "Surgeon",
+    "startMs": 59655,
+    "endMs": 60090,
+    "timestampMs": 59655,
+    "confidence": 1
+  },
+  {
+    "text": "General",
+    "startMs": 60140,
+    "endMs": 60575,
+    "timestampMs": 60140,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 60625,
+    "endMs": 61060,
+    "timestampMs": 60625,
+    "confidence": 1
+  },
+  {
+    "text": "Estados",
+    "startMs": 61110,
+    "endMs": 61545,
+    "timestampMs": 61110,
+    "confidence": 1
+  },
+  {
+    "text": "Unidos",
+    "startMs": 61595,
+    "endMs": 62030,
+    "timestampMs": 61595,
+    "confidence": 1
+  },
+  {
+    "text": "fue",
+    "startMs": 62080,
+    "endMs": 62515,
+    "timestampMs": 62080,
+    "confidence": 1
+  },
+  {
+    "text": "concluyente:\nFumar",
+    "startMs": 62565,
+    "endMs": 63000,
+    "timestampMs": 62565,
+    "confidence": 1
+  },
+  {
+    "text": "mata.\nPero",
+    "startMs": 63050,
+    "endMs": 63485,
+    "timestampMs": 63050,
+    "confidence": 1
+  },
+  {
+    "text": "la",
+    "startMs": 63535,
+    "endMs": 63970,
+    "timestampMs": 63535,
+    "confidence": 1
+  },
+  {
+    "text": "industria",
+    "startMs": 64020,
+    "endMs": 64455,
+    "timestampMs": 64020,
+    "confidence": 1
+  },
+  {
+    "text": "entendió",
+    "startMs": 64505,
+    "endMs": 64940,
+    "timestampMs": 64505,
+    "confidence": 1
+  },
+  {
+    "text": "rápidamente",
+    "startMs": 64990,
+    "endMs": 65425,
+    "timestampMs": 64990,
+    "confidence": 1
+  },
+  {
+    "text": "que",
+    "startMs": 65475,
+    "endMs": 65910,
+    "timestampMs": 65475,
+    "confidence": 1
+  },
+  {
+    "text": "refutar",
+    "startMs": 65960,
+    "endMs": 66395,
+    "timestampMs": 65960,
+    "confidence": 1
+  },
+  {
+    "text": "toda",
+    "startMs": 66445,
+    "endMs": 66880,
+    "timestampMs": 66445,
+    "confidence": 1
+  },
+  {
+    "text": "esa",
+    "startMs": 66930,
+    "endMs": 67365,
+    "timestampMs": 66930,
+    "confidence": 1
+  },
+  {
+    "text": "evidencia",
+    "startMs": 67415,
+    "endMs": 67850,
+    "timestampMs": 67415,
+    "confidence": 1
+  },
+  {
+    "text": "iba",
+    "startMs": 67900,
+    "endMs": 68335,
+    "timestampMs": 67900,
+    "confidence": 1
+  },
+  {
+    "text": "a",
+    "startMs": 68385,
+    "endMs": 68820,
+    "timestampMs": 68385,
+    "confidence": 1
+  },
+  {
+    "text": "ser",
+    "startMs": 68870,
+    "endMs": 69305,
+    "timestampMs": 68870,
+    "confidence": 1
+  },
+  {
+    "text": "casi",
+    "startMs": 69355,
+    "endMs": 69790,
+    "timestampMs": 69355,
+    "confidence": 1
+  },
+  {
+    "text": "imposible.\nEntonces",
+    "startMs": 69840,
+    "endMs": 70275,
+    "timestampMs": 69840,
+    "confidence": 1
+  },
+  {
+    "text": "eligió",
+    "startMs": 70325,
+    "endMs": 70760,
+    "timestampMs": 70325,
+    "confidence": 1
+  },
+  {
+    "text": "otra",
+    "startMs": 70810,
+    "endMs": 71245,
+    "timestampMs": 70810,
+    "confidence": 1
+  },
+  {
+    "text": "estrategia.\nNo",
+    "startMs": 71295,
+    "endMs": 71730,
+    "timestampMs": 71295,
+    "confidence": 1
+  },
+  {
+    "text": "atacar",
+    "startMs": 71780,
+    "endMs": 72215,
+    "timestampMs": 71780,
+    "confidence": 1
+  },
+  {
+    "text": "directamente",
+    "startMs": 72265,
+    "endMs": 72700,
+    "timestampMs": 72265,
+    "confidence": 1
+  },
+  {
+    "text": "los",
+    "startMs": 72750,
+    "endMs": 73185,
+    "timestampMs": 72750,
+    "confidence": 1
+  },
+  {
+    "text": "hechos.\nAtacar",
+    "startMs": 73235,
+    "endMs": 73670,
+    "timestampMs": 73235,
+    "confidence": 1
+  },
+  {
+    "text": "la",
+    "startMs": 73720,
+    "endMs": 74155,
+    "timestampMs": 73720,
+    "confidence": 1
+  },
+  {
+    "text": "sensación",
+    "startMs": 74205,
+    "endMs": 74640,
+    "timestampMs": 74205,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 74690,
+    "endMs": 75125,
+    "timestampMs": 74690,
+    "confidence": 1
+  },
+  {
+    "text": "consenso.\nCada",
+    "startMs": 75175,
+    "endMs": 75610,
+    "timestampMs": 75175,
+    "confidence": 1
+  },
+  {
+    "text": "nuevo",
+    "startMs": 75660,
+    "endMs": 76095,
+    "timestampMs": 75660,
+    "confidence": 1
+  },
+  {
+    "text": "estudio",
+    "startMs": 76145,
+    "endMs": 76580,
+    "timestampMs": 76145,
+    "confidence": 1
+  },
+  {
+    "text": "era",
+    "startMs": 76630,
+    "endMs": 77065,
+    "timestampMs": 76630,
+    "confidence": 1
+  },
+  {
+    "text": "respondido",
+    "startMs": 77115,
+    "endMs": 77550,
+    "timestampMs": 77115,
+    "confidence": 1
+  },
+  {
+    "text": "con",
+    "startMs": 77600,
+    "endMs": 78035,
+    "timestampMs": 77600,
+    "confidence": 1
+  },
+  {
+    "text": "otro",
+    "startMs": 78085,
+    "endMs": 78520,
+    "timestampMs": 78085,
+    "confidence": 1
+  },
+  {
+    "text": "estudio.\nCada",
+    "startMs": 78570,
+    "endMs": 79005,
+    "timestampMs": 78570,
+    "confidence": 1
+  },
+  {
+    "text": "conclusión",
+    "startMs": 79055,
+    "endMs": 79490,
+    "timestampMs": 79055,
+    "confidence": 1
+  },
+  {
+    "text": "con",
+    "startMs": 79540,
+    "endMs": 79975,
+    "timestampMs": 79540,
+    "confidence": 1
+  },
+  {
+    "text": "una",
+    "startMs": 80025,
+    "endMs": 80460,
+    "timestampMs": 80025,
+    "confidence": 1
+  },
+  {
+    "text": "objeción.\nCada",
+    "startMs": 80510,
+    "endMs": 80945,
+    "timestampMs": 80510,
+    "confidence": 1
+  },
+  {
+    "text": "consenso",
+    "startMs": 80995,
+    "endMs": 81430,
+    "timestampMs": 80995,
+    "confidence": 1
+  },
+  {
+    "text": "con",
+    "startMs": 81480,
+    "endMs": 81915,
+    "timestampMs": 81480,
+    "confidence": 1
+  },
+  {
+    "text": "una",
+    "startMs": 81965,
+    "endMs": 82400,
+    "timestampMs": 81965,
+    "confidence": 1
+  },
+  {
+    "text": "entrevista",
+    "startMs": 82450,
+    "endMs": 82885,
+    "timestampMs": 82450,
+    "confidence": 1
+  },
+  {
+    "text": "diciendo",
+    "startMs": 82935,
+    "endMs": 83370,
+    "timestampMs": 82935,
+    "confidence": 1
+  },
+  {
+    "text": "que",
+    "startMs": 83420,
+    "endMs": 83855,
+    "timestampMs": 83420,
+    "confidence": 1
+  },
+  {
+    "text": "todavía",
+    "startMs": 83905,
+    "endMs": 84340,
+    "timestampMs": 83905,
+    "confidence": 1
+  },
+  {
+    "text": "faltaban",
+    "startMs": 84390,
+    "endMs": 84825,
+    "timestampMs": 84390,
+    "confidence": 1
+  },
+  {
+    "text": "datos.\nSiempre",
+    "startMs": 84875,
+    "endMs": 85310,
+    "timestampMs": 84875,
+    "confidence": 1
+  },
+  {
+    "text": "había",
+    "startMs": 85360,
+    "endMs": 85795,
+    "timestampMs": 85360,
+    "confidence": 1
+  },
+  {
+    "text": "una",
+    "startMs": 85845,
+    "endMs": 86280,
+    "timestampMs": 85845,
+    "confidence": 1
+  },
+  {
+    "text": "duda",
+    "startMs": 86330,
+    "endMs": 86765,
+    "timestampMs": 86330,
+    "confidence": 1
+  },
+  {
+    "text": "pendiente.\nUn",
+    "startMs": 86815,
+    "endMs": 87250,
+    "timestampMs": 86815,
+    "confidence": 1
+  },
+  {
+    "text": "mecanismo",
+    "startMs": 87300,
+    "endMs": 87735,
+    "timestampMs": 87300,
+    "confidence": 1
+  },
+  {
+    "text": "no",
+    "startMs": 87785,
+    "endMs": 88220,
+    "timestampMs": 87785,
+    "confidence": 1
+  },
+  {
+    "text": "completamente",
+    "startMs": 88270,
+    "endMs": 88705,
+    "timestampMs": 88270,
+    "confidence": 1
+  },
+  {
+    "text": "explicado.\nUna",
+    "startMs": 88755,
+    "endMs": 89190,
+    "timestampMs": 88755,
+    "confidence": 1
+  },
+  {
+    "text": "variable",
+    "startMs": 89240,
+    "endMs": 89675,
+    "timestampMs": 89240,
+    "confidence": 1
+  },
+  {
+    "text": "más",
+    "startMs": 89725,
+    "endMs": 90160,
+    "timestampMs": 89725,
+    "confidence": 1
+  },
+  {
+    "text": "por",
+    "startMs": 90210,
+    "endMs": 90645,
+    "timestampMs": 90210,
+    "confidence": 1
+  },
+  {
+    "text": "estudiar.\nUna",
+    "startMs": 90695,
+    "endMs": 91130,
+    "timestampMs": 90695,
+    "confidence": 1
+  },
+  {
+    "text": "razón",
+    "startMs": 91180,
+    "endMs": 91615,
+    "timestampMs": 91180,
+    "confidence": 1
+  },
+  {
+    "text": "para",
+    "startMs": 91665,
+    "endMs": 92100,
+    "timestampMs": 91665,
+    "confidence": 1
+  },
+  {
+    "text": "esperar.\nLa",
+    "startMs": 92150,
+    "endMs": 92585,
+    "timestampMs": 92150,
+    "confidence": 1
+  },
+  {
+    "text": "discusión",
+    "startMs": 92635,
+    "endMs": 93070,
+    "timestampMs": 92635,
+    "confidence": 1
+  },
+  {
+    "text": "nunca",
+    "startMs": 93120,
+    "endMs": 93555,
+    "timestampMs": 93120,
+    "confidence": 1
+  },
+  {
+    "text": "terminaba.\nY",
+    "startMs": 93605,
+    "endMs": 94040,
+    "timestampMs": 93605,
+    "confidence": 1
+  },
+  {
+    "text": "mientras",
+    "startMs": 94090,
+    "endMs": 94525,
+    "timestampMs": 94090,
+    "confidence": 1
+  },
+  {
+    "text": "el",
+    "startMs": 94575,
+    "endMs": 95010,
+    "timestampMs": 94575,
+    "confidence": 1
+  },
+  {
+    "text": "debate",
+    "startMs": 95060,
+    "endMs": 95495,
+    "timestampMs": 95060,
+    "confidence": 1
+  },
+  {
+    "text": "seguía",
+    "startMs": 95545,
+    "endMs": 95980,
+    "timestampMs": 95545,
+    "confidence": 1
+  },
+  {
+    "text": "abierto…\nel",
+    "startMs": 96030,
+    "endMs": 96465,
+    "timestampMs": 96030,
+    "confidence": 1
+  },
+  {
+    "text": "negocio",
+    "startMs": 96515,
+    "endMs": 96950,
+    "timestampMs": 96515,
+    "confidence": 1
+  },
+  {
+    "text": "podía",
+    "startMs": 97000,
+    "endMs": 97435,
+    "timestampMs": 97000,
+    "confidence": 1
+  },
+  {
+    "text": "seguir",
+    "startMs": 97485,
+    "endMs": 97920,
+    "timestampMs": 97485,
+    "confidence": 1
+  },
+  {
+    "text": "funcionando.\nLa",
+    "startMs": 97970,
+    "endMs": 98405,
+    "timestampMs": 97970,
+    "confidence": 1
+  },
+  {
+    "text": "estrategia",
+    "startMs": 98455,
+    "endMs": 98890,
+    "timestampMs": 98455,
+    "confidence": 1
+  },
+  {
+    "text": "era",
+    "startMs": 98940,
+    "endMs": 99375,
+    "timestampMs": 98940,
+    "confidence": 1
+  },
+  {
+    "text": "sofisticada",
+    "startMs": 99425,
+    "endMs": 99860,
+    "timestampMs": 99425,
+    "confidence": 1
+  },
+  {
+    "text": "porque",
+    "startMs": 99910,
+    "endMs": 100345,
+    "timestampMs": 99910,
+    "confidence": 1
+  },
+  {
+    "text": "imitaba",
+    "startMs": 100395,
+    "endMs": 100830,
+    "timestampMs": 100395,
+    "confidence": 1
+  },
+  {
+    "text": "perfectamente",
+    "startMs": 100880,
+    "endMs": 101315,
+    "timestampMs": 100880,
+    "confidence": 1
+  },
+  {
+    "text": "el",
+    "startMs": 101365,
+    "endMs": 101800,
+    "timestampMs": 101365,
+    "confidence": 1
+  },
+  {
+    "text": "lenguaje",
+    "startMs": 101850,
+    "endMs": 102285,
+    "timestampMs": 101850,
+    "confidence": 1
+  },
+  {
+    "text": "del",
+    "startMs": 102335,
+    "endMs": 102770,
+    "timestampMs": 102335,
+    "confidence": 1
+  },
+  {
+    "text": "escepticismo",
+    "startMs": 102820,
+    "endMs": 103255,
+    "timestampMs": 102820,
+    "confidence": 1
+  },
+  {
+    "text": "científico",
+    "startMs": 103305,
+    "endMs": 103740,
+    "timestampMs": 103305,
+    "confidence": 1
+  },
+  {
+    "text": "legítimo.\nDespués",
+    "startMs": 103790,
+    "endMs": 104225,
+    "timestampMs": 103790,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 104275,
+    "endMs": 104710,
+    "timestampMs": 104275,
+    "confidence": 1
+  },
+  {
+    "text": "todo,",
+    "startMs": 104760,
+    "endMs": 105195,
+    "timestampMs": 104760,
+    "confidence": 1
+  },
+  {
+    "text": "la",
+    "startMs": 105245,
+    "endMs": 105680,
+    "timestampMs": 105245,
+    "confidence": 1
+  },
+  {
+    "text": "ciencia",
+    "startMs": 105730,
+    "endMs": 106165,
+    "timestampMs": 105730,
+    "confidence": 1
+  },
+  {
+    "text": "funciona",
+    "startMs": 106215,
+    "endMs": 106650,
+    "timestampMs": 106215,
+    "confidence": 1
+  },
+  {
+    "text": "cuestionando",
+    "startMs": 106700,
+    "endMs": 107135,
+    "timestampMs": 106700,
+    "confidence": 1
+  },
+  {
+    "text": "evidencia.\nExigiendo",
+    "startMs": 107185,
+    "endMs": 107620,
+    "timestampMs": 107185,
+    "confidence": 1
+  },
+  {
+    "text": "mejores",
+    "startMs": 107670,
+    "endMs": 108105,
+    "timestampMs": 107670,
+    "confidence": 1
+  },
+  {
+    "text": "estudios.\nReplicando",
+    "startMs": 108155,
+    "endMs": 108590,
+    "timestampMs": 108155,
+    "confidence": 1
+  },
+  {
+    "text": "resultados.\nDiscutiendo",
+    "startMs": 108640,
+    "endMs": 109075,
+    "timestampMs": 108640,
+    "confidence": 1
+  },
+  {
+    "text": "resultados",
+    "startMs": 109125,
+    "endMs": 109560,
+    "timestampMs": 109125,
+    "confidence": 1
+  },
+  {
+    "text": "ambiguos.\nDesde",
+    "startMs": 109610,
+    "endMs": 110045,
+    "timestampMs": 109610,
+    "confidence": 1
+  },
+  {
+    "text": "afuera,",
+    "startMs": 110095,
+    "endMs": 110530,
+    "timestampMs": 110095,
+    "confidence": 1
+  },
+  {
+    "text": "era",
+    "startMs": 110580,
+    "endMs": 111015,
+    "timestampMs": 110580,
+    "confidence": 1
+  },
+  {
+    "text": "difícil",
+    "startMs": 111065,
+    "endMs": 111500,
+    "timestampMs": 111065,
+    "confidence": 1
+  },
+  {
+    "text": "distinguir",
+    "startMs": 111550,
+    "endMs": 111985,
+    "timestampMs": 111550,
+    "confidence": 1
+  },
+  {
+    "text": "entre",
+    "startMs": 112035,
+    "endMs": 112470,
+    "timestampMs": 112035,
+    "confidence": 1
+  },
+  {
+    "text": "crítica",
+    "startMs": 112520,
+    "endMs": 112955,
+    "timestampMs": 112520,
+    "confidence": 1
+  },
+  {
+    "text": "científica",
+    "startMs": 113005,
+    "endMs": 113440,
+    "timestampMs": 113005,
+    "confidence": 1
+  },
+  {
+    "text": "real…\ny",
+    "startMs": 113490,
+    "endMs": 113925,
+    "timestampMs": 113490,
+    "confidence": 1
+  },
+  {
+    "text": "manufactura",
+    "startMs": 113975,
+    "endMs": 114410,
+    "timestampMs": 113975,
+    "confidence": 1
+  },
+  {
+    "text": "deliberada",
+    "startMs": 114460,
+    "endMs": 114895,
+    "timestampMs": 114460,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 114945,
+    "endMs": 115380,
+    "timestampMs": 114945,
+    "confidence": 1
+  },
+  {
+    "text": "incertidumbre.\nEse",
+    "startMs": 115430,
+    "endMs": 115865,
+    "timestampMs": 115430,
+    "confidence": 1
+  },
+  {
+    "text": "era",
+    "startMs": 115915,
+    "endMs": 116350,
+    "timestampMs": 115915,
+    "confidence": 1
+  },
+  {
+    "text": "el",
+    "startMs": 116400,
+    "endMs": 116835,
+    "timestampMs": 116400,
+    "confidence": 1
+  },
+  {
+    "text": "punto.\nY",
+    "startMs": 116885,
+    "endMs": 117320,
+    "timestampMs": 116885,
+    "confidence": 1
+  },
+  {
+    "text": "muchos",
+    "startMs": 117370,
+    "endMs": 117805,
+    "timestampMs": 117370,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 117855,
+    "endMs": 118290,
+    "timestampMs": 117855,
+    "confidence": 1
+  },
+  {
+    "text": "los",
+    "startMs": 118340,
+    "endMs": 118775,
+    "timestampMs": 118340,
+    "confidence": 1
+  },
+  {
+    "text": "científicos",
+    "startMs": 118825,
+    "endMs": 119260,
+    "timestampMs": 118825,
+    "confidence": 1
+  },
+  {
+    "text": "involucrados",
+    "startMs": 119310,
+    "endMs": 119745,
+    "timestampMs": 119310,
+    "confidence": 1
+  },
+  {
+    "text": "no",
+    "startMs": 119795,
+    "endMs": 120230,
+    "timestampMs": 119795,
+    "confidence": 1
+  },
+  {
+    "text": "eran",
+    "startMs": 120280,
+    "endMs": 120715,
+    "timestampMs": 120280,
+    "confidence": 1
+  },
+  {
+    "text": "farsantes.\nAlgunos",
+    "startMs": 120765,
+    "endMs": 121200,
+    "timestampMs": 120765,
+    "confidence": 1
+  },
+  {
+    "text": "tenían",
+    "startMs": 121250,
+    "endMs": 121685,
+    "timestampMs": 121250,
+    "confidence": 1
+  },
+  {
+    "text": "carreras",
+    "startMs": 121735,
+    "endMs": 122170,
+    "timestampMs": 121735,
+    "confidence": 1
+  },
+  {
+    "text": "reales.\nPapers",
+    "startMs": 122220,
+    "endMs": 122655,
+    "timestampMs": 122220,
+    "confidence": 1
+  },
+  {
+    "text": "reales.\nCredenciales",
+    "startMs": 122705,
+    "endMs": 123140,
+    "timestampMs": 122705,
+    "confidence": 1
+  },
+  {
+    "text": "impecables.\nNo",
+    "startMs": 123190,
+    "endMs": 123625,
+    "timestampMs": 123190,
+    "confidence": 1
+  },
+  {
+    "text": "usaban",
+    "startMs": 123675,
+    "endMs": 124110,
+    "timestampMs": 123675,
+    "confidence": 1
+  },
+  {
+    "text": "teorías",
+    "startMs": 124160,
+    "endMs": 124595,
+    "timestampMs": 124160,
+    "confidence": 1
+  },
+  {
+    "text": "absurdas.\nNo",
+    "startMs": 124645,
+    "endMs": 125080,
+    "timestampMs": 124645,
+    "confidence": 1
+  },
+  {
+    "text": "hablaban",
+    "startMs": 125130,
+    "endMs": 125565,
+    "timestampMs": 125130,
+    "confidence": 1
+  },
+  {
+    "text": "como",
+    "startMs": 125615,
+    "endMs": 126050,
+    "timestampMs": 125615,
+    "confidence": 1
+  },
+  {
+    "text": "conspiranoicos.\nHablaban",
+    "startMs": 126100,
+    "endMs": 126535,
+    "timestampMs": 126100,
+    "confidence": 1
+  },
+  {
+    "text": "exactamente",
+    "startMs": 126585,
+    "endMs": 127020,
+    "timestampMs": 126585,
+    "confidence": 1
+  },
+  {
+    "text": "como",
+    "startMs": 127070,
+    "endMs": 127505,
+    "timestampMs": 127070,
+    "confidence": 1
+  },
+  {
+    "text": "científicos.\nY",
+    "startMs": 127555,
+    "endMs": 127990,
+    "timestampMs": 127555,
+    "confidence": 1
+  },
+  {
+    "text": "eso",
+    "startMs": 128040,
+    "endMs": 128475,
+    "timestampMs": 128040,
+    "confidence": 1
+  },
+  {
+    "text": "hacía",
+    "startMs": 128525,
+    "endMs": 128960,
+    "timestampMs": 128525,
+    "confidence": 1
+  },
+  {
+    "text": "que",
+    "startMs": 129010,
+    "endMs": 129445,
+    "timestampMs": 129010,
+    "confidence": 1
+  },
+  {
+    "text": "todo",
+    "startMs": 129495,
+    "endMs": 129930,
+    "timestampMs": 129495,
+    "confidence": 1
+  },
+  {
+    "text": "fuera",
+    "startMs": 129980,
+    "endMs": 130415,
+    "timestampMs": 129980,
+    "confidence": 1
+  },
+  {
+    "text": "mucho",
+    "startMs": 130465,
+    "endMs": 130900,
+    "timestampMs": 130465,
+    "confidence": 1
+  },
+  {
+    "text": "más",
+    "startMs": 130950,
+    "endMs": 131385,
+    "timestampMs": 130950,
+    "confidence": 1
+  },
+  {
+    "text": "difícil",
+    "startMs": 131435,
+    "endMs": 131870,
+    "timestampMs": 131435,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 131920,
+    "endMs": 132355,
+    "timestampMs": 131920,
+    "confidence": 1
+  },
+  {
+    "text": "detectar.\nLa",
+    "startMs": 132405,
+    "endMs": 132840,
+    "timestampMs": 132405,
+    "confidence": 1
+  },
+  {
+    "text": "estrategia",
+    "startMs": 132890,
+    "endMs": 133325,
+    "timestampMs": 132890,
+    "confidence": 1
+  },
+  {
+    "text": "no",
+    "startMs": 133375,
+    "endMs": 133810,
+    "timestampMs": 133375,
+    "confidence": 1
+  },
+  {
+    "text": "necesitaba",
+    "startMs": 133860,
+    "endMs": 134295,
+    "timestampMs": 133860,
+    "confidence": 1
+  },
+  {
+    "text": "convencer",
+    "startMs": 134345,
+    "endMs": 134780,
+    "timestampMs": 134345,
+    "confidence": 1
+  },
+  {
+    "text": "a",
+    "startMs": 134830,
+    "endMs": 135265,
+    "timestampMs": 134830,
+    "confidence": 1
+  },
+  {
+    "text": "todo",
+    "startMs": 135315,
+    "endMs": 135750,
+    "timestampMs": 135315,
+    "confidence": 1
+  },
+  {
+    "text": "el",
+    "startMs": 135800,
+    "endMs": 136235,
+    "timestampMs": 135800,
+    "confidence": 1
+  },
+  {
+    "text": "mundo",
+    "startMs": 136285,
+    "endMs": 136720,
+    "timestampMs": 136285,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 136770,
+    "endMs": 137205,
+    "timestampMs": 136770,
+    "confidence": 1
+  },
+  {
+    "text": "que",
+    "startMs": 137255,
+    "endMs": 137690,
+    "timestampMs": 137255,
+    "confidence": 1
+  },
+  {
+    "text": "el",
+    "startMs": 137740,
+    "endMs": 138175,
+    "timestampMs": 137740,
+    "confidence": 1
+  },
+  {
+    "text": "tabaco",
+    "startMs": 138225,
+    "endMs": 138660,
+    "timestampMs": 138225,
+    "confidence": 1
+  },
+  {
+    "text": "era",
+    "startMs": 138710,
+    "endMs": 139145,
+    "timestampMs": 138710,
+    "confidence": 1
+  },
+  {
+    "text": "seguro.\nSolo",
+    "startMs": 139195,
+    "endMs": 139630,
+    "timestampMs": 139195,
+    "confidence": 1
+  },
+  {
+    "text": "necesitaba",
+    "startMs": 139680,
+    "endMs": 140115,
+    "timestampMs": 139680,
+    "confidence": 1
+  },
+  {
+    "text": "producir",
+    "startMs": 140165,
+    "endMs": 140600,
+    "timestampMs": 140165,
+    "confidence": 1
+  },
+  {
+    "text": "suficiente",
+    "startMs": 140650,
+    "endMs": 141085,
+    "timestampMs": 140650,
+    "confidence": 1
+  },
+  {
+    "text": "confusión",
+    "startMs": 141135,
+    "endMs": 141570,
+    "timestampMs": 141135,
+    "confidence": 1
+  },
+  {
+    "text": "como",
+    "startMs": 141620,
+    "endMs": 142055,
+    "timestampMs": 141620,
+    "confidence": 1
+  },
+  {
+    "text": "para",
+    "startMs": 142105,
+    "endMs": 142540,
+    "timestampMs": 142105,
+    "confidence": 1
+  },
+  {
+    "text": "impedir",
+    "startMs": 142590,
+    "endMs": 143025,
+    "timestampMs": 142590,
+    "confidence": 1
+  },
+  {
+    "text": "una",
+    "startMs": 143075,
+    "endMs": 143510,
+    "timestampMs": 143075,
+    "confidence": 1
+  },
+  {
+    "text": "conclusión",
+    "startMs": 143560,
+    "endMs": 143995,
+    "timestampMs": 143560,
+    "confidence": 1
+  },
+  {
+    "text": "social",
+    "startMs": 144045,
+    "endMs": 144480,
+    "timestampMs": 144045,
+    "confidence": 1
+  },
+  {
+    "text": "clara.\nPorque",
+    "startMs": 144530,
+    "endMs": 144965,
+    "timestampMs": 144530,
+    "confidence": 1
+  },
+  {
+    "text": "la",
+    "startMs": 145015,
+    "endMs": 145450,
+    "timestampMs": 145015,
+    "confidence": 1
+  },
+  {
+    "text": "mayoría",
+    "startMs": 145500,
+    "endMs": 145935,
+    "timestampMs": 145500,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 145985,
+    "endMs": 146420,
+    "timestampMs": 145985,
+    "confidence": 1
+  },
+  {
+    "text": "las",
+    "startMs": 146470,
+    "endMs": 146905,
+    "timestampMs": 146470,
+    "confidence": 1
+  },
+  {
+    "text": "personas",
+    "startMs": 146955,
+    "endMs": 147390,
+    "timestampMs": 146955,
+    "confidence": 1
+  },
+  {
+    "text": "no",
+    "startMs": 147440,
+    "endMs": 147875,
+    "timestampMs": 147440,
+    "confidence": 1
+  },
+  {
+    "text": "necesita",
+    "startMs": 147925,
+    "endMs": 148360,
+    "timestampMs": 147925,
+    "confidence": 1
+  },
+  {
+    "text": "certeza",
+    "startMs": 148410,
+    "endMs": 148845,
+    "timestampMs": 148410,
+    "confidence": 1
+  },
+  {
+    "text": "absoluta",
+    "startMs": 148895,
+    "endMs": 149330,
+    "timestampMs": 148895,
+    "confidence": 1
+  },
+  {
+    "text": "para",
+    "startMs": 149380,
+    "endMs": 149815,
+    "timestampMs": 149380,
+    "confidence": 1
+  },
+  {
+    "text": "actuar.\nPero",
+    "startMs": 149865,
+    "endMs": 150300,
+    "timestampMs": 149865,
+    "confidence": 1
+  },
+  {
+    "text": "sí",
+    "startMs": 150350,
+    "endMs": 150785,
+    "timestampMs": 150350,
+    "confidence": 1
+  },
+  {
+    "text": "necesita",
+    "startMs": 150835,
+    "endMs": 151270,
+    "timestampMs": 150835,
+    "confidence": 1
+  },
+  {
+    "text": "sentir",
+    "startMs": 151320,
+    "endMs": 151755,
+    "timestampMs": 151320,
+    "confidence": 1
+  },
+  {
+    "text": "que",
+    "startMs": 151805,
+    "endMs": 152240,
+    "timestampMs": 151805,
+    "confidence": 1
+  },
+  {
+    "text": "existe",
+    "startMs": 152290,
+    "endMs": 152725,
+    "timestampMs": 152290,
+    "confidence": 1
+  },
+  {
+    "text": "consenso.\nY",
+    "startMs": 152775,
+    "endMs": 153210,
+    "timestampMs": 152775,
+    "confidence": 1
+  },
+  {
+    "text": "destruir",
+    "startMs": 153260,
+    "endMs": 153695,
+    "timestampMs": 153260,
+    "confidence": 1
+  },
+  {
+    "text": "esa",
+    "startMs": 153745,
+    "endMs": 154180,
+    "timestampMs": 153745,
+    "confidence": 1
+  },
+  {
+    "text": "sensación",
+    "startMs": 154230,
+    "endMs": 154665,
+    "timestampMs": 154230,
+    "confidence": 1
+  },
+  {
+    "text": "puede",
+    "startMs": 154715,
+    "endMs": 155150,
+    "timestampMs": 154715,
+    "confidence": 1
+  },
+  {
+    "text": "ser",
+    "startMs": 155200,
+    "endMs": 155635,
+    "timestampMs": 155200,
+    "confidence": 1
+  },
+  {
+    "text": "suficiente.\nSi",
+    "startMs": 155685,
+    "endMs": 156120,
+    "timestampMs": 155685,
+    "confidence": 1
+  },
+  {
+    "text": "el",
+    "startMs": 156170,
+    "endMs": 156605,
+    "timestampMs": 156170,
+    "confidence": 1
+  },
+  {
+    "text": "público",
+    "startMs": 156655,
+    "endMs": 157090,
+    "timestampMs": 156655,
+    "confidence": 1
+  },
+  {
+    "text": "percibe",
+    "startMs": 157140,
+    "endMs": 157575,
+    "timestampMs": 157140,
+    "confidence": 1
+  },
+  {
+    "text": "que",
+    "startMs": 157625,
+    "endMs": 158060,
+    "timestampMs": 157625,
+    "confidence": 1
+  },
+  {
+    "text": "los",
+    "startMs": 158110,
+    "endMs": 158545,
+    "timestampMs": 158110,
+    "confidence": 1
+  },
+  {
+    "text": "expertos",
+    "startMs": 158595,
+    "endMs": 159030,
+    "timestampMs": 158595,
+    "confidence": 1
+  },
+  {
+    "text": "siguen",
+    "startMs": 159080,
+    "endMs": 159515,
+    "timestampMs": 159080,
+    "confidence": 1
+  },
+  {
+    "text": "discutiendo…\nentonces",
+    "startMs": 159565,
+    "endMs": 160000,
+    "timestampMs": 159565,
+    "confidence": 1
+  },
+  {
+    "text": "cualquier",
+    "startMs": 160050,
+    "endMs": 160485,
+    "timestampMs": 160050,
+    "confidence": 1
+  },
+  {
+    "text": "regulación",
+    "startMs": 160535,
+    "endMs": 160970,
+    "timestampMs": 160535,
+    "confidence": 1
+  },
+  {
+    "text": "parece",
+    "startMs": 161020,
+    "endMs": 161455,
+    "timestampMs": 161020,
+    "confidence": 1
+  },
+  {
+    "text": "apresurada.\nCualquier",
+    "startMs": 161505,
+    "endMs": 161940,
+    "timestampMs": 161505,
+    "confidence": 1
+  },
+  {
+    "text": "alarma",
+    "startMs": 161990,
+    "endMs": 162425,
+    "timestampMs": 161990,
+    "confidence": 1
+  },
+  {
+    "text": "parece",
+    "startMs": 162475,
+    "endMs": 162910,
+    "timestampMs": 162475,
+    "confidence": 1
+  },
+  {
+    "text": "exagerada.\nCualquier",
+    "startMs": 162960,
+    "endMs": 163395,
+    "timestampMs": 162960,
+    "confidence": 1
+  },
+  {
+    "text": "decisión",
+    "startMs": 163445,
+    "endMs": 163880,
+    "timestampMs": 163445,
+    "confidence": 1
+  },
+  {
+    "text": "puede",
+    "startMs": 163930,
+    "endMs": 164365,
+    "timestampMs": 163930,
+    "confidence": 1
+  },
+  {
+    "text": "posponerse.\nLa",
+    "startMs": 164415,
+    "endMs": 164850,
+    "timestampMs": 164415,
+    "confidence": 1
+  },
+  {
+    "text": "incertidumbre",
+    "startMs": 164900,
+    "endMs": 165335,
+    "timestampMs": 164900,
+    "confidence": 1
+  },
+  {
+    "text": "se",
+    "startMs": 165385,
+    "endMs": 165820,
+    "timestampMs": 165385,
+    "confidence": 1
+  },
+  {
+    "text": "vuelve",
+    "startMs": 165870,
+    "endMs": 166305,
+    "timestampMs": 165870,
+    "confidence": 1
+  },
+  {
+    "text": "paralizante.\nY",
+    "startMs": 166355,
+    "endMs": 166790,
+    "timestampMs": 166355,
+    "confidence": 1
+  },
+  {
+    "text": "funcionó.\nFuncionó",
+    "startMs": 166840,
+    "endMs": 167275,
+    "timestampMs": 166840,
+    "confidence": 1
+  },
+  {
+    "text": "durante",
+    "startMs": 167325,
+    "endMs": 167760,
+    "timestampMs": 167325,
+    "confidence": 1
+  },
+  {
+    "text": "décadas.\nCuando",
+    "startMs": 167810,
+    "endMs": 168245,
+    "timestampMs": 167810,
+    "confidence": 1
+  },
+  {
+    "text": "finalmente",
+    "startMs": 168295,
+    "endMs": 168730,
+    "timestampMs": 168295,
+    "confidence": 1
+  },
+  {
+    "text": "los",
+    "startMs": 168780,
+    "endMs": 169215,
+    "timestampMs": 168780,
+    "confidence": 1
+  },
+  {
+    "text": "documentos",
+    "startMs": 169265,
+    "endMs": 169700,
+    "timestampMs": 169265,
+    "confidence": 1
+  },
+  {
+    "text": "internos",
+    "startMs": 169750,
+    "endMs": 170185,
+    "timestampMs": 169750,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 170235,
+    "endMs": 170670,
+    "timestampMs": 170235,
+    "confidence": 1
+  },
+  {
+    "text": "las",
+    "startMs": 170720,
+    "endMs": 171155,
+    "timestampMs": 170720,
+    "confidence": 1
+  },
+  {
+    "text": "tabacaleras",
+    "startMs": 171205,
+    "endMs": 171640,
+    "timestampMs": 171205,
+    "confidence": 1
+  },
+  {
+    "text": "empezaron",
+    "startMs": 171690,
+    "endMs": 172125,
+    "timestampMs": 171690,
+    "confidence": 1
+  },
+  {
+    "text": "a",
+    "startMs": 172175,
+    "endMs": 172610,
+    "timestampMs": 172175,
+    "confidence": 1
+  },
+  {
+    "text": "hacerse",
+    "startMs": 172660,
+    "endMs": 173095,
+    "timestampMs": 172660,
+    "confidence": 1
+  },
+  {
+    "text": "públicos,",
+    "startMs": 173145,
+    "endMs": 173580,
+    "timestampMs": 173145,
+    "confidence": 1
+  },
+  {
+    "text": "mostraron",
+    "startMs": 173630,
+    "endMs": 174065,
+    "timestampMs": 173630,
+    "confidence": 1
+  },
+  {
+    "text": "algo",
+    "startMs": 174115,
+    "endMs": 174550,
+    "timestampMs": 174115,
+    "confidence": 1
+  },
+  {
+    "text": "perturbador:\nLa",
+    "startMs": 174600,
+    "endMs": 175035,
+    "timestampMs": 174600,
+    "confidence": 1
+  },
+  {
+    "text": "industria",
+    "startMs": 175085,
+    "endMs": 175520,
+    "timestampMs": 175085,
+    "confidence": 1
+  },
+  {
+    "text": "sabía",
+    "startMs": 175570,
+    "endMs": 176005,
+    "timestampMs": 175570,
+    "confidence": 1
+  },
+  {
+    "text": "perfectamente",
+    "startMs": 176055,
+    "endMs": 176490,
+    "timestampMs": 176055,
+    "confidence": 1
+  },
+  {
+    "text": "lo",
+    "startMs": 176540,
+    "endMs": 176975,
+    "timestampMs": 176540,
+    "confidence": 1
+  },
+  {
+    "text": "que",
+    "startMs": 177025,
+    "endMs": 177460,
+    "timestampMs": 177025,
+    "confidence": 1
+  },
+  {
+    "text": "estaba",
+    "startMs": 177510,
+    "endMs": 177945,
+    "timestampMs": 177510,
+    "confidence": 1
+  },
+  {
+    "text": "vendiendo.\nPero",
+    "startMs": 177995,
+    "endMs": 178430,
+    "timestampMs": 177995,
+    "confidence": 1
+  },
+  {
+    "text": "para",
+    "startMs": 178480,
+    "endMs": 178915,
+    "timestampMs": 178480,
+    "confidence": 1
+  },
+  {
+    "text": "entonces,",
+    "startMs": 178965,
+    "endMs": 179400,
+    "timestampMs": 178965,
+    "confidence": 1
+  },
+  {
+    "text": "el",
+    "startMs": 179450,
+    "endMs": 179885,
+    "timestampMs": 179450,
+    "confidence": 1
+  },
+  {
+    "text": "modelo",
+    "startMs": 179935,
+    "endMs": 180370,
+    "timestampMs": 179935,
+    "confidence": 1
+  },
+  {
+    "text": "ya",
+    "startMs": 180420,
+    "endMs": 180855,
+    "timestampMs": 180420,
+    "confidence": 1
+  },
+  {
+    "text": "había",
+    "startMs": 180905,
+    "endMs": 181340,
+    "timestampMs": 180905,
+    "confidence": 1
+  },
+  {
+    "text": "sido",
+    "startMs": 181390,
+    "endMs": 181825,
+    "timestampMs": 181390,
+    "confidence": 1
+  },
+  {
+    "text": "exportado.\nLa",
+    "startMs": 181875,
+    "endMs": 182310,
+    "timestampMs": 181875,
+    "confidence": 1
+  },
+  {
+    "text": "industria",
+    "startMs": 182360,
+    "endMs": 182795,
+    "timestampMs": 182360,
+    "confidence": 1
+  },
+  {
+    "text": "azucarera",
+    "startMs": 182845,
+    "endMs": 183280,
+    "timestampMs": 182845,
+    "confidence": 1
+  },
+  {
+    "text": "usó",
+    "startMs": 183330,
+    "endMs": 183765,
+    "timestampMs": 183330,
+    "confidence": 1
+  },
+  {
+    "text": "estrategias",
+    "startMs": 183815,
+    "endMs": 184250,
+    "timestampMs": 183815,
+    "confidence": 1
+  },
+  {
+    "text": "similares",
+    "startMs": 184300,
+    "endMs": 184735,
+    "timestampMs": 184300,
+    "confidence": 1
+  },
+  {
+    "text": "para",
+    "startMs": 184785,
+    "endMs": 185220,
+    "timestampMs": 184785,
+    "confidence": 1
+  },
+  {
+    "text": "desplazar",
+    "startMs": 185270,
+    "endMs": 185705,
+    "timestampMs": 185270,
+    "confidence": 1
+  },
+  {
+    "text": "la",
+    "startMs": 185755,
+    "endMs": 186190,
+    "timestampMs": 185755,
+    "confidence": 1
+  },
+  {
+    "text": "atención",
+    "startMs": 186240,
+    "endMs": 186675,
+    "timestampMs": 186240,
+    "confidence": 1
+  },
+  {
+    "text": "hacia",
+    "startMs": 186725,
+    "endMs": 187160,
+    "timestampMs": 186725,
+    "confidence": 1
+  },
+  {
+    "text": "las",
+    "startMs": 187210,
+    "endMs": 187645,
+    "timestampMs": 187210,
+    "confidence": 1
+  },
+  {
+    "text": "grasas",
+    "startMs": 187695,
+    "endMs": 188130,
+    "timestampMs": 187695,
+    "confidence": 1
+  },
+  {
+    "text": "como",
+    "startMs": 188180,
+    "endMs": 188615,
+    "timestampMs": 188180,
+    "confidence": 1
+  },
+  {
+    "text": "principal",
+    "startMs": 188665,
+    "endMs": 189100,
+    "timestampMs": 188665,
+    "confidence": 1
+  },
+  {
+    "text": "causa",
+    "startMs": 189150,
+    "endMs": 189585,
+    "timestampMs": 189150,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 189635,
+    "endMs": 190070,
+    "timestampMs": 189635,
+    "confidence": 1
+  },
+  {
+    "text": "enfermedad",
+    "startMs": 190120,
+    "endMs": 190555,
+    "timestampMs": 190120,
+    "confidence": 1
+  },
+  {
+    "text": "cardiovascular.\nLa",
+    "startMs": 190605,
+    "endMs": 191040,
+    "timestampMs": 190605,
+    "confidence": 1
+  },
+  {
+    "text": "industria",
+    "startMs": 191090,
+    "endMs": 191525,
+    "timestampMs": 191090,
+    "confidence": 1
+  },
+  {
+    "text": "del",
+    "startMs": 191575,
+    "endMs": 192010,
+    "timestampMs": 191575,
+    "confidence": 1
+  },
+  {
+    "text": "plomo",
+    "startMs": 192060,
+    "endMs": 192495,
+    "timestampMs": 192060,
+    "confidence": 1
+  },
+  {
+    "text": "retrasó",
+    "startMs": 192545,
+    "endMs": 192980,
+    "timestampMs": 192545,
+    "confidence": 1
+  },
+  {
+    "text": "regulaciones",
+    "startMs": 193030,
+    "endMs": 193465,
+    "timestampMs": 193030,
+    "confidence": 1
+  },
+  {
+    "text": "durante",
+    "startMs": 193515,
+    "endMs": 193950,
+    "timestampMs": 193515,
+    "confidence": 1
+  },
+  {
+    "text": "años",
+    "startMs": 194000,
+    "endMs": 194435,
+    "timestampMs": 194000,
+    "confidence": 1
+  },
+  {
+    "text": "cuestionando",
+    "startMs": 194485,
+    "endMs": 194920,
+    "timestampMs": 194485,
+    "confidence": 1
+  },
+  {
+    "text": "la",
+    "startMs": 194970,
+    "endMs": 195405,
+    "timestampMs": 194970,
+    "confidence": 1
+  },
+  {
+    "text": "solidez",
+    "startMs": 195455,
+    "endMs": 195890,
+    "timestampMs": 195455,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 195940,
+    "endMs": 196375,
+    "timestampMs": 195940,
+    "confidence": 1
+  },
+  {
+    "text": "la",
+    "startMs": 196425,
+    "endMs": 196860,
+    "timestampMs": 196425,
+    "confidence": 1
+  },
+  {
+    "text": "evidencia",
+    "startMs": 196910,
+    "endMs": 197345,
+    "timestampMs": 196910,
+    "confidence": 1
+  },
+  {
+    "text": "existente.\nY",
+    "startMs": 197395,
+    "endMs": 197830,
+    "timestampMs": 197395,
+    "confidence": 1
+  },
+  {
+    "text": "décadas",
+    "startMs": 197880,
+    "endMs": 198315,
+    "timestampMs": 197880,
+    "confidence": 1
+  },
+  {
+    "text": "después,",
+    "startMs": 198365,
+    "endMs": 198800,
+    "timestampMs": 198365,
+    "confidence": 1
+  },
+  {
+    "text": "la",
+    "startMs": 198850,
+    "endMs": 199285,
+    "timestampMs": 198850,
+    "confidence": 1
+  },
+  {
+    "text": "industria",
+    "startMs": 199335,
+    "endMs": 199770,
+    "timestampMs": 199335,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 199820,
+    "endMs": 200255,
+    "timestampMs": 199820,
+    "confidence": 1
+  },
+  {
+    "text": "combustibles",
+    "startMs": 200305,
+    "endMs": 200740,
+    "timestampMs": 200305,
+    "confidence": 1
+  },
+  {
+    "text": "fósiles",
+    "startMs": 200790,
+    "endMs": 201225,
+    "timestampMs": 200790,
+    "confidence": 1
+  },
+  {
+    "text": "aplicó",
+    "startMs": 201275,
+    "endMs": 201710,
+    "timestampMs": 201275,
+    "confidence": 1
+  },
+  {
+    "text": "mecanismos",
+    "startMs": 201760,
+    "endMs": 202195,
+    "timestampMs": 201760,
+    "confidence": 1
+  },
+  {
+    "text": "muy",
+    "startMs": 202245,
+    "endMs": 202680,
+    "timestampMs": 202245,
+    "confidence": 1
+  },
+  {
+    "text": "parecidos",
+    "startMs": 202730,
+    "endMs": 203165,
+    "timestampMs": 202730,
+    "confidence": 1
+  },
+  {
+    "text": "frente",
+    "startMs": 203215,
+    "endMs": 203650,
+    "timestampMs": 203215,
+    "confidence": 1
+  },
+  {
+    "text": "al",
+    "startMs": 203700,
+    "endMs": 204135,
+    "timestampMs": 203700,
+    "confidence": 1
+  },
+  {
+    "text": "consenso",
+    "startMs": 204185,
+    "endMs": 204620,
+    "timestampMs": 204185,
+    "confidence": 1
+  },
+  {
+    "text": "climático.\nA",
+    "startMs": 204670,
+    "endMs": 205105,
+    "timestampMs": 204670,
+    "confidence": 1
+  },
+  {
+    "text": "veces",
+    "startMs": 205155,
+    "endMs": 205590,
+    "timestampMs": 205155,
+    "confidence": 1
+  },
+  {
+    "text": "cambiaban",
+    "startMs": 205640,
+    "endMs": 206075,
+    "timestampMs": 205640,
+    "confidence": 1
+  },
+  {
+    "text": "los",
+    "startMs": 206125,
+    "endMs": 206560,
+    "timestampMs": 206125,
+    "confidence": 1
+  },
+  {
+    "text": "argumentos.\nA",
+    "startMs": 206610,
+    "endMs": 207045,
+    "timestampMs": 206610,
+    "confidence": 1
+  },
+  {
+    "text": "veces",
+    "startMs": 207095,
+    "endMs": 207530,
+    "timestampMs": 207095,
+    "confidence": 1
+  },
+  {
+    "text": "cambiaban",
+    "startMs": 207580,
+    "endMs": 208015,
+    "timestampMs": 207580,
+    "confidence": 1
+  },
+  {
+    "text": "los",
+    "startMs": 208065,
+    "endMs": 208500,
+    "timestampMs": 208065,
+    "confidence": 1
+  },
+  {
+    "text": "científicos.\nA",
+    "startMs": 208550,
+    "endMs": 208985,
+    "timestampMs": 208550,
+    "confidence": 1
+  },
+  {
+    "text": "veces",
+    "startMs": 209035,
+    "endMs": 209470,
+    "timestampMs": 209035,
+    "confidence": 1
+  },
+  {
+    "text": "cambiaba",
+    "startMs": 209520,
+    "endMs": 209955,
+    "timestampMs": 209520,
+    "confidence": 1
+  },
+  {
+    "text": "el",
+    "startMs": 210005,
+    "endMs": 210440,
+    "timestampMs": 210005,
+    "confidence": 1
+  },
+  {
+    "text": "producto.\nPero",
+    "startMs": 210490,
+    "endMs": 210925,
+    "timestampMs": 210490,
+    "confidence": 1
+  },
+  {
+    "text": "la",
+    "startMs": 210975,
+    "endMs": 211410,
+    "timestampMs": 210975,
+    "confidence": 1
+  },
+  {
+    "text": "lógica",
+    "startMs": 211460,
+    "endMs": 211895,
+    "timestampMs": 211460,
+    "confidence": 1
+  },
+  {
+    "text": "era",
+    "startMs": 211945,
+    "endMs": 212380,
+    "timestampMs": 211945,
+    "confidence": 1
+  },
+  {
+    "text": "la",
+    "startMs": 212430,
+    "endMs": 212865,
+    "timestampMs": 212430,
+    "confidence": 1
+  },
+  {
+    "text": "misma.\nSembrar",
+    "startMs": 212915,
+    "endMs": 213350,
+    "timestampMs": 212915,
+    "confidence": 1
+  },
+  {
+    "text": "suficiente",
+    "startMs": 213400,
+    "endMs": 213835,
+    "timestampMs": 213400,
+    "confidence": 1
+  },
+  {
+    "text": "incertidumbre",
+    "startMs": 213885,
+    "endMs": 214320,
+    "timestampMs": 213885,
+    "confidence": 1
+  },
+  {
+    "text": "como",
+    "startMs": 214370,
+    "endMs": 214805,
+    "timestampMs": 214370,
+    "confidence": 1
+  },
+  {
+    "text": "para",
+    "startMs": 214855,
+    "endMs": 215290,
+    "timestampMs": 214855,
+    "confidence": 1
+  },
+  {
+    "text": "frenar",
+    "startMs": 215340,
+    "endMs": 215775,
+    "timestampMs": 215340,
+    "confidence": 1
+  },
+  {
+    "text": "decisiones.\nEse",
+    "startMs": 215825,
+    "endMs": 216260,
+    "timestampMs": 215825,
+    "confidence": 1
+  },
+  {
+    "text": "es",
+    "startMs": 216310,
+    "endMs": 216745,
+    "timestampMs": 216310,
+    "confidence": 1
+  },
+  {
+    "text": "el",
+    "startMs": 216795,
+    "endMs": 217230,
+    "timestampMs": 216795,
+    "confidence": 1
+  },
+  {
+    "text": "problema",
+    "startMs": 217280,
+    "endMs": 217715,
+    "timestampMs": 217280,
+    "confidence": 1
+  },
+  {
+    "text": "con",
+    "startMs": 217765,
+    "endMs": 218200,
+    "timestampMs": 217765,
+    "confidence": 1
+  },
+  {
+    "text": "la",
+    "startMs": 218250,
+    "endMs": 218685,
+    "timestampMs": 218250,
+    "confidence": 1
+  },
+  {
+    "text": "duda.\nLa",
+    "startMs": 218735,
+    "endMs": 219170,
+    "timestampMs": 218735,
+    "confidence": 1
+  },
+  {
+    "text": "duda",
+    "startMs": 219220,
+    "endMs": 219655,
+    "timestampMs": 219220,
+    "confidence": 1
+  },
+  {
+    "text": "legítima",
+    "startMs": 219705,
+    "endMs": 220140,
+    "timestampMs": 219705,
+    "confidence": 1
+  },
+  {
+    "text": "es",
+    "startMs": 220190,
+    "endMs": 220625,
+    "timestampMs": 220190,
+    "confidence": 1
+  },
+  {
+    "text": "parte",
+    "startMs": 220675,
+    "endMs": 221110,
+    "timestampMs": 220675,
+    "confidence": 1
+  },
+  {
+    "text": "esencial",
+    "startMs": 221160,
+    "endMs": 221595,
+    "timestampMs": 221160,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 221645,
+    "endMs": 222080,
+    "timestampMs": 221645,
+    "confidence": 1
+  },
+  {
+    "text": "la",
+    "startMs": 222130,
+    "endMs": 222565,
+    "timestampMs": 222130,
+    "confidence": 1
+  },
+  {
+    "text": "ciencia.\nSin",
+    "startMs": 222615,
+    "endMs": 223050,
+    "timestampMs": 222615,
+    "confidence": 1
+  },
+  {
+    "text": "escepticismo,",
+    "startMs": 223100,
+    "endMs": 223535,
+    "timestampMs": 223100,
+    "confidence": 1
+  },
+  {
+    "text": "no",
+    "startMs": 223585,
+    "endMs": 224020,
+    "timestampMs": 223585,
+    "confidence": 1
+  },
+  {
+    "text": "existe",
+    "startMs": 224070,
+    "endMs": 224505,
+    "timestampMs": 224070,
+    "confidence": 1
+  },
+  {
+    "text": "método",
+    "startMs": 224555,
+    "endMs": 224990,
+    "timestampMs": 224555,
+    "confidence": 1
+  },
+  {
+    "text": "científico.\nPero",
+    "startMs": 225040,
+    "endMs": 225475,
+    "timestampMs": 225040,
+    "confidence": 1
+  },
+  {
+    "text": "esa",
+    "startMs": 225525,
+    "endMs": 225960,
+    "timestampMs": 225525,
+    "confidence": 1
+  },
+  {
+    "text": "misma",
+    "startMs": 226010,
+    "endMs": 226445,
+    "timestampMs": 226010,
+    "confidence": 1
+  },
+  {
+    "text": "lógica",
+    "startMs": 226495,
+    "endMs": 226930,
+    "timestampMs": 226495,
+    "confidence": 1
+  },
+  {
+    "text": "también",
+    "startMs": 226980,
+    "endMs": 227415,
+    "timestampMs": 226980,
+    "confidence": 1
+  },
+  {
+    "text": "puede",
+    "startMs": 227465,
+    "endMs": 227900,
+    "timestampMs": 227465,
+    "confidence": 1
+  },
+  {
+    "text": "convertirse",
+    "startMs": 227950,
+    "endMs": 228385,
+    "timestampMs": 227950,
+    "confidence": 1
+  },
+  {
+    "text": "en",
+    "startMs": 228435,
+    "endMs": 228870,
+    "timestampMs": 228435,
+    "confidence": 1
+  },
+  {
+    "text": "una",
+    "startMs": 228920,
+    "endMs": 229355,
+    "timestampMs": 228920,
+    "confidence": 1
+  },
+  {
+    "text": "herramienta",
+    "startMs": 229405,
+    "endMs": 229840,
+    "timestampMs": 229405,
+    "confidence": 1
+  },
+  {
+    "text": "de",
+    "startMs": 229890,
+    "endMs": 230325,
+    "timestampMs": 229890,
+    "confidence": 1
+  },
+  {
+    "text": "relaciones",
+    "startMs": 230375,
+    "endMs": 230810,
+    "timestampMs": 230375,
+    "confidence": 1
+  },
+  {
+    "text": "públicas.\nY",
+    "startMs": 230860,
+    "endMs": 231295,
+    "timestampMs": 230860,
+    "confidence": 1
+  },
+  {
+    "text": "desde",
+    "startMs": 231345,
+    "endMs": 231780,
+    "timestampMs": 231345,
+    "confidence": 1
+  },
+  {
+    "text": "afuera,",
+    "startMs": 231830,
+    "endMs": 232265,
+    "timestampMs": 231830,
+    "confidence": 1
+  },
+  {
+    "text": "las",
+    "startMs": 232315,
+    "endMs": 232750,
+    "timestampMs": 232315,
+    "confidence": 1
+  },
+  {
+    "text": "dos",
+    "startMs": 232800,
+    "endMs": 233235,
+    "timestampMs": 232800,
+    "confidence": 1
+  },
+  {
+    "text": "cosas",
+    "startMs": 233285,
+    "endMs": 233720,
+    "timestampMs": 233285,
+    "confidence": 1
+  },
+  {
+    "text": "pueden",
+    "startMs": 233770,
+    "endMs": 234205,
+    "timestampMs": 233770,
+    "confidence": 1
+  },
+  {
+    "text": "verse",
+    "startMs": 234255,
+    "endMs": 234690,
+    "timestampMs": 234255,
+    "confidence": 1
+  },
+  {
+    "text": "exactamente",
+    "startMs": 234740,
+    "endMs": 235175,
+    "timestampMs": 234740,
+    "confidence": 1
+  },
+  {
+    "text": "iguales.\nLa",
+    "startMs": 235225,
+    "endMs": 235660,
+    "timestampMs": 235225,
+    "confidence": 1
+  },
+  {
+    "text": "duda",
+    "startMs": 235710,
+    "endMs": 236145,
+    "timestampMs": 235710,
+    "confidence": 1
+  },
+  {
+    "text": "no",
+    "startMs": 236195,
+    "endMs": 236630,
+    "timestampMs": 236195,
+    "confidence": 1
+  },
+  {
+    "text": "fue",
+    "startMs": 236680,
+    "endMs": 237115,
+    "timestampMs": 236680,
+    "confidence": 1
+  },
+  {
+    "text": "un",
+    "startMs": 237165,
+    "endMs": 237600,
+    "timestampMs": 237165,
+    "confidence": 1
+  },
+  {
+    "text": "efecto",
+    "startMs": 237650,
+    "endMs": 238085,
+    "timestampMs": 237650,
+    "confidence": 1
+  },
+  {
+    "text": "secundario.\nFue",
+    "startMs": 238135,
+    "endMs": 238570,
+    "timestampMs": 238135,
+    "confidence": 1
+  },
+  {
+    "text": "el",
+    "startMs": 238620,
+    "endMs": 239055,
+    "timestampMs": 238620,
+    "confidence": 1
+  },
+  {
+    "text": "producto.",
+    "startMs": 239105,
+    "endMs": 239540,
+    "timestampMs": 239105,
+    "confidence": 1
+  }
+]

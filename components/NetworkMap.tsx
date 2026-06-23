@@ -153,16 +153,18 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
         y: height / 2 + (Math.random() - 0.5) * height
       });
 
-      // Link to its mechanisms (only if the mechanism is in the graph)
+      // Link to its mechanisms (only if the mechanism is in the graph AND the piece is visible)
       if (p.mecanismo) {
-        p.mecanismo.forEach(mName => {
-          if (visibleMecanismos.has(mName)) {
-            links.push({
-              source: id,
-              target: `mec_${mName}`
-            });
-          }
-        });
+        if (!hasActiveFilters || isPiezaVisible(p)) {
+          p.mecanismo.forEach(mName => {
+            if (visibleMecanismos.has(mName)) {
+              links.push({
+                source: id,
+                target: `mec_${mName}`
+              });
+            }
+          });
+        }
       }
     });
 
@@ -246,6 +248,12 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
       .join("g")
       .attr("class", "node cursor-pointer")
       .on("click", (event, d) => {
+        if (!event.defaultPrevented && d.type === 'mecanismo') {
+          const mName = d.id.replace('mec_', '');
+          toggleFilter('mecanismo', mName);
+          return;
+        }
+
         if (!event.defaultPrevented && d.type === 'pieza' && d.pieza) {
           const isMobile = window.innerWidth <= 768 || ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
           if (isMobile) {

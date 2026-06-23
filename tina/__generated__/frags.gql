@@ -7,6 +7,9 @@ fragment HistoriasParts on Historias {
   tema
   fecha
   resumen
+  spotifyUrl
+  temporada
+  capitulo
   body
 }
 
@@ -19,6 +22,9 @@ fragment ConflictosParts on Conflictos {
   tema
   fecha
   resumen
+  spotifyUrl
+  temporada
+  capitulo
   body
 }
 
@@ -31,6 +37,9 @@ fragment SerendipiaParts on Serendipia {
   tema
   fecha
   resumen
+  spotifyUrl
+  temporada
+  capitulo
   body
 }
 
@@ -43,6 +52,9 @@ fragment AnalisisParts on Analisis {
   tema
   fecha
   resumen
+  spotifyUrl
+  temporada
+  capitulo
   body
 }
 
@@ -55,5 +67,23 @@ fragment MarcoParts on Marco {
   tema
   fecha
   resumen
+  spotifyUrl
+  temporada
+  capitulo
+  body
+}
+
+fragment PodcastParts on Podcast {
+  __typename
+  titulo
+  seccion
+  industria
+  mecanismo
+  tema
+  fecha
+  resumen
+  spotifyUrl
+  temporada
+  capitulo
   body
 }

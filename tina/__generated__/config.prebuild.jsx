@@ -75,6 +75,18 @@ var config_default = defineConfig({
           }
         },
         fields: camposComunes()
+      },
+      {
+        name: "podcast",
+        label: "Podcast",
+        path: "content/podcast",
+        format: "md",
+        ui: {
+          filename: {
+            slugify: (values) => values?.titulo?.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "").normalize("NFD").replace(/[\u0300-\u036f]/g, "") || ""
+          }
+        },
+        fields: camposComunes()
       }
     ]
   }
@@ -93,7 +105,7 @@ function camposComunes() {
       name: "seccion",
       label: "Secci\xF3n",
       required: true,
-      options: ["historia", "conflicto", "serendipia", "an\xE1lisis", "marco"]
+      options: ["historia", "conflicto", "serendipia", "an\xE1lisis", "marco", "podcast"]
     },
     {
       type: "string",
@@ -170,6 +182,25 @@ function camposComunes() {
       label: "Resumen",
       required: true,
       ui: { component: "textarea" }
+    },
+    {
+      type: "string",
+      name: "spotifyUrl",
+      label: "Enlace o ID de Spotify (opcional)",
+      description: "Pega el enlace del episodio (ej: https://open.spotify.com/episode/...) o el ID del episodio. Aparecer\xE1 al final del art\xEDculo.",
+      required: false
+    },
+    {
+      type: "number",
+      name: "temporada",
+      label: "Temporada (1-3)",
+      required: false
+    },
+    {
+      type: "number",
+      name: "capitulo",
+      label: "Cap\xEDtulo (1-8)",
+      required: false
     },
     {
       type: "rich-text",

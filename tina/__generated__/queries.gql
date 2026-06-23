@@ -272,3 +272,58 @@ query marcoConnection($before: String, $after: String, $first: Float, $last: Flo
     }
   }
 }
+
+query podcast($relativePath: String!) {
+  podcast(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...PodcastParts
+  }
+}
+
+query podcastConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PodcastFilter) {
+  podcastConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...PodcastParts
+      }
+    }
+  }
+}

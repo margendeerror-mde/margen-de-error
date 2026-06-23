@@ -5,6 +5,7 @@ import Link from 'next/link';
 import GlobalMenu from '@/components/GlobalMenu';
 import { SECCION_COLORS } from '@/lib/types';
 import Newsletter from '@/components/Newsletter';
+import SevenCountriesChart from '@/components/SevenCountriesChart';
 
 export default function PiecePage({ 
   params, 
@@ -73,6 +74,7 @@ export default function PiecePage({
           <MDXRemote 
             source={pieza.content} 
             components={{
+              SevenCountriesChart,
               a: ({ href, children, ...props }: any) => {
                 const isExternal = href?.startsWith('http');
                 if (isExternal) {

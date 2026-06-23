@@ -16,6 +16,8 @@ En 1953, el fisiólogo estadounidense Ancel Keys publicó un gráfico que iba a 
 
 Era un gráfico convincente. El problema era que existían datos de otros países que Keys no incluyó.
 
+<SevenCountriesChart />
+
 Keys era una figura extraordinaria. Había diseñado las raciones K de combate para el ejército estadounidense durante la Segunda Guerra Mundial —la K era por Keys— y había dirigido el Estudio de Inanición de Minnesota, un experimento riguroso sobre los efectos fisiológicos y psicológicos del hambre prolongada. Tenía credenciales, tenía recursos y tenía una hipótesis que lo convencía profundamente: que las grasas saturadas aumentaban el colesterol en sangre y el colesterol causaba infartos.
 
 La hipótesis tenía sentido. Y Keys tenía datos que la respaldaban.
