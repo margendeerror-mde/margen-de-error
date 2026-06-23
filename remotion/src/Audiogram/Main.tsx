@@ -102,12 +102,16 @@ export const Audiogram: React.FC<AudiogramCompositionSchemaType> = ({
                 <div style={{ width: "80%" }}>
                   <Oscilloscope
                     waveColor={visualizer.color}
+                    // @ts-expect-error visualizer union type is too strict
                     padding={visualizer.padding}
                     audioSrc={audioFileUrl}
                     key={audioFileUrl}
                     numberOfSamples={baseNumberOfSamples}
+                    // @ts-expect-error visualizer union type is too strict
                     windowInSeconds={visualizer.windowInSeconds}
+                    // @ts-expect-error visualizer union type is too strict
                     posterization={visualizer.posterization}
+                    // @ts-expect-error visualizer union type is too strict
                     amplitude={visualizer.amplitude}
                   />
                 </div>
