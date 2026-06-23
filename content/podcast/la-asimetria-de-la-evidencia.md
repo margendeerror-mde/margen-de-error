@@ -9,6 +9,8 @@ resumen: >-
   Un estudio enorme apuntó en dirección contraria a las recomendaciones
   dietéticas vigentes. Lo que pasó después dice tanto como los datos.
 spotifyUrl: 'https://open.spotify.com/episode/3JLBBtvQ7zRQgEqg7J4Mhc'
+temporada: 1
+episodio: 2
 ---
 
 En 2017, *The Lancet* publicó uno de los estudios nutricionales más grandes jamás realizados. Sus hallazgos entraban en tensión directa con las guías dietéticas de la mayoría del mundo occidental. Las guías no cambiaron sustantivamente. Lo interesante no es solo qué encontró el estudio. Es lo que pasó con él después.

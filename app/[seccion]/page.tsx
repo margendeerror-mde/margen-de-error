@@ -1,5 +1,6 @@
 import { getPiezasBySeccion } from '@/lib/content';
 import SectionLayout from '@/components/SectionLayout';
+import PodcastLayout from '@/components/PodcastLayout';
 import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
@@ -49,6 +50,17 @@ export default async function SectionPage({ params }: { params: Promise<{ seccio
   }
 
   const piezas = getPiezasBySeccion(seccion);
+
+  if (seccion === 'podcast') {
+    return (
+      <PodcastLayout 
+        title={info.title}
+        description={info.description}
+        piezas={piezas as any}
+        seccion={seccion}
+      />
+    );
+  }
 
   return (
     <SectionLayout 

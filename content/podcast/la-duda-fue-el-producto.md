@@ -11,6 +11,8 @@ resumen: >-
   Cómo las tabacaleras desarrollaron una estrategia que hoy usan todas las
   industrias.
 spotifyUrl: 'https://open.spotify.com/episode/7MzeKUrh0b2rkkIgUPFYmC'
+temporada: 1
+episodio: 1
 ---
 
 En los años cincuenta, las tabacaleras aprendieron algo: no hacía falta demostrar que el tabaco era inocuo. Solo había que instalar la duda. Esa estrategia sobrevivió a las tabacaleras y hoy aparece en industria tras industria —a veces con los mismos científicos, aplicando el mismo manual.

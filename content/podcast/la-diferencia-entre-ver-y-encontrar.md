@@ -11,6 +11,8 @@ fecha: '2026-06-15T12:00:00.000Z'
 resumen: >-
   Por qué una muestra puede ser demasiado pequeña para encontrar una diferencia y demasiado grande para que esa diferencia importe.
 spotifyUrl: 'https://open.spotify.com/episode/1vqe2O77RvNlmMUkNTSINT?si=QNASZWlPRDi2he0hVVAZFg'
+temporada: 1
+episodio: 7
 ---
 
 Un estudio con pocos participantes que no encuentra diferencias suele interpretarse como una mala noticia para la hipótesis que estaba poniendo a prueba. Si el tratamiento no funcionó, si el efecto no apareció, si la diferencia no fue estadísticamente significativa, pareciera que la respuesta está dada.
