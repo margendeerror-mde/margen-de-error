@@ -45,7 +45,7 @@ export default function PieceCard({ pieza, featured = false }: { pieza: Pieza, f
           <div className="mt-6 flex items-center justify-between">
             <span className="tag-text !text-[8px] !text-muted/30">{pieza.fecha}</span>
             <span className="tag-text !text-[8px] opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: accentColor }}>
-              LEER PIEZA →
+              {seccionUrl === 'podcast' ? 'ESCUCHAR EPISODIO →' : 'LEER PIEZA →'}
             </span>
           </div>
         </div>
