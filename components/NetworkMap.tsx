@@ -2,16 +2,19 @@
 
 import { useEffect, useRef, useState, useMemo } from 'react';
 import * as d3 from 'd3';
-import { SECCION_COLORS, SECCIONES, INDUSTRIAS, MECANISMOS, TEMAS } from '@/lib/types';
+import { VOLUMENES, VOLUMEN_COLORS, INDUSTRIAS, ATLAS_DISTORSIONES, ATLAS_LIMITES, TEMAS } from '@/lib/types';
+import type { AtlasMecanismo } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 
 interface MinimalPieza {
   href: string;
-  seccion: string;
+  temporada?: number;
   tema?: string;
   industria?: string;
+  atlas?: string[];
   mecanismo?: string[];
   titulo: string;
+  publicado?: boolean;
 }
 
 type NodeType = 'mecanismo' | 'pieza';
@@ -35,10 +38,10 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
   const router = useRouter();
 
   const [activeFilters, setActiveFilters] = useState<Record<string, string[]>>({
-    seccion: [],
+    temporada: [],
     tema: [],
     industria: [],
-    mecanismo: []
+    atlas: []
   });
 
   const activeFiltersRef = useRef(activeFilters);
@@ -73,7 +76,7 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
       const current = prev[type] || [];
       const isAlreadyActive = current.includes(value);
 
-      if (type !== 'mecanismo') {
+      if (type !== 'atlas') {
         return {
           ...prev,
           [type]: isAlreadyActive ? [] : [value]
@@ -87,15 +90,15 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
     });
   };
 
-  const clearFilters = () => setActiveFilters({ seccion: [], tema: [], industria: [], mecanismo: [] });
+  const clearFilters = () => setActiveFilters({ temporada: [], tema: [], industria: [], atlas: [] });
 
   useEffect(() => {
     if (!svgRef.current || !containerRef.current || windowSize.width === 0 || piezas.length === 0) return;
 
     const { width, height } = windowSize;
 
-    // Filter out podcasts
-    const validPiezas = piezas.filter(p => p.seccion !== 'podcast' && p.seccion);
+    // Filter out pieces without a season (archive)
+    const validPiezas = piezas.filter(p => p.temporada);
     
     // 1. Build Bipartite Graph Data
     const nodesMap = new Map<string, GraphNode>();
@@ -103,26 +106,25 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
 
     const isPiezaVisible = (p: MinimalPieza) => {
       const filters = activeFiltersRef.current;
-      const sF = filters.seccion.length === 0 || filters.seccion.includes(p.seccion);
-      const tF = filters.tema.length === 0 || (p.tema ? filters.tema.includes(p.tema) : false);
+      const tF = filters.temporada.length === 0 || (p.temporada ? filters.temporada.includes(p.temporada.toString()) : false);
+      const teF = filters.tema.length === 0 || (p.tema ? filters.tema.includes(p.tema) : false);
       const iF = filters.industria.length === 0 || (p.industria ? filters.industria.includes(p.industria) : false);
-      const mF = filters.mecanismo.length === 0 || 
-                filters.mecanismo.every((m: string) => p.mecanismo?.includes(m));
-      return sF && tF && iF && mF;
+      const mF = filters.atlas.length === 0 || 
+                filters.atlas.every((m: string) => p.atlas?.includes(m) || p.mecanismo?.includes(m));
+      return tF && teF && iF && mF;
     };
 
-    const hasActiveFilters = activeFiltersRef.current.seccion.length > 0 || 
-                             activeFiltersRef.current.tema.length > 0 || 
-                             activeFiltersRef.current.industria.length > 0 || 
-                             activeFiltersRef.current.mecanismo.length > 0;
+    const hasActiveFilters = activeFiltersRef.current.temporada?.length > 0 || 
+                             activeFiltersRef.current.tema?.length > 0 || 
+                             activeFiltersRef.current.industria?.length > 0 || 
+                             activeFiltersRef.current.atlas?.length > 0;
 
-    // Extract all unique mecanismos from the valid pieces
-    // If filters are active, only keep mechanisms that are connected to visible pieces
     const visibleMecanismos = new Set<string>();
     validPiezas.forEach(p => {
-      if (p.mecanismo) {
+      const allMecanismos = [...(p.atlas || []), ...(p.mecanismo || [])];
+      if (allMecanismos.length > 0) {
         if (!hasActiveFilters || isPiezaVisible(p)) {
-          p.mecanismo.forEach(m => visibleMecanismos.add(m));
+          allMecanismos.forEach(m => visibleMecanismos.add(m));
         }
       }
     });
@@ -140,7 +142,7 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
       });
     });
 
-    // Create Pieza Nodes (Satellites) and Links
+    // Create Pieza Nodes (Satellites)
     validPiezas.forEach(p => {
       const id = p.href;
       nodesMap.set(id, {
@@ -148,15 +150,15 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
         type: 'pieza',
         name: p.titulo,
         pieza: p,
-        radius: isMobile ? 8 : 12,
+        radius: isMobile ? 12 : 16, // slightly larger for squares
         x: width / 2 + (Math.random() - 0.5) * width,
         y: height / 2 + (Math.random() - 0.5) * height
       });
 
-      // Link to its mechanisms (only if the mechanism is in the graph AND the piece is visible)
-      if (p.mecanismo) {
+      const allMecanismos = [...(p.atlas || []), ...(p.mecanismo || [])];
+      if (allMecanismos.length > 0) {
         if (!hasActiveFilters || isPiezaVisible(p)) {
-          p.mecanismo.forEach(mName => {
+          allMecanismos.forEach(mName => {
             if (visibleMecanismos.has(mName)) {
               links.push({
                 source: id,
@@ -171,15 +173,15 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
     const nodes = Array.from(nodesMap.values());
 
     const getFilteredOpacity = (p: MinimalPieza | undefined) => {
-      if (!p) return 1; // Mechanism nodes don't get filtered directly by these rules, they just fade if no children are visible.
-      return isPiezaVisible(p) ? 1 : 0.05;
+      if (!p) return 1;
+      const isPublished = p.publicado !== false;
+      if (!isPiezaVisible(p)) return 0.05;
+      return isPublished ? 1 : 0.2;
     };
 
-    // Initialize SVG
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
 
-    // Zoom container
     const gMain = svg.append("g").attr("class", "zoom-container");
     const gLinks = gMain.append("g").attr("class", "links");
     const gNodes = gMain.append("g").attr("class", "nodes");
@@ -191,9 +193,7 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     svg.call(zoom as any);
 
-    // Clear mobile selection if user taps the background
     svg.on("click", (event) => {
-      // The event target could be the svg element itself or the main g container if they miss a node
       if (event.target.tagName === 'svg' || event.target.tagName === 'g' || event.target.tagName === 'rect') {
         if (selectedNodeIdForMobile) {
           selectedNodeIdForMobile = null;
@@ -204,41 +204,34 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
       }
     });
 
-    // Initial Zoom Fit
     d3.zoomIdentity.translate(width / 2, height / 2).scale(0.8);
 
-    // 2. Setup D3 Force Simulation
     const simulation = d3.forceSimulation<GraphNode>(nodes)
-      .force("link", d3.forceLink<GraphNode, GraphLink>(links).id(d => d.id).distance(100).strength(0.5))
-      .force("charge", d3.forceManyBody().strength(d => (d as GraphNode).type === 'mecanismo' ? -800 : -200))
+      .force("link", d3.forceLink<GraphNode, GraphLink>(links).id(d => d.id).distance(120).strength(0.5))
+      .force("charge", d3.forceManyBody().strength(d => (d as GraphNode).type === 'mecanismo' ? -1000 : -300))
       .force("collide", d3.forceCollide().radius(d => {
         const node = d as GraphNode;
         if (node.type === 'mecanismo') {
-          // Pill collision radius (approximate based on width)
-          return Math.max(node.name.length * 4 + 30, 50);
+          return Math.max(node.name.length * 5 + 30, 60);
         }
-        return node.radius + 10;
-      }).iterations(2));
+        return node.radius + 15;
+      }).iterations(3));
 
     if (hasActiveFilters) {
-      // Bipartite Layout: Mecanismos left, Piezas right
       simulation
         .force("x", d3.forceX<GraphNode>(d => d.type === 'mecanismo' ? width * 0.3 : width * 0.7).strength(0.6))
         .force("y", d3.forceY<GraphNode>(height / 2).strength(0.1));
     } else {
-      // Cosmos Hairball
       simulation.force("center", d3.forceCenter(width / 2, height / 2));
     }
 
-    // 3. Render Links
     const linkPaths = gLinks.selectAll("line")
       .data(links)
       .join("line")
-      .attr("stroke", "#444")
+      .attr("stroke", "#000") // Black lines
       .attr("stroke-width", 1)
       .style("pointer-events", "none");
 
-    // 4. Render Nodes
     let hoveredNodeId: string | null = null;
     let hoveredConnectedIds: Set<string> = new Set();
     let selectedNodeIdForMobile: string | null = null;
@@ -246,21 +239,20 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
     const nodeGroups = gNodes.selectAll("g.node")
       .data(nodes)
       .join("g")
-      .attr("class", "node cursor-pointer")
+      .attr("class", d => `node ${d.type === 'pieza' && d.pieza?.publicado === false ? 'cursor-not-allowed' : 'cursor-pointer'}`)
       .on("click", (event, d) => {
         if (!event.defaultPrevented && d.type === 'mecanismo') {
           const mName = d.id.replace('mec_', '');
-          toggleFilter('mecanismo', mName);
+          toggleFilter('atlas', mName);
           return;
         }
 
         if (!event.defaultPrevented && d.type === 'pieza' && d.pieza) {
+          if (d.pieza.publicado === false) return; // Block clicks on unpublished items
           const isMobile = window.innerWidth <= 768 || ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
           if (isMobile) {
             if (selectedNodeIdForMobile !== d.id) {
-              // First click: Highlight and center connections
               selectedNodeIdForMobile = d.id;
-              
               hoveredNodeId = d.id;
               hoveredConnectedIds = new Set();
               links.forEach(l => {
@@ -270,12 +262,10 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
                 if (tgtId === d.id) hoveredConnectedIds.add(srcId);
               });
               updateHighlights();
-              
               event.preventDefault();
               return;
             }
           }
-          // Second click on mobile, or first click on desktop
           router.push(d.pieza.href);
         }
       })
@@ -283,11 +273,9 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
         hoveredNodeId = d.id;
         hoveredConnectedIds = new Set();
         
-        // Find connected nodes
         links.forEach(l => {
           const srcId = typeof l.source === 'string' ? l.source : l.source.id;
           const tgtId = typeof l.target === 'string' ? l.target : l.target.id;
-          
           if (srcId === d.id) hoveredConnectedIds.add(tgtId);
           if (tgtId === d.id) hoveredConnectedIds.add(srcId);
         });
@@ -300,26 +288,29 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
         updateHighlights();
       });
 
-    // Render Piezas (Circles)
+    // Render Piezas (Squares instead of circles for brutalist look)
     const piezaGroups = nodeGroups.filter(d => d.type === 'pieza');
-    piezaGroups.append("circle")
-      .attr("r", d => d.radius)
-      .attr("fill", d => d.pieza ? (SECCION_COLORS[d.pieza.seccion] || '#666') : '#666')
-      .attr("stroke", 'rgba(255,255,255,0.2)')
-      .attr("stroke-width", 1)
+    piezaGroups.append("rect")
+      .attr("width", d => d.radius * 2)
+      .attr("height", d => d.radius * 2)
+      .attr("x", d => -d.radius)
+      .attr("y", d => -d.radius)
+      .attr("fill", d => (d.pieza && d.pieza.temporada) ? (VOLUMEN_COLORS[d.pieza.temporada] || '#999') : '#999')
+      .attr("stroke", '#000') // Black borders
+      .attr("stroke-width", 2)
       .style("transition", "all 0.3s ease");
 
-    // Render Mecanismos (Pills)
+    // Render Mecanismos (Sharp Rectangles)
     const mecGroups = nodeGroups.filter(d => d.type === 'mecanismo');
     mecGroups.append("rect")
-      .attr("rx", 15)
-      .attr("ry", 15)
-      .attr("height", 30)
+      .attr("rx", 0) // sharp
+      .attr("ry", 0)
+      .attr("height", 32)
       .attr("width", d => Math.max(d.name.length * 8 + 30, 100))
       .attr("x", d => -Math.max(d.name.length * 8 + 30, 100) / 2)
-      .attr("y", -15)
-      .attr("fill", "#222")
-      .attr("stroke", "#CC0000")
+      .attr("y", -16)
+      .attr("fill", "#000") // Black background
+      .attr("stroke", "#000")
       .attr("stroke-width", 2)
       .style("transition", "all 0.3s ease");
 
@@ -327,23 +318,22 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
       .text(d => d.name)
       .attr("text-anchor", "middle")
       .attr("dominant-baseline", "central")
-      .attr("y", 1) // slight optical vertical alignment
-      .attr("fill", "#FFF")
-      .attr("class", "font-sans text-[10px] tracking-widest uppercase font-bold pointer-events-none")
-      .style("text-shadow", "0px 2px 4px rgba(0,0,0,1)");
+      .attr("y", 2)
+      .attr("fill", "#FFF") // White text
+      .attr("class", "font-mono text-[10px] tracking-widest uppercase font-bold pointer-events-none");
 
-    // HTML Tooltip overlay for Piezas
+    // Tooltip overlay
     const tooltipDiv = d3.select(containerRef.current).append("div")
-      .attr("class", "absolute pointer-events-none opacity-0 bg-black/90 backdrop-blur-md border border-white/20 rounded p-2 z-50 text-white font-serif text-xs max-w-[200px] text-center shadow-2xl transition-opacity duration-200")
+      .attr("class", "absolute pointer-events-none opacity-0 bg-white border-2 border-black p-3 z-50 text-black font-serif text-sm max-w-[250px] text-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-opacity duration-200")
       .style("transform", "translate(-50%, -120%)");
 
     nodeGroups.filter(d => d.type === 'pieza')
       .on("mouseenter.tooltip", (event, d) => {
         const [x, y] = d3.pointer(event, containerRef.current);
         tooltipDiv
-          .html(d.name)
+          .html(`<strong>${d.name}</strong>`)
           .style("left", `${x}px`)
-          .style("top", `${y - d.radius}px`)
+          .style("top", `${y - d.radius - 10}px`)
           .style("opacity", 1);
       })
       .on("mouseleave.tooltip", () => {
@@ -353,7 +343,7 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
         const [x, y] = d3.pointer(event, containerRef.current);
         tooltipDiv
           .style("left", `${x}px`)
-          .style("top", `${y - d.radius}px`);
+          .style("top", `${y - d.radius - 10}px`);
       });
 
     // Drag behavior
@@ -376,19 +366,14 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     nodeGroups.call(drag as any);
 
-    // Update Highlight function
     function updateHighlights() {
-      // Re-evaluate filters in case they changed, though activeFilters changing triggers a full re-render right now
       nodeGroups.style("opacity", d => {
         const baseOp = d.type === 'pieza' ? getFilteredOpacity(d.pieza) : 1;
-        
-        if (baseOp < 1) return 0.05; // Filtered out completely
-
+        if (baseOp < 1) return 0.1;
         if (hoveredNodeId) {
           if (d.id === hoveredNodeId || hoveredConnectedIds.has(d.id)) return 1;
-          return 0.1;
+          return 0.2;
         }
-
         return 1;
       });
 
@@ -396,12 +381,11 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
       linkPaths.attr("stroke", (d: any) => {
         const srcId = typeof d.source === 'string' ? d.source : d.source.id;
         const tgtId = typeof d.target === 'string' ? d.target : d.target.id;
-        
         if (hoveredNodeId) {
-          if (srcId === hoveredNodeId || tgtId === hoveredNodeId) return "#CC0000";
+          if (srcId === hoveredNodeId || tgtId === hoveredNodeId) return "#000";
           return "transparent";
         }
-        return "#333";
+        return "rgba(0,0,0,0.3)";
       })
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .attr("stroke-width", (d: any) => {
@@ -412,10 +396,8 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
       });
     }
 
-    // Apply initial filters
     updateHighlights();
 
-    // Simulation Tick
     simulation.on("tick", () => {
       linkPaths
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -426,7 +408,6 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
         .attr("x2", (d: any) => d.target.x)
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .attr("y2", (d: any) => d.target.y);
-
       nodeGroups.attr("transform", d => `translate(${d.x},${d.y})`);
     });
 
@@ -434,79 +415,90 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
       simulation.stop();
       tooltipDiv.remove();
     };
-  }, [piezas, windowSize, router, isMobile, activeFilters]); // Added activeFilters to dependency array so it redraws/re-filters instantly
+  }, [piezas, windowSize, router, isMobile, activeFilters]);
 
   return (
-    <div className="flex w-full h-full bg-[#0A0A0A] relative overflow-hidden dark-mode font-sans">
-      {/* Sidebar / Bottom Panel */}
+    <div className="flex w-full h-full bg-[#F0EDE8] relative overflow-hidden font-sans">
+      {/* Sidebar */}
       <div className={`
-        fixed z-[220] bg-[#0A0A0A]/95 backdrop-blur-xl border-white/10 transition-transform duration-500
+        fixed z-[220] bg-white border-black transition-transform duration-500 shadow-[8px_0px_0px_0px_rgba(0,0,0,0.1)]
         ${isMobile 
-          ? `bottom-0 left-0 w-full h-[60%] border-t ${sidebarOpen ? 'translate-y-0' : 'translate-y-full'}`
-          : `left-0 top-0 h-full w-72 border-r ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`
+          ? `bottom-0 left-0 w-full h-[60%] border-t-2 ${sidebarOpen ? 'translate-y-0' : 'translate-y-full'}`
+          : `left-0 top-0 h-full w-80 border-r-2 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`
         }
         overflow-y-auto scrollbar-hide
       `}>
         <div className={`p-8 ${isMobile ? 'pt-8' : 'pt-32'}`}>
-          <div className="flex justify-between items-center mb-12">
-            <h3 className="tag-text !text-white font-bold tracking-widest">FILTROS</h3>
-            <button onClick={() => setSidebarOpen(false)} className="tag-text opacity-50 hover:opacity-100">CERRAR</button>
+          <div className="flex justify-between items-center mb-12 border-b-2 border-black pb-4">
+            <h3 className="font-mono text-lg font-bold uppercase tracking-widest text-black">FILTROS</h3>
+            <div className="flex gap-4 items-center">
+              {hasActiveFilters && (
+                <button onClick={clearFilters} className="font-mono text-[10px] font-bold text-accent hover:text-black uppercase tracking-widest">LIMPIAR</button>
+              )}
+              <button onClick={() => setSidebarOpen(false)} className="font-mono text-[10px] font-bold text-gray-500 hover:text-black uppercase tracking-widest">CERRAR</button>
+            </div>
           </div>
           <div className="space-y-10">
-            <FilterSection label="SECCIÓN" options={SECCIONES.filter(s => s !== 'podcast')} active={activeFilters.seccion} toggle={(v) => toggleFilter('seccion', v)} isSeccion />
+            <FilterSection label="VOLÚMENES" options={Object.keys(VOLUMENES)} active={activeFilters.temporada} toggle={(v) => toggleFilter('temporada', v)} isTemporada />
             <FilterSection label="TEMA" options={TEMAS} active={activeFilters.tema} toggle={(v) => toggleFilter('tema', v)} />
             <FilterSection label="INDUSTRIA" options={INDUSTRIAS} active={activeFilters.industria} toggle={(v) => toggleFilter('industria', v)} />
-            <FilterSection label="MECANISMO" options={MECANISMOS} active={activeFilters.mecanismo} toggle={(v) => toggleFilter('mecanismo', v)} />
+            <FilterSection label="DISTORSIÓN" options={ATLAS_DISTORSIONES} active={activeFilters.atlas} toggle={(v) => toggleFilter('atlas', v)} />
+            <FilterSection label="LÍMITE" options={ATLAS_LIMITES} active={activeFilters.atlas} toggle={(v) => toggleFilter('atlas', v)} />
           </div>
         </div>
       </div>
 
-      <button 
-        onClick={() => setSidebarOpen(true)} 
-        className={`fixed z-[210] transition-all flex items-center gap-2
-          ${isMobile 
-            ? 'bottom-10 left-6 bg-white text-black px-5 py-3 rounded-full shadow-2xl opacity-100' 
-            : 'bottom-8 left-8 tag-text text-white/50 hover:text-white hover:opacity-100'
-          }`}
-      >
-        <span className={isMobile ? "text-[10px] font-bold tracking-widest" : "tag-text"}>
-          {isMobile ? 'FILTROS' : '☰ FILTROS'}
-        </span>
-      </button>
-
-      {isMobile && hasActiveFilters && (
-        <button
-          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-white text-black text-[10px] uppercase tracking-widest px-6 py-3 border border-white/30"
-          onClick={clearFilters}
+      <div className={`fixed z-[210] flex gap-4 transition-all ${isMobile ? 'bottom-10 w-full justify-center px-6' : 'bottom-8 left-8'}`}>
+        <button 
+          onClick={() => setSidebarOpen(true)} 
+          className={`flex items-center justify-center font-mono font-bold uppercase tracking-widest border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-colors
+            ${isMobile 
+              ? 'bg-black text-white px-6 py-3 flex-1' 
+              : 'bg-white text-black px-6 py-3 hover:bg-black hover:text-white'
+            }`}
         >
-          Limpiar filtros
+          <span className="text-xs">
+            ☰ FILTROS {hasActiveFilters && '(ACTIVOS)'}
+          </span>
         </button>
-      )}
 
+        {hasActiveFilters && (
+          <button
+            className={`font-mono font-bold uppercase tracking-widest text-xs transition-colors border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center gap-2
+              ${isMobile
+                ? 'bg-white text-black px-6 py-3 flex-1'
+                : 'bg-gray-200 text-black px-6 py-3 hover:bg-black hover:text-white'
+              }`}
+            onClick={clearFilters}
+          >
+            LIMPIAR <span className="text-lg leading-none hidden md:inline">×</span>
+          </button>
+        )}
+      </div>
 
-
-      <div ref={containerRef} className="flex-1 relative">
+      <div ref={containerRef} className="flex-1 relative cursor-crosshair">
         <svg ref={svgRef} className="absolute inset-0 w-full h-full" />
       </div>
     </div>
   );
 }
 
-function FilterSection({ label, options, active, toggle, isSeccion = false }: { label: string, options: readonly string[], active: string[], toggle: (v: string) => void, isSeccion?: boolean }) {
+function FilterSection({ label, options, active, toggle, isTemporada = false }: { label: string, options: readonly string[], active: string[], toggle: (v: string) => void, isTemporada?: boolean }) {
   return (
     <div>
-      <h4 className="tag-text !text-white/30 mb-4 tracking-widest">{label}</h4>
+      <h4 className="font-mono text-xs font-bold text-black uppercase tracking-widest mb-4 bg-gray-200 p-2 border-2 border-black">{label}</h4>
       <div className="flex flex-col gap-2">
         {options.map(opt => {
-          const activeColor = isSeccion ? SECCION_COLORS[opt] || '#CC0000' : '#CC0000';
+          const activeColor = isTemporada ? VOLUMEN_COLORS[Number(opt)] || '#000' : '#000';
           return (
             <button 
               key={opt} 
               onClick={() => toggle(opt)}
-              className="tag-text text-left transition-colors !text-[9px]"
-              style={{ color: active.includes(opt) ? activeColor : 'rgba(255,255,255,0.6)' }}
+              className="font-mono text-left transition-colors text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-gray-100 p-1"
+              style={{ color: active.includes(opt) ? activeColor : '#666' }}
             >
-              {active.includes(opt) ? '● ' : '○ '}{opt.toUpperCase()}
+              <span className={`w-3 h-3 border-2 inline-block ${active.includes(opt) ? 'bg-black border-black' : 'bg-transparent border-gray-400'}`} style={{ backgroundColor: active.includes(opt) ? activeColor : 'transparent', borderColor: active.includes(opt) ? activeColor : '#999' }}></span>
+              {opt}
             </button>
           );
         })}

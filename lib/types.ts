@@ -1,11 +1,87 @@
-export const SECCIONES = [
-  'historias',
-  'conflictos',
-  'serendipia',
-  'analisis',
-  'marco',
-  'podcast'
+// ============================================================
+// ATLAS DEL ERROR — Ontología de MDE
+// ============================================================
+
+/**
+ * DISTORSIONES: Cuando la evidencia se manipula, se analiza mal
+ * o se comunica de forma sesgada.
+ */
+export const ATLAS_DISTORSIONES = [
+  'cherry-picking',
+  'p-hacking',
+  'confusión',
+  'causalidad-inversa',
+  'falacia-ecológica',
+  'sesgo-de-publicación',
+  'sobreinterpretación',
+  'manufactura-de-duda',
+  'inercia-institucional',
 ] as const;
+
+/**
+ * LÍMITES DE LA INFERENCIA: Cuando la evidencia es honesta
+ * y rigurosa, pero tiene fronteras epistemológicas naturales.
+ */
+export const ATLAS_LIMITES = [
+  'límite-observacional',
+  'endpoints-subrogados',
+  'límite-de-extrapolación',
+  'baja-potencia-estadística',
+] as const;
+
+export const ATLAS_MECANISMOS = [
+  ...ATLAS_DISTORSIONES,
+  ...ATLAS_LIMITES,
+] as const;
+
+export type AtlasMecanismo = typeof ATLAS_MECANISMOS[number];
+
+/** Definiciones de diccionario del Atlas */
+export const ATLAS_DEFINICIONES: Record<AtlasMecanismo, string> = {
+  'cherry-picking': 'Selección no representativa de evidencia para favorecer una conclusión.',
+  'p-hacking': 'Manipulación iterativa del análisis estadístico hasta forzar un resultado significativo.',
+  'confusión': 'Una tercera variable, no medida o ignorada, explica la asociación observada.',
+  'causalidad-inversa': 'Se asume que A causa B, cuando en realidad B está causando A.',
+  'falacia-ecológica': 'Asumir que las correlaciones a nivel de poblaciones aplican a los individuos.',
+  'sesgo-de-publicación': 'Los resultados negativos o no concluyentes circulan menos que los positivos.',
+  'sobreinterpretación': 'Sacar conclusiones causales o prescriptivas que el diseño del estudio no permite.',
+  'manufactura-de-duda': 'Financiar y amplificar incertidumbre científica para impedir o retrasar la acción.',
+  'inercia-institucional': 'Resistencia sistémica de revistas, reguladores y comunidades a aceptar evidencia que contradice el paradigma dominante.',
+  'límite-observacional': 'La imposibilidad de establecer causalidad firme sin experimentación controlada.',
+  'endpoints-subrogados': 'Medir o modificar un marcador biológico asumiendo que refleja o predice el desenlace clínico que realmente importa.',
+  'límite-de-extrapolación': 'Asumir que un resultado en una población controlada o modelo animal funcionará igual en la población general.',
+  'baja-potencia-estadística': 'El tamaño de la muestra es insuficiente para distinguir un efecto real del ruido azaroso.',
+};
+
+/** Tipo del Atlas: distorsión o límite */
+export type AtlasTipo = 'distorsión' | 'límite';
+
+export function getAtlasTipo(mecanismo: AtlasMecanismo): AtlasTipo {
+  return (ATLAS_DISTORSIONES as readonly string[]).includes(mecanismo) 
+    ? 'distorsión' 
+    : 'límite';
+}
+
+// ============================================================
+// METADATA DE CONDICIONES (no son mecanismos, son contexto)
+// ============================================================
+
+export const CONDICIONES = [
+  'conflicto-de-interés',
+  'financiamiento-industrial',
+  'captura-regulatoria',
+  'lobby-industrial',
+  'incentivos-académicos',
+  'autoridad-científica',
+  'financiamiento-oscuro',
+  'especialización-fragmentada',
+] as const;
+
+export type Condicion = typeof CONDICIONES[number];
+
+// ============================================================
+// INDUSTRIAS Y TEMAS (se mantienen)
+// ============================================================
 
 export const INDUSTRIAS = [
   'farmacéutica',
@@ -21,24 +97,6 @@ export const INDUSTRIAS = [
   'institucional-académica',
   'organismos-reguladores',
   'medios-y-comunicación'
-] as const;
-
-export const MECANISMOS = [
-  'financiamiento-de-estudio',
-  'diseño-sesgado',
-  'titular-engañoso',
-  'omisión-de-datos',
-  'cherry-picking',
-  'captura-regulatoria',
-  'migración-de-estrategia',
-  'conflicto-de-interés-no-declarado',
-  'sesgo-de-publicación',
-  'experto-capturado',
-  'manufactura-de-duda',
-  'normalización-por-repetición',
-  'correlación-presentada-como-causalidad',
-  'preregistro',
-  'sesgo-de-confirmacion'
 ] as const;
 
 export const TEMAS = [
@@ -57,27 +115,58 @@ export const TEMAS = [
   'envejecimiento'
 ] as const;
 
-export type Seccion = string;
 export type Industria = string;
-export type Mecanismo = string;
 export type Tema = string;
+
+// ============================================================
+// VOLUMENES
+// ============================================================
+
+export const VOLUMENES: Record<number, { titulo: string; descripcion: string }> = {
+  1: {
+    titulo: 'Cómo se deforma la evidencia',
+    descripcion: 'Los mecanismos que distorsionan la producción, el análisis y la comunicación del conocimiento científico.',
+  },
+  2: {
+    titulo: 'Las personas detrás de las ideas',
+    descripcion: 'Historias de científicos que desafiaron el consenso, descubrieron por accidente y pagaron el precio de tener razón demasiado pronto.',
+  },
+  3: {
+    titulo: 'Los límites de la evidencia',
+    descripcion: 'Qué puede decir —y qué no— la evidencia científica sobre las preguntas que más importan.',
+  },
+};
+
+// ============================================================
+// PIEZA (tipo principal)
+// ============================================================
 
 export interface PiezaFrontmatter {
   titulo: string;
-  seccion: Seccion;
   industria: Industria;
-  mecanismo: Mecanismo[];
+  mecanismo: string[];        // legacy field (kept for backward compat)
+  atlas: AtlasMecanismo[];    // NEW: mecanismos del Atlas
+  pregunta: string;           // NEW: la pregunta que el episodio responde
+  condiciones: string[];      // NEW: contexto institucional
   tema: Tema;
-  fecha: string; // YYYY-MM-DD
+  fecha: string;
   resumen: string;
-  temporada?: number;
+  temporada?: number;         // internally still called temporada for backwards compat with markdown
   capitulo?: number;
+  spotifyUrl?: string;
+  publicado?: boolean;
 }
 
 export interface Pieza extends PiezaFrontmatter {
   slug: string;
-  content: string; // MDX content
+  content: string;
+  href: string;
+  publicado: boolean;
 }
+
+// ============================================================
+// COLORES
+// ============================================================
 
 export const TEMA_COLORS: Record<Tema, string> = {
   "luz-y-radiación":            "#FFF3B0",
@@ -94,11 +183,15 @@ export const TEMA_COLORS: Record<Tema, string> = {
   "inmunidad":                  "#B3E5FC",
   "envejecimiento":             "#D7CCC8",
 };
-export const SECCION_COLORS: Record<string, string> = {
-  historias:  "#C4763A", // Ámbar tostado
-  conflictos: "#B5431A", // Rojo ocre
-  serendipia: "#2E5F7A", // Azul pizarra
-  analisis:   "#4A6741", // Verde musgo
-  marco:      "#5C4A7A", // Violeta ceniza
-  podcast:    "#1DB954", // Spotify Green
+
+export const VOLUMEN_COLORS: Record<number, string> = {
+  1: "#C4763A",
+  2: "#B5431A",
+  3: "#264653"
 };
+
+/** Colores para los dos hemisferios del Atlas */
+export const ATLAS_COLORS = {
+  distorsión: '#CC0000',
+  límite: '#2E5F7A',
+} as const;
