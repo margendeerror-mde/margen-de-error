@@ -31,6 +31,10 @@ function parsePieza(filepath: string, filename: string): Pieza {
   // By default, assume a piece is NOT published unless explicitly stated.
   const publicado = typeof data.publicado === 'boolean' ? data.publicado : false;
 
+  const rawMecanismos = normalizeTag(data.mecanismo);
+  const rawAtlas = normalizeTag(data.atlas);
+  const combinedAtlas = Array.from(new Set([...rawAtlas, ...rawMecanismos])) as AtlasMecanismo[];
+
   return {
     slug,
     titulo: String(data.titulo || ''),
@@ -39,8 +43,8 @@ function parsePieza(filepath: string, filename: string): Pieza {
       ? data.fecha.toISOString().split('T')[0]
       : String(data.fecha || ''),
     industria: String(data.industria || ''),
-    mecanismo: normalizeTag(data.mecanismo),
-    atlas: normalizeTag(data.atlas) as AtlasMecanismo[],
+    mecanismo: rawMecanismos,
+    atlas: combinedAtlas,
     pregunta: String(data.pregunta || ''),
     condiciones: normalizeTag(data.condiciones),
     tema: String(data.tema || ''),

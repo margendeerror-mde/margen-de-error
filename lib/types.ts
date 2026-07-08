@@ -16,6 +16,17 @@ export const ATLAS_DISTORSIONES = [
   'sobreinterpretación',
   'manufactura-de-duda',
   'inercia-institucional',
+  'titular-engañoso',
+  'correlación-presentada-como-causalidad',
+  'diseño-sesgado',
+  'omisión-de-datos',
+  'sesgo-de-confirmacion',
+  'migración-de-estrategia',
+  'normalización-por-repetición',
+  'captura-regulatoria',
+  'conflicto-de-interés-no-declarado',
+  'experto-capturado',
+  'financiamiento-de-estudio',
 ] as const;
 
 /**
