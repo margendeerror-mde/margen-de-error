@@ -1,6 +1,6 @@
-<svg width="400" height="150" viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <text x="0" y="60" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="60" fill="black" letter-spacing="-2">MARGEN</text>
-  <text x="0" y="120" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="60" fill="black" letter-spacing="-2">DE ERROR</text>
-  <path d="M0 75H150" stroke="black" stroke-width="3"/>
-  <path d="M155 80H320" stroke="black" stroke-width="3"/>
+<svg width="180" height="45" viewBox="0 0 180 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <text x="0" y="17" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="19" fill="currentColor" letter-spacing="-0.5">MARGEN</text>
+  <text x="0" y="38" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="19" fill="currentColor" letter-spacing="-0.5">DE ERROR</text>
+  <line x1="0" y1="22" x2="72" y2="22" stroke="currentColor" stroke-width="1.5"/>
+  <line x1="76" y1="24" x2="120" y2="24" stroke="currentColor" stroke-width="1.5"/>
 </svg>

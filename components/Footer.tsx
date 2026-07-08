@@ -11,26 +11,34 @@ export default function Footer() {
   if (isEntryPage || isRedPage) return null;
 
   return (
-    <footer className="max-w-7xl mx-auto px-4 py-24 mt-24 border-t border-border/10">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-12 text-[#999]">
-        <div className="flex flex-col gap-4 items-center md:items-start">
-          <div className="tag-text !text-[10px] tracking-[0.2em] font-bold">
-            MARGEN DE ERROR — PERIODISMO CIENTÍFICO INDEPENDIENTE
+    <footer className="w-full border-t-2 border-black bg-transparent text-black mt-24">
+      <div className="max-w-screen-2xl mx-auto px-4 md:px-8 py-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+        <div className="flex flex-col gap-6">
+          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] opacity-80">
+            MARGEN DE ERROR<br />
+            PERIODISMO CIENTÍFICO INDEPENDIENTE
           </div>
-          <Link href="/red" className="tag-text !text-[11px] text-accent hover:opacity-70 transition-opacity font-bold tracking-[0.1em]">
-            → VER RED DE CONEXIONES
+          <Link href="/atlas" className="font-mono text-[10px] font-bold uppercase tracking-widest text-black hover:bg-black hover:text-white border-2 border-black px-4 py-2 inline-flex self-start transition-colors">
+            → EXPLORAR EL ATLAS DEL ERROR
           </Link>
         </div>
         
-        <div className="flex gap-8">
-          <Link href="https://www.linkedin.com/in/margen-de-error-mde/" target="_blank" rel="noopener noreferrer" className="tag-text !text-[10px] tracking-[0.1em] hover:text-accent transition-colors">
-            [LINKEDIN]
+        <div className="flex flex-wrap gap-x-8 gap-y-4 font-mono text-[10px] uppercase font-bold tracking-[0.15em]">
+          <Link href="https://www.instagram.com/margendeerror.mde/" target="_blank" rel="noopener noreferrer" className="hover:bg-black hover:text-white px-2 py-1 -ml-2 transition-colors">
+            INSTAGRAM
           </Link>
-          <Link href="https://x.com/mde_uy" target="_blank" rel="noopener noreferrer" className="tag-text !text-[10px] tracking-[0.1em] hover:text-accent transition-colors">
-            [X / TWITTER]
+          <Link href="https://www.linkedin.com/in/margen-de-error-mde/" target="_blank" rel="noopener noreferrer" className="hover:bg-black hover:text-white px-2 py-1 -ml-2 transition-colors">
+            LINKEDIN
           </Link>
-          <Link href="/privacidad" className="tag-text !text-[10px] tracking-[0.1em] hover:text-accent transition-colors">
-            [POLÍTICA DE PRIVACIDAD]
+          <Link href="https://x.com/mde_uy" target="_blank" rel="noopener noreferrer" className="hover:bg-black hover:text-white px-2 py-1 -ml-2 transition-colors">
+            X (TWITTER)
+          </Link>
+          <div className="w-px h-4 bg-black/20 hidden md:block self-center mx-2" />
+          <Link href="/carta" className="hover:bg-black hover:text-white px-2 py-1 -ml-2 transition-colors">
+            ACERCA DE
+          </Link>
+          <Link href="/privacidad" className="hover:bg-black hover:text-white px-2 py-1 -ml-2 transition-colors">
+            PRIVACIDAD
           </Link>
         </div>
       </div>
