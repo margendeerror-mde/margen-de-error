@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { Pieza, AtlasMecanismo } from './types';
+import { Pieza, AtlasMecanismo, CONDICIONES } from './types';
 
 export type { Pieza };
 
@@ -33,7 +33,19 @@ function parsePieza(filepath: string, filename: string): Pieza {
 
   const rawMecanismos = normalizeTag(data.mecanismo);
   const rawAtlas = normalizeTag(data.atlas);
-  const combinedAtlas = Array.from(new Set([...rawAtlas, ...rawMecanismos])) as AtlasMecanismo[];
+  const rawCondiciones = normalizeTag(data.condiciones);
+
+  const combinedAtlas = new Set<string>([...rawAtlas]);
+  const combinedCondiciones = new Set<string>([...rawCondiciones]);
+
+  // Migrate legacy mecanismos
+  rawMecanismos.forEach(m => {
+    if ((CONDICIONES as readonly string[]).includes(m)) {
+      combinedCondiciones.add(m);
+    } else {
+      combinedAtlas.add(m);
+    }
+  });
 
   return {
     slug,
@@ -44,9 +56,9 @@ function parsePieza(filepath: string, filename: string): Pieza {
       : String(data.fecha || ''),
     industria: String(data.industria || ''),
     mecanismo: rawMecanismos,
-    atlas: combinedAtlas,
+    atlas: Array.from(combinedAtlas) as AtlasMecanismo[],
     pregunta: String(data.pregunta || ''),
-    condiciones: normalizeTag(data.condiciones),
+    condiciones: Array.from(combinedCondiciones),
     tema: String(data.tema || ''),
     content,
     href,
@@ -113,12 +125,40 @@ export function getPiezasByTemporada(): Record<number, Pieza[]> {
   return grouped;
 }
 
-export function getAvailableTags(piezas: Pieza[]) {
+export function getAllTags() {
+  const piezas = getAllPiezas();
+  
   const tags = {
-    industria: new Set<string>(),
     mecanismo: new Set<string>(),
     atlas: new Set<string>(),
     tema: new Set<string>(),
+    industria: new Set<string>(),
+    condiciones: new Set<string>(),
+  };
+
+  piezas.forEach(p => {
+    p.mecanismo.forEach(m => tags.mecanismo.add(m));
+    p.atlas.forEach(a => tags.atlas.add(a));
+    p.condiciones.forEach(c => tags.condiciones.add(c));
+    if (p.tema) tags.tema.add(p.tema);
+    if (p.industria) tags.industria.add(p.industria);
+  });
+
+  return {
+    mecanismo: Array.from(tags.mecanismo).sort(),
+    atlas: Array.from(tags.atlas).sort(),
+    condiciones: Array.from(tags.condiciones).sort(),
+    tema: Array.from(tags.tema).sort(),
+    industria: Array.from(tags.industria).sort(),
+  };
+}
+
+export function getAvailableTags(piezas: Pieza[]) {
+  const tags = {
+    industria: new Set<string>(),
+    tema: new Set<string>(),
+    mecanismo: new Set<string>(),
+    atlas: new Set<string>(),
     condiciones: new Set<string>(),
   };
 
@@ -131,10 +171,10 @@ export function getAvailableTags(piezas: Pieza[]) {
   });
 
   return {
-    industria: Array.from(tags.industria),
-    mecanismo: Array.from(tags.mecanismo),
-    atlas: Array.from(tags.atlas),
-    tema: Array.from(tags.tema),
-    condiciones: Array.from(tags.condiciones),
+    industria: Array.from(tags.industria).sort(),
+    tema: Array.from(tags.tema).sort(),
+    mecanismo: Array.from(tags.mecanismo).sort(),
+    atlas: Array.from(tags.atlas).sort(),
+    condiciones: Array.from(tags.condiciones).sort(),
   };
 }

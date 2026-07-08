@@ -3,10 +3,11 @@ import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
 import GlobalMenu from '@/components/GlobalMenu';
-import { VOLUMEN_COLORS, ATLAS_COLORS, ATLAS_DEFINICIONES, getAtlasTipo } from '@/lib/types';
-import type { AtlasMecanismo } from '@/lib/types';
+import { VOLUMEN_COLORS, ATLAS_COLORS, ATLAS_DEFINICIONES, CONDICION_DEFINICIONES, getAtlasTipo } from '@/lib/types';
+import type { AtlasMecanismo, Condicion } from '@/lib/types';
 import Newsletter from '@/components/Newsletter';
 import SevenCountriesChart from '@/components/SevenCountriesChart';
+import AtlasBadge from '@/components/AtlasBadge';
 
 export default function PiecePage({ 
   params,
@@ -67,30 +68,16 @@ export default function PiecePage({
           {pieza.atlas?.length > 0 && (
             <div className="flex flex-wrap gap-3 mb-16">
               {pieza.atlas.map((a: string) => {
-                const tipo = getAtlasTipo(a as AtlasMecanismo);
-                const definicion = ATLAS_DEFINICIONES[a as AtlasMecanismo];
+                const tipo = getAtlasTipo(a as AtlasMecanismo | Condicion);
+                const definicion = ATLAS_DEFINICIONES[a as AtlasMecanismo] || CONDICION_DEFINICIONES[a as Condicion];
                 return (
-                  <Link
+                  <AtlasBadge
                     key={a}
-                    href={`/atlas?atlas=${a}`}
-                    className="group/atlas flex flex-col gap-1 px-4 py-3 border-2 transition-colors duration-300 hover:bg-black hover:text-white max-w-xs"
-                    style={{ 
-                      borderColor: ATLAS_COLORS[tipo],
-                      backgroundColor: 'transparent',
-                    }}
-                  >
-                    <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em]" style={{ color: ATLAS_COLORS[tipo] }}>
-                      {tipo === 'distorsión' ? '⊘ DISTORSIÓN' : '◎ LÍMITE'}
-                    </span>
-                    <span className="font-serif text-sm font-bold text-[#0A0A0A]">
-                      {a.replace(/-/g, ' ')}
-                    </span>
-                    {definicion && (
-                      <span className="text-[11px] text-muted/60 leading-snug font-serif hidden group-hover/atlas:block">
-                        {definicion}
-                      </span>
-                    )}
-                  </Link>
+                    a={a}
+                    tipo={tipo}
+                    definicion={definicion}
+                    color={ATLAS_COLORS[tipo]}
+                  />
                 );
               })}
             </div>

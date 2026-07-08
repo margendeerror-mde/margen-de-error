@@ -1,8 +1,8 @@
 import { getAllPiezas } from '@/lib/content';
 import { redirect } from 'next/navigation';
 
-export default function LegacyRedirectPage({ params }: { params: { seccion: string, slug: string } }) {
-  const { slug } = params;
+export default async function LegacyRedirectPage({ params }: { params: Promise<{ seccion: string, slug: string }> }) {
+  const { slug } = await params;
   
   const allPiezas = getAllPiezas();
   

@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState, useMemo } from 'react';
 import * as d3 from 'd3';
-import { VOLUMENES, VOLUMEN_COLORS, INDUSTRIAS, ATLAS_DISTORSIONES, ATLAS_LIMITES, TEMAS } from '@/lib/types';
-import type { AtlasMecanismo } from '@/lib/types';
+import { VOLUMENES, VOLUMEN_COLORS, INDUSTRIAS, ATLAS_DISTORSIONES, ATLAS_LIMITES, TEMAS, CONDICIONES, ATLAS_COLORS } from '@/lib/types';
+import type { AtlasMecanismo, Condicion } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 
 interface MinimalPieza {
@@ -13,6 +13,7 @@ interface MinimalPieza {
   industria?: string;
   atlas?: string[];
   mecanismo?: string[];
+  condiciones?: string[];
   titulo: string;
   publicado?: boolean;
 }
@@ -41,7 +42,8 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
     temporada: [],
     tema: [],
     industria: [],
-    atlas: []
+    atlas: [],
+    condiciones: []
   });
 
   const activeFiltersRef = useRef(activeFilters);
@@ -90,7 +92,7 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
     });
   };
 
-  const clearFilters = () => setActiveFilters({ temporada: [], tema: [], industria: [], atlas: [] });
+  const clearFilters = () => setActiveFilters({ temporada: [], tema: [], industria: [], atlas: [], condiciones: [] });
 
   useEffect(() => {
     if (!svgRef.current || !containerRef.current || windowSize.width === 0 || piezas.length === 0) return;
@@ -109,19 +111,20 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
       const tF = filters.temporada.length === 0 || (p.temporada ? filters.temporada.includes(p.temporada.toString()) : false);
       const teF = filters.tema.length === 0 || (p.tema ? filters.tema.includes(p.tema) : false);
       const iF = filters.industria.length === 0 || (p.industria ? filters.industria.includes(p.industria) : false);
-      const mF = filters.atlas.length === 0 || 
-                filters.atlas.every((m: string) => p.atlas?.includes(m) || p.mecanismo?.includes(m));
-      return tF && teF && iF && mF;
+      const mF = filters.atlas.length === 0 || filters.atlas.every((m: string) => p.atlas?.includes(m) || p.mecanismo?.includes(m));
+      const cF = filters.condiciones.length === 0 || filters.condiciones.every((c: string) => p.condiciones?.includes(c));
+      return tF && teF && iF && mF && cF;
     };
 
     const hasActiveFilters = activeFiltersRef.current.temporada?.length > 0 || 
                              activeFiltersRef.current.tema?.length > 0 || 
                              activeFiltersRef.current.industria?.length > 0 || 
-                             activeFiltersRef.current.atlas?.length > 0;
+                             activeFiltersRef.current.atlas?.length > 0 ||
+                             activeFiltersRef.current.condiciones?.length > 0;
 
     const visibleMecanismos = new Set<string>();
     validPiezas.forEach(p => {
-      const allMecanismos = [...(p.atlas || []), ...(p.mecanismo || [])];
+      const allMecanismos = [...(p.atlas || []), ...(p.mecanismo || []), ...(p.condiciones || [])];
       if (allMecanismos.length > 0) {
         if (!hasActiveFilters || isPiezaVisible(p)) {
           allMecanismos.forEach(m => visibleMecanismos.add(m));
@@ -150,12 +153,12 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
         type: 'pieza',
         name: p.titulo,
         pieza: p,
-        radius: isMobile ? 12 : 16, // slightly larger for squares
+        radius: isMobile ? 12 : 16,
         x: width / 2 + (Math.random() - 0.5) * width,
         y: height / 2 + (Math.random() - 0.5) * height
       });
 
-      const allMecanismos = [...(p.atlas || []), ...(p.mecanismo || [])];
+      const allMecanismos = [...(p.atlas || []), ...(p.mecanismo || []), ...(p.condiciones || [])];
       if (allMecanismos.length > 0) {
         if (!hasActiveFilters || isPiezaVisible(p)) {
           allMecanismos.forEach(mName => {
@@ -171,6 +174,13 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
     });
 
     const nodes = Array.from(nodesMap.values());
+
+    const getMecanismoColor = (val: string) => {
+      if ((ATLAS_DISTORSIONES as readonly string[]).includes(val)) return ATLAS_COLORS.distorsión;
+      if ((ATLAS_LIMITES as readonly string[]).includes(val)) return ATLAS_COLORS.límite;
+      if ((CONDICIONES as readonly string[]).includes(val)) return ATLAS_COLORS.condición;
+      return '#000000';
+    };
 
     const getFilteredOpacity = (p: MinimalPieza | undefined) => {
       if (!p) return 1;
@@ -443,6 +453,7 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
             <FilterSection label="TEMA" options={TEMAS} active={activeFilters.tema} toggle={(v) => toggleFilter('tema', v)} />
             <FilterSection label="INDUSTRIA" options={INDUSTRIAS} active={activeFilters.industria} toggle={(v) => toggleFilter('industria', v)} />
             <FilterSection label="DISTORSIÓN" options={ATLAS_DISTORSIONES} active={activeFilters.atlas} toggle={(v) => toggleFilter('atlas', v)} />
+            <FilterSection label="CONTEXTO INSTITUCIONAL" options={CONDICIONES} active={activeFilters.condiciones} toggle={(v) => toggleFilter('condiciones', v)} />
             <FilterSection label="LÍMITE" options={ATLAS_LIMITES} active={activeFilters.atlas} toggle={(v) => toggleFilter('atlas', v)} />
           </div>
         </div>

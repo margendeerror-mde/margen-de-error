@@ -23,10 +23,6 @@ export const ATLAS_DISTORSIONES = [
   'sesgo-de-confirmacion',
   'migración-de-estrategia',
   'normalización-por-repetición',
-  'captura-regulatoria',
-  'conflicto-de-interés-no-declarado',
-  'experto-capturado',
-  'financiamiento-de-estudio',
 ] as const;
 
 /**
@@ -63,7 +59,7 @@ export const ATLAS_DEFINICIONES: Record<AtlasMecanismo, string> = {
   'límite-de-extrapolación': 'Asumir que un resultado en una población controlada o modelo animal funcionará igual en la población general.',
   'baja-potencia-estadística': 'El tamaño de la muestra es insuficiente para distinguir un efecto real del ruido azaroso.',
   
-  // Legacy / Contextuales
+  // Legacy / Contextuales (solo distorsiones puras)
   'titular-engañoso': 'El titular no refleja fielmente los hallazgos del estudio.',
   'correlación-presentada-como-causalidad': 'Presentar una correlación estadística como una relación causa-efecto.',
   'diseño-sesgado': 'El diseño del estudio está sesgado a favor de un resultado particular.',
@@ -71,16 +67,13 @@ export const ATLAS_DEFINICIONES: Record<AtlasMecanismo, string> = {
   'sesgo-de-confirmacion': 'Interpretar los datos para que confirmen las creencias previas.',
   'migración-de-estrategia': 'Cambiar de estrategia a mitad de camino para encontrar un resultado deseado.',
   'normalización-por-repetición': 'Asumir que algo es cierto porque se ha repetido muchas veces.',
-  'captura-regulatoria': 'La industria controla o influye en las agencias reguladoras.',
-  'conflicto-de-interés-no-declarado': 'El investigador tiene un conflicto de interés que no declaró.',
-  'experto-capturado': 'El investigador es financiado o influenciado por la industria.',
-  'financiamiento-de-estudio': 'El estudio es financiado por la industria que se beneficia de los resultados.',
 };
 
 /** Tipo del Atlas: distorsión o límite */
-export type AtlasTipo = 'distorsión' | 'límite';
+export type AtlasTipo = 'distorsión' | 'límite' | 'condición';
 
-export function getAtlasTipo(mecanismo: AtlasMecanismo): AtlasTipo {
+export function getAtlasTipo(mecanismo: AtlasMecanismo | Condicion): AtlasTipo {
+  if ((CONDICIONES as readonly string[]).includes(mecanismo)) return 'condición';
   return (ATLAS_DISTORSIONES as readonly string[]).includes(mecanismo) 
     ? 'distorsión' 
     : 'límite';
@@ -93,15 +86,34 @@ export function getAtlasTipo(mecanismo: AtlasMecanismo): AtlasTipo {
 export const CONDICIONES = [
   'conflicto-de-interés',
   'financiamiento-industrial',
-  'captura-regulatoria',
   'lobby-industrial',
   'incentivos-académicos',
   'autoridad-científica',
   'financiamiento-oscuro',
   'especialización-fragmentada',
+  // legacy:
+  'captura-regulatoria',
+  'conflicto-de-interés-no-declarado',
+  'experto-capturado',
+  'financiamiento-de-estudio',
 ] as const;
 
 export type Condicion = typeof CONDICIONES[number];
+
+export const CONDICION_DEFINICIONES: Record<Condicion, string> = {
+  'conflicto-de-interés': 'Situación donde intereses financieros o personales pueden influir en el juicio profesional.',
+  'financiamiento-industrial': 'La investigación es financiada por industrias con intereses comerciales en los resultados.',
+  'lobby-industrial': 'Esfuerzos sistemáticos de industrias para influir en políticas públicas o regulaciones.',
+  'incentivos-académicos': 'Presiones del sistema académico (publicar o perecer) que promueven malas prácticas.',
+  'autoridad-científica': 'Uso del prestigio científico o institucional para blindar afirmaciones cuestionables.',
+  'financiamiento-oscuro': 'Fondos cuyo origen real está oculto tras organizaciones pantalla o fundaciones.',
+  'especialización-fragmentada': 'Excesiva especialización que impide ver el cuadro completo de un problema.',
+  // legacy:
+  'captura-regulatoria': 'La industria controla o influye en las agencias reguladoras.',
+  'conflicto-de-interés-no-declarado': 'El investigador tiene un conflicto de interés que no declaró.',
+  'experto-capturado': 'El investigador es financiado o influenciado por la industria.',
+  'financiamiento-de-estudio': 'El estudio es financiado por la industria que se beneficia de los resultados.',
+};
 
 // ============================================================
 // INDUSTRIAS Y TEMAS (se mantienen)
@@ -218,4 +230,5 @@ export const VOLUMEN_COLORS: Record<number, string> = {
 export const ATLAS_COLORS = {
   distorsión: '#CC0000',
   límite: '#2E5F7A',
+  condición: '#4A4A4A',
 } as const;

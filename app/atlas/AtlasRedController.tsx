@@ -6,7 +6,7 @@ import RedView from '../red/RedView';
 import type { Pieza } from '@/lib/types';
 import GlobalMenu from '@/components/GlobalMenu';
 
-export default function AtlasRedController({ piezas, tags, initialFilter }: { piezas: Pieza[], tags: any, initialFilter?: { tipo: 'distorsión' | 'límite' | 'industria' | 'tema' | null, valor: string | null } }) {
+export default function AtlasRedController({ piezas, tags, initialFilter }: { piezas: Pieza[], tags: any, initialFilter?: { tipo: 'distorsión' | 'límite' | 'condición' | 'industria' | 'tema' | null, valor: string | null } }) {
   const [view, setView] = useState<'atlas' | 'red'>('atlas');
 
   const ToggleButton = ({ dark }: { dark?: boolean }) => (
