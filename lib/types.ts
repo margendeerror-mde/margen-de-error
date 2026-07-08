@@ -62,6 +62,19 @@ export const ATLAS_DEFINICIONES: Record<AtlasMecanismo, string> = {
   'endpoints-subrogados': 'Medir o modificar un marcador biológico asumiendo que refleja o predice el desenlace clínico que realmente importa.',
   'límite-de-extrapolación': 'Asumir que un resultado en una población controlada o modelo animal funcionará igual en la población general.',
   'baja-potencia-estadística': 'El tamaño de la muestra es insuficiente para distinguir un efecto real del ruido azaroso.',
+  
+  // Legacy / Contextuales
+  'titular-engañoso': 'El titular no refleja fielmente los hallazgos del estudio.',
+  'correlación-presentada-como-causalidad': 'Presentar una correlación estadística como una relación causa-efecto.',
+  'diseño-sesgado': 'El diseño del estudio está sesgado a favor de un resultado particular.',
+  'omisión-de-datos': 'Omitir datos que no concuerdan con la conclusión deseada.',
+  'sesgo-de-confirmacion': 'Interpretar los datos para que confirmen las creencias previas.',
+  'migración-de-estrategia': 'Cambiar de estrategia a mitad de camino para encontrar un resultado deseado.',
+  'normalización-por-repetición': 'Asumir que algo es cierto porque se ha repetido muchas veces.',
+  'captura-regulatoria': 'La industria controla o influye en las agencias reguladoras.',
+  'conflicto-de-interés-no-declarado': 'El investigador tiene un conflicto de interés que no declaró.',
+  'experto-capturado': 'El investigador es financiado o influenciado por la industria.',
+  'financiamiento-de-estudio': 'El estudio es financiado por la industria que se beneficia de los resultados.',
 };
 
 /** Tipo del Atlas: distorsión o límite */
