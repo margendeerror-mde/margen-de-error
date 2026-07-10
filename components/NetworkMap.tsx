@@ -178,7 +178,7 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
     const getMecanismoColor = (val: string) => {
       if ((ATLAS_DISTORSIONES as readonly string[]).includes(val)) return ATLAS_COLORS.distorsión;
       if ((ATLAS_LIMITES as readonly string[]).includes(val)) return ATLAS_COLORS.límite;
-      if ((CONDICIONES as readonly string[]).includes(val)) return ATLAS_COLORS.condición;
+      if ((CONDICIONES as readonly string[]).includes(val)) return '#666666';
       return '#000000';
     };
 
