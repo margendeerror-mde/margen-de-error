@@ -120,13 +120,9 @@ export default function AtlasView({ piezas, tags, initialFilter }: { piezas: Pie
                 onClick={() => toggleFilter('condición', c)}
                 className={`px-3 py-1 text-[10px] font-mono uppercase tracking-widest transition-colors border-2 border-black ${
                   isActive('condición', c)
-                    ? 'text-white' 
+                    ? 'bg-black text-white' 
                     : 'bg-transparent text-black hover:bg-black hover:text-white'
                 }`}
-                style={{ 
-                  backgroundColor: isActive('condición', c) ? ATLAS_COLORS['condición'] : undefined,
-                  borderColor: isActive('condición', c) ? ATLAS_COLORS['condición'] : 'black',
-                }}
               >
                 {c.replace(/-/g, ' ')}
               </button>
