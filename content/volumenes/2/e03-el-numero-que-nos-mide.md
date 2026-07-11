@@ -22,7 +22,7 @@ pregunta: >-
   individuos?
 condiciones:
   - captura-regulatoria
-publicado: false
+publicado: true
 ---
 
 El 17 de junio de 1998, los Institutos Nacionales de Salud de Estados Unidos publicaron nuevas directrices sobre obesidad. El cambio central era uno solo: el umbral de índice de masa corporal para clasificar a alguien como "sobrepeso" bajó de 27,8 a 25.
