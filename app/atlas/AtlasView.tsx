@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Pieza, ATLAS_COLORS, getAtlasTipo } from '@/lib/types';
 import PieceCard from '@/components/PieceCard';
 
-type FilterType = 'distorsión' | 'límite' | 'industria' | 'tema';
+type FilterType = 'distorsión' | 'límite' | 'condición' | 'industria' | 'tema';
 type Filter = { tipo: FilterType, valor: string };
 
 export default function AtlasView({ piezas, tags, initialFilter }: { piezas: Pieza[], tags: any, initialFilter?: { tipo: FilterType | null, valor: string | null } }) {
@@ -45,6 +45,8 @@ export default function AtlasView({ piezas, tags, initialFilter }: { piezas: Pie
         case 'distorsión':
         case 'límite':
           return valores.some(v => p.atlas?.includes(v as any));
+        case 'condición':
+          return valores.some(v => p.condiciones?.includes(v as any));
         case 'industria':
           return valores.includes(p.industria);
         case 'tema':
@@ -58,7 +60,7 @@ export default function AtlasView({ piezas, tags, initialFilter }: { piezas: Pie
   return (
     <div className="py-12 border-t-2 border-black">
       {/* Botonera Superior Brutalista */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border-b-2 border-black">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-0 border-b-2 border-black">
         
         {/* Distorsiones */}
         <div className="border-r-2 border-black p-6 bg-white">
@@ -108,6 +110,26 @@ export default function AtlasView({ piezas, tags, initialFilter }: { piezas: Pie
           </div>
         </div>
 
+        {/* Contexto Institucional */}
+        <div className="border-r-2 border-black p-6 bg-white">
+          <h3 className="font-mono text-xs uppercase tracking-widest font-bold mb-4">CONTEXTO INSTITUCIONAL</h3>
+          <div className="flex flex-wrap gap-2">
+            {tags.condiciones?.map((c: string) => (
+              <button
+                key={c}
+                onClick={() => toggleFilter('condición', c)}
+                className={`px-3 py-1 text-[10px] font-mono uppercase tracking-widest transition-colors border-2 border-black ${
+                  isActive('condición', c)
+                    ? 'bg-black text-white' 
+                    : 'bg-transparent text-black hover:bg-black hover:text-white'
+                }`}
+              >
+                {c.replace(/-/g, ' ')}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Temas */}
         <div className="border-r-2 border-black p-6 bg-white">
           <h3 className="font-mono text-xs uppercase tracking-widest font-bold mb-4">TEMAS</h3>
@@ -149,7 +171,7 @@ export default function AtlasView({ piezas, tags, initialFilter }: { piezas: Pie
         </div>
 
         {/* Clear Filters Bar */}
-        <div className="col-span-1 md:col-span-2 lg:col-span-4 border-t-2 border-black p-3 bg-[#F0EDE8] flex justify-end">
+        <div className="col-span-1 md:col-span-3 lg:col-span-5 border-t-2 border-black p-3 bg-[#F0EDE8] flex justify-end">
           <button 
             onClick={() => setActiveFilters([])}
             disabled={activeFilters.length === 0}

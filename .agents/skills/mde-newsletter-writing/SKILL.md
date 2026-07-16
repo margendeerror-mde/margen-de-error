@@ -5,7 +5,9 @@ description: "Estructura, tono y plantilla para redactar las newsletters semanal
 
 # Margen de Error - Newsletter Writing Guidelines
 
-Las newsletters de Margen de Error siguen una estructura fija y un tono muy específico. DEBES replicar este formato exacto cada vez que escribas una.
+**Filosofía Central:** MDE ya no solo cuenta historias. Explica **errores de razonamiento utilizando historias**. La historia es el vehículo para explicar un mecanismo. Toda newsletter debe responder: *¿Qué nos enseña este caso sobre cómo construimos conocimiento?*
+
+Las newsletters siguen una estructura fija y un tono muy específico. DEBES replicar este formato exacto cada vez que escribas una.
 
 ## Tono
 - **Sobrio y contenido**. Sin signos de exclamación. Sin adjetivos grandilocuentes. Sin dramatización.
@@ -25,7 +27,7 @@ Una sola oración que describe el mecanismo o el problema central. Tono descript
 Sitúa al lector en el momento histórico. Presenta al protagonista, el contexto y la acción que desencadena la historia. Termina sugiriendo que algo no era tan claro como parecía.
 
 ### 4. Sección "El mecanismo"
-Encabezado `El mecanismo`. Explica con claridad y rigor el sesgo, la falla metodológica o el conflicto de interés central del episodio. Nombra el mecanismo con su término técnico (cherry-picking, sesgo de publicación, captura regulatoria, etc.) y lo define brevemente. Conecta el mecanismo con sus consecuencias institucionales o de política pública.
+Encabezado `El mecanismo`. Enfocarse en **UNA SOLA TESIS POTENTE** (ej. la especialización médica fragmenta el balance de riesgos). Explica con claridad y rigor el sesgo, la falla metodológica o el conflicto de interés central. Conecta el mecanismo con sus consecuencias institucionales.
 
 ### 5. Llamados a la acción (CTAs)
 Exactamente en este formato:
@@ -35,62 +37,50 @@ Exactamente en este formato:
 [IMAGEN DEL EPISODIO: Título del episodio]
 ```
 
-### 6. Sección "Para seguir leyendo"
-Encabezado `Para seguir leyendo`. Dos o tres oraciones que hacen de puente temático con el próximo episodio. No revelan todo, pero dejan claro por qué la historia continúa. Terminan con un link al artículo siguiente:
+### 6. Sección "Para profundizar"
+Encabezado `Para profundizar`. Dos o tres oraciones que hacen de puente temático con un episodio **ANTERIOR** (ya publicado). **Jamás** linkear a un artículo que todavía no fue publicado. Termina con un link al artículo anterior elegido:
 ```
-→ Título del próximo artículo
+→ Título del artículo anterior
+```
+
+### 7. Sección "Próximo episodio"
+Encabezado `Próximo episodio`. Título del próximo episodio en negrita. Un breve *teaser* de 2 o 3 líneas sobre el episodio de la semana que viene. **Sin links**, ya que aún no está publicado.
+```
+**Título del próximo episodio**
+Teaser de dos o tres líneas describiendo el conflicto central.
 ```
 
 ## Extensión
 - **Total**: Entre 250 y 350 palabras (sin contar CTAs ni encabezados).
 - **Párrafo de apertura**: ~80-100 palabras.
 - **El mecanismo**: ~120-150 palabras.
-- **Para seguir leyendo**: ~50-70 palabras.
 
 ## Ejemplo de referencia (Gold Standard)
 
 ```
-El hombre que eligió siete países
-Cómo una selección de datos en la década de 1950 consolidó la hipótesis dominante sobre las grasas saturadas.
+**La luz que nos falta**
+Cómo la globalización de un mensaje de salud pública diseñado para un contexto específico dejó en segundo plano otros posibles efectos de la exposición solar sobre la salud.
 
-En 1953, el fisiólogo estadounidense Ancel Keys presentó en un simposio internacional en Nueva York una curva que parecía perfecta. El gráfico mostraba una relación directa: a mayor consumo de grasas en una población, mayor era la tasa de mortalidad por enfermedades cardiovasculares. Lo que no resultaba evidente en ese momento fue el método utilizado para lograr esa claridad matemática.
-
-El mecanismo
-Keys contaba con datos dietéticos y de mortalidad de 22 países. Sin embargo, su presentación —y la base de lo que luego se convertiría en el célebre Estudio de los Siete Países— incluyó únicamente un subconjunto de naciones con datos comparables que, en conjunto, reforzaban la relación que estaba investigando. Al trabajar con un subconjunto de países con datos comparables, la curva cobró una fuerza estadística que el conjunto completo de datos no necesariamente sostenía.
-A esta práctica se la conoce como "Cherry picking" o falacia de la evidencia incompleta. No requiere falsificar números, sino un sesgo en la selección que puede surgir tanto de decisiones explícitas como de restricciones prácticas del análisis, donde termina prevaleciendo la evidencia que se alinea con la premisa inicial. Sobre esta clase de análisis se construyeron las bases de las recomendaciones nutricionales de las siguientes décadas, consolidando la hipótesis de que las grasas saturadas eran el principal factor de riesgo cardiovascular.
-
-→ Leer artículo y explorar la visualización interactiva de los datos ocultos
-→ Escuchar episodio
-[IMAGEN DEL EPISODIO: El hombre que eligió siete países]
-
-Para seguir leyendo
-La historia de cómo las grasas se convirtieron en el foco de la nutrición tiene una cara B. Mientras esa hipótesis ganaba peso en la nutrición institucional, otro investigador señalaba a un culpable diferente, con datos relevantes: el azúcar. Sin embargo, por la forma en que funciona la autoridad y el debate institucional, otras interpretaciones de los datos quedaron en segundo plano durante décadas.
-→ El hombre que llegó primero
-```
-
-### Ejemplo 2: S2E2 — Captura de expertos y sesgo de publicación
-
-```
-El hombre que llegó primero
-Cómo la autoridad científica y los incentivos industriales archivaron durante décadas una hipótesis sobre el azúcar que apuntaba en otra dirección.
-
-En 1957, el fisiólogo británico John Yudkin identificó una señal que no encajaba en el modelo que estaba ganando terreno en la nutrición institucional: el azúcar, más que la grasa, parecía asociarse con marcadores de enfermedad cardiovascular en los datos que estaba analizando. Yudkin dirigía el departamento de nutrición del *Queen Elizabeth College* de Londres y publicó trabajos observacionales durante más de una década. Su evidencia tenía limitaciones metodológicas, pero señalaba una dirección que merecía ser explorada. Lo que no tenía era la posición institucional necesaria para que esa señal fuera integrada al debate dominante.
+En algún momento de los años noventa, la exposición solar dejó de ser un hábito cotidiano para convertirse en un riesgo que debía evitarse sistemáticamente. El cambio de paradigma se originó en gran medida tras el éxito de campañas de salud pública (como la sucedida en Australia), un país con condiciones geográficas y demográficas que justificaban medidas extremas contra el melanoma. Sin embargo, cuando el mensaje de prevención se globalizó, se aplicó de forma universal sin ajustar por latitud o tipo de piel. Lo que entonces no resultaba evidente era que esa misma recomendación podía tener consecuencias sobre otras dimensiones de la salud que todavía no estaban siendo consideradas.
 
 El mecanismo
-Ancel Keys, que en ese momento consolidaba la hipótesis lipídica como marco dominante, descartó públicamente el trabajo de Yudkin y lo ridiculizó en foros internacionales. Pero la resistencia no vino solo del debate entre pares. En 2016, documentos internos de la *Sugar Research Foundation* revelaron que la industria azucarera había financiado a investigadores de Harvard para publicar, en 1967, una revisión en el *New England Journal of Medicine* que desplazaba el foco del azúcar hacia las grasas. Los autores no declararon la fuente de financiamiento. Uno de ellos, D. Mark Hegsted, terminó dirigiendo la política nutricional del Departamento de Agricultura de Estados Unidos.
-A esta dinámica se la conoce como captura de expertos: cuando actores con intereses económicos directos logran influir en la producción científica a través de financiamiento, acceso institucional y relaciones de autoridad. No requiere conspiración. Requiere que alguien con más poder y mejores conexiones decida la dirección del debate, y que quien tiene una señal relevante no cuente con ninguna de las dos cosas.
+En 2016, investigadores del *Hospital Universitario Karolinska* de Estocolmo publicaron los resultados de la cohorte MISS, tras seguir a casi treinta mil mujeres suecas durante veinte años. La señal fue clara: evitar la exposición solar se asociaba con un patrón de mortalidad comparable al del tabaquismo. El caso ilustra un problema estructural derivado de la especialización médica: los mensajes de salud pública suelen optimizar un desenlace específico, pero no necesariamente el balance completo de riesgos y beneficios. Cuando una directiva se formula desde una disciplina fragmentada —en este caso, la dermatología y la prevención del cáncer de piel—, las variables que caen fuera de esa especialidad suelen quedar excluidas del cálculo general. Al estandarizar una advertencia sin contexto, terminó prevaleciendo un enfoque que no pudo cuantificar el costo integral de evitar el sol.
 
-→ Leer artículo completo
+→ Leer artículo y explorar la visualización interactiva
 → Escuchar episodio
-[IMAGEN DEL EPISODIO: El hombre que llegó primero]
+[IMAGEN DEL EPISODIO: La luz que nos falta]
 
-Para seguir leyendo
-Si la historia de cómo se consolidó la hipótesis dominante sobre las grasas involucra selección de datos e incentivos industriales, la del instrumento que define quién tiene sobrepeso y quién no tiene su propia arqueología. Una fórmula creada en 1832 por un astrónomo belga para describir poblaciones terminó convertida en criterio de diagnóstico clínico individual. En 1998, un cambio de umbral reclasificó a 29 millones de personas sin que ninguna hubiera cambiado de peso.
-→ El número que nos mide a todos
+Para profundizar
+La medicina moderna logró avances extraordinarios gracias a la especialización. Pero cuando cada disciplina optimiza únicamente el problema que estudia, puede perder de vista cómo esa intervención afecta al resto del organismo. Esa tensión, donde el foco excesivo en una variable o métrica oscurece el cuadro completo, tiene paralelos claros con cómo hemos decidido medir la salud poblacional. Así ocurrió con una fórmula matemática del siglo XIX que terminó decidiendo el diagnóstico clínico individual de millones de personas.
+→ El número que nos mide
+
+Próximo episodio
+**El médico que se tomó la bacteria**
+Durante décadas se creyó que las úlceras eran consecuencia del estrés y del exceso de ácido. Hasta que un médico decidió poner a prueba esa idea utilizando su propio cuerpo como experimento.
 ```
 
 ## Reglas de formato
-- **Cursivas** para nombres de instituciones y publicaciones en inglés: *Sugar Research Foundation*, *New England Journal of Medicine*, *Queen Elizabeth College*, etc.
+- **Cursivas** para nombres de instituciones y publicaciones en inglés.
 - **Cursivas** para términos técnicos adoptados del inglés: *cherry-picking*, *low fat*, etc.
 - **Sin signos de exclamación** en ninguna parte del texto.
-- **Sin negritas** en el cuerpo de la newsletter (solo en encabezados de sección).
+- **Sin negritas** en el cuerpo de la newsletter (solo en encabezados de sección o títulos indicados).
