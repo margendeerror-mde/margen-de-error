@@ -418,7 +418,7 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
   }, [piezas, windowSize, router, isMobile, activeFilters]);
 
   return (
-    <div className="flex w-full h-full bg-[#F0EDE8] relative overflow-hidden font-sans">
+    <div className="flex w-full h-full bg-[#F4F4F0] relative overflow-hidden font-sans">
       {/* Sidebar */}
       <div className={`
         fixed z-[220] bg-white border-black transition-transform duration-500 shadow-[8px_0px_0px_0px_rgba(0,0,0,0.1)]
@@ -431,12 +431,7 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
         <div className={`p-8 ${isMobile ? 'pt-8' : 'pt-32'}`}>
           <div className="flex justify-between items-center mb-12 border-b-2 border-black pb-4">
             <h3 className="font-mono text-lg font-bold uppercase tracking-widest text-black">FILTROS</h3>
-            <div className="flex gap-4 items-center">
-              {hasActiveFilters && (
-                <button onClick={clearFilters} className="font-mono text-[10px] font-bold text-accent hover:text-black uppercase tracking-widest">LIMPIAR</button>
-              )}
-              <button onClick={() => setSidebarOpen(false)} className="font-mono text-[10px] font-bold text-gray-500 hover:text-black uppercase tracking-widest">CERRAR</button>
-            </div>
+            <button onClick={() => setSidebarOpen(false)} className="font-mono text-xs font-bold text-gray-500 hover:text-black">CERRAR</button>
           </div>
           <div className="space-y-10">
             <FilterSection label="VOLÚMENES" options={Object.keys(VOLUMENES)} active={activeFilters.temporada} toggle={(v) => toggleFilter('temporada', v)} isTemporada />
@@ -448,33 +443,27 @@ export default function NetworkMap({ piezas }: { piezas: MinimalPieza[] }) {
         </div>
       </div>
 
-      <div className={`fixed z-[210] flex gap-4 transition-all ${isMobile ? 'bottom-10 w-full justify-center px-6' : 'bottom-8 left-8'}`}>
-        <button 
-          onClick={() => setSidebarOpen(true)} 
-          className={`flex items-center justify-center font-mono font-bold uppercase tracking-widest border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-colors
-            ${isMobile 
-              ? 'bg-black text-white px-6 py-3 flex-1' 
-              : 'bg-white text-black px-6 py-3 hover:bg-black hover:text-white'
-            }`}
-        >
-          <span className="text-xs">
-            ☰ FILTROS {hasActiveFilters && '(ACTIVOS)'}
-          </span>
-        </button>
+      <button 
+        onClick={() => setSidebarOpen(true)} 
+        className={`fixed z-[210] transition-all flex items-center justify-center font-mono font-bold uppercase tracking-widest
+          ${isMobile 
+            ? 'bottom-10 left-6 bg-black text-white px-6 py-3 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]' 
+            : 'bottom-8 left-8 bg-white text-black px-6 py-3 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white'
+          }`}
+      >
+        <span className="text-xs">
+          ☰ FILTROS
+        </span>
+      </button>
 
-        {hasActiveFilters && (
-          <button
-            className={`font-mono font-bold uppercase tracking-widest text-xs transition-colors border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center gap-2
-              ${isMobile
-                ? 'bg-white text-black px-6 py-3 flex-1'
-                : 'bg-gray-200 text-black px-6 py-3 hover:bg-black hover:text-white'
-              }`}
-            onClick={clearFilters}
-          >
-            LIMPIAR <span className="text-lg leading-none hidden md:inline">×</span>
-          </button>
-        )}
-      </div>
+      {isMobile && hasActiveFilters && (
+        <button
+          className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[210] bg-white text-black text-[10px] uppercase font-bold tracking-widest px-6 py-3 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+          onClick={clearFilters}
+        >
+          LIMPIAR FILTROS
+        </button>
+      )}
 
       <div ref={containerRef} className="flex-1 relative cursor-crosshair">
         <svg ref={svgRef} className="absolute inset-0 w-full h-full" />

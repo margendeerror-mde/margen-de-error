@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #F4F4F0;
+  --color-foreground: #0A0A0A;
+  --color-accent: #CC0000;
+  --color-border: #E0E0E0;
+  --color-muted: rgba(10, 10, 10, 0.5);
+  
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --animate-fade-in-up: fade-in-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .tag-text {
+    @apply font-sans text-[10px] uppercase tracking-[0.15em] font-medium leading-none;
+  }
+  
+  .title-serif {
+    @apply font-serif font-bold tracking-tight;
+  }
+
+  .content-serif {
+    @apply font-serif text-[18px] leading-[1.8];
+  }
+
+  .content-serif p {
+    @apply mb-12 last:mb-0;
+  }
+
+  .content-serif hr {
+    @apply border-none h-px bg-muted/20 my-16;
+  }
+  
+  .content-serif ul {
+    @apply list-disc pl-5 mb-8;
+  }
+  
+  .content-serif li {
+    @apply mb-4;
+  }
+
+  .content-serif a {
+    @apply text-accent no-underline border-b border-accent/30 hover:border-accent transition-all;
+  }
+}
+
+/* Red Page overrides */
+.dark-mode {
+  --color-background: #0A0A0A;
+  --color-foreground: #FAFAF8;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+/* Custom Scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -9,14 +9,14 @@ export default async function AtlasPage({ searchParams }: { searchParams: Promis
   const tags = getAvailableTags(todasLasPiezas);
   const resolvedParams = await searchParams;
 
-  let initialFilter: { tipo: 'distorsión' | 'límite' | 'condición' | 'industria' | 'tema' | null, valor: string | null } = { tipo: null, valor: null };
+  let initialFilter: { tipo: 'distorsión' | 'límite' | 'industria' | 'tema' | null, valor: string | null } = { tipo: null, valor: null };
   if (resolvedParams?.tema) {
     initialFilter = { tipo: 'tema', valor: resolvedParams.tema as string };
   } else if (resolvedParams?.industria) {
     initialFilter = { tipo: 'industria', valor: resolvedParams.industria as string };
   } else if (resolvedParams?.atlas) {
     const val = resolvedParams.atlas as string;
-    initialFilter = { tipo: getAtlasTipo(val as any), valor: val };
+    initialFilter = { tipo: getAtlasTipo(val as AtlasMecanismo), valor: val };
   }
 
   return (
