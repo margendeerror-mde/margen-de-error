@@ -19,7 +19,8 @@ atlas:
 pregunta: ¿Qué pasa cuando confundimos los síntomas de un problema con su causa?
 condiciones:
   - especialización-fragmentada
-publicado: false
+publicado: true
+spotifyUrl: 'https://open.spotify.com/episode/438IMHYe8W9825WxskISQO?si=9AYMJ2lqSNyQ_zIrR4cSNw'
 ---
 
 En algún momento de los años noventa, el sol dejó de ser parte del paisaje y se convirtió en una amenaza. No hubo un decreto, no hubo un día en que el cambio fuera visible. Simplemente ocurrió: la piel bronceada pasó de ser signo de salud a ser señal de imprudencia, el protector solar dejó de ser un producto de playa y se volvió un hábito diario, y la exposición solar moderada quedó subsumida en la misma categoría que fumar o no usar cinturón.
