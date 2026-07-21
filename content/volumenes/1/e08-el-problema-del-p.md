@@ -23,6 +23,7 @@ pregunta: >-
 condiciones:
   - incentivos-académicos
 publicado: true
+spotifyUrl: 'https://open.spotify.com/episode/5WyaFkdPjV9uXxQUZ3GWGp?si=_l2IF9W3RtGtPp8mSBBhRQ'
 ---
 
 En 1925, el estadístico Ronald Fisher publicó *Statistical Methods for Research Workers*, un manual que iba a transformar la forma en que la ciencia empírica evalúa sus resultados. En ese libro apareció, como ejemplo pedagógico, el umbral de `p = 0,05`.
