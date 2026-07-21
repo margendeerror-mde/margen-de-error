@@ -18,6 +18,7 @@ pregunta: ¿Qué pasa cuando los estudios negativos nunca llegan a publicarse?
 condiciones:
   - conflicto-de-interés
 publicado: true
+spotifyUrl: 'https://open.spotify.com/episode/7chbvhxqNdmvgf8fTGkxBn?si=4UzLM5TMS2CVoe6CDwzuwg'
 ---
 
 En 2008, dos estudios independientes analizaron los mismos datos de la FDA sobre antidepresivos y llegaron a la misma conclusión: la literatura médica publicada sobreestimaba la eficacia de estos medicamentos porque los ensayos con resultados negativos, en su mayoría, nunca habían sido publicados. No hubo fraude declarado. Hubo un sistema funcionando con los incentivos que tenía.
