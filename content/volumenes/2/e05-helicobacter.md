@@ -16,7 +16,7 @@ atlas:
   - inercia-institucional
 pregunta: ¿Qué pasa cuando la evidencia contradice el consenso?
 condiciones: []
-publicado: true
+publicado: false
 ---
 
 En 1984, un médico australiano llamado Barry Marshall hizo algo que ningún comité de ética habría aprobado: preparó una solución con la bacteria que había aislado en biopsias de pacientes con úlcera gástrica, y se la tomó.
