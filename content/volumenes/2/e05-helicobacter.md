@@ -16,6 +16,8 @@ atlas:
   - inercia-institucional
 pregunta: ¿Qué pasa cuando la evidencia contradice el consenso?
 condiciones: []
+spotifyUrl: >-
+  https://open.spotify.com/episode/1YITknkM6UtRE04LNxrYM5?si=2B7OK1l9QQCrphKbMU3Yjw
 publicado: false
 ---
 
