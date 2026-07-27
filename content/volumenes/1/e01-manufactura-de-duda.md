@@ -3,10 +3,7 @@ titulo: La duda como producto
 temporada: 1
 capitulo: 1
 industria: tabaco
-mecanismo:
-  - manufactura-de-duda
-  - migración-de-estrategia
-tema: mente-y-conducta
+tema: ambiente-y-exposición
 fecha: 2025-02-10T00:00:00.000Z
 resumen: >-
   En los años cincuenta, las tabacaleras desarrollaron una estrategia para

@@ -3,9 +3,6 @@ titulo: El hombre que eligió siete países
 temporada: 2
 capitulo: 1
 industria: alimentaria
-mecanismo:
-  - cherry-picking
-  - correlación-presentada-como-causalidad
 tema: nutrición
 fecha: 2025-01-28T00:00:00.000Z
 resumen: >-
@@ -19,7 +16,10 @@ pregunta: ¿Qué pasa cuando elegimos solamente los datos que confirman nuestra 
 condiciones:
   - autoridad-científica
 publicado: true
+<<<<<<< HEAD
 spotifyUrl: 'https://open.spotify.com/episode/7xZJ7OLn0ZU55Bes8D9irr?si=wew2IcrUQp-NPLM4pzoAgQ'
+=======
+>>>>>>> feature/nueva-taxonomia
 ---
 
 En 1953, el fisiólogo estadounidense Ancel Keys publicó un gráfico que iba a cambiar la forma en que el mundo comía durante las siguientes cinco décadas. El gráfico mostraba una correlación casi perfecta entre el consumo de grasas en la dieta y la mortalidad por enfermedad cardíaca en seis países.

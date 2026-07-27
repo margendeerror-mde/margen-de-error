@@ -3,9 +3,6 @@ titulo: El litio y las cobayas tranquilas
 temporada: 2
 capitulo: 6
 industria: farmacéutica
-mecanismo:
-  - omisión-de-datos
-  - migración-de-estrategia
 tema: mente-y-conducta
 fecha: 2025-03-11T00:00:00.000Z
 resumen: >
@@ -19,7 +16,8 @@ atlas:
 pregunta: >-
   ¿Qué pasa cuando un descubrimiento accidental desafía las prioridades de la
   industria?
-condiciones: []
+condiciones:
+  - ausencia-de-incentivos-comerciales
 publicado: false
 ---
 

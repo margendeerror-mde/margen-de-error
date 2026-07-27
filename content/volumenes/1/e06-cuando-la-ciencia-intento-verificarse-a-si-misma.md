@@ -3,9 +3,6 @@ titulo: Cuando la ciencia intentó verificarse a sí misma
 temporada: 1
 capitulo: 6
 industria: institucional-académica
-mecanismo:
-  - sesgo-de-publicación
-  - preregistro
 tema: mente-y-conducta
 fecha: 2026-05-06T11:33:00.000Z
 resumen: >-

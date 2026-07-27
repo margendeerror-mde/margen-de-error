@@ -3,9 +3,6 @@ titulo: Cinco líneas que ayudaron a sostener una narrativa
 temporada: 1
 capitulo: 4
 industria: farmacéutica
-mecanismo:
-  - cherry-picking
-  - normalización-por-repetición
 tema: dolor
 fecha: 2025-02-01T00:00:00.000Z
 resumen: >-

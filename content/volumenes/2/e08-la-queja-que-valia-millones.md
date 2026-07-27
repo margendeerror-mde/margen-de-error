@@ -3,9 +3,6 @@ titulo: La queja que valía millones
 temporada: 2
 capitulo: 8
 industria: farmacéutica
-mecanismo:
-  - migración-de-estrategia
-  - financiamiento-de-estudio
 tema: medicación-y-fármacos
 fecha: 2026-05-05T00:00:00.000Z
 resumen: >-
@@ -13,7 +10,7 @@ resumen: >-
   crecimiento de vello— lo convirtió en el primer fármaco aprobado para la
   alopecia, en un giro clínico imposible de planificar.
 atlas:
-  - endpoints-subrogados
+  - inercia-institucional
 pregunta: ¿Qué ocurre cuando un efecto adverso se convierte en la indicación principal?
 condiciones: []
 publicado: false

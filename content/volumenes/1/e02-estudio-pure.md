@@ -3,9 +3,6 @@ titulo: La asimetría de la evidencia
 temporada: 1
 capitulo: 2
 industria: alimentaria
-mecanismo:
-  - titular-engañoso
-  - correlación-presentada-como-causalidad
 tema: nutrición
 fecha: 2025-03-14T00:00:00.000Z
 resumen: >-

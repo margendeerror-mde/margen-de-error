@@ -3,9 +3,6 @@ titulo: La pastilla que nadie quiso devolver
 temporada: 2
 capitulo: 7
 industria: farmacéutica
-mecanismo:
-  - omisión-de-datos
-  - migración-de-estrategia
 tema: medicación-y-fármacos
 fecha: 2025-02-12T00:00:00.000Z
 resumen: >-
@@ -15,7 +12,7 @@ resumen: >-
   contemplado. Esa señal se convirtió en uno de los medicamentos más exitosos y
   reconocibles del siglo XX.
 atlas:
-  - endpoints-subrogados
+  - inercia-institucional
 pregunta: ¿Qué pasa cuando el efecto secundario es más importante que el efecto buscado?
 condiciones: []
 publicado: false

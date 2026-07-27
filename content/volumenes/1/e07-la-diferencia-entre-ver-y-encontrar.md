@@ -3,9 +3,6 @@ titulo: La diferencia entre ver y encontrar
 temporada: 1
 capitulo: 7
 industria: institucional-académica
-mecanismo:
-  - diseño-sesgado
-  - titular-engañoso
 tema: diagnóstico-y-clasificación
 fecha: 2026-05-06T11:34:00.000Z
 resumen: >-
@@ -14,6 +11,7 @@ resumen: >-
   ser engañosos y los demasiado grandes, irrelevantes para la práctica clínica.
 atlas:
   - baja-potencia-estadística
+  - p-hacking
 pregunta: >-
   ¿Cuándo un estudio es demasiado pequeño para encontrar algo y demasiado grande
   para que importe?

@@ -3,10 +3,7 @@ titulo: El médico que se tomó la bacteria
 temporada: 2
 capitulo: 5
 industria: farmacéutica
-mecanismo:
-  - normalización-por-repetición
-  - experto-capturado
-tema: microbioma
+tema: enfermedades-infecciosas
 fecha: 2025-01-22T00:00:00.000Z
 resumen: >-
   En 1984, Barry Marshall se tomó un vaso con Helicobacter pylori para demostrar

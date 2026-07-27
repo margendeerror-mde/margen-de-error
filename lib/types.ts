@@ -77,6 +77,7 @@ export const CONDICIONES = [
   'autoridad-científica',
   'financiamiento-oscuro',
   'especialización-fragmentada',
+  'ausencia-de-incentivos-comerciales',
 ] as const;
 
 export type Condicion = typeof CONDICIONES[number];
@@ -114,7 +115,8 @@ export const TEMAS = [
   'diagnóstico-y-clasificación',
   'hormonas-y-endocrino',
   'inmunidad',
-  'envejecimiento'
+  'envejecimiento',
+  'enfermedades-infecciosas'
 ] as const;
 
 export type Industria = string;
@@ -130,8 +132,8 @@ export const VOLUMENES: Record<number, { titulo: string; descripcion: string }> 
     descripcion: 'Los mecanismos que distorsionan la producción, el análisis y la comunicación del conocimiento científico.',
   },
   2: {
-    titulo: 'De la idea al consenso',
-    descripcion: 'Cómo las ideas científicas nacen, compiten y terminan moldeando la forma en que entendemos la realidad.',
+    titulo: 'Las personas detrás de las ideas',
+    descripcion: 'Historias de científicos que desafiaron el consenso, descubrieron por accidente y pagaron el precio de tener razón demasiado pronto.',
   },
   3: {
     titulo: 'Los límites de la evidencia',
@@ -184,6 +186,7 @@ export const TEMA_COLORS: Record<Tema, string> = {
   "hormonas-y-endocrino":       "#E1BEE7",
   "inmunidad":                  "#B3E5FC",
   "envejecimiento":             "#D7CCC8",
+  "enfermedades-infecciosas":   "#FFAB91",
 };
 
 export const VOLUMEN_COLORS: Record<number, string> = {

@@ -3,9 +3,6 @@ titulo: El problema del p menor a cero coma cero cinco
 temporada: 1
 capitulo: 8
 industria: institucional-académica
-mecanismo:
-  - cherry-picking
-  - diseño-sesgado
 tema: diagnóstico-y-clasificación
 fecha: 2025-03-18T00:00:00.000Z
 resumen: >-
@@ -23,7 +20,6 @@ pregunta: >-
 condiciones:
   - incentivos-académicos
 publicado: true
-spotifyUrl: 'https://open.spotify.com/episode/5WyaFkdPjV9uXxQUZ3GWGp?si=_l2IF9W3RtGtPp8mSBBhRQ'
 ---
 
 En 1925, el estadístico Ronald Fisher publicó *Statistical Methods for Research Workers*, un manual que iba a transformar la forma en que la ciencia empírica evalúa sus resultados. En ese libro apareció, como ejemplo pedagógico, el umbral de `p = 0,05`.

@@ -3,9 +3,6 @@ titulo: La luz que nos falta
 temporada: 2
 capitulo: 4
 industria: cosmética-y-cuidado-personal
-mecanismo:
-  - normalización-por-repetición
-  - omisión-de-datos
 tema: luz-y-radiación
 fecha: 2025-01-10T00:00:00.000Z
 resumen: >-

@@ -3,9 +3,6 @@ titulo: El número que nos mide a todos
 temporada: 2
 capitulo: 3
 industria: seguros-de-salud
-mecanismo:
-  - captura-regulatoria
-  - normalización-por-repetición
 tema: diagnóstico-y-clasificación
 fecha: 2025-03-03T00:00:00.000Z
 resumen: >-
@@ -16,14 +13,18 @@ resumen: >-
   estudiar poblaciones, no personas.
 atlas:
   - sobreinterpretación
-  - endpoints-subrogados
+  - falacia-ecológica
 pregunta: >-
   ¿Qué sucede cuando un indicador estadístico para poblaciones se aplica a
   individuos?
 condiciones:
   - captura-regulatoria
+<<<<<<< HEAD
 publicado: true
 spotifyUrl: 'https://open.spotify.com/episode/4vPxuafCcdqyOej657KTse?si=32JVqqqrRWq5kX5S4j6VFQ'
+=======
+publicado: false
+>>>>>>> feature/nueva-taxonomia
 ---
 
 El 17 de junio de 1998, los Institutos Nacionales de Salud de Estados Unidos publicaron nuevas directrices sobre obesidad. El cambio central era uno solo: el umbral de índice de masa corporal para clasificar a alguien como "sobrepeso" bajó de 27,8 a 25.

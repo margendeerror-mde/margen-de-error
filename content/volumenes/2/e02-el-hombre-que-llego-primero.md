@@ -3,9 +3,6 @@ titulo: El hombre que llegó primero
 temporada: 2
 capitulo: 2
 industria: alimentaria
-mecanismo:
-  - experto-capturado
-  - sesgo-de-publicación
 tema: nutrición
 fecha: 2026-05-05T00:00:00.000Z
 resumen: >-
@@ -18,6 +15,7 @@ pregunta: ¿Qué pasa cuando la evidencia correcta pierde contra la narrativa do
 condiciones:
   - conflicto-de-interés
   - financiamiento-industrial
+  - autoridad-científica
 spotifyUrl: https://open.spotify.com/episode/7d3GOc3dp7XyUKEloYI7U3?si=vtUGjnwKRx2EAYL0x3iisQ
 publicado: true
 ---

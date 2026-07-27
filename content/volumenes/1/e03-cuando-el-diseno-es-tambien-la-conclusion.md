@@ -3,9 +3,6 @@ titulo: Cuando el diseño es también la conclusión
 temporada: 1
 capitulo: 3
 industria: institucional-académica
-mecanismo:
-  - diseño-sesgado
-  - sesgo-de-confirmacion
 tema: mente-y-conducta
 fecha: 2026-05-06T14:40:00.000Z
 resumen: >-
