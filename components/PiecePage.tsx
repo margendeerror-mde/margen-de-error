@@ -40,7 +40,7 @@ export default function PiecePage({
         <header className="mb-16 border-b-2 border-black pb-12">
           <div className="flex flex-wrap gap-x-4 gap-y-2 mb-8 items-center">
             <Link 
-              href={pieza.temporada ? `/temporadas/${pieza.temporada}` : '/atlas'} 
+              href={pieza.temporada ? `/volumenes/${pieza.temporada}` : '/atlas'} 
               className="font-mono text-[10px] font-bold uppercase tracking-widest border-2 border-black px-2 py-1 transition-colors hover:bg-black hover:text-white"
               style={{ backgroundColor: accentColor, color: '#fff', borderColor: 'black' }}
             >
