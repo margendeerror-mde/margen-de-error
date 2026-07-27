@@ -12,7 +12,7 @@ resumen: >-
   contemplado. Esa señal se convirtió en uno de los medicamentos más exitosos y
   reconocibles del siglo XX.
 atlas:
-  - inercia-institucional
+  - límite-observacional
 pregunta: ¿Qué pasa cuando el efecto secundario es más importante que el efecto buscado?
 condiciones: []
 publicado: false

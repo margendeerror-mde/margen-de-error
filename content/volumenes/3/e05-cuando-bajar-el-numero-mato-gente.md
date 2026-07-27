@@ -3,9 +3,6 @@ titulo: Cuando bajar el número mató gente
 temporada: 3
 capitulo: 5
 industria: farmacéutica
-mecanismo:
-  - correlación-presentada-como-causalidad
-  - diseño-sesgado
 tema: medicación-y-fármacos
 fecha: 2026-05-05T00:00:00.000Z
 resumen: >-

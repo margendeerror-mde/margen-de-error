@@ -3,9 +3,6 @@ titulo: La mitad siempre convence
 temporada: 3
 capitulo: 3
 industria: farmacéutica
-mecanismo:
-  - titular-engañoso
-  - omisión-de-datos
 tema: medicación-y-fármacos
 fecha: 2026-05-05T00:00:00.000Z
 resumen: >-

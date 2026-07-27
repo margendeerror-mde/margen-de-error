@@ -10,7 +10,7 @@ resumen: >-
   crecimiento de vello— lo convirtió en el primer fármaco aprobado para la
   alopecia, en un giro clínico imposible de planificar.
 atlas:
-  - inercia-institucional
+  - límite-observacional
 pregunta: ¿Qué ocurre cuando un efecto adverso se convierte en la indicación principal?
 condiciones: []
 publicado: false

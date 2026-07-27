@@ -3,9 +3,6 @@ titulo: Lo que un paper sobre colesterol en adultos mayores no puede concluir
 temporada: 3
 capitulo: 4
 industria: farmacéutica
-mecanismo:
-  - sesgo-de-publicación
-  - correlación-presentada-como-causalidad
 tema: medicación-y-fármacos
 fecha: 2025-02-18T00:00:00.000Z
 resumen: >-

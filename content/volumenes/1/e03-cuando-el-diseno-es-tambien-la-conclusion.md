@@ -11,7 +11,7 @@ resumen: >-
   Cómo el diseño de un estudio puede predeterminar su éxito antes de recolectar
   el primer dato.
 atlas:
-  - p-hacking
+  - diseño-sesgado
   - confusión
 pregunta: ¿Puede el diseño de un estudio predeterminar su conclusión?
 condiciones:

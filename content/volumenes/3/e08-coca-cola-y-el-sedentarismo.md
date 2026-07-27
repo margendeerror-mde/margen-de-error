@@ -3,10 +3,6 @@ titulo: El problema no es lo que comés. Es que no te movés.
 temporada: 3
 capitulo: 8
 industria: alimentaria
-mecanismo:
-  - financiamiento-de-estudio
-  - experto-capturado
-  - manufactura-de-duda
 tema: nutrición
 fecha: 2025-02-05T00:00:00.000Z
 resumen: >-

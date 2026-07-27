@@ -3,9 +3,6 @@ titulo: El estudio que midió lo que la gente recordaba haber comido
 temporada: 3
 capitulo: 1
 industria: institucional-académica
-mecanismo:
-  - diseño-sesgado
-  - omisión-de-datos
 tema: nutrición
 fecha: 2025-01-25T00:00:00.000Z
 resumen: >-

@@ -3,9 +3,6 @@ titulo: Los autores que firmaron papers que no escribieron
 temporada: 3
 capitulo: 6
 industria: farmacéutica
-mecanismo:
-  - conflicto-de-interés-no-declarado
-  - financiamiento-de-estudio
 tema: medicación-y-fármacos
 fecha: 2025-03-07T00:00:00.000Z
 resumen: >-
@@ -16,7 +13,8 @@ resumen: >-
   aumentaba el riesgo de cáncer de mama. Los papers tendían a minimizar o no
   enfatizar estos riesgos.
 atlas:
-  - manufactura-de-duda
+  - sesgo-de-publicación
+  - cherry-picking
 pregunta: ¿Qué pasa cuando los autores de un paper no lo escribieron?
 condiciones:
   - conflicto-de-interés

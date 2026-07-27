@@ -12,6 +12,7 @@ resumen: >-
 atlas:
   - cherry-picking
   - sobreinterpretación
+  - normalización-por-repetición
 pregunta: ¿Qué pasa cuando una carta al editor se convierte en evidencia científica?
 condiciones:
   - incentivos-académicos

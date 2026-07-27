@@ -3,9 +3,6 @@ titulo: Lo que el protector solar no declara
 temporada: 3
 capitulo: 7
 industria: cosmética-y-cuidado-personal
-mecanismo:
-  - titular-engañoso
-  - omisión-de-datos
 tema: luz-y-radiación
 fecha: 2025-01-15T00:00:00.000Z
 resumen: >-

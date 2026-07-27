@@ -3,9 +3,6 @@ titulo: Medir lo que se puede medir
 temporada: 3
 capitulo: 2
 industria: farmacéutica
-mecanismo:
-  - diseño-sesgado
-  - captura-regulatoria
 tema: medicación-y-fármacos
 fecha: 2025-02-24T00:00:00.000Z
 resumen: >-
