@@ -1,5 +1,5 @@
 ---
-titulo: Cuando bajar el número mató gente
+titulo: Cuando bajar un número mató gente
 temporada: 3
 capitulo: 5
 industria: farmacéutica
