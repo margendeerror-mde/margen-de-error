@@ -19,12 +19,8 @@ pregunta: >-
   individuos?
 condiciones:
   - captura-regulatoria
-<<<<<<< HEAD
 publicado: true
 spotifyUrl: 'https://open.spotify.com/episode/4vPxuafCcdqyOej657KTse?si=32JVqqqrRWq5kX5S4j6VFQ'
-=======
-publicado: false
->>>>>>> feature/nueva-taxonomia
 ---
 
 El 17 de junio de 1998, los Institutos Nacionales de Salud de Estados Unidos publicaron nuevas directrices sobre obesidad. El cambio central era uno solo: el umbral de índice de masa corporal para clasificar a alguien como "sobrepeso" bajó de 27,8 a 25.
