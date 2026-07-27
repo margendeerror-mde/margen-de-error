@@ -148,7 +148,7 @@ export const VOLUMENES: Record<number, { titulo: string; descripcion: string }> 
 export interface PiezaFrontmatter {
   titulo: string;
   industria: Industria;
-  mecanismo: string[];        // legacy field (kept for backward compat)
+  mecanismo?: string[];       // legacy field (kept for backward compat)
   atlas: AtlasMecanismo[];    // NEW: mecanismos del Atlas
   pregunta: string;           // NEW: la pregunta que el episodio responde
   condiciones: string[];      // NEW: contexto institucional
