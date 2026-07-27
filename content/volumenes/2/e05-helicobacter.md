@@ -18,7 +18,7 @@ pregunta: ¿Qué pasa cuando la evidencia contradice el consenso?
 condiciones: []
 spotifyUrl: >-
   https://open.spotify.com/episode/1YITknkM6UtRE04LNxrYM5?si=2B7OK1l9QQCrphKbMU3Yjw
-publicado: false
+publicado: true
 ---
 
 En 1984, un médico australiano llamado Barry Marshall hizo algo que ningún comité de ética habría aprobado: preparó una solución con la bacteria que había aislado en biopsias de pacientes con úlcera gástrica, y se la tomó.
