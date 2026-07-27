@@ -1,5 +1,5 @@
 ---
-titulo: Los autores que firmaron papers que no escribieron
+titulo: Los autores que no escribieron
 temporada: 3
 capitulo: 6
 industria: farmacéutica

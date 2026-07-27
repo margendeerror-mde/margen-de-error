@@ -1,5 +1,5 @@
 ---
-titulo: Lo que un paper sobre colesterol en adultos mayores no puede concluir
+titulo: Lo que un paper no puede concluir
 temporada: 3
 capitulo: 4
 industria: farmacéutica

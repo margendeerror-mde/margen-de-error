@@ -1,5 +1,5 @@
 ---
-titulo: El estudio que midió lo que la gente recordaba haber comido
+titulo: Lo que la gente recuerda haber comido
 temporada: 3
 capitulo: 1
 industria: institucional-académica
