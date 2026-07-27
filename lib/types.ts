@@ -17,6 +17,8 @@ export const ATLAS_DISTORSIONES = [
   'sobreinterpretación',
   'manufactura-de-duda',
   'inercia-institucional',
+  'diseño-sesgado',
+  'normalización-por-repetición',
 ] as const;
 
 /**
@@ -49,6 +51,8 @@ export const ATLAS_DEFINICIONES: Record<AtlasMecanismo, string> = {
   'sobreinterpretación': 'Sacar conclusiones causales o prescriptivas que el diseño del estudio no permite.',
   'manufactura-de-duda': 'Financiar y amplificar incertidumbre científica para impedir o retrasar la acción.',
   'inercia-institucional': 'Resistencia sistémica de revistas, reguladores y comunidades a aceptar evidencia que contradice el paradigma dominante.',
+  'diseño-sesgado': 'Diseñar el estudio (selección de endpoints, población o variables) de manera que predetermine el resultado antes de recolectar datos.',
+  'normalización-por-repetición': 'Un hallazgo débil o no verificado se convierte en "hecho científico" al ser citado repetidamente sin cuestionamiento.',
   'límite-observacional': 'La imposibilidad de establecer causalidad firme sin experimentación controlada.',
   'endpoints-subrogados': 'Medir o modificar un marcador biológico asumiendo que refleja o predice el desenlace clínico que realmente importa.',
   'límite-de-extrapolación': 'Asumir que un resultado en una población controlada o modelo animal funcionará igual en la población general.',
@@ -166,6 +170,9 @@ export interface Pieza extends PiezaFrontmatter {
   content: string;
   href: string;
   publicado: boolean;
+  mecanismo: string[]; // Explicit array overriding optional
+  atlas: AtlasMecanismo[]; // Explicit array overriding optional
+  condiciones: string[]; // Explicit array overriding optional
 }
 
 // ============================================================
