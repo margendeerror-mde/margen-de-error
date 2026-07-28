@@ -70,7 +70,11 @@ export default function AcercaDePage() {
           <h2 className="font-sans text-sm font-bold uppercase tracking-widest pt-8 text-black">Quién lo hace</h2>
 
           <p>
-            Margen de Error es un proyecto independiente. No tiene financiamiento institucional ni comercial. La investigación, la redacción, el diseño y la producción sonora los lleva adelante una sola persona con formación en Comunicación y Ciencia.
+            Margen de Error es un proyecto independiente sin financiamiento institucional ni comercial. La investigación primaria, la línea editorial y la producción sonora son llevadas adelante por una persona con formación en Comunicación y Ciencia.
+          </p>
+          
+          <p>
+            Para escalar esta capacidad de trabajo, el proyecto utiliza modelos de Inteligencia Artificial (IA) como soporte técnico y estructural. La IA no toma decisiones editoriales ni define la tesis de los artículos; funciona estrictamente como una herramienta de amplificación. Se utiliza para estructurar borradores de redacción, facilitar el rastreo inicial de referencias bibliográficas, generar recursos gráficos y asistir en la programación del sitio web. El rigor analítico, la selección final de la evidencia y el juicio crítico del proyecto siguen siendo enteramente humanos.
           </p>
 
           <h2 className="font-sans text-sm font-bold uppercase tracking-widest pt-8 text-black">Sumate a la conversación</h2>
