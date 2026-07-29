@@ -133,15 +133,15 @@ export type Tema = string;
 export const VOLUMENES: Record<number, { titulo: string; descripcion: string }> = {
   1: {
     titulo: 'Cómo se deforma la evidencia',
-    descripcion: 'Los mecanismos que distorsionan la producción, el análisis y la comunicación del conocimiento científico.',
+    descripcion: 'La evidencia no suele deformarse por fraude, sino por la optimización de los incentivos institucionales.',
   },
   2: {
     titulo: 'De la idea al consenso',
-    descripcion: 'Historias de científicos que desafiaron el consenso, descubrieron por accidente y pagaron el precio de tener razón demasiado pronto.',
+    descripcion: 'La verdad científica no triunfa de inmediato por ser verdad; requiere sortear la inercia institucional, las jerarquías y las narrativas de su época.',
   },
   3: {
-    titulo: 'Los límites de la evidencia',
-    descripcion: 'Qué puede decir —y qué no— la evidencia científica sobre las preguntas que más importan.',
+    titulo: 'El mapa y el territorio',
+    descripcion: 'La ciencia no mide la realidad; mide representaciones. Cuando la métrica se convierte en el objetivo, la ciencia optimiza el mapa y destruye el territorio.',
   },
 };
 
