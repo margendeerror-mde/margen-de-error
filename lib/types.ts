@@ -136,7 +136,7 @@ export const VOLUMENES: Record<number, { titulo: string; descripcion: string }> 
     descripcion: 'Los mecanismos que distorsionan la producción, el análisis y la comunicación del conocimiento científico.',
   },
   2: {
-    titulo: 'Las personas detrás de las ideas',
+    titulo: 'De la idea al consenso',
     descripcion: 'Historias de científicos que desafiaron el consenso, descubrieron por accidente y pagaron el precio de tener razón demasiado pronto.',
   },
   3: {
