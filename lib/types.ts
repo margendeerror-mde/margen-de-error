@@ -141,7 +141,7 @@ export const VOLUMENES: Record<number, { titulo: string; descripcion: string }> 
   },
   3: {
     titulo: 'El mapa y el territorio',
-    descripcion: 'La ciencia no mide la realidad; mide representaciones. Cuando la métrica se convierte en el objetivo, la ciencia optimiza el mapa y destruye el territorio.',
+    descripcion: 'La ciencia solo puede acceder a la realidad mediante representaciones. El problema comienza cuando esas representaciones dejan de entenderse como mapas y pasan a confundirse con el territorio.',
   },
 };
 

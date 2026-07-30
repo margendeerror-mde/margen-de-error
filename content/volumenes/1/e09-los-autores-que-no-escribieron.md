@@ -1,7 +1,7 @@
 ---
 titulo: Los autores que no escribieron
-temporada: 3
-capitulo: 6
+temporada: 1
+capitulo: 9
 industria: farmacéutica
 tema: medicación-y-fármacos
 fecha: 2025-03-07T00:00:00.000Z
