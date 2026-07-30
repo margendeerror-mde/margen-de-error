@@ -22,7 +22,7 @@ Si reducir agresivamente la glucosa o el colesterol demostró el peligro de pers
 
 A finales de la década de 1980, el razonamiento clínico era geométrico y contundente. Después de un infarto de miocardio, muchos pacientes presentaban extrasístoles ventriculares (PVCs, por sus siglas en inglés): latidos prematuros y anormales que nacen en los ventrículos. La evidencia observacional mostraba que los pacientes con PVCs frecuentes tenían mayor riesgo de muerte súbita. 
 
-La evidencia observacional mostraba que los pacientes con PVCs frecuentes tenían mayor riesgo de muerte súbita. Era razonable pensar que esas arritmias no solo acompañaban el daño cardíaco, sino que participaban de él. Si era así, suprimirlas debería reducir la mortalidad.
+Era razonable pensar que esas arritmias no solo acompañaban el daño cardíaco, sino que participaban de él. Si era así, suprimirlas debería reducir la mortalidad.
 
 La tecnología permitía ver este proceso con claridad cristalina. El monitor Holter (un dispositivo portátil que registra la actividad eléctrica del corazón durante 24 horas) se convirtió en la representación dominante del problema. La industria farmacéutica desarrolló una nueva generación de potentes antiarrítmicos (encainida y flecainida). El efecto era espectacular. En los pacientes tratados, el Holter pasaba de ser un trazado caótico y errático a una línea rítmica, estable y perfecta. 
 
