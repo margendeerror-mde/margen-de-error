@@ -18,7 +18,8 @@ pregunta: >-
   industria?
 condiciones:
   - ausencia-de-incentivos-comerciales
-publicado: false
+spotifyUrl: https://open.spotify.com/episode/1XJQfBnCCt92GhxWTnkAWq?si=HJOYByj1QE6bBhUJ2dy8Bw
+publicado: true
 ---
 
 El Hospital Bundoora era, en 1948, un lugar poco probable para hacer un descubrimiento médico importante. Era un antiguo hospital de veteranos de guerra en las afueras de Melbourne, con recursos escasos, sin laboratorio propiamente dicho y sin acceso a los circuitos académicos donde se hacía la investigación que importaba.
