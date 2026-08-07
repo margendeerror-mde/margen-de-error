@@ -97,7 +97,33 @@ export default function PiecePage({
           )}
         </header>
 
-        {pieza.spotifyUrl && (
+        {pieza.youtubeUrl ? (
+          <div className="mb-12 pb-12 border-b" style={{ borderColor: `${accentColor}33` }}>
+            <div className="relative w-full aspect-video mb-4 rounded-xl overflow-hidden bg-black/5 shadow-sm border border-black/10">
+              <iframe 
+                src={`https://www.youtube.com/embed/${pieza.youtubeUrl.includes('youtu.be/') ? pieza.youtubeUrl.split('youtu.be/')[1].split('?')[0] : pieza.youtubeUrl.split('v=')[1]?.split('&')[0]}?rel=0&modestbranding=1`}
+                className="absolute top-0 left-0 w-full h-full"
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen 
+                loading="lazy"
+              ></iframe>
+            </div>
+            {pieza.spotifyUrl && (
+              <div className="flex items-center justify-end gap-2 text-sm font-serif">
+                <span className="text-black/50 italic">Solo audio:</span>
+                <a 
+                  href={pieza.spotifyUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="font-bold underline decoration-black/20 hover:decoration-black transition-colors"
+                >
+                  Spotify
+                </a>
+              </div>
+            )}
+          </div>
+        ) : pieza.spotifyUrl ? (
           <div className="mb-12 pb-12 border-b" style={{ borderColor: `${accentColor}33` }}>
             <iframe 
               style={{ borderRadius: '12px' }} 
@@ -110,7 +136,7 @@ export default function PiecePage({
               loading="lazy"
             ></iframe>
           </div>
-        )}
+        ) : null}
 
         <div className="prose prose-lg content-serif prose-p:text-foreground prose-headings:font-serif prose-headings:tracking-tight prose-a:text-accent prose-a:no-underline hover:prose-a:border-b-accent prose-a:border-b prose-a:border-transparent prose-a:transition-all max-w-none">
           <MDXRemote 

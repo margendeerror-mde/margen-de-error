@@ -162,6 +162,7 @@ export interface PiezaFrontmatter {
   temporada?: number;         // internally still called temporada for backwards compat with markdown
   capitulo?: number;
   spotifyUrl?: string;
+  youtubeUrl?: string;
   publicado?: boolean;
 }
 

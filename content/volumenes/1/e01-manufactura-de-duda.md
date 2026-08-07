@@ -11,6 +11,7 @@ resumen: >-
   demostrar que el tabaco era inocuo. Solo había que instalar la duda. Esa
   estrategia sobrevivió a las tabacaleras y hoy está en todas partes.
 spotifyUrl: 'https://open.spotify.com/episode/7MzeKUrh0b2rkkIgUPFYmC'
+youtubeUrl: 'https://youtu.be/nt1YXHrcBSE'
 atlas:
   - manufactura-de-duda
 pregunta: ¿Cómo se frena la acción cuando la evidencia ya es abrumadora?
