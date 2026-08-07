@@ -47,6 +47,7 @@ function parsePieza(filepath: string, filename: string): Pieza {
     content,
     href,
     spotifyUrl: data.spotifyUrl ? String(data.spotifyUrl) : undefined,
+    youtubeUrl: data.youtubeUrl ? String(data.youtubeUrl) : undefined,
     temporada: data.temporada ? Number(data.temporada) : undefined,
     capitulo: data.capitulo ? Number(data.capitulo) : undefined,
     publicado,
