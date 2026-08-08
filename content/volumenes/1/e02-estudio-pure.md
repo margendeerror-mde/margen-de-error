@@ -13,6 +13,7 @@ resumen: >-
   centrales de las guías dietéticas vigentes en la mayoría del mundo occidental.
   Las guías no cambiaron sustantivamente.
 spotifyUrl: 'https://open.spotify.com/episode/3JLBBtvQ7zRQgEqg7J4Mhc'
+youtubeUrl: 'https://youtu.be/otfH-PB1luI?si=R-A8o4_mBjmJBEIf'
 atlas:
   - límite-observacional
   - sobreinterpretación
