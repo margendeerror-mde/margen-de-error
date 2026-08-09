@@ -15,7 +15,7 @@ atlas:
   - límite-observacional
 pregunta: ¿Qué pasa cuando el efecto secundario es más importante que el efecto buscado?
 condiciones: []
-publicado: false
+publicado: true
 ---
 
 El sildenafil fue diseñado para tratar la angina de pecho, el dolor en el pecho causado por flujo insuficiente de sangre al corazón. Su mecanismo apuntaba a inhibir una enzima —la PDE5— para relajar los vasos sanguíneos y mejorar la circulación.
