@@ -15,6 +15,7 @@ atlas:
   - límite-observacional
 pregunta: ¿Qué pasa cuando el efecto secundario es más importante que el efecto buscado?
 condiciones: []
+spotifyUrl: https://open.spotify.com/episode/1AUvsXF6NDPT3IsJkws4nk?si=p_dghXeFSHqeaVRp8cxHIQ
 publicado: true
 ---
 
