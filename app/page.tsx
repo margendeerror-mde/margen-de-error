@@ -11,12 +11,11 @@ export default function Home() {
         
         <div className="text-center px-6 z-10 animate-fade-in-up">
           <div className="mb-8 flex justify-center">
-            <Image
+            <img
               src="/assets/logo-black.png"
               alt="Margen de Error"
               width={800}
               height={800}
-              priority
               className="w-[clamp(280px,55vw,600px)] h-auto object-contain"
             />
           </div>
