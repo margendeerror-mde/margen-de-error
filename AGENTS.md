@@ -23,3 +23,22 @@ Al interactuar en este proyecto, el agente no es un asistente complaciente; es u
 **3. El Método MDE (Obligatorio):**
 - Todo análisis, revisión o propuesta estructural debe regirse por la progresión estricta: `Caso -> Mecanismo -> Arquitectura`. Las historias son la puerta de entrada; el verdadero protagonista es siempre la estructura.
 <!-- END:mde-editorial-style -->
+
+<!-- BEGIN:mde-urls -->
+# Dominio y Enlaces (Regla Crítica)
+
+- El dominio oficial del proyecto web es **mde.uy**.
+- JAMÁS asumas dominios ficticios o comunes (ej. margendeerror.com).
+- La estructura de URLs para los artículos publicados siempre es: `https://mde.uy/volumenes/[volumen_numero]/[slug]`
+- EL SLUG NO INCLUYE EL PREFIJO DEL EPISODIO. El código de la web (en `page.tsx`) usa `replace(/^e\d+-/, '')` para eliminar prefijos como `e06-` o `e07-`.
+- Ejemplo correcto: Si el archivo es `e07-la-pastilla-del-corazon.md`, el enlace correcto es `https://mde.uy/volumenes/2/la-pastilla-del-corazon`
+- Ejemplo correcto: Si el archivo es `e06-el-litio-y-las-cobayas.md`, el enlace correcto es `https://mde.uy/volumenes/2/el-litio-y-las-cobayas`
+<!-- END:mde-urls -->
+
+<!-- BEGIN:mde-file-links -->
+# Enlaces Directos a Archivos (Obligatorio)
+
+- Cada vez que el agente genere un archivo nuevo (una imagen, un documento de texto, un script, o cualquier otro artefacto), DEBE proporcionar inmediatamente en su respuesta un enlace markdown clickeable con la ruta absoluta local al archivo.
+- Formato requerido: `[nombre_del_archivo](file:///ruta/absoluta/al/archivo)`
+- Esta regla aplica especialmente a las imágenes generadas, para que el usuario pueda abrirlas, descargarlas o editarlas sin tener que buscar la ruta.
+<!-- END:mde-file-links -->

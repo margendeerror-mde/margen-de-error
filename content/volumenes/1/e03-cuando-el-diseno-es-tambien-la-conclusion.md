@@ -18,6 +18,7 @@ condiciones:
   - incentivos-académicos
 spotifyUrl: >-
   https://open.spotify.com/episode/7j4M4naJOOb8HKMCWWy4Ek?si=c87r_wYfSvis5XYTzeUWvw
+youtubeUrl: https://youtu.be/bOpJm4myz4g
 publicado: true
 ---
 
