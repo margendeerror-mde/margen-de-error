@@ -12,16 +12,19 @@ export default function VolumenesPage() {
 
   const piezasByVol = getPiezasByTemporada();
 
-  const getVolStatus = (volId: number, totalExpected: number) => {
-    const publishedCount = piezasByVol[volId]?.filter(p => p.publicado).length || 0;
+  const getVolStatus = (volId: number) => {
+    const allInVol = piezasByVol[volId] || [];
+    const totalExpected = allInVol.length;
+    const publishedCount = allInVol.filter(p => p.publicado).length;
+    
     if (publishedCount === 0) return { status: 'Próximamente', count: 0, complete: false };
-    if (publishedCount >= totalExpected) return { status: 'Completo', count: publishedCount, complete: true };
+    if (publishedCount >= totalExpected && totalExpected > 0) return { status: 'Completo', count: publishedCount, complete: true };
     return { status: `En emisión (${publishedCount} cap.)`, count: publishedCount, complete: false };
   };
 
-  const vol1 = getVolStatus(1, 9);
-  const vol2 = getVolStatus(2, 8);
-  const vol3 = getVolStatus(3, 6);
+  const vol1 = getVolStatus(1);
+  const vol2 = getVolStatus(2);
+  const vol3 = getVolStatus(3);
 
   const renderStatusDots = (vol: { complete: boolean; count: number }) => {
     if (vol.complete) {
