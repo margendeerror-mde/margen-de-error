@@ -17,39 +17,27 @@ export default function VolumenesPage() {
     const totalExpected = allInVol.length;
     const publishedCount = allInVol.filter(p => p.publicado).length;
     
-    if (publishedCount === 0) return { status: 'Próximamente', count: 0, complete: false };
-    if (publishedCount >= totalExpected && totalExpected > 0) return { status: 'Completo', count: publishedCount, complete: true };
-    return { status: `En emisión (${publishedCount} cap.)`, count: publishedCount, complete: false };
+    if (publishedCount === 0) return { status: 'Próximamente', count: 0, total: totalExpected, complete: false };
+    if (publishedCount >= totalExpected && totalExpected > 0) return { status: 'Completo', count: publishedCount, total: totalExpected, complete: true };
+    return { status: 'En emisión', count: publishedCount, total: totalExpected, complete: false };
   };
 
   const vol1 = getVolStatus(1);
   const vol2 = getVolStatus(2);
   const vol3 = getVolStatus(3);
 
-  const renderStatusDots = (vol: { complete: boolean; count: number }) => {
-    if (vol.complete) {
-      return (
-        <div className="flex gap-1">
-          <div className="w-2 h-2 bg-black rounded-full" />
-          <div className="w-2 h-2 bg-black rounded-full" />
-          <div className="w-2 h-2 bg-black rounded-full" />
-        </div>
-      );
-    }
-    if (vol.count > 0) {
-      return (
-        <div className="flex gap-1">
-          <div className="w-2 h-2 bg-[#CC0000] rounded-full animate-pulse" />
-          <div className="w-2 h-2 bg-[#CC0000] rounded-full animate-pulse" />
-          <div className="w-2 h-2 border border-black rounded-full" />
-        </div>
-      );
-    }
+  const renderStatusDots = (vol: { complete: boolean; count: number; total: number }) => {
     return (
       <div className="flex gap-1">
-        <div className="w-2 h-2 border border-black rounded-full opacity-50" />
-        <div className="w-2 h-2 border border-black rounded-full opacity-50" />
-        <div className="w-2 h-2 border border-black rounded-full opacity-50" />
+        {Array.from({ length: vol.total > 0 ? vol.total : 3 }).map((_, i) => {
+          if (vol.complete) {
+            return <div key={i} className="w-2 h-2 bg-black rounded-full shrink-0" />;
+          }
+          if (i < vol.count) {
+            return <div key={i} className="w-2 h-2 bg-[#CC0000] rounded-full shrink-0" />;
+          }
+          return <div key={i} className="w-2 h-2 border border-black rounded-full opacity-50 shrink-0" />;
+        })}
       </div>
     );
   };
