@@ -2,11 +2,54 @@ import { VOLUMENES, VOLUMEN_COLORS } from '@/lib/types';
 import Link from 'next/link';
 import GlobalMenu from '@/components/GlobalMenu';
 
+import { getPiezasByTemporada } from '@/lib/content';
+
 export default function VolumenesPage() {
   const volumenes = Object.entries(VOLUMENES).map(([id, info]) => ({
     id: Number(id),
     ...info
   }));
+
+  const piezasByVol = getPiezasByTemporada();
+
+  const getVolStatus = (volId: number, totalExpected: number) => {
+    const publishedCount = piezasByVol[volId]?.filter(p => p.publicado).length || 0;
+    if (publishedCount === 0) return { status: 'Próximamente', count: 0, complete: false };
+    if (publishedCount >= totalExpected) return { status: 'Completo', count: publishedCount, complete: true };
+    return { status: `En emisión (${publishedCount} cap.)`, count: publishedCount, complete: false };
+  };
+
+  const vol1 = getVolStatus(1, 9);
+  const vol2 = getVolStatus(2, 8);
+  const vol3 = getVolStatus(3, 6);
+
+  const renderStatusDots = (vol: { complete: boolean; count: number }) => {
+    if (vol.complete) {
+      return (
+        <div className="flex gap-1">
+          <div className="w-2 h-2 bg-black rounded-full" />
+          <div className="w-2 h-2 bg-black rounded-full" />
+          <div className="w-2 h-2 bg-black rounded-full" />
+        </div>
+      );
+    }
+    if (vol.count > 0) {
+      return (
+        <div className="flex gap-1">
+          <div className="w-2 h-2 bg-[#CC0000] rounded-full animate-pulse" />
+          <div className="w-2 h-2 bg-[#CC0000] rounded-full animate-pulse" />
+          <div className="w-2 h-2 border border-black rounded-full" />
+        </div>
+      );
+    }
+    return (
+      <div className="flex gap-1">
+        <div className="w-2 h-2 border border-black rounded-full opacity-50" />
+        <div className="w-2 h-2 border border-black rounded-full opacity-50" />
+        <div className="w-2 h-2 border border-black rounded-full opacity-50" />
+      </div>
+    );
+  };
 
   return (
     <div className="min-h-screen bg-[#F0EDE8] text-black font-sans selection:bg-black selection:text-white">
@@ -31,31 +74,19 @@ export default function VolumenesPage() {
               </div>
               <div className="flex flex-col gap-2 mb-3">
                 <div className="flex items-center gap-2">
-                  <div className="flex gap-1">
-                    <div className="w-2 h-2 bg-black rounded-full" />
-                    <div className="w-2 h-2 bg-black rounded-full" />
-                    <div className="w-2 h-2 bg-black rounded-full" />
-                  </div>
-                  <span className="text-xs">Vol 01: Completo</span>
+                  {renderStatusDots(vol1)}
+                  <span className="text-xs">Vol 01: {vol1.status}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="flex gap-1">
-                    <div className="w-2 h-2 bg-[#CC0000] rounded-full animate-pulse" />
-                    <div className="w-2 h-2 bg-[#CC0000] rounded-full animate-pulse" />
-                    <div className="w-2 h-2 border border-black rounded-full" />
-                  </div>
-                  <span className="text-xs">Vol 02: En emisión (2 cap.)</span>
+                  {renderStatusDots(vol2)}
+                  <span className="text-xs">Vol 02: {vol2.status}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="flex gap-1">
-                    <div className="w-2 h-2 border border-black rounded-full opacity-50" />
-                    <div className="w-2 h-2 border border-black rounded-full opacity-50" />
-                    <div className="w-2 h-2 border border-black rounded-full opacity-50" />
-                  </div>
-                  <span className="text-xs text-gray-500">Vol 03: Próximamente</span>
+                  {renderStatusDots(vol3)}
+                  <span className="text-xs text-gray-500">Vol 03: {vol3.status}</span>
                 </div>
               </div>
-              <span className="text-gray-500 text-xs mt-auto">Actualizado 2026</span>
+              <span className="text-gray-500 text-xs mt-auto">Actualizado {new Date().getFullYear()}</span>
             </div>
           </div>
         </header>
