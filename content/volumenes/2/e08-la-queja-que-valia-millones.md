@@ -13,7 +13,7 @@ atlas:
   - límite-observacional
 pregunta: ¿Qué ocurre cuando un efecto adverso se convierte en la indicación principal?
 condiciones: []
-publicado: false
+publicado: true
 ---
 
 El minoxidil fue desarrollado como vasodilatador para hipertensión severa. En los pacientes que lo tomaban, producía un efecto adverso llamativo: crecimiento de vello en zonas inesperadas. Alguien decidió mirar ese efecto desde otro ángulo. Lo que siguió fue el primer tratamiento aprobado por la FDA para la alopecia androgénica masculina, y uno de los casos más citados de descubrimiento por observación clínica no planificada.
