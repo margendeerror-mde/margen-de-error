@@ -13,6 +13,8 @@ atlas:
   - límite-observacional
 pregunta: ¿Qué ocurre cuando un efecto adverso se convierte en la indicación principal?
 condiciones: []
+spotifyUrl: >-
+  https://open.spotify.com/episode/4M7jq1D8OLNmPAh5VHxEhq?si=UmEv3EwhTm2Z675Zu_PTLQ
 publicado: true
 ---
 
