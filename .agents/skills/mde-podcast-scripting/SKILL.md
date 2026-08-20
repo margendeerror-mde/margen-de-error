@@ -19,9 +19,12 @@ Los episodios de MDE no terminan explicando simplemente "qué descubrió un estu
 
 ## Reglas de Tono y Estilo
 1. **Evitar la sobredramatización**: El periodismo científico de MDE busca analizar, no asustar ni exagerar. En lugar de frases como "un gráfico tan convincente que los gobiernos van a ahogar sus políticas", usa términos moderados como "llegaron a basar sus políticas públicas en él".
-2. **Causalidad Cautelosa**: Evita atribuir causalidades lineales absolutas cuando la ciencia aún debate el tema. Usa palabras como "plausible", "se asociaba con", etc.
+2. **Fricción Epistemológica (Innegociable)**:
+   - **Prohibición de verbos causales absolutos:** Prohibido usar verbos como "causa", "demuestra" o "prueba" al referirse a estudios observacionales o epidemiológicos. Usar siempre "asocia", "vincula", "correlaciona".
+   - **Contextualización de modelos:** Si un estudio encuentra un error o implausibilidad, debe especificarse *bajo qué modelo o supuesto* lo encontró. Jamás presentarlo como una verdad física absoluta independiente de su método de medición.
+   - **Evitar reduccionismo psicológico:** Separar siempre el error de medición técnico del sesgo humano. No adjudicar intencionalidad ("la gente quiere creer") a lo que es simplemente el límite estructural de un instrumento.
 3. **Separar planos conceptuales**: No mezcles el análisis clínico de un estudio con su implicación metodológica en el mismo párrafo. Da aire. Usa pausas marcadas `(Pausa)` para separar ideas densas.
-4. **Foco en el sistema, no (necesariamente) en un villano**: Las herramientas, métricas y recomendaciones sobreviven a sus creadores. MDE cuestiona cómo las instituciones y las políticas adoptan ideas, más que señalar a un solo culpable malicioso.
+4. **Foco en el sistema, no en un villano**: Las herramientas, métricas y recomendaciones sobreviven a sus creadores. MDE cuestiona cómo las instituciones adoptan ideas, más que señalar a un solo culpable malicioso.
 
 ## Formato Técnico
 - **Duración**: Alrededor de 600-650 palabras (4-5 minutos de audio).
