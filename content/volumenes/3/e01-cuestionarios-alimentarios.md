@@ -17,7 +17,7 @@ atlas:
 pregunta: ¿Puede un cuestionario medir con precisión lo que una persona comió?
 condiciones:
   - incentivos-académicos
-publicado: false
+publicado: true
 ---
 
 **El paper**
