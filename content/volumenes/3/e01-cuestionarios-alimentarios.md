@@ -17,6 +17,8 @@ atlas:
 pregunta: ¿Puede un cuestionario medir con precisión lo que una persona comió?
 condiciones:
   - incentivos-académicos
+spotifyUrl: >-
+  https://open.spotify.com/episode/3sVACYei23ld9xu7v8p5jM?si=ebh-pwHpRISv4-ZfoisVRQ
 publicado: true
 ---
 
