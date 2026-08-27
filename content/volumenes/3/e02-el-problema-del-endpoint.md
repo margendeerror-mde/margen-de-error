@@ -14,7 +14,9 @@ atlas:
 pregunta: ¿Qué pasa cuando un ensayo clínico mide un número y no una vida?
 condiciones:
   - captura-regulatoria
-publicado: false
+spotifyUrl: >-
+  https://open.spotify.com/episode/5Q1GAuKR2fbb9tDeRIgQbI?si=veukdFlQT-67JSnm_Hy79g
+publicado: true
 ---
 
 Hay un tipo de error en la investigación médica que no requiere mala fe, no requiere conflicto de interés y no requiere que nadie mienta. Requiere solo una decisión de diseño que parece razonable y produce consecuencias que no lo son.
