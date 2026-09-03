@@ -15,7 +15,7 @@ pregunta: >-
   ¿Qué pasa cuando el mismo dato se presenta de dos formas y una siempre
   convence más?
 condiciones: []
-publicado: false
+publicado: true
 ---
 
 Cuando un ensayo clínico anuncia que un medicamento "reduce el riesgo un 50%", la frase es matemáticamente correcta y clínicamente casi irrelevante: si el riesgo de base era del 2%, la reducción absoluta es de un punto porcentual. Décadas de investigación muestran que médicos y pacientes toman decisiones distintas según cómo se presentan los mismos datos. El sistema elige, casi siempre, el número más grande.
