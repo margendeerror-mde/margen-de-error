@@ -17,7 +17,7 @@ atlas:
   - sobreinterpretación
 pregunta: ¿Qué puede concluir realmente una revisión de estudios observacionales?
 condiciones: []
-publicado: false
+publicado: true
 ---
 
 **El paper**
