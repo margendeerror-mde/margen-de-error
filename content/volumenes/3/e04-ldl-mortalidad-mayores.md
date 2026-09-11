@@ -18,6 +18,7 @@ atlas:
 pregunta: ¿Qué puede concluir realmente una revisión de estudios observacionales?
 condiciones: []
 publicado: true
+spotifyUrl: "https://open.spotify.com/episode/2eiiZo36iZSib3ikHcBP3M?si=er7Z-ZkNRMu22Hpb_-BCow"
 ---
 
 **El paper**
