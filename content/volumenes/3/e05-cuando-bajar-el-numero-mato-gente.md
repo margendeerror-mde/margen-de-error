@@ -13,7 +13,8 @@ atlas:
   - endpoints-subrogados
 pregunta: ¿Qué pasa cuando tratar el marcador empeora al paciente?
 condiciones: []
-publicado: false
+publicado: true
+spotifyUrl: "https://open.spotify.com/episode/23Tg1QbG5NkAs5GoaY8g86?si=-LVg0GSPQfuEkFMQg_T3_g"
 ---
 
 El ensayo ACCORD, interrumpido en 2008 antes de su fecha prevista, mostró que los pacientes diabéticos asignados a un control glucémico intensivo presentaban mayor mortalidad que los del grupo estándar. Era un caso donde un ensayo grande reportó resultados contrarios a la práctica establecida. Lo que el estudio dejó abierto —por qué ocurrió— sigue siendo relevante para entender los límites de tratar marcadores en lugar de enfermedades.
