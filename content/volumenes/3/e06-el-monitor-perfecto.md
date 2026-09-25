@@ -14,6 +14,7 @@ pregunta: ¿Qué pasa cuando la medicina trata al monitor en lugar de tratar al 
 condiciones:
   - evento-cardiovascular
 publicado: true
+spotifyUrl: "https://open.spotify.com/episode/0meTulj1Ms6PoYHjWttyz4?si=qa0bT1UyT62rJjORAPZVUw"
 ---
 
 Si reducir agresivamente la glucosa o el colesterol demostró el peligro de perseguir biomarcadores bioquímicos, hay que mirar qué sucede con la electricidad del corazón: un biomarcador fisiológico observado en tiempo real. Allí, el problema epistemológico de confundir el mapa con el territorio dejó una de las cicatrices más profundas en la historia de la cardiología moderna.
