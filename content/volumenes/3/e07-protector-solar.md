@@ -15,7 +15,8 @@ pregunta: >-
   ¿Qué ocurre cuando un producto se evalúa midiendo un marcador y no un
   resultado clínico?
 condiciones: []
-publicado: false
+publicado: true
+spotifyUrl: "https://open.spotify.com/episode/62OGHa6w6jssP0cacUfxPo?si=GCtCxjcTSKGiPMINwFSfbg"
 ---
 
 Hay afirmaciones científicas que, cuando las leés por primera vez, generan una incomodidad específica. No la incomodidad de lo complejo ni la de lo técnico. Sino la de lo conveniente. La de algo que encaja demasiado bien para alguien.
