@@ -16,7 +16,8 @@ pregunta: ¿Qué ocurre cuando una industria elige qué parte de la ciencia fina
 condiciones:
   - financiamiento-industrial
   - conflicto-de-interés
-publicado: false
+publicado: true
+spotifyUrl: "https://open.spotify.com/episode/3jQXXwTiz9unRYcwNn1xOW?si=sm3ED-GVSjOu8ZVAp0WKMw"
 ---
 
 En agosto de 2015, *The New York Times* publicó una investigación que documentaba algo que la industria de bebidas azucaradas había preferido mantener discreto: Coca-Cola había invertido al menos 1,5 millones de dólares en financiar la creación y el funcionamiento de una organización científica llamada Global Energy Balance Network. La organización tenía página web, sus miembros publicaban trabajos académicos y la red los amplificaba, promoviendo la idea de que la epidemia de obesidad se explicaba principalmente por el sedentarismo, no por la ingesta calórica. Su presidente, el investigador Steven Blair de la Universidad de Carolina del Sur, era uno de los expertos en actividad física más citados del mundo.
